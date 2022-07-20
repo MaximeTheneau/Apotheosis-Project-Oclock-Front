@@ -5,7 +5,7 @@ import './styles.css';
 function App() {
   return (
     <div className="app">
-      <h1>Composant : App</h1>
+      <h1>O'Miam</h1>
     </div>
   );
 }
