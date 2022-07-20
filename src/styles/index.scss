@@ -1,18 +1,13 @@
 @use 'reset';
 @use 'vars';
+@use 'fonts';
+@use 'icons';
 
-body {
-  font-family: sans-serif;
+h1 {
+  font-family: 'font-title';
 }
 
-/* 
-  // or you can import your own font
-  @font-face {
-    font-family: 'Roboto';
-    src: url('../assets/fonts/Roboto-Regular.ttf');
-  }
+h2 {
+  font-family: 'main-font';
+}
 
-  body {
-    font-family: 'Roboto', sans-serif;
-  }
-*/
