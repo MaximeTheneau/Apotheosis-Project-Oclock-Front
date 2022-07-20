@@ -3,7 +3,9 @@ import './styles.scss';
 
 function Main() {
   return (
-    <Home />
+    <div className="main">
+      <Home />
+    </div>
   );
 }
 

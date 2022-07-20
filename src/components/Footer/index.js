@@ -1,16 +1,16 @@
-import Aboutus from './Aboutus';
-import Tscs from './Tscs';
-import Privacy from './Privacy';
-import Contact from './Contact';
+// import Aboutus from '../Pages/Aboutus';
+// import Tscs from '../Pages/Tscs';
+// import Privacy from '../Pages/Privacy';
+// import Contact from '../Pages/Contact';
 import './styles.scss';
 
 function Footer() {
   return (
     <div className="footer">
-      <Aboutus />
+      {/* <Aboutus />
       <Tscs />
       <Privacy />
-      <Contact />
+      <Contact /> */}
     </div>
   );
 }
