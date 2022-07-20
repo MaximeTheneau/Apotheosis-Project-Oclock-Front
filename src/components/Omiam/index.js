@@ -2,7 +2,7 @@
 import './styles.css';
 
 // == Composant
-function App() {
+function Omiam() {
   return (
     <div className="app">
       <h1>O'Miam</h1>
@@ -11,4 +11,4 @@ function App() {
 }
 
 // == Export
-export default App;
+export default Omiam;
