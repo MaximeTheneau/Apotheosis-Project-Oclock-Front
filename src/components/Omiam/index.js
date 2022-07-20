@@ -1,13 +1,13 @@
 // == Import
-import './styles.css';
+import './styles.scss';
 
 // == Composant
 function Omiam() {
   return (
-    <div className="app">
-      <h1>O'Miam</h1>
-      <h2>Hello</h2>
-      <i className="icon-miam" />
+    <div className="omiam">
+      <h2 className="omiam-logo"><i className="icon-miam" />'miam
+        <span className="omiam-sloggan">une histoire de miam's</span>
+      </h2>
     </div>
   );
 }
