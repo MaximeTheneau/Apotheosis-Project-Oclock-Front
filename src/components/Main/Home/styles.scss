@@ -1,10 +1,52 @@
+.home-list-categories {
+    display: flex;
+    justify-content: center;
+    
+    &-icon{
+        padding: 0.5rem;
+    }
+}
+
 .home-card{
-    margin:1rem;
+    width: 90%;
+    margin: 0 1rem;
+    border: 0.1rem solid black;
+
     &-img{
         max-width: 100%;
-        width:100%;
+        width: 100%;
+        height: 14rem;
+    }
+
+    &-list{
+        display:flex;
+        justify-content: space-around;
+
+
+            &-img-user{
+                border-radius: 100%;
+                width: 2rem;
+                height: 2rem;
+                }
+        }
+
+    }
+
+
+@media screen and (min-width: 720px){
+    .home-cards{
+    display: flex;
+        &list-img-user{
+            width: 3rem;
+            height: 3rem;
+        }
+
+    }
 }
+
+@media screen and (min-width: 1120px){
+    .home-cards{
+    display: flex;
+    }
 }
-home-cards{
-    
-}
+
