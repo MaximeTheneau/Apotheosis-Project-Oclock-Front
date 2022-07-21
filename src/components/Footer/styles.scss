@@ -5,4 +5,11 @@
   bottom: 0; 
   text-align: center;
   background-color: vars.$orange-omiam;
+
+  &-link {
+
+    &--active {
+      color: white 
+    }
+  }
 }
