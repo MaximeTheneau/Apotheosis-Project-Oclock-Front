@@ -1,0 +1,33 @@
+@use './src/styles/vars';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+
+  &-logo {
+    display: flex;
+    flex-direction: column;
+    font-family: 'font-title';
+    line-height: 1.8rem;
+
+    &-title {
+      color: vars.$blue-omiam;
+      font-size: 3rem;
+    }
+
+    &-sloggan {
+      font-size: 1.5rem;
+
+      &-highlight{
+        color: vars.$orange-omiam;
+      }
+    }
+  }
+
+  &-menu {
+    cursor: pointer;
+  }
+}
