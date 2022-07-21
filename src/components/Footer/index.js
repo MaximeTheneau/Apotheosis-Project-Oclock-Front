@@ -1,5 +1,4 @@
-import { NavLink } from 'react-router-dom';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, NavLink } from 'react-router-dom';
 
 import Aboutus from '../Pages/Aboutus';
 import Tscs from '../Pages/Tscs';
@@ -9,6 +8,7 @@ import Contact from '../Pages/Contact';
 import './styles.scss';
 
 function Footer() {
+  const activeClassName = 'underline';
   return (
     <div className="routes-footer">
       <Routes>
@@ -23,7 +23,7 @@ function Footer() {
           <li className="footer-list-aboutus">
             <NavLink
               className={
-                ({ isActive }) => (isActive ? 'footer-link footer-link--active' : 'footer-link')
+                ({ isActive }) => (isActive ? activeClassName : undefined)
             }
               to="/qui-sommes-nous"
             >
@@ -33,7 +33,7 @@ function Footer() {
           <li className="footer-list-contact">
             <NavLink
               className={
-                ({ isActive }) => (isActive ? 'footer-link footer-link--active' : 'footer-link')
+                ({ isActive }) => (isActive ? activeClassName : undefined)
             }
               to="/contact"
             >
@@ -43,7 +43,7 @@ function Footer() {
           <li className="footer-list-privacy">
             <NavLink
               className={
-                ({ isActive }) => (isActive ? 'footer-link footer-link--active' : 'footer-link')
+                ({ isActive }) => (isActive ? activeClassName : undefined)
             }
               to="/mention-legal"
             >
@@ -53,7 +53,7 @@ function Footer() {
           <li className="footer-list-tscs">
             <NavLink
               className={
-                ({ isActive }) => (isActive ? 'footer-link footer-link--active' : 'footer-link')
+                ({ isActive }) => (isActive ? activeClassName : undefined)
             }
               to="/condition-general-utilisation"
             >
