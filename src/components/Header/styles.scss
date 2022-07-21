@@ -1,11 +1,26 @@
 @use './src/styles/vars';
 
+.connexion{
+display: flex;
+justify-content: flex-end;
+align-items: flex-start;
+padding: 0.5rem 0.5rem 0 0;
+cursor: pointer;
+
+  &-button{
+    border:none;
+    background-color: white;
+    font-size: 0.7rem;
+  }
+}
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 0 1rem 1rem 1rem;
   margin-bottom: 1.5rem;
+  
 
   &-logo {
     display: flex;
@@ -29,5 +44,11 @@
 
   &-menu {
     cursor: pointer;
+    display: flex;
+    align-items: center;
   }
+}
+
+.icon-lock {
+  padding-left: 0.3rem;
 }
