@@ -1,9 +1,30 @@
 @use './src/styles/vars';
-
+// Search
+.search{
+  width: 90%;
+  margin: auto;
+  &-input{
+    width: 70%;
+    height: 1.5rem;
+    border-radius: vars.$raduis-img;
+    border: 0.2rem solid vars.$orange-omiam
+  }
+  &-button{
+    background: vars.$orange-omiam;
+    border: none;
+    height: 1.5rem;
+    border-radius: vars.$raduis-img;
+    margin: 0 1rem;
+  }
+}
 .list-categories {
     display: flex;
     justify-content: center;
+    &-icon{
+      padding: 0.5rem;
+    }
 }
+// Card
 .card{
     width: 90%;
     margin: 0 1rem;
@@ -38,11 +59,16 @@
                   }
           }
     }
+}
 
-    }
-
-
+// Responsive 720 px
 @media screen and (min-width: 720px){
+  h2{
+    font-size: 1rem;
+  }
+  .search-input{
+    width: 70%;
+  }
   .cards{
     &-list{
       display: flex;
@@ -52,7 +78,7 @@
     width: 33%;
     }
 }
-
+// Responsive 1020 px
 @media screen and (min-width: 1020px){
     .cards{
     width: 50%;

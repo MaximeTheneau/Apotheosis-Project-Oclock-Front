@@ -9,10 +9,10 @@ function Home() {
       </h1>
       {/* Search */}
       <div className="search">
-        <div className="">
+        <div className="search-form">
           <form>
-            <input type="text" />
-            <button type="submit">
+            <input className="search-input" type="text" placeholder="Rechercher" />
+            <button className="search-button" type="submit">
               <i className="icon-search" />
             </button>
           </form>
