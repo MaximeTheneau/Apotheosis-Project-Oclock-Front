@@ -11,7 +11,6 @@ function Main() {
       <Routes>
         <Route path="/e" element={<Categories />} />
         <Route path="/" element={<Home />} />
-
       </Routes>
     </div>
   );

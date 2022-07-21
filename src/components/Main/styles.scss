@@ -70,6 +70,9 @@
     width: 70%;
   }
   .cards{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     &-list{
       display: flex;
       &-type{
@@ -87,10 +90,7 @@
 @media screen and (min-width: 1020px){
     .cards{
     width: 50%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 1rem 0;
+    margin: 1rem auto;
       &-home{
         display: flex;
         flex-wrap: wrap;
@@ -103,10 +103,18 @@
       }
     }
     .card{
-        width: 14rem;
+        width: 10rem;
+        margin: 0 0.2rem;
         &-img{
-          height: 10rem
+          height: 10rem;
         }
+          &-type{
+            width: 20rem;
+            margin: 0 0.2rem;
+            &-img{
+              height: 20rem
+            }
     }
 }
 
+}
