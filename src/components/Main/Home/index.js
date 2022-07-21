@@ -15,11 +15,8 @@ function Home() {
         <li className="home-list-categories-icon"><i className="icon-dish" /></li>
         <li className="home-list-categories-icon"><i className="icon-cakes" /></li>
       </ul>
-
       <h2 className="home-recipe">Les Recettes Miam</h2>
-
       <div className="home-cards">
-
         <div className="home-card">
           <img
             src="https://images.pexels.com/photos/53483/strawberries-crepe-dessert-sweet-53483.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
@@ -36,7 +33,6 @@ function Home() {
             </li>
           </ul>
         </div>
-
         <div className="home-card">
           <img
             src="https://images.pexels.com/photos/263041/pexels-photo-263041.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
@@ -53,7 +49,6 @@ function Home() {
             </li>
           </ul>
         </div>
-
         <div className="home-card">
           <img
             src="https://thumbs.dreamstime.com/b/ligne-horizontale-de-la-mer-par-plage-vue-panoramique-horizontal-202984827.jpg"
@@ -70,13 +65,9 @@ function Home() {
             </li>
           </ul>
         </div>
-
       </div>
-
       <h2>Les Dernières Recettes </h2>
-
       <div className="home-cards">
-
         <div className="home-card">
           <img
             src="https://images.pexels.com/photos/53483/strawberries-crepe-dessert-sweet-53483.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
@@ -93,7 +84,6 @@ function Home() {
             </li>
           </ul>
         </div>
-
         <div className="home-card">
           <img
             src="https://images.pexels.com/photos/263041/pexels-photo-263041.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
@@ -110,7 +100,6 @@ function Home() {
             </li>
           </ul>
         </div>
-
         <div className="home-card">
           <img
             src="https://thumbs.dreamstime.com/b/ligne-horizontale-de-la-mer-par-plage-vue-panoramique-horizontal-202984827.jpg"
@@ -127,9 +116,7 @@ function Home() {
             </li>
           </ul>
         </div>
-
       </div>
-
     </div>
   );
 }
