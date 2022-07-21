@@ -3,16 +3,12 @@
 .list-categories {
     display: flex;
     justify-content: center;
-    
-    &-icon{
-        padding: 0.5rem;
-    }
 }
 .card{
     width: 90%;
     margin: 0 1rem;
     border: 0.2rem solid vars.$orange-omiam;
-    border-radius: 0.5rem;
+    border-radius: vars.$raduis-img;
     z-index: 1;
     position: relative;
     &-recipe{
@@ -30,11 +26,11 @@
         height: 14rem;
         z-index:-1;
     }
-
     &-container{
       &-list{
           display:flex;
           justify-content: space-around;
+          align-items: center;
               &-img-user{
                   border-radius: 100%;
                   width: 2rem;
@@ -63,8 +59,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin: 1rem 0;
       &-home{
         display: flex;
+        flex-wrap: wrap;
 
       }
     }
