@@ -1,3 +1,78 @@
-.main{
-    margin:auto;
+@use './src/styles/vars';
+
+.list-categories {
+    display: flex;
+    justify-content: center;
+    
+    &-icon{
+        padding: 0.5rem;
+    }
 }
+.card{
+    width: 90%;
+    margin: 0 1rem;
+    border: 0.2rem solid vars.$orange-omiam;
+    border-radius: 0.5rem;
+    z-index: 1;
+    position: relative;
+    &-recipe{
+      position: absolute;
+      top: 1rem;
+      background: rgba(255, 255, 255, 0.597);
+      padding: 0.2rem;
+      width: 100%;
+    }
+    &-img{
+        border: 0.2rem 0 solid vars.$orange-omiam;
+        border-radius: vars.$raduis-img;
+        max-width: 100%;
+        width: 100%;
+        height: 14rem;
+        z-index:-1;
+    }
+
+    &-container{
+      &-list{
+          display:flex;
+          justify-content: space-around;
+              &-img-user{
+                  border-radius: 100%;
+                  width: 2rem;
+                  height: 2rem;
+                  }
+          }
+    }
+
+    }
+
+
+@media screen and (min-width: 720px){
+  .cards{
+    &-list{
+      display: flex;
+    }
+  }
+  .card{
+    width: 33%;
+    }
+}
+
+@media screen and (min-width: 1020px){
+    .cards{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+      &-home{
+        display: flex;
+
+      }
+    }
+    .card{
+        width: 30%;
+        &-img{
+          height: 10rem
+        }
+    }
+}
+
