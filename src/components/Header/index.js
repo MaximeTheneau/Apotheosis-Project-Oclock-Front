@@ -1,4 +1,5 @@
 import './styles.scss';
+import DropdownMenu from '../Dropdownmenu';
 
 function Header() {
   return (
@@ -17,18 +18,14 @@ function Header() {
           </h2>
           <span className="header-logo-sloggan">Une histoire de <em className="header-logo-sloggan-highlight">miam's</em></span>
         </div>
-        <div className="header-menu-mobile">
-          <button type="submit" className="header-menu-button">
-            <i className="icon-bars" />
-          </button>
-        </div>
-        <div className="header-menu-tablet">
-          <ul>
+        <DropdownMenu className=".header-menu-mobile" />
+        <nav className="header-menu-navbar">
+          <ul className="header-menu-navbar-list">
             <li>Recettes</li>
             <li>Categories</li>
             <li>Chefs</li>
           </ul>
-        </div>
+        </nav>
       </div>
     </header>
   );
