@@ -21,7 +21,7 @@ function Home() {
         {/* List Catégories */}
         <div className="list">
           <ul className="list-categories">
-            <li className="list-categories-icon"><Link to="/e"><i className="icon-drink" /></Link></li>
+            <li className="list-categories-icon"><Link to="/recette/slug"><i className="icon-drink" /></Link></li>
             <li className="list-categories-icon"><i className="icon-radish" /></li>
             <li className="list-categories-icon"><i className="icon-dish" /></li>
             <li className="list-categories-icon"><i className="icon-cakes" /></li>

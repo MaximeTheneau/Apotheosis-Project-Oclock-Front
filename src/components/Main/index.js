@@ -9,8 +9,8 @@ function Main() {
     <div className="main">
 
       <Routes>
-        <Route path="/e" element={<Categories />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/recette/slug" element={<Categories />} />
+        <Route path="" element={<Home />} />
 
       </Routes>
     </div>
