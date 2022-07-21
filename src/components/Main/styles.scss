@@ -72,10 +72,15 @@
   .cards{
     &-list{
       display: flex;
+      &-type{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center
+      }
     }
   }
   .card{
-    width: 33%;
+    width: 14rem;
     }
 }
 // Responsive 1020 px
@@ -89,11 +94,16 @@
       &-home{
         display: flex;
         flex-wrap: wrap;
-
+      }
+      &-type{
+        width: 100%;
+      }
+      &-list-type{
+          display: flex;
       }
     }
     .card{
-        width: 30%;
+        width: 14rem;
         &-img{
           height: 10rem
         }
