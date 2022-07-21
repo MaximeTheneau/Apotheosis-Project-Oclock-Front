@@ -1,16 +1,24 @@
 @use './src/styles/vars';
 
-.connexion{
+.connection{
 display: flex;
 justify-content: flex-end;
 align-items: flex-start;
-padding: 0.5rem 0.5rem 0 0;
+padding: 0.2rem 0.5rem;
 cursor: pointer;
+background-color: vars.$blue-omiam;
 
-  &-button{
+
+  &-button, &-register{
     border:none;
-    background-color: white;
-    font-size: 0.7rem;
+    background-color: vars.$blue-omiam;
+    font-size: 0.6rem;
+    color: white;
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -18,7 +26,7 @@ cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem 1rem 1rem;
+  padding: 0.2rem 1rem 1rem 1rem;
   margin-bottom: 1.5rem;
   
 
@@ -30,7 +38,7 @@ cursor: pointer;
 
     &-title {
       color: vars.$blue-omiam;
-      font-size: 3rem;
+      font-size: 4rem;
     }
 
     &-sloggan {
@@ -49,6 +57,13 @@ cursor: pointer;
   }
 }
 
-.icon-lock {
-  padding-left: 0.3rem;
+.icon-bars {
+  font-size: 1.3rem;
 }
+
+@media screen and (min-width: 768px){
+  .header-menu-mobile {
+    display: none;
+  }
+}
+
