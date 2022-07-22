@@ -7,16 +7,16 @@ function Contact() {
       <p>Une remarque ? Une suggestion ? N'hesitez-pas à nous écrire.</p>
       <form className="form-general">
         <form className="form-pseudo">
-          <input className="pseudo-input" type="text" placeholder="Votre Pseudo" value="" />
+          <input className="pseudo-input" type="text" placeholder="Votre Pseudo" value="okpseudo" />
         </form>
         <form className="form-email">
-          <input className="email-input" type="email" placeholder="Votre E-mail" value="" />
+          <input className="email-input" type="email" placeholder="Votre E-mail" value="okemail" />
         </form>
         <form className="form-sujet">
-          <input className="sujet-input" type="text" placeholder="Sujet" value="" />
+          <input className="sujet-input" type="text" placeholder="Sujet" value="oksujet" />
         </form>
         <form className="form-message">
-          <input className="message-input" type="text" placeholder="Votre Message" value="" />
+          <input className="message-input" type="text" placeholder="Votre Message" value="okmessage" />
         </form>
         <button className="send-button" type="submit">Envoyer</button>
       </form>
