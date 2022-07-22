@@ -21,14 +21,16 @@ function DropdownMenu() {
       >
         <i className="icon-bars" />
       </button>
-      <ul className={isOpen ? 'menu' : 'menu menu--closed'}>
-        <li>Les recettes Miam</li>
-        {/* {
-        menuItems.map((item) => (
-          <li key={item}>{item}</li>
-        ))
-      } */}
-      </ul>
+      <div className="menu" /*{isOpen ? 'menu' : 'menu menu--closed'}*/>
+        <ul className="menu-list">
+          <li className="menu-list-item"><a>Les recettes Miam</a></li>
+          <li className="menu-list-item">Les dernières recettes</li>
+          <li className="menu-list-item">Chefs à la Une</li>
+          <li className="menu-list-item">Recettes aléatoires</li>
+          <li className="menu-list-item">Se connecter</li>
+          <li className="menu-list-item">Créer un compte</li>
+        </ul>
+      </div>
     </div>
   );
 }
