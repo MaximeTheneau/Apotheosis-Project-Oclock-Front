@@ -18,12 +18,15 @@ function Header() {
           </h2>
           <span className="header-logo-sloggan">Une histoire de <em className="header-logo-sloggan-highlight">miam's</em></span>
         </div>
-        <DropdownMenu className=".header-menu-mobile" />
+        <DropdownMenu className="header-menu-mobile" />
         <nav className="header-menu-navbar">
           <ul className="header-menu-navbar-list">
-            <li>Recettes</li>
-            <li>Categories</li>
-            <li>Chefs</li>
+            <li>Les recettes Miam</li>
+            <li>Les dernières recettes</li>
+            <li>Chefs à la Une</li>
+            <li>Recettes aléatoires</li>
+            <li>Se connecter</li>
+            <li>Créer un compte</li>
           </ul>
         </nav>
       </div>
