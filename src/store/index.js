@@ -1,11 +1,12 @@
-import { createStore } from 'redux';
+import { createStore, compose } from 'redux';
 
 import reducer from 'src/reducers';
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const store = createStore(
   reducer,
-  // eslint-disable-next-line no-underscore-dangle
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  composeEnhancers(),
 );
 
 export default store;
