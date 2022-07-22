@@ -44,7 +44,7 @@ export default[
       "pseudo": "User2",
       "avatar": null
     }
-  }
+  },
   {
     "id": 1,
     "title": "Pâte à crêpes aux oeuf frais",
@@ -89,7 +89,7 @@ export default[
       "pseudo": "User2",
       "avatar": null
     }
-  }
+  },
   {
     "id": 1,
     "title": "oeuf crêpes",
@@ -134,5 +134,5 @@ export default[
       "pseudo": "User2",
       "avatar": null
     }
-  }
+  },
 ]
