@@ -33,6 +33,16 @@ function Footer() {
             >
               Qui sommes nous ?
             </NavLink>
+          </li>          
+          <li className="footer-link-aboutus">
+            <NavLink
+              className={
+                ({ isActive }) => (isActive ? 'footer-link--active' : 'footer-linsk')
+            }
+              to="/qui-sommes-nous"
+            >
+              Qui sommes nous ?
+            </NavLink>
           </li>
           <li className="footer-link-contact">
             <NavLink
@@ -62,7 +72,7 @@ function Footer() {
               to="/condition-general-utilisation"
             >
               Conditions général d'utilisation
-            </NavLink>
+            </NavLink>s
           </li>
         </ul>
       </nav>
