@@ -24,12 +24,6 @@ function DropdownMenu() {
         <i className="icon-bars" />
       </button>
       <ul>
-        <li>Les recettes Miam</li>
-        <li>Les dernières recettes</li>
-        <li>Chefs à la Une</li>
-        <li>Recettes aléatoires</li>
-        <li>Se connecter</li>
-        <li>Créer un compte</li>
         {/* {
         menuItems.map((item) => (
           <li key={item}>{item}</li>
