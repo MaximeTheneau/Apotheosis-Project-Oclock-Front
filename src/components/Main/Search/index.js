@@ -8,9 +8,15 @@ import { setSettingsField, submitValue } from '../../../action/recipes';
 function Search() {
   const dispatch = useDispatch();
   const valueSearch = useSelector((state) => state.recipes.form.search);
-  const valueSearchFilter = valueSearch.toLocaleLowerCase();
+
+  const str = 'ÁÉÍÓÚáéíóúâêîôûàèìòùÇç';
+
+  const valueSearchFilterMaj = valueSearch.toLocaleLowerCase();
+  const valueSearchFilter = valueSearchFilterMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
+
   const recipesFilter = recipes.filter((item) => {
-    const filterNameSearch = item.title.toLocaleLowerCase();
+    const filterNameSearchMaj = item.title.toLocaleLowerCase();
+    const filterNameSearch = filterNameSearchMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
     return (filterNameSearch.includes(valueSearchFilter));
   });
   console.log(recipesFilter);
@@ -58,10 +64,10 @@ function Search() {
         </div>
       </div>
 
-        {/* Cards Search */}
-        <div className="cards-type">
-          <h2 className="cards-recipe">Ma Recherche</h2>
-          <div className="cards-list-type">
+      {/* Cards Search */}
+      <div className="cards-type">
+        <h2 className="cards-recipe">Ma Recherche</h2>
+        <div className="cards-list-type">
 
             {/* Card */}
             { recipesFilter.map((item) => (
