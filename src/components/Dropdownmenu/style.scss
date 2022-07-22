@@ -1,2 +1,17 @@
+@use 'src/styles/vars';
+
+.icon-bars {
+  font-size: 1.3rem;
+}
+
+.menu {
+  position: absolute;
+  top: 101px;
+  max-width: fit-content;
+  max-height: fit-content;
+  transform: translateY(-45%);
+  background-color: vars.$blue-omiam;
+  padding: 1rem;
+}
 
 

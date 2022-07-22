@@ -10,7 +10,7 @@ function Navbar() {
         <li>Recettes aléatoires</li>
         <li>Se connecter</li>
         <li>Créer un compte</li>
-      </ul> 
+      </ul>
     </nav>
   );
 }

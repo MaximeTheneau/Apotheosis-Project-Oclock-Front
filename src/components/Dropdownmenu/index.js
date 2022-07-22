@@ -6,8 +6,6 @@ import { toggleMenu } from '../../action/header';
 function DropdownMenu() {
   const { isOpen } = useSelector((state) => state.isOpen);
   const { menuItems } = useSelector((state) => state.menuItems);
-  console.log(isOpen);
-  console.log(menuItems);
   const dispatch = useDispatch();
 
   const handleToggle = () => {
@@ -15,15 +13,16 @@ function DropdownMenu() {
   };
 
   return (
-    <div className={isOpen ? 'settings' : 'settings settings--closed'}>
+    <div>
       <button
         type="button"
-        className="header-menu-button"
+        className="settings__toggle"
         onClick={handleToggle}
       >
         <i className="icon-bars" />
       </button>
-      <ul>
+      <ul className={isOpen ? 'menu' : 'menu menu--closed'}>
+        <li>Les recettes Miam</li>
         {/* {
         menuItems.map((item) => (
           <li key={item}>{item}</li>
