@@ -1,10 +1,32 @@
 import { Link } from 'react-router-dom';
 import './styles.scss';
+import { useDispatch, useSelector } from 'react-redux';
 import Data from '../../../data/recipesHome';
 import Recipes from '../../../data/recipes';
+import { setSettingsField, submitValue } from '../../../action/recipes';
 
 function Home() {
-  // Recipes.map((item) => console.log(item));
+  const dispatch = useDispatch();
+  const valueSearch = useSelector((state) => state.recipes.form.search);
+
+  const valueSearchFilterMaj = valueSearch.toLocaleLowerCase();
+  const valueSearchFilter = valueSearchFilterMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
+
+  const recipesFilter = Recipes.filter((item) => {
+    const filterNameSearchMaj = item.title.toLocaleLowerCase();
+    const filterNameSearch = filterNameSearchMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
+    return (filterNameSearch.includes(valueSearchFilter));
+  });
+  console.log(recipesFilter);
+
+  const handleChange = (evt) => {
+    // console.log(evt);
+    dispatch(setSettingsField(evt.target.value, 'search'));
+  };
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    dispatch(submitValue());
+  };
   return (
     <>
       {/* Title Page */}
@@ -15,11 +37,19 @@ function Home() {
       {/* Search */}
       <div className="search">
         <div className="search-form">
-          <form>
-            <input className="search-input" type="text" placeholder="Rechercher" />
-            <button className="search-button" type="submit" >
-              <i className="icon-search" />
-            </button>
+          <form onSubmit={handleSubmit}>
+            <input
+              value={valueSearch}
+              onChange={handleChange}
+              type="text"
+              className="field-input"
+              placeholder="Rechercher"
+            />
+            <Link to="/recettes/recherche">
+              <button className="search-button" type="submit">
+                <i className="icon-search" />
+              </button>
+            </Link>
           </form>
         </div>
         {/* List Catégories */}
@@ -41,7 +71,7 @@ function Home() {
           <div className="cards-list-type">
 
             {/* Card */}
-            { Recipes.map((item) => (
+            { recipesFilter.map((item) => (
               <div className="card">
                 <h2 className="card-recipe">{item.title}</h2>
                 <img

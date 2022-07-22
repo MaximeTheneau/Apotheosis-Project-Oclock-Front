@@ -9,8 +9,6 @@ function Search() {
   const dispatch = useDispatch();
   const valueSearch = useSelector((state) => state.recipes.form.search);
 
-  const str = 'ÁÉÍÓÚáéíóúâêîôûàèìòùÇç';
-
   const valueSearchFilterMaj = valueSearch.toLocaleLowerCase();
   const valueSearchFilter = valueSearchFilterMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
 
