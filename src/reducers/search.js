@@ -2,7 +2,7 @@ import { SET_SETTINGS_FIELD } from '../action/recipes';
 
 export const initialState = {
   list: [],
-  form:{
+  form: {
     search: '',
     addCards: false,
   },
@@ -15,10 +15,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         form: {
           ...state.settings,
-          // Cette syntaxe nous permet de définir de manière dynamique
-          // le nom de la propriété de l'objet
-          // => settings.email OU settings.password
-          // ==> email: action.value OU password: action.value
           [action.field]: action.value,
         },
       };

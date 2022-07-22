@@ -1,16 +1,27 @@
+/* eslint-disable react/jsx-props-no-multi-spaces */
 import { Link } from 'react-router-dom';
 import './styles.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import recipes from '../../../data/recipes';
-import {  } from '../../../action/recipes';
+import { setSettingsField, submitValue } from '../../../action/recipes';
 
 function Search() {
   const dispatch = useDispatch();
-  const valueSearch = useSelector((state) => state.recipes.search);
+  const valueSearch = useSelector((state) => state.recipes.form.search);
+  const valueSearchFilter = valueSearch.toLocaleLowerCase();
+  const recipesFilter = recipes.filter((item) => {
+    const filterNameSearch = item.title.toLocaleLowerCase();
+    return (filterNameSearch.includes(valueSearchFilter));
+  });
+  console.log(recipesFilter);
 
   const handleChange = (evt) => {
-    console.log(evt);
+    // console.log(evt);
     dispatch(setSettingsField(evt.target.value, 'search'));
+  };
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    dispatch(submitValue());
   };
   return (
     <>
@@ -22,14 +33,14 @@ function Search() {
       {/* Search */}
       <div className="search">
         <div className="search-form">
-          <form>
+          <form onSubmit={handleSubmit}>
             <input
-          // React - state
+
               value={valueSearch}
               onChange={handleChange}
               type="text"
               className="field-input"
-              placeholder="kk"
+              placeholder="Rechercher"
             />
             <button className="search-button" type="submit">
               <i className="icon-search" />
@@ -46,34 +57,36 @@ function Search() {
           </ul>
         </div>
       </div>
-      {/* Cards Search */}
-      <div className="cards-type">
-        <h2 className="cards-recipe">Ma Recherche</h2>
-        <div className="cards-list-type">
-          {/* Card */}
-          { recipes.map((item) => (
-            <div className="card">
-              <h2 className="card-recipe">{item.title}</h2>
-              <img
-                src={item.picture}
-                alt="Name"
-                className="card-img"
-              />
-              <div className="card-container">
-                <ul className="card-container-list">
-                  <li><img className="card-container-list-img-user" src="https://image.shutterstock.com/image-photo/carer-pushing-senior-woman-wheelchair-260nw-1148689052.jpg" alt="zz" /></li>
-                  <li><i className="icon-dish" /></li>
-                  <li>
-                    <span>15
-                      <i className="icon-miam" />
-                    </span>
-                  </li>
-                </ul>
+
+        {/* Cards Search */}
+        <div className="cards-type">
+          <h2 className="cards-recipe">Ma Recherche</h2>
+          <div className="cards-list-type">
+
+            {/* Card */}
+            { recipesFilter.map((item) => (
+              <div className="card">
+                <h2 className="card-recipe">{item.title}</h2>
+                <img
+                  src={item.picture}
+                  alt="Name"
+                  className="card-img"
+                />
+                <div className="card-container">
+                  <ul className="card-container-list">
+                    <li><img className="card-container-list-img-user" src="https://image.shutterstock.com/image-photo/carer-pushing-senior-woman-wheelchair-260nw-1148689052.jpg" alt="zz" /></li>
+                    <li><i className="icon-dish" /></li>
+                    <li>
+                      <span>15
+                        <i className="icon-miam" />
+                      </span>
+                    </li>
+                  </ul>
+                </div>
               </div>
-            </div>
-          )) }
+            )) }
+          </div>
         </div>
-      </div>
 
     </>
   );

@@ -30,3 +30,12 @@ export function setSettingsField(value, field) {
     field: field,
   };
 }
+// Action Type => On l'utilise dans l'action creator ET dans le reducer/middleware
+export const SUBMIT_VALUE = 'submitValue';
+
+// Action creator => On l'utilise au moment du dispatch()
+export function submitValue() {
+  return {
+    type: SUBMIT_VALUE,
+  };
+}
