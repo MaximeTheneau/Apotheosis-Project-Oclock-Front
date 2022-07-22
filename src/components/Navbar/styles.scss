@@ -20,7 +20,7 @@
       padding: 0.5rem;
       font-size: 0.8rem;
       cursor: pointer;
-      transition: 2s;
+      transition: vars.$slow-transition;
 
       &:first-child {
         border-radius: 0.3rem 0.3rem 0 0;
@@ -32,7 +32,7 @@
 
       &:hover {
         background-color: vars.$grey-omiam;
-        transition: 0.2s;
+        transition: vars.$fast-transition;
       }
     }
 }
@@ -45,4 +45,24 @@
   color: vars.$grey-omiam;
 }
 
+@media screen and (min-width: 768px) {
+  .menu-icon {
+    display: none;
+  }
 
+  .menu {
+    display: flex;
+    flex-direction: row;
+    width: 70vw;
+    justify-content: flex-end;
+    
+
+    &-item:first-child {
+      border-radius: 0.3rem 0 0 0.3rem;
+    }
+
+    &-item:last-child {
+      border-radius: 0 0.3rem 0.3rem 0;
+    }
+  }
+}
