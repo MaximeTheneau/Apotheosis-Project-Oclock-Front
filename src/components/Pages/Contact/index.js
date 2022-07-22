@@ -7,13 +7,13 @@ function Contact() {
   const dispatch = useDispatch();
 
   const handleOnChange = (event) => {
-    dispatch(setNewContactMsgContent(event.curentTarget.value));
+    dispatch(setNewContactMsgContent(event.curentTarget.value, 'search'));
   };
 
   const handleSubmit = () => {
     dispatch();
   };
-
+  // suppr label
   return (
     <div className="contact">
       <h1>Contactez-nous</h1>
