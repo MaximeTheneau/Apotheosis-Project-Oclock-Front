@@ -1,5 +1,4 @@
 import './styles.scss';
-import DropdownMenu from '../Dropdownmenu';
 import Connexion from '../Connexion';
 import Logo from '../Logo';
 import Navbar from '../Navbar';
@@ -10,7 +9,7 @@ function Header() {
       <Connexion />
       <div className="header">
         <Logo />
-        <DropdownMenu />
+        <Navbar />
       </div>
     </header>
   );

@@ -16,9 +16,6 @@
   transition: all 0.3s ease-in-out;
   border-radius: 0.2rem;
 
-  &-list {
-    line-height: 1rem;
-
     &-item {
       line-height: 1rem;
       border-bottom: 1px solid white;
@@ -26,7 +23,6 @@
       font-size: 0.8rem;
       cursor: pointer;
     }
-  }
 }
 
 .menu--closed {

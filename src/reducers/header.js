@@ -1,7 +1,9 @@
-import { TOGGLE_MENU } from '../action/header';
+import { CLOSE_MOBILE_MENU, TOGGLE_MENU } from '../action/header';
 
 export const initialState = {
-  isOpen: false,
+  header: {
+    isOpen: false,
+  },
   menuItems: [
     'Les recettes Miam',
     'Les dernières recettes',
@@ -17,7 +19,18 @@ const reducer = (state = initialState, action = {}) => {
     case TOGGLE_MENU:
       return {
         ...state,
-        isOpen: !state.isOpen,
+        header: {
+          ...state.header,
+          isOpen: !state.header.isOpen,
+        },
+      };
+    case CLOSE_MOBILE_MENU:
+      return {
+        ...state,
+        header: {
+          ...state.header,
+          isOpen: false,
+        },
       };
     default:
       return state;

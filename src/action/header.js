@@ -6,3 +6,11 @@ export function toggleMenu() {
     type: TOGGLE_MENU,
   };
 }
+
+export const CLOSE_MOBILE_MENU = 'CLOSE_MOBILE_MENU';
+
+export function closeMobileMenu() {
+  return {
+    type: CLOSE_MOBILE_MENU,
+  };
+}

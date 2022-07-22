@@ -1,0 +1,32 @@
+@use 'src/styles/vars';
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  max-width: max-content;
+  max-height: fit-content;
+  position: absolute;
+  top: 90px;
+  right: 16px;
+  opacity: 1;
+  transition: all 0.5s ease;
+  background-color: vars.$blue-omiam;
+  color: white;
+  border-radius: 0.3rem;
+
+    &-item {
+      line-height: 1rem;
+      border-bottom: 1px solid white;
+      padding: 0.5rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+}
+
+.icon-bars {
+  font-size: 1.3rem;
+  border: 1px solid vars.$grey-omiam;
+  padding: 0.4rem;
+  border-radius: 0.3rem;
+  color: vars.$grey-omiam;
+}

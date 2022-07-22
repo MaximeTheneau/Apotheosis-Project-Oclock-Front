@@ -4,8 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toggleMenu } from '../../action/header';
 
 function DropdownMenu() {
-  const { isOpen } = useSelector((state) => state.isOpen);
-  const { menuItems } = useSelector((state) => state.menuItems);
+  const { isOpen } = useSelector((state) => state.header.isOpen);
   const dispatch = useDispatch();
 
   const handleToggle = () => {
@@ -16,21 +15,19 @@ function DropdownMenu() {
     <div>
       <button
         type="button"
-        className="settings__toggle"
+        className="menu-icon"
         onClick={handleToggle}
       >
-        <i className="icon-bars" />
+        <i className={isOpen ? 'icon-plus' : 'icon-bars'} />
       </button>
-      <div className={isOpen ? 'menu--closed' : 'menu'}>
-        <ul className="menu-list">
-          <li className="menu-list-item"><a>Les recettes Miam</a></li>
-          <li className="menu-list-item">Les dernières recettes</li>
-          <li className="menu-list-item">Chefs à la Une</li>
-          <li className="menu-list-item">Recettes aléatoires</li>
-          <li className="menu-list-item">Se connecter</li>
-          <li className="menu-list-item">Créer un compte</li>
-        </ul>
-      </div>
+      <ul className={isOpen ? 'menu' : 'menu menu--closed'}>
+        <li className="menu-item"><a>Les recettes Miam</a></li>
+        <li className="menu-item">Les dernières recettes</li>
+        <li className="menu-item">Chefs à la Une</li>
+        <li className="menu-item">Recettes aléatoires</li>
+        <li className="menu-item">Se connecter</li>
+        <li className="menu-item">Créer un compte</li>
+      </ul>
     </div>
   );
 }
