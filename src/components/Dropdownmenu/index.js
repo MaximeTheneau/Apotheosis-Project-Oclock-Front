@@ -21,7 +21,7 @@ function DropdownMenu() {
       >
         <i className="icon-bars" />
       </button>
-      <div className="menu" /*{isOpen ? 'menu' : 'menu menu--closed'}*/>
+      <div className={isOpen ? 'menu--closed' : 'menu'}>
         <ul className="menu-list">
           <li className="menu-list-item"><a>Les recettes Miam</a></li>
           <li className="menu-list-item">Les dernières recettes</li>

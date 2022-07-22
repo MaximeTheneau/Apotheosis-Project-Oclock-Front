@@ -24,12 +24,14 @@
       border-bottom: 1px solid white;
       padding: 0.5rem;
       font-size: 0.8rem;
+      cursor: pointer;
     }
   }
+}
 
-  &--closed {
+.menu--closed {
     display:none;
   }
-}
+
 
 
