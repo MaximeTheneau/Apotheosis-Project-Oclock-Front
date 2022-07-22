@@ -13,7 +13,7 @@ function Contact() {
           <input className="email-input" type="email" placeholder="Votre E-mail" value="okemail" />
         </form>
         <form className="form-sujet">
-          <input className="sujet-input" type="text" placeholder="Sujet" value="oksujet" />
+          <input className="topic-input" type="text" placeholder="Sujet" value="oksujet" />
         </form>
         <form className="form-message">
           <input className="message-input" type="text" placeholder="Votre Message" value="okmessage" />
