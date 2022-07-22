@@ -1,15 +1,16 @@
 import { Link } from 'react-router-dom';
 import './styles.scss';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import recipes from '../../../data/recipes';
-import { changeFieldValue } from '../../../action/recipes';
+import {  } from '../../../action/recipes';
 
 function Search() {
   const dispatch = useDispatch();
+  const valueSearch = useSelector((state) => state.recipes.search);
 
   const handleChange = (evt) => {
     console.log(evt);
-    dispatch(changeFieldValue(evt));
+    dispatch(setSettingsField(evt.target.value, 'search'));
   };
   return (
     <>
@@ -24,11 +25,11 @@ function Search() {
           <form>
             <input
           // React - state
-              value="{value}"
+              value={valueSearch}
               onChange={handleChange}
               type="text"
               className="field-input"
-              placeholder="{value}"
+              placeholder="kk"
             />
             <button className="search-button" type="submit">
               <i className="icon-search" />

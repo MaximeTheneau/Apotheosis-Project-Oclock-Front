@@ -20,21 +20,13 @@ export function saveRecipes(recipes) {
 }
 
 // Action Type => On l'utilise dans l'action creator ET dans le reducer
-export const CHANGE_FIELD_VALUE = 'CHANGE_FIELD_VALUE';
+export const SET_SETTINGS_FIELD = 'SET_SETTINGS_FIELD';
 
 // Action creator => On l'utilise au moment du dispatch()
-export function changeFieldValue(value, field) {
+export function setSettingsField(value, field) {
   return {
-    type: CHANGE_FIELD_VALUE,
-    /*
-      EQUIVAUT A
-      value: value,
-      field: field,
-    */
-    value,
-    field,
+    type: SET_SETTINGS_FIELD,
+    value: value,
+    field: field,
   };
 }
-
-
-
