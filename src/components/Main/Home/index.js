@@ -4,7 +4,7 @@ import Data from '../../../data/recipesHome';
 import Recipes from '../../../data/recipes';
 
 function Home() {
-  Recipes.map((item) => console.log(item));
+  // Recipes.map((item) => console.log(item));
   return (
     <>
       {/* Title Page */}
