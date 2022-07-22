@@ -5,12 +5,13 @@ import Aboutus from '../Pages/Aboutus';
 import Tscs from '../Pages/Tscs';
 import Privacy from '../Pages/Privacy';
 import Contact from '../Pages/Contact';
-import Error from '../Error';
+// import Error from '../Error';
 
 import './styles.scss';
 
 function Footer() {
   // <Route path="/" element={<Main />} />
+  // <Route path="*" element={<Error />} />
   return (
     <div className="routes-footer">
       <Routes>
@@ -18,8 +19,6 @@ function Footer() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/mention-legal" element={<Privacy />} />
         <Route path="/condition-general-utilisation" element={<Tscs />} />
-
-        <Route path="*" element={<Error />} />
       </Routes>
 
       <nav className="footer">

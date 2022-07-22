@@ -18,7 +18,7 @@ yarn add react-router
 ```
 
 ```
-$ yarn add react-router-dom@6
+yarn add react-router-dom@6
 ```
 
 - Axios
