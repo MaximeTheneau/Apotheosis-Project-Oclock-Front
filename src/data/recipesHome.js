@@ -1,7 +1,5 @@
 /* eslint-disable */
 export default {
-  "recipeHome" : 
-    {
     "miamsRecipes": [
       {
         "id": 2,
@@ -138,7 +136,6 @@ export default {
         "nbMiamsUser": 21
       }
     ]
-  }
 
   
 }
