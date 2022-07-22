@@ -6,6 +6,10 @@ function Contact() {
   const inputValue = useSelector((state) => state.currentMessageContactValue);
   const dispatch = useDispatch();
 
+  const handleOnChange = (event) => {
+    dispatch(setNewContactMsgContent(event.curentTarget.value));
+  };
+
   const handleSubmit = () => {
     dispatch();
   };
@@ -16,16 +20,40 @@ function Contact() {
       <p>Une remarque ? Une suggestion ? N'hesitez-pas à nous écrire.</p>
       <form className="form-general" onSubmit={handleSubmit}>
         <form className="form-pseudo">
-          <input className="pseudo-input" type="text" placeholder="Votre Pseudo" value={inputValue} />
+          <input
+            className="pseudo-input"
+            type="text"
+            placeholder="Votre Pseudo"
+            value={inputValue}
+            onChange={handleOnChange}
+          />
         </form>
         <form className="form-email">
-          <input className="email-input" type="email" placeholder="Votre E-mail" value={inputValue} />
+          <input
+            className="email-input"
+            type="email"
+            placeholder="Votre E-mail"
+            value={inputValue}
+            onChange={handleOnChange}
+          />
         </form>
         <form className="form-sujet">
-          <input className="topic-input" type="text" placeholder="Sujet" value={inputValue} />
+          <input
+            className="topic-input"
+            type="text"
+            placeholder="Sujet"
+            value={inputValue}
+            onChange={handleOnChange}
+          />
         </form>
         <form className="form-message">
-          <input className="message-input" type="text" placeholder="Votre Message" value={inputValue} />
+          <input
+            className="message-input"
+            type="text"
+            placeholder="Votre Message"
+            value={inputValue}
+            onChange={handleOnChange}
+          />
         </form>
         <button className="send-button" type="submit">Envoyer</button>
       </form>
