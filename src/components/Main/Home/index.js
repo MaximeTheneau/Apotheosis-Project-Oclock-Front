@@ -11,12 +11,13 @@ function Home() {
       <h1 className="title-page logo"><i className="icon-miam logo" />'miam
         <span className="logo-slogan"> Une histoire de miam's</span>
       </h1>
+      <Link to="/recettes/recherche"><p>recherche</p></Link>
       {/* Search */}
       <div className="search">
         <div className="search-form">
           <form>
             <input className="search-input" type="text" placeholder="Rechercher" />
-            <button className="search-button" type="submit">
+            <button className="search-button" type="submit" >
               <i className="icon-search" />
             </button>
           </form>
