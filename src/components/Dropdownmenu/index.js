@@ -4,10 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toggleMenu } from '../../action/header';
 
 function DropdownMenu() {
-  const { isOpen } = useSelector((state) => state.isOpen);
-  const { menuItems } = useSelector((state) => state.menuItems);
-  console.log(isOpen);
-  console.log(menuItems);
+  //const { isOpen } = useSelector((state) => state.isOpen);
+  //const { menuItems } = useSelector((state) => state.menuItems);
+
   const dispatch = useDispatch();
 
   const handleToggle = () => {
@@ -15,7 +14,7 @@ function DropdownMenu() {
   };
 
   return (
-    <div className={isOpen ? 'settings' : 'settings settings--closed'}>
+    <div className="">
       <button
         type="button"
         className="header-menu-button"
