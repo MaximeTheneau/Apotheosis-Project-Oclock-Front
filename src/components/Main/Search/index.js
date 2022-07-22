@@ -1,8 +1,16 @@
 import { Link } from 'react-router-dom';
 import './styles.scss';
+import { useDispatch } from 'react-redux';
 import recipes from '../../../data/recipes';
+import { changeFieldValue } from '../../../action/recipes';
 
 function Search() {
+  const dispatch = useDispatch();
+
+  const handleChange = (evt) => {
+    console.log(evt);
+    dispatch(changeFieldValue(evt));
+  };
   return (
     <>
 
@@ -14,7 +22,14 @@ function Search() {
       <div className="search">
         <div className="search-form">
           <form>
-            <input className="search-input" type="text" placeholder="Rechercher" />
+            <input
+          // React - state
+              value="{value}"
+              onChange={handleChange}
+              type="text"
+              className="field-input"
+              placeholder="{value}"
+            />
             <button className="search-button" type="submit">
               <i className="icon-search" />
             </button>
