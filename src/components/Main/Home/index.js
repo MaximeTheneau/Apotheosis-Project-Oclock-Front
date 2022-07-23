@@ -7,6 +7,7 @@ import SearchForm from '../Search/searchForm';
 
 function Home() {
   const valueSearch = useSelector((state) => state.recipes.form.search);
+  const toogleValue = useSelector((state) => state.recipes.addCards);
 
   const valueSearchFilterMaj = valueSearch.toLocaleLowerCase();
   const valueSearchFilter = valueSearchFilterMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
@@ -31,7 +32,8 @@ function Home() {
       <div className="cards-home">
 
         {/* Cards Search */}
-        <div className="cards-type">
+        { toogleValue ? (
+          <div className="cards-type">
           <h2 className="cards-recipe">Ma Recherche</h2>
           <div className="cards-list-type">
 
@@ -59,6 +61,8 @@ function Home() {
             )) }
           </div>
         </div>
+        ) : ''}
+
 
         {/* Cards Miam */}
         <div className="cards">
