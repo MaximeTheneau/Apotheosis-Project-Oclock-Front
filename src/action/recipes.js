@@ -39,3 +39,13 @@ export function submitValue() {
     type: SUBMIT_VALUE,
   };
 }
+
+// Action Type => On l'utilise dans l'action creator ET dans le reducer
+export const VALUE_TOOGLE = 'VALUE_TOOGLE';
+
+// Action creator => On l'utilise au moment du dispatch()
+export function valueToogle() {
+  return {
+    type: VALUE_TOOGLE,
+  };
+}

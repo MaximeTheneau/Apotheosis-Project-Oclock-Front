@@ -3,7 +3,7 @@ import './styles.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import Data from '../../../data/recipesHome';
 import Recipes from '../../../data/recipes';
-import { setSettingsField, submitValue } from '../../../action/recipes';
+import { setSettingsField, submitValue, valueToogle } from '../../../action/recipes';
 
 function Home() {
   const dispatch = useDispatch();
@@ -17,11 +17,10 @@ function Home() {
     const filterNameSearch = filterNameSearchMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
     return (filterNameSearch.includes(valueSearchFilter));
   });
-  console.log(recipesFilter);
+  // console.log(recipesFilter);
 
   const handleChange = (evt) => {
-    // console.log(evt);
-    dispatch(setSettingsField(evt.target.value, 'search'));
+    dispatch(setSettingsField(evt.target.value, 'search'), dispatch(valueToogle()));
   };
   const handleSubmit = (evt) => {
     evt.preventDefault();

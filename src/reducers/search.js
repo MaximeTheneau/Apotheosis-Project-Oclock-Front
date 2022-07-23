@@ -1,11 +1,11 @@
-import { SET_SETTINGS_FIELD } from '../action/recipes';
+import { SET_SETTINGS_FIELD, VALUE_TOOGLE } from '../action/recipes';
 
 export const initialState = {
   list: [],
   form: {
     search: '',
-    addCards: false,
   },
+  addCards: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -17,6 +17,14 @@ const reducer = (state = initialState, action = {}) => {
           ...state.settings,
           [action.field]: action.value,
         },
+      };
+    case VALUE_TOOGLE:
+      return {
+        ...state,
+        form: {
+          ...state.settings,
+        },
+        addCards: true,
       };
 
     default:
