@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom';
 import './styles.scss';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Data from '../../../data/recipesHome';
 import Recipes from '../../../data/recipes';
-import { setSettingsField, submitValue, valueToogle } from '../../../action/recipes';
+import SearchForm from '../Search/searchForm';
 
 function Home() {
-  const dispatch = useDispatch();
   const valueSearch = useSelector((state) => state.recipes.form.search);
 
   const valueSearchFilterMaj = valueSearch.toLocaleLowerCase();
@@ -17,50 +16,17 @@ function Home() {
     const filterNameSearch = filterNameSearchMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
     return (filterNameSearch.includes(valueSearchFilter));
   });
-  // console.log(recipesFilter);
-
-  const handleChange = (evt) => {
-    dispatch(setSettingsField(evt.target.value, 'search'), dispatch(valueToogle()));
-  };
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-    dispatch(submitValue());
-  };
   return (
     <>
       {/* Title Page */}
-      <h1 className="title-page logo"><i className="icon-miam logo" />'miam
+      <Link to="/"><h1 className="title-page logo"><i className="icon-miam logo" />'miam
         <span className="logo-slogan"> Une histoire de miam's</span>
-      </h1>
-      <Link to="/recettes/recherche"><p>recherche</p></Link>
-      {/* Search */}
-      <div className="search">
-        <div className="search-form">
-          <form onSubmit={handleSubmit}>
-            <input
-              value={valueSearch}
-              onChange={handleChange}
-              type="text"
-              className="field-input"
-              placeholder="Rechercher"
-            />
-            <Link to="/recettes/recherche">
-              <button className="search-button" type="submit">
-                <i className="icon-search" />
-              </button>
-            </Link>
-          </form>
-        </div>
-        {/* List Catégories */}
-        <div className="list">
-          <ul className="list-categories">
-            <li className="list-categories-icon"><Link to="/e"><i className="icon-drink" /></Link></li>
-            <li className="list-categories-icon"><i className="icon-radish" /></li>
-            <li className="list-categories-icon"><i className="icon-dish" /></li>
-            <li className="list-categories-icon"><i className="icon-cakes" /></li>
-          </ul>
-        </div>
-      </div>
+      </h1></Link>
+
+      <Link to="/recettes/recherche"><p>Recherche</p></Link>
+
+
+      <SearchForm />
 
       <div className="cards-home">
 

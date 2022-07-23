@@ -1,71 +1,36 @@
-/* eslint-disable react/jsx-props-no-multi-spaces */
 import { Link } from 'react-router-dom';
 import './styles.scss';
-import { useDispatch, useSelector } from 'react-redux';
-import recipes from '../../../data/recipes';
-import { setSettingsField, submitValue } from '../../../action/recipes';
+import { useSelector } from 'react-redux';
+import Data from '../../../data/recipesHome';
+import Recipes from '../../../data/recipes';
+import SearchForm from './searchForm';
 
 function Search() {
-  const dispatch = useDispatch();
   const valueSearch = useSelector((state) => state.recipes.form.search);
 
   const valueSearchFilterMaj = valueSearch.toLocaleLowerCase();
   const valueSearchFilter = valueSearchFilterMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
 
-  const recipesFilter = recipes.filter((item) => {
+  const recipesFilter = Recipes.filter((item) => {
     const filterNameSearchMaj = item.title.toLocaleLowerCase();
     const filterNameSearch = filterNameSearchMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
     return (filterNameSearch.includes(valueSearchFilter));
   });
-  console.log(recipesFilter);
-
-  const handleChange = (evt) => {
-    // console.log(evt);
-    dispatch(setSettingsField(evt.target.value, 'search'));
-  };
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-    dispatch(submitValue());
-  };
   return (
     <>
-
       {/* Title Page */}
-      <Link to="/">
-        <h1 className="title-page logo">Rechercher</h1>
-      </Link>
-      {/* Search */}
-      <div className="search">
-        <div className="search-form">
-          <form onSubmit={handleSubmit}>
-            <input
+      <Link to="/"><h1 className="title-page logo">Recherche</h1></Link>
 
-              value={valueSearch}
-              onChange={handleChange}
-              type="text"
-              className="field-input"
-              placeholder="Rechercher"
-            />
-            <button className="search-button" type="submit">
-              <i className="icon-search" />
-            </button>
-          </form>
-        </div>
-        {/* List Catégories */}
-        <div className="list">
-          <ul className="list-categories">
-            <li className="list-categories-icon"><i className="icon-drink" /><Link to="/e" /></li>
-            <li className="list-categories-icon"><i className="icon-radish" /></li>
-            <li className="list-categories-icon"><i className="icon-dish" /></li>
-            <li className="list-categories-icon"><i className="icon-cakes" /></li>
-          </ul>
-        </div>
-      </div>
+      <Link to="/recettes/recherche"><p>Recherche</p></Link>
 
-      {/* Cards Search */}
-      <div className="cards-type">
-        <h2 className="cards-recipe">Ma Recherche</h2>
-        <div className="cards-list-type">
+
+      <SearchForm />
+
+
+        {/* Cards Search */}
+        <div className="cards-type">
+          <h2 className="cards-recipe">Ma Recherche</h2>
+          <div className="cards-list-type">
 
             {/* Card */}
             { recipesFilter.map((item) => (
@@ -91,7 +56,6 @@ function Search() {
             )) }
           </div>
         </div>
-
     </>
   );
 }
