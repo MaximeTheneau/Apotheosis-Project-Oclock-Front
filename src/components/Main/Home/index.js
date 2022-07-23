@@ -34,33 +34,33 @@ function Home() {
         {/* Cards Search */}
         { toogleValue ? (
           <div className="cards-type">
-          <h2 className="cards-recipe">Ma Recherche</h2>
-          <div className="cards-list-type">
+            <h2 className="cards-recipe">Ma Recherche</h2>
+            <div className="cards-list-type">
 
-            {/* Card */}
-            { recipesFilter.map((item) => (
-              <div className="card">
-                <h2 className="card-recipe">{item.title}</h2>
-                <img
-                  src={item.picture}
-                  alt="Name"
-                  className="card-img"
-                />
-                <div className="card-container">
-                  <ul className="card-container-list">
-                    <li><img className="card-container-list-img-user" src="https://image.shutterstock.com/image-photo/carer-pushing-senior-woman-wheelchair-260nw-1148689052.jpg" alt="zz" /></li>
-                    <li><i className="icon-dish" /></li>
-                    <li>
-                      <span>15
-                        <i className="icon-miam" />
-                      </span>
-                    </li>
-                  </ul>
+              {/* Card */}
+              { recipesFilter.map((item) => (
+                <div className="card">
+                  <h2 className="card-recipe">{item.title}</h2>
+                  <img
+                    src={item.picture}
+                    alt="Name"
+                    className="card-img"
+                  />
+                  <div className="card-container">
+                    <ul className="card-container-list">
+                      <li><img className="card-container-list-img-user" src="https://image.shutterstock.com/image-photo/carer-pushing-senior-woman-wheelchair-260nw-1148689052.jpg" alt="zz" /></li>
+                      <li><i className="icon-dish" /></li>
+                      <li>
+                        <span>15
+                          <i className="icon-miam" />
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-              </div>
-            )) }
+              )) }
+            </div>
           </div>
-        </div>
         ) : ''}
 
 

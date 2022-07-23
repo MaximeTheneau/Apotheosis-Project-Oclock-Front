@@ -24,7 +24,7 @@ const reducer = (state = initialState, action = {}) => {
         form: {
           ...state.settings,
         },
-        addCards: true,
+        addCards: !state.addCards,
       };
 
     default:
