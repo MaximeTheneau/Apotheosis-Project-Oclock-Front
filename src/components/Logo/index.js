@@ -4,9 +4,9 @@ function Logo() {
   return (
     <div className="logo">
       <h2 className="logo-title">
-        <i className="icon-miam" />'miam
+        <i className="icon-miam" /><em className="logo-sloggan-highlight">'</em>miam
       </h2>
-      <span className="logo-sloggan">Une histoire de <em className="logo-sloggan-highlight">miam's</em></span>
+      <span className="logo-sloggan">Une histoire de miam's</span>
     </div>
   );
 }

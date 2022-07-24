@@ -15,12 +15,30 @@ function Sidebar() {
     <div className="sidebar" id={sidebar ? 'show-sidebar' : 'hide-sidebar'}>
       <ul className="sidebar-links">
         <li className="sidebar-item">
-          <Link to="/miam" className="navbar-links" onClick={hideSidebar}>
-        Les recettes Miam
-            </Link></li>
-        <li className="sidebar-item">About us</li>
-        <li className="sidebar-item">Contact</li>
-        <li className="sidebar-item">Services</li>
+          <Link to="/miam" className="navbar-links" onClick={() => handleClose()}>
+            Les recettes Miam
+          </Link>
+        </li>
+        <li className="sidebar-item">
+          <Link to="/dernieres-recettes" className="navbar-links" onClick={() => handleClose()}>
+            Les dernières recettes
+          </Link>
+        </li>
+        <li className="sidebar-item">
+          <Link to="/chefs" className="navbar-links" onClick={() => handleClose()}>
+            Chefs à la Une
+          </Link>
+        </li>
+        <li className="sidebar-item">
+          <Link to="/connexion" className="navbar-links" onClick={() => handleClose()}>
+            Se connecter
+          </Link>
+        </li>
+        <li className="sidebar-item">
+          <Link to="/inscription" className="navbar-links" onClick={() => handleClose()}>
+            Créer un compte
+          </Link>
+        </li>
       </ul>
       <div className="sidebar-cancel">
         <ImCross onClick={() => handleClose()} />

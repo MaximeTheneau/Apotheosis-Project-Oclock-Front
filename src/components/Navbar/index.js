@@ -2,7 +2,7 @@ import './styles.scss';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Logo from '../Logo';
-import { hideSidebar, showSidebar } from '../../action/header';
+import { showSidebar } from '../../action/header';
 
 function Navbar() {
   const dispatch = useDispatch();
