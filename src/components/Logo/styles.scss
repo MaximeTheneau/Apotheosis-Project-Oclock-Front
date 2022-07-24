@@ -5,9 +5,10 @@
   flex-direction: column;
   font-family: 'font-title';
   line-height: 1.8rem;
+  padding: 0.5rem;
 
   &-title {
-    color: vars.$blue-omiam;
+    color: vars.$grey-omiam;
     font-size: 4rem;
   }
 

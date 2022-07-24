@@ -1,60 +1,81 @@
 @use 'src/styles/vars';
 
-.menu {
-  display: flex;
-  flex-direction: column;
-  max-width: max-content;
-  max-height: fit-content;
-  position: absolute;
-  top: 90px;
-  right: 16px;
-  opacity: 1;
-  transition: all 0.5s ease;
+.navbar {
   background-color: vars.$blue-omiam;
-  color: white;
-  border-radius: 0.3rem;
+  width: 100%;
+
+  &-wrapper {
+    color:white;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1500px;
+    margin: 0 auto ;
+    
+
+    &-logo {
+      flex:.6;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    
+    &-links {
+      
+      display:flex;
+      justify-content: space-evenly;
+      align-items: center;
+      border-radius: 0.3rem;
+    }
 
     &-item {
       line-height: 1rem;
-      border-bottom: 1px solid white;
+      
       padding: 0.5rem;
       font-size: 0.8rem;
       cursor: pointer;
       transition: vars.$slow-transition;
 
       &:first-child {
-        border-radius: 0.3rem 0.3rem 0 0;
+        border-radius: 0.3rem 0 0 0.3rem;
       }
 
       &:last-child {
-        border-radius: 0 0 0.3rem 0.3rem;
+        border-radius: 0 0.3rem 0.3rem 0;
       }
 
       &:hover {
         background-color: vars.$grey-omiam;
         transition: vars.$fast-transition;
       }
-    }
+  }
+
+    
+  }
 }
 
 .icon-bars {
-  font-size: 1.3rem;
-  border: 1px solid vars.$grey-omiam;
-  padding: 0.4rem;
-  border-radius: 0.3rem;
-  color: vars.$grey-omiam;
+    font-size: 2rem;
+    padding-right: 1rem;
+    display:none;
+    cursor: pointer;
 }
 
-@media screen and (min-width: 768px) {
-  .menu-icon {
+@media screen and (max-width: 768px) {
+  .navbar-wrapper-links {
     display: none;
   }
 
-  .menu {
+  .icon-bars{
+    display: block;
+  }
+
+  /*.navbar-wrapper-item {
     display: flex;
     flex-direction: row;
     width: 70vw;
     justify-content: flex-end;
+    border-bottom: 1px solid white;
     
 
     &-item:first-child {
@@ -64,5 +85,5 @@
     &-item:last-child {
       border-radius: 0 0.3rem 0.3rem 0;
     }
-  }
+  }*/
 }

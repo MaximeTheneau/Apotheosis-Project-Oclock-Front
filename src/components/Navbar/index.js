@@ -1,62 +1,59 @@
 import './styles.scss';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { toggleMenu, closeMobileMenu } from '../../action/header';
+import { useDispatch } from 'react-redux';
+import Logo from '../Logo';
+import { hideSidebar, showSidebar } from '../../action/header';
 
 function Navbar() {
-  const { isOpen } = useSelector((state) => state.header.isOpen);
   const dispatch = useDispatch();
-
-  const handleToggle = () => {
-    dispatch(toggleMenu());
-  };
-
-  const closeMobileNavbar = () => {
-    dispatch(closeMobileMenu());
+  const handleClick = () => {
+    dispatch(showSidebar());
   };
 
   return (
-    <div>
-      <nav className="navbar">
-        <div
-          className="menu-icon"
-          onClick={handleToggle}
-        >
-          <i className={isOpen ? 'icon-plus' : 'icon-bars'} />
+    <div className="navbar">
+      <div className="navbar-wrapper">
+        <div className="navbar-wrapper-logo">
+          <Link to="/">
+            <Logo />
+          </Link>
         </div>
-        <ul className={isOpen ? 'menu--active' : 'menu'}>
-          <li className="menu-item">
-            <Link to="/miam" className="navbar-links" onClick={closeMobileNavbar}>
+        <ul className="navbar-wrapper-links">
+          <li className="navbar-wrapper-item">
+            <Link to="/miam" className="navbar-links">
               Les recettes Miam
             </Link>
           </li>
-          <li className="menu-item">
-            <Link to="/dernieres-recettes" className="menu-links" onClick={closeMobileNavbar}>
+          <li className="navbar-wrapper-item">
+            <Link to="/dernieres-recettes" className="menu-links">
               Les dernières recettes
             </Link>
           </li>
-          <li className="menu-item">
-            <Link to="/chefs" className="menu-links" onClick={closeMobileNavbar}>
+          <li className="navbar-wrapper-item">
+            <Link to="/chefs" className="menu-links">
               Chefs à la Une
             </Link>
           </li>
-          <li className="menu-item">
-            <Link to="/recettes-aleatoires" className="menu-links" onClick={closeMobileNavbar}>
+          <li className="navbar-wrapper-item">
+            <Link to="/recettes-aleatoires" className="menu-links">
               Recettes aléatoires
             </Link>
           </li>
-          <li className="menu-item">
-            <Link to="/connexion" className="menu-links" onClick={closeMobileNavbar}>
+          <li className="navbar-wrapper-item">
+            <Link to="/connexion" className="menu-links">
               Se connecter
             </Link>
           </li>
-          <li className="menu-item">
-            <Link to="/Inscription" className="menu-links" onClick={closeMobileNavbar}>
+          <li className="navbar-wrapper-item">
+            <Link to="/inscription" className="menu-links">
               Créer un compte
             </Link>
           </li>
         </ul>
-      </nav>
+        <div>
+          <i className="icon-bars" onClick={() => handleClick()} />
+        </div>
+      </div>
     </div>
   );
 }

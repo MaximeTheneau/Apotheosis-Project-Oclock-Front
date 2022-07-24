@@ -1,16 +1,16 @@
 // Action to open the Menu in the mobile version
-export const TOGGLE_MENU = 'TOGGLE_MENU';
+export const SHOW_SIDEBAR = 'SHOW_SIDEBAR';
 
-export function toggleMenu() {
+export function showSidebar() {
   return {
-    type: TOGGLE_MENU,
+    type: SHOW_SIDEBAR,
   };
 }
 
-export const CLOSE_MOBILE_MENU = 'CLOSE_MOBILE_MENU';
+export const HIDE_SIDEBAR = 'HIDE_SIDEBAR';
 
-export function closeMobileMenu() {
+export function hideSidebar() {
   return {
-    type: CLOSE_MOBILE_MENU,
+    type: HIDE_SIDEBAR,
   };
 }
