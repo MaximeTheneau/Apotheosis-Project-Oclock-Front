@@ -1,0 +1,9 @@
+@use './src/styles/vars';
+
+.form {
+  width: 280px;
+  min-width: 550px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.3rem;
+}
