@@ -1,24 +1,23 @@
-import { TOGGLE_MENU } from '../action/header';
+import { SHOW_SIDEBAR, HIDE_SIDEBAR } from '../action/header';
 
 export const initialState = {
   isOpen: false,
-  menuItems: [
-    'Les recettes Miam',
-    'Les dernières recettes',
-    'Chefs à la Une',
-    'Recettes aléatoires',
-    'Se connecter',
-    'Créer un compte',
-  ],
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case TOGGLE_MENU:
+    case SHOW_SIDEBAR:
       return {
         ...state,
-        isOpen: !state.isOpen,
+        isOpen: true,
       };
+
+    case HIDE_SIDEBAR:
+      return {
+        ...state,
+        isOpen: false,
+      };
+
     default:
       return state;
   }

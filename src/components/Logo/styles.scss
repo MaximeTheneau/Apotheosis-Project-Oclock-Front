@@ -1,0 +1,24 @@
+@use './src/styles/vars';
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  font-family: 'font-title';
+  line-height: 1.8rem;
+  padding: 0.5rem;
+
+  &-title {
+    color: vars.$grey-omiam;
+    font-size: 4rem;
+  }
+
+  &-sloggan {
+    font-size: 1.5rem;
+    color: vars.$grey-omiam;
+
+    &-highlight{
+      color: vars.$orange-omiam;
+    }
+  }
+}
+
