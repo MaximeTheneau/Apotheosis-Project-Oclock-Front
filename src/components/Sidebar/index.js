@@ -6,7 +6,7 @@ import { hideSidebar } from '../../action/header';
 
 function Sidebar() {
   const dispatch = useDispatch();
-  const sidebar = useSelector((state) => state.isOpen);
+  const sidebar = useSelector((state) => state.header.isOpen);
   const handleClose = () => {
     dispatch(hideSidebar());
   };
