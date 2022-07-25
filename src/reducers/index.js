@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import recipes from './search';
 import header from './header';
+import contact from '../components/Pages/Contact';
 
 const rootReducer = combineReducers({
   recipes: recipes,
   header: header,
+  contact: contact,
 });
 
 export default rootReducer;

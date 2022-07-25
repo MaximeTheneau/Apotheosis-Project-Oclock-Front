@@ -1,0 +1,23 @@
+@use '../../../styles/vars';
+
+.form-general {
+  display: inline-block;
+  margin: 1rem;
+}
+.pseudo-input{
+  display: flex;
+  margin: 1rem;
+}
+.email-input {
+  display: flex;
+  margin: 1rem;
+}
+.topic-input {
+  display: flex;
+  margin: 1rem;
+}
+.message-input {
+  display: flex;
+  margin: 1rem;
+  height: 5rem;
+}
