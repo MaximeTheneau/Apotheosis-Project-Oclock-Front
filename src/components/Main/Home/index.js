@@ -24,7 +24,7 @@ function Home() {
         <span className="logo-slogan"> Une histoire de miam's</span>
       </h1></Link>
 
-      <Link to="/recettes/recherche"><p>Recherche</p></Link>
+      <Link to="/Creer/Recette"><p>Creer Recette</p></Link>
 
 
       <SearchForm />

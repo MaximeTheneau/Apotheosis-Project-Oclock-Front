@@ -27,3 +27,18 @@ h2{
   }
   
 }
+input[type="text"], select {
+  width: 90%;
+  border-radius: vars.$raduis-img;
+  border: 0.01rem solid vars.$grey-omiam;
+  padding: 0.5rem;
+
+}
+input[type="file"] {
+  font-family: 'font-main';
+  background-color: #fff;
+}
+select{
+  border: none;
+  border: 0.01rem solid vars.$grey-omiam;
+}
