@@ -2,8 +2,24 @@
 
 .form {
   width: 280px;
-  min-width: 550px;
+  min-height: 550px;
   display: flex;
   flex-direction: column;
   border-radius: 0.3rem;
+  background-color: white;
+  box-shadow: 0 0 2px rgba(15,15,15,0);
+  margin: 2rem auto;
+  border: 1px solid vars.$grey-omiam;
+
+  &-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 1rem;
+  }
+
+  &-h2 {
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
 }
