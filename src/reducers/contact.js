@@ -1,12 +1,7 @@
 import { SET_NEW_CONTACT_MSG_CONTENT } from '../action/contact';
 
 export const initialState = {
-  form: {
-    pseudo: '',
-    email: '',
-    topic: '',
-    message: '',
-  },
+  form: [],
   currentMessageContactValue: '',
 };
 
