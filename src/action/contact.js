@@ -7,3 +7,14 @@ export function setNewContactMsgContent(newMsgContactValue) {
     value: newMsgContactValue,
   };
 }
+
+export const SET_SETTINGS_FIELD = 'SET_SETTINGS_FIELD';
+
+export function setSettingsField(value, field) {
+  return {
+    type: SET_SETTINGS_FIELD,
+    value: value,
+    field: field,
+  };
+}
+

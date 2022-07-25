@@ -1,7 +1,9 @@
-import { SET_NEW_CONTACT_MSG_CONTENT } from '../action/contact';
+import { SET_NEW_CONTACT_MSG_CONTENT, SET_SETTINGS_FIELD } from '../action/contact';
 
 export const initialState = {
-  form: [],
+  settings: {
+    pseudo: '',
+  },
   currentMessageContactValue: '',
 };
 
@@ -11,6 +13,14 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         currentMessageContactValue: action.value,
+      };
+    case SET_SETTINGS_FIELD:
+      return {
+        ...state,
+        settings: {
+          ...state.settings,
+          [action.field]: action.value,
+        },
       };
     default:
       return state;
