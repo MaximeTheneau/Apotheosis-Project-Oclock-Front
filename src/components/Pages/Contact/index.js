@@ -60,16 +60,19 @@ function Contact() {
             onChange={handleChangeTopic}
           />
         </div>
-        <div className="label label-message">
-          <input
+        <div className="label">
+          <textarea
             className="message-input"
             type="text"
+            rows="5"
             placeholder="Votre Message"
             value={valueMessage}
             onChange={handleChangeMessage}
           />
         </div>
-        <button className="send-button" type="submit">Envoyer</button>
+        <div className="send-button">
+          <i className="icon-oven" />
+        </div>
       </form>
     </div>
   );
