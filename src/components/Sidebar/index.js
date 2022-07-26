@@ -1,7 +1,6 @@
 import './styles.scss';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { ImCross } from 'react-icons/im';
 import { hideSidebar } from '../../action/header';
 
 function Sidebar() {
