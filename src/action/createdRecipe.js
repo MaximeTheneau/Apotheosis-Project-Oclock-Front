@@ -1,7 +1,20 @@
-export const ADD_ETAPE = 'ADD_ETAPE';
+export const TITLE_ACTION = 'TITLE_ACTION ';
 
-export function addEtape() {
+// Action creator => On l'utilise au moment du dispatch()
+export function titleAction(value, field) {
   return {
-    type: ADD_ETAPE,
+    type: TITLE_ACTION,
+    value: value,
+    field: field,
+  };
+}
+export const INGREDIENTS_ACTION = 'INGREDIENTS_ACTION ';
+
+// Action creator => On l'utilise au moment du dispatch()
+export function ingredientsAction(value, field) {
+  return {
+    type: INGREDIENTS_ACTION,
+    value: value,
+    field: field,
   };
 }

@@ -5,7 +5,7 @@ export const initialState = {
   form: {
     search: '',
   },
-  addCards: false,
+  addCards: true,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -24,7 +24,7 @@ const reducer = (state = initialState, action = {}) => {
         form: {
           ...state.settings,
         },
-        addCards: !state.addCards,
+        addCards: false,
       };
 
     default:

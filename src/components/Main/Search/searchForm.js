@@ -9,7 +9,9 @@ function SearchForm() {
   // console.log(recipesFilter);
 
   const handleChange = (evt) => {
-    dispatch(setSettingsField(evt.target.value, 'search'), dispatch(valueToogle()));
+    const evtTrue = ((evt.target.lenght) > 1);
+    console.log(evtTrue);
+    dispatch(setSettingsField(evt.target.value, 'search'), dispatch(valueToogle(evtTrue)));
   };
   const handleSubmit = (evt) => {
     evt.preventDefault();
