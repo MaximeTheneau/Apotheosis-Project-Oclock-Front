@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import Data from '../../../data/recipesHome';
 import Recipes from '../../../data/recipes';
 import SearchForm from '../Search/searchForm';
+import Logo from '../../Logo';
 
 function Home() {
   const valueSearch = useSelector((state) => state.recipes.form.search);
@@ -19,12 +20,17 @@ function Home() {
   });
   return (
     <>
-      {/* Title Page */}
+      {/* Title Page 
       <Link to="/"><h1 className="title-page logo"><i className="icon-miam logo" />'miam
         <span className="logo-slogan"> Une histoire de miam's</span>
-      </h1></Link>
-
+      </h1>
+      </Link> */}
+      <Link to="/">
+        <Logo />
+      </Link>
+      <Link to="/recettes/recherche"><p>Recherche</p></Link>
       <Link to="/Creer/Recette"><p>Creer Recette</p></Link>
+
 
 
       <SearchForm />
