@@ -11,7 +11,7 @@ export const initialState = {
     confirmedPassword: '',
   },
   settingsLogIn: {
-    isSignIn: false,
+    isLogIn: true,
     email: '',
     password: '',
   },
