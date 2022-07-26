@@ -62,7 +62,7 @@ function Footer() {
             </li>
           </ul>
         </nav>
-        <p className="footer-text">Mijoté avec &#128420; par la team O'Miam depuis 2022.</p>
+        <p className="footer-text">Mijoté avec &#128420; par la team O'miam depuis 2022.</p>
       </div>
     </div>
   );
