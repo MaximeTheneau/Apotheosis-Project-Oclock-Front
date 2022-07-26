@@ -1,6 +1,14 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { pseudoAction } from '../../../action/contact';
 import './styles.scss';
 
 function Contact() {
+  const dispatch = useDispatch();
+  const valuePseudo = useSelector((state) => state.pseudo);
+
+  const handleChange = ((event) => {
+    dispatch(pseudoAction(event.target.value), 'pseudo');
+  });
   return (
     <div className="contact">
       <h1>Contactez-nous</h1>
@@ -11,10 +19,9 @@ function Contact() {
           <input
             className="pseudo-input"
             type="text"
-            id="pseudo"
             placeholder="Votre Pseudo"
-            // value={}
-            // onChange={}
+            value={valuePseudo}
+            onChange={handleChange}
           />
         </label>
         <label htmlFor="email">

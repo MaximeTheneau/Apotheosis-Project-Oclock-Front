@@ -1,29 +1,19 @@
-import { } from '../action/contact';
+import { PSEUDO_ACTION } from '../action/contact';
 
 export const initialState = {
-  message: [],
-  setting: {
-    pseudo: "",
-    email: "",
-    topic: "",
-    message: "",
-  }
+  pseudo: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case :
+    case PSEUDO_ACTION:
       return {
         ...state,
-        
+        pseudo: {
+          ...state.settings,
+          [action.field]: action.value,
+        },
       };
-
-    case :
-      return {
-        ...state,
-        
-      };
-
     default:
       return state;
   }
