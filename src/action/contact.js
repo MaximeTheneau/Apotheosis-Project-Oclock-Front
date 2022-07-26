@@ -18,3 +18,14 @@ export function emailAction(value, field) {
   };
 }
 
+export const TOPIC_ACTION = 'TOPIC_ACTION';
+
+export function topicAction(value, field) {
+  return {
+    type: TOPIC_ACTION,
+    value: value,
+    field: field,
+  };
+}
+
+
