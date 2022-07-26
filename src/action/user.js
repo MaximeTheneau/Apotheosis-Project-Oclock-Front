@@ -2,7 +2,7 @@
 export const SET_LOGIN_CREDENTIALS = 'SET_LOGIN_CREDENTIALS';
 
 // Action creator => On l'utilise au moment du dispatch()
-export function setLoginCredentialsa(value, field) {
+export function setLoginCredentials(value, field) {
   return {
     type: SET_LOGIN_CREDENTIALS,
     value: value,

@@ -1,18 +1,19 @@
 import './styles.scss';
 import { useSelector, useDispatch } from 'react-redux';
+import { setLoginCredentials } from '../../action/user';
 
 function Login() {
   const {
     email, password,
-  } = useSelector((state) => state.header.settingsLogIn);
+  } = useSelector((state) => state.user.settingsLogIn);
   const dispatch = useDispatch();
 
-  const handleEmailChange = () => {
-
+  const handleEmailChange = (event) => {
+    dispatch(setLoginCredentials(event.currentTarget.value, 'email'));
   };
 
-  const handlePasswordChange = () => {
-
+  const handlePasswordChange = (event) => {
+    dispatch(setLoginCredentials(event.currentTarget.value, 'password'));
   };
 
   return (

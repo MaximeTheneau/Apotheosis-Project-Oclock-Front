@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 function Register() {
   const {
-    isRegister, pseudo, email, password, confirmedPassword,
-  } = useSelector((state) => state.header.settingsRegister);
+    pseudo, email, password, confirmedPassword,
+  } = useSelector((state) => state.user.settingsRegister);
   return (
     <form className="registration">
       <div className="registration-field">
