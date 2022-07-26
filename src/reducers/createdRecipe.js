@@ -1,4 +1,4 @@
-import { INGREDIENTS_ACTION, TITLE_ACTION } from '../action/createdRecipe';
+import { DIFFICULTY_ACTION, INGREDIENTS_ACTION, TITLE_ACTION, TYPE_ACTION } from '../action/createdRecipe';
 
 export const initialState = {
   steps: {
@@ -14,6 +14,8 @@ export const initialState = {
   },
   title: '',
   ingredients: '',
+  types: '',
+
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -26,10 +28,28 @@ const reducer = (state = initialState, action = {}) => {
           [action.field]: action.value,
         },
       };
+
     case INGREDIENTS_ACTION:
       return {
         ...state,
         ingredients: {
+          ...state.settings,
+          [action.field]: action.value,
+        },
+      };
+
+    case TYPE_ACTION:
+      return {
+        ...state,
+        types: {
+          ...state.settings,
+          [action.field]: action.value,
+        },
+      };
+    case DIFFICULTY_ACTION:
+      return {
+        ...state,
+        diffuculty: {
           ...state.settings,
           [action.field]: action.value,
         },

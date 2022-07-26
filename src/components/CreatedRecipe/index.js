@@ -1,34 +1,44 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { ingredientsAction, titleAction } from '../../action/createdRecipe';
+import { difficultyAction, ingredientsAction, titleAction, typeAction } from '../../action/createdRecipe';
 import './styles.scss';
 
 function CreatedRecipe() {
   const dispatch = useDispatch();
   const valueTitle = useSelector((state) => state.title);
-  const valueIngredient = useSelector((state) => state.ingredients);
-
+  // const valueIngredient = useSelector((state) => state.ingredients);
+  const valueType = useSelector((state) => state.type);
 
   // console.log(valueTitle);
-
-  const handleChange = ((evt) => {
-    // console.log(evt.target.value);
-    dispatch(dispatch(titleAction(evt.target.value), 'title'), dispatch(ingredientsAction(evt.target.value), 'ingredients'));
+  const handleChangeTitle = ((evt) => {
+    dispatch(titleAction(evt.target.value, 'title'));
   });
 
+  const handleChangeType = ((evt) => {
+    dispatch(typeAction(evt.target.value, 'type'));
+  });
+  const handleChangeDifficulty = ((evt) => {
+    dispatch(difficultyAction(evt.target.value, 'difficulty'));
+  });
 
   return (
     <div className="createdRecipe">
       <h1>Créer Une recette</h1>
-      <form >
+      <form>
         <div>
           <span className="label-title">Title</span>
-          <input type="text" onChange={handleChange} value={valueTitle} />
+          <input type="text" onChange={handleChangeTitle} value={valueTitle} />
         </div>
-        <div>
+        <div className="form-radio" onChange={handleChangeType}>
           <span className="label-title">Type</span>
-          <input type="radio" value="1" name="Difficulty" /> <i className="icon-kitchen-hat"/>
-          <input type="radio" value="2" name="Difficulty" /> <i className="icon-kitchen-hat"/> <i className="icon-kitchen-hat"/>
-          <input type="radio" value="3" name="Difficulty" /> <i className="icon-kitchen-hat"/> <i className="icon-kitchen-hat"/> <i className="icon-kitchen-hat"/>
+          <input type="radio" value="1" checked={valueType} name="Difficulty" /> <i className="icon-kitchen-hat"/>
+          <input type="radio" value="2" checked={valueType} name="Difficulty" /> <i className="icon-kitchen-hat"/> <i className="icon-kitchen-hat"/>
+          <input type="radio" value="3" checked={valueType} name="Difficulty" /> <i className="icon-kitchen-hat"/> <i className="icon-kitchen-hat"/> <i className="icon-kitchen-hat"/>
+        </div>
+        <div className="form-radio" onChange={handleChangeDifficulty}>
+          <span className="label-title">Difficulty</span>
+          <input type="radio" value="1" checked={valueType} name="Difficulty" /> <i className="icon-kitchen-hat"/>
+          <input type="radio" value="2" checked={valueType} name="Difficulty" /> <i className="icon-kitchen-hat"/> <i className="icon-kitchen-hat"/>
+          <input type="radio" value="3" checked={valueType} name="Difficulty" /> <i className="icon-kitchen-hat"/> <i className="icon-kitchen-hat"/> <i className="icon-kitchen-hat"/>
         </div>
         <div>
           <span className="label-title">Temps</span>
@@ -45,7 +55,7 @@ function CreatedRecipe() {
           <span className="label-title">Ingredient pour 4 personnes.</span>
           <div className="ingredients">
             <div className="ingredients-add">
-              <input type="text" onChange={handleChange} value={valueIngredient}/>
+              <input type="text" />
 
               <select name="unit" className="ingredients-type" id="duration">
                 <option value="">----</option>
