@@ -1,12 +1,12 @@
 import './styles.scss';
-import Connexion from '../Connexion';
+import Connection from '../Connection';
 import Navbar from '../Navbar';
 import Sidebar from '../Sidebar';
 
 function Header() {
   return (
     <header>
-      <Connexion />
+      <Connection />
       <Navbar />
       <Sidebar />
     </header>
