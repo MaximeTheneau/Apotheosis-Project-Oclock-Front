@@ -39,17 +39,15 @@ function Navbar() {
               Recettes aléatoires
             </Link>
           </li>
-          <li className="navbar-wrapper-item">
-            <Link to="/connexion" className="menu-links">
-              Se connecter
-            </Link>
-          </li>
-          <li className="navbar-wrapper-item">
-            <Link to="/inscription" className="menu-links">
-              Créer un compte
-            </Link>
-          </li>
         </ul>
+        <button
+          type="button"
+          className="navbar-wrapper-button"
+        >
+          <Link to="/login" className="menu-links">
+            Connexion
+          </Link>
+        </button>
         <div className="icon">
           <i className="icon-lock" />
           <i className="icon-bars" onClick={() => handleClick()} />
