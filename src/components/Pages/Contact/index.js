@@ -1,5 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { emailAction, pseudoAction, topicAction } from '../../../action/contact';
+import {
+  emailAction,
+  pseudoAction,
+  topicAction,
+  messageAction,
+} from '../../../action/contact';
 import './styles.scss';
 
 function Contact() {
@@ -7,6 +12,7 @@ function Contact() {
   const valuePseudo = useSelector((state) => state.pseudo);
   const valueEmail = useSelector((state) => state.email);
   const valueTopic = useSelector((state) => state.topic);
+  const valueMessage = useSelector((state) => state.message);
 
   const handleChangePseudo = ((event) => {
     dispatch(pseudoAction(event.target.value, 'pseudo'));
@@ -16,6 +22,9 @@ function Contact() {
   });
   const handleChangeTopic = ((event) => {
     dispatch(topicAction(event.target.value, 'topic'));
+  });
+  const handleChangeMessage = ((event) => {
+    dispatch(messageAction(event.target.value, 'message'));
   });
   return (
     <div className="contact">
@@ -55,7 +64,8 @@ function Contact() {
             className="message-input"
             type="text"
             placeholder="Votre Message"
-
+            value={valueMessage}
+            onChange={handleChangeMessage}
           />
         </label>
         <button className="send-button" type="submit">Envoyer</button>

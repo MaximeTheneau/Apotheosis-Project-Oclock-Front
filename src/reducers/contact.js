@@ -1,9 +1,15 @@
-import { PSEUDO_ACTION, EMAIL_ACTION, TOPIC_ACTION } from '../action/contact';
+import {
+  PSEUDO_ACTION,
+  EMAIL_ACTION,
+  TOPIC_ACTION,
+  MESSAGE_ACTION,
+} from '../action/contact';
 
 export const initialState = {
   pseudo: '',
   email: '',
   topic: '',
+  message: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -28,6 +34,14 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         topic: {
+          ...state.settings,
+          [action.field]: action.value,
+        },
+      };
+    case MESSAGE_ACTION:
+      return {
+        ...state,
+        message: {
           ...state.settings,
           [action.field]: action.value,
         },

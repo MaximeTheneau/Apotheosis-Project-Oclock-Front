@@ -28,4 +28,12 @@ export function topicAction(value, field) {
   };
 }
 
+export const MESSAGE_ACTION = 'MESSAGE_ACTION';
 
+export function messageAction(value, field) {
+  return {
+    type: MESSAGE_ACTION,
+    value: value,
+    field: field,
+  };
+}
