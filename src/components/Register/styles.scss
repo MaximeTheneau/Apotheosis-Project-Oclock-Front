@@ -48,10 +48,7 @@
     text-shadow: 1px 1px 1px vars.$grey-omiam;
     border-radius: 10px;
     background-color: vars.$grey-omiam;
-    background-image: linear-gradient(to top left,
-                                      rgba(0, 0, 0, .2),
-                                      rgba(0, 0, 0, .2) 30%,
-                                      rgba(0, 0, 0, 0));
+    
 
     &:hover {
       

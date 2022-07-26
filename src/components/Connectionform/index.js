@@ -1,6 +1,7 @@
 import './styles.scss';
 import { Link } from 'react-router-dom';
 import Register from '../Register';
+import Login from '../Login';
 
 function Connectionform() {
   return (
@@ -10,6 +11,7 @@ function Connectionform() {
         <Link to="/login"><h2 className="form-h2">Créer un compte</h2></Link>
       </div>
       <Register />
+      <Login />
     </div>
   );
 }
