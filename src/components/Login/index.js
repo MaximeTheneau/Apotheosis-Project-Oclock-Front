@@ -17,11 +17,11 @@ function Login() {
   };
 
   return (
-    <form className="registration">
-      <div className="registration-field">
+    <form className="login">
+      <div className="login-field">
         <label
           htmlFor="email"
-          className="registration-label"
+          className="login-label"
         >
           Email *
           <input
@@ -30,16 +30,16 @@ function Login() {
             id="email"
             value={email}
             required
-            className="registration-input"
+            className="login-input"
             size="28"
             onChange={handleEmailChange}
           />
         </label>
       </div>
-      <div className="registration-field">
+      <div className="login-field">
         <label
           htmlFor="password"
-          className="registration-label"
+          className="login-label"
         >
           Mot de passe *
           <input
@@ -48,13 +48,13 @@ function Login() {
             id="password"
             value={password}
             required
-            className="registration-input"
+            className="login-input"
             size="28"
             onChange={handlePasswordChange}
           />
         </label>
       </div>
-      <button type="submit" className="registration-submit">Connexion</button>
+      <button type="submit" className="login-submit">Connexion</button>
     </form>
   );
 }

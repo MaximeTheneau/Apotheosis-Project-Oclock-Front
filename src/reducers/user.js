@@ -1,4 +1,6 @@
-import { SET_LOGIN_CREDENTIALS } from '../action/user';
+import {
+  OPEN_LOGIN, OPEN_REGISTRATION, SET_LOGIN_CREDENTIALS, SET_REGISTRATION_CREDENTIALS 
+} from '../action/user';
 
 export const initialState = {
   settingsRegister: {
@@ -13,6 +15,8 @@ export const initialState = {
     email: '',
     password: '',
   },
+  isLoginOpen: true,
+  isRegistrationOpen: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -24,6 +28,29 @@ const reducer = (state = initialState, action = {}) => {
           ...state.settingsLogIn,
           [action.field]: action.value,
         },
+      };
+
+    case SET_REGISTRATION_CREDENTIALS:
+      return {
+        ...state,
+        settingsRegister: {
+          ...state.settingsRegister,
+          [action.field]: action.value,
+        },
+      };
+
+    case OPEN_LOGIN:
+      return {
+        ...state,
+        isLoginOpen: true,
+        isRegistrationOpen: false,
+      };
+
+    case OPEN_REGISTRATION:
+      return {
+        ...state,
+        isLoginOpen: false,
+        isRegistrationOpen: true,
       };
 
     default:

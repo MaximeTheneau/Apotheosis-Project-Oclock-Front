@@ -1,10 +1,29 @@
 import './styles.scss';
 import { useSelector, useDispatch } from 'react-redux';
+import { setRegistrationcredentials } from '../../action/user';
 
 function Register() {
   const {
     pseudo, email, password, confirmedPassword,
   } = useSelector((state) => state.user.settingsRegister);
+  const dispatch = useDispatch();
+
+  const handlePseudoChange = (event) => {
+    dispatch(setRegistrationcredentials(event.currentTarget.value, 'pseudo'));
+  };
+
+  const handleEmailChange = (event) => {
+    dispatch(setRegistrationcredentials(event.currentTarget.value, 'email'));
+  };
+
+  const handlePasswordChange = (event) => {
+    dispatch(setRegistrationcredentials(event.currentTarget.value, 'password'));
+  };
+
+  const handleconfirmedPasswordChange = (event) => {
+    dispatch(setRegistrationcredentials(event.currentTarget.value, 'confirmedPassword'));
+  };
+
   return (
     <form className="registration">
       <div className="registration-field">
@@ -21,6 +40,7 @@ function Register() {
             required
             className="registration-input"
             size="28"
+            onChange={handlePseudoChange}
           />
         </label>
       </div>
@@ -38,6 +58,7 @@ function Register() {
             required
             className="registration-input"
             size="28"
+            onChange={handleEmailChange}
           />
         </label>
       </div>
@@ -55,6 +76,7 @@ function Register() {
             required
             className="registration-input"
             size="28"
+            onChange={handlePasswordChange}
           />
         </label>
       </div>
@@ -72,6 +94,7 @@ function Register() {
             required
             className="registration-input"
             size="28"
+            onChange={handleconfirmedPasswordChange}
           />
         </label>
       </div>
