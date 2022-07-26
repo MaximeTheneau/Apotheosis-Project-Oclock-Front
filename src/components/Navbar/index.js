@@ -50,7 +50,8 @@ function Navbar() {
             </Link>
           </li>
         </ul>
-        <div>
+        <div className="icon">
+          <i className="icon-lock" />
           <i className="icon-bars" onClick={() => handleClick()} />
         </div>
       </div>

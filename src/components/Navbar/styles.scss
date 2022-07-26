@@ -51,19 +51,26 @@
   }
 }
 
-.icon-bars {
+.icon {
+  display:flex;
+  flex-direction: row;
+}
+
+.icon-bars, .icon-lock {
     font-size: 2rem;
     padding-right: 1rem;
     display:none;
     cursor: pointer;
 }
 
+
+
 @media screen and (max-width: 768px) {
   .navbar-wrapper-links {
     display: none;
   }
 
-  .icon-bars{
+  .icon-bars, .icon-lock{
     display: block;
   }
 
