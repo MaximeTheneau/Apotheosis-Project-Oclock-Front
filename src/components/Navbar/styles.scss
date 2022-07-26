@@ -61,6 +61,10 @@
     text-shadow: 1px 1px 1px vars.$grey-omiam;
     border-radius: 10px;
     background-color: vars.$grey-omiam;
+
+    &:hover {
+      transform: scale(1.1);
+    }
     }
   }
 }

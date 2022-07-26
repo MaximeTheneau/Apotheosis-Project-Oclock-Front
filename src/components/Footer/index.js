@@ -23,7 +23,7 @@ function Footer() {
             <li className="footer-link">
               <NavLink
                 className={
-                ({ isActive }) => (isActive ? 'footer-link--active' : 'footer-linsk')
+                ({ isActive }) => (isActive ? 'footer-link--active' : 'footer-link')
             }
                 to="/qui-sommes-nous"
               >

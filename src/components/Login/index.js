@@ -3,8 +3,18 @@ import { useSelector, useDispatch } from 'react-redux';
 
 function Login() {
   const {
-    isRegister, pseudo, email, password, confirmedPassword,
-  } = useSelector((state) => state.header.settingsRegister);
+    email, password,
+  } = useSelector((state) => state.header.settingsLogIn);
+  const dispatch = useDispatch();
+
+  const handleEmailChange = () => {
+
+  };
+
+  const handlePasswordChange = () => {
+
+  };
+
   return (
     <form className="registration">
       <div className="registration-field">
@@ -21,6 +31,7 @@ function Login() {
             required
             className="registration-input"
             size="28"
+            onChange={handleEmailChange}
           />
         </label>
       </div>
@@ -38,6 +49,7 @@ function Login() {
             required
             className="registration-input"
             size="28"
+            onChange={handlePasswordChange}
           />
         </label>
       </div>
