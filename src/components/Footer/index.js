@@ -33,7 +33,7 @@ function Footer() {
             >
               Qui sommes nous ?
             </NavLink>
-          </li>          
+          </li>
           <li className="footer-link-aboutus">
             <NavLink
               className={
@@ -61,7 +61,7 @@ function Footer() {
             }
               to="/mention-legal"
             >
-              Mentions légal
+              Mentions légales
             </NavLink>
           </li>
           <li className="footer-link-tscs">
@@ -71,7 +71,7 @@ function Footer() {
             }
               to="/condition-general-utilisation"
             >
-              Conditions général d'utilisation
+              Conditions Générales d'Utilisation
             </NavLink>s
           </li>
         </ul>

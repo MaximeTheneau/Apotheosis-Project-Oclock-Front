@@ -1,7 +1,6 @@
 import './styles.scss';
 
 function Contact() {
-
   return (
     <div className="contact">
       <h1>Contactez-nous</h1>
@@ -14,8 +13,8 @@ function Contact() {
             type="text"
             id="pseudo"
             placeholder="Votre Pseudo"
-            //onChange={}
-
+            // value={}
+            // onChange={}
           />
         </label>
         <label htmlFor="email">
