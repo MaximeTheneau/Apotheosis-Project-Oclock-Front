@@ -1,13 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { pseudoAction } from '../../../action/contact';
+import { emailAction, pseudoAction } from '../../../action/contact';
 import './styles.scss';
 
 function Contact() {
   const dispatch = useDispatch();
   const valuePseudo = useSelector((state) => state.pseudo);
+  const valueEmail = useSelector((state) => state.pseudo);
 
-  const handleChange = ((event) => {
+  const handleChangePseudo = ((event) => {
     dispatch(pseudoAction(event.target.value), 'pseudo');
+  });
+  const handleChangeEmail = ((event) => {
+    dispatch(emailAction(event.target.value, 'email'))
   });
   return (
     <div className="contact">
@@ -21,7 +25,7 @@ function Contact() {
             type="text"
             placeholder="Votre Pseudo"
             value={valuePseudo}
-            onChange={handleChange}
+            onChange={handleChangePseudo}
           />
         </label>
         <label htmlFor="email">
@@ -30,6 +34,8 @@ function Contact() {
             type="email"
             id="email"
             placeholder="Votre E-mail"
+            value={valueEmail}
+            onChange={handleChangeEmail}
           />
         </label>
         <label htmlFor="topic">
