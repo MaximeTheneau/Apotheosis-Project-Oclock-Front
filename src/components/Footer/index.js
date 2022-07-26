@@ -17,50 +17,53 @@ function Footer() {
         <Route path="/condition-general-utilisation" element={<Tscs />} />
       </Routes>
 
-      <nav className="footer">
-        <ul className="footer-list">
-          <li className="footer-link-aboutus">
-            <NavLink
-              className={
+      <div className="footer">
+        <nav className="footer-navbar">
+          <ul className="footer-list">
+            <li className="footer-link">
+              <NavLink
+                className={
                 ({ isActive }) => (isActive ? 'footer-link--active' : 'footer-linsk')
             }
-              to="/qui-sommes-nous"
-            >
-              Qui sommes nous ?
-            </NavLink>
-          </li>
-          <li className="footer-link-contact">
-            <NavLink
-              className={
+                to="/qui-sommes-nous"
+              >
+                Qui sommes nous ?
+              </NavLink>
+            </li>
+            <li className="footer-link">
+              <NavLink
+                className={
                 ({ isActive }) => (isActive ? 'footer-link--active' : 'footer-link')
             }
-              to="/contact"
-            >
-              Contact
-            </NavLink>
-          </li>
-          <li className="footer-link-privacy">
-            <NavLink
-              className={
+                to="/contact"
+              >
+                Contact
+              </NavLink>
+            </li>
+            <li className="footer-link">
+              <NavLink
+                className={
                 ({ isActive }) => (isActive ? 'footer-link--active' : 'footer-link')
             }
-              to="/mention-legal"
-            >
-              Mentions légales
-            </NavLink>
-          </li>
-          <li className="footer-link-tscs">
-            <NavLink
-              className={
+                to="/mention-legal"
+              >
+                Mentions légales
+              </NavLink>
+            </li>
+            <li className="footer-link">
+              <NavLink
+                className={
                 ({ isActive }) => (isActive ? 'footer-link--active' : 'footer-link')
-            }
-              to="/condition-general-utilisation"
-            >
-              Conditions Générales d'Utilisation
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
+              }
+                to="/condition-general-utilisation"
+              >
+                Conditions Générales d'Utilisation
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
+        <p className="footer-text">Mijote avec &#128420; par la team O'Miam depuis 2022.</p>
+      </div>
     </div>
   );
 }
