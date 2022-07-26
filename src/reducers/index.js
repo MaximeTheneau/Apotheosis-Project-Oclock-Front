@@ -3,6 +3,7 @@ import recipes from './search';
 import header from './header';
 import contact from './contact';
 import createdRecipe from './createdRecipe';
+import user from './user';
 
 
 const rootReducer = combineReducers({
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
   header: header,
   contact: contact,
   createdRecipe: createdRecipe,
+  user: user,
 });
 
 export default rootReducer;

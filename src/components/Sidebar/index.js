@@ -1,7 +1,6 @@
 import './styles.scss';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { ImCross } from 'react-icons/im';
 import { hideSidebar } from '../../action/header';
 
 function Sidebar() {
@@ -30,18 +29,13 @@ function Sidebar() {
           </Link>
         </li>
         <li className="sidebar-item">
-          <Link to="/connexion" className="navbar-links" onClick={() => handleClose()}>
-            Se connecter
-          </Link>
-        </li>
-        <li className="sidebar-item">
-          <Link to="/inscription" className="navbar-links" onClick={() => handleClose()}>
-            Créer un compte
+          <Link to="/recettes-aleatoires" className="menu-links">
+            Recettes aléatoires
           </Link>
         </li>
       </ul>
       <div className="sidebar-cancel">
-        <ImCross onClick={() => handleClose()} />
+        <i className="icon-x" onClick={() => handleClose()} />
       </div>
     </div>
   );
