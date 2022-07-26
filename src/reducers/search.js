@@ -5,7 +5,7 @@ export const initialState = {
   form: {
     search: '',
   },
-  addCards: true,
+  addCards: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -21,10 +21,7 @@ const reducer = (state = initialState, action = {}) => {
     case VALUE_TOOGLE:
       return {
         ...state,
-        form: {
-          ...state.settings,
-        },
-        addCards: false,
+        addCards: !action.addCards,
       };
 
     default:

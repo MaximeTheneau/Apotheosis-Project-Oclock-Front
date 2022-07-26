@@ -9,20 +9,29 @@ function SearchForm() {
   // console.log(recipesFilter);
 
   const handleChange = (evt) => {
-    const evtTrue = ((evt.target.lenght) > 1);
-    console.log(evtTrue);
-    dispatch(setSettingsField(evt.target.value, 'search'), dispatch(valueToogle(evtTrue)));
+    dispatch(setSettingsField(evt.target.value, 'search'));
   };
+
+  const handleFocus = (evt) => {
+    console.log(evt.bubbles);
+    dispatch(valueToogle(evt.bubbles));
+  };
+  const handleBlur = (evt) => {
+    dispatch(valueToogle(evt.cancelable));
+  };
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     dispatch(submitValue());
   };
   return (
     <div className="search">
-      <div className="search-form">
+      <div className="search-form" >
         <form onSubmit={handleSubmit}>
           <input
             value={valueSearch}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
             onChange={handleChange}
             type="text"
             className="field-input"

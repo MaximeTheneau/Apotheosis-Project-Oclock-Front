@@ -1,13 +1,16 @@
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import './styles.scss';
 import { useSelector } from 'react-redux';
 import Data from '../../../data/recipesHome';
 import Recipes from '../../../data/recipes';
 import SearchForm from '../Search/searchForm';
+import Spinner from '../../Spinner';
 
 function Home() {
   const valueSearch = useSelector((state) => state.recipes.form.search);
   const toogleValue = useSelector((state) => state.recipes.addCards);
+  console.log(toogleValue);
 
   const valueSearchFilterMaj = valueSearch.toLocaleLowerCase();
   const valueSearchFilter = valueSearchFilterMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
@@ -17,8 +20,13 @@ function Home() {
     const filterNameSearch = filterNameSearchMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
     return (filterNameSearch.includes(valueSearchFilter));
   });
-
+  const recipesSliceEffect = () => recipesFilter.slice(0, 6);
   const recipesSlice = recipesFilter.slice(0, 6);
+
+  useEffect(() => {
+    // après chaque rendu du composant on appelle la fonction qui load les posts
+    recipesSliceEffect();
+  }, []);
 
   return (
     <>
@@ -35,10 +43,11 @@ function Home() {
 
       <SearchForm />
 
+      { (!toogleValue) && <Spinner />}
+      { (toogleValue) && <SearchForm />}
       <div className="cards-home">
-
         {/* Cards Search */}
-        { toogleValue ? '' : (
+        { toogleValue ? (
           <div className="cards-type">
             <h2 className="cards-recipe">Ma Recherche</h2>
             <div className="cards-list-type">
@@ -67,8 +76,7 @@ function Home() {
               )) }
             </div>
           </div>
-        ) }
-
+        ) : '' }
 
         {/* Cards Miam */}
         <div className="cards">
