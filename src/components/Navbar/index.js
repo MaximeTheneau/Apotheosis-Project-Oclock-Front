@@ -49,7 +49,7 @@ function Navbar() {
           </Link>
         </button>
         <div className="icon">
-          <i className="icon-lock" />
+          <Link to="/login"><i className="icon-lock" /></Link>
           <i className="icon-bars" onClick={() => handleClick()} />
         </div>
       </div>
