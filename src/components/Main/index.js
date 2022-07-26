@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router';
 import Connectionform from '../Connectionform';
+import CreatedRecipe from '../CreatedRecipe';
 import Categories from './Categories';
 import Home from './Home';
 import Search from './Search';
@@ -15,6 +16,7 @@ function Main() {
         <Route path="/" element={<Home />} />
         <Route path="/recettes/recherche" element={<Search />} />
         <Route path="/login" element={<Connectionform />} />
+        <Route path="/Creer/Recette" element={<CreatedRecipe />} />
       </Routes>
     </div>
   );

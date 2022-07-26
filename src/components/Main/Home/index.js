@@ -29,6 +29,8 @@ function Home() {
         <Logo />
       </Link>
       <Link to="/recettes/recherche"><p>Recherche</p></Link>
+      <Link to="/Creer/Recette"><p>Creer Recette</p></Link>
+
 
 
       <SearchForm />
