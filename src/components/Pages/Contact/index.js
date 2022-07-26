@@ -30,9 +30,10 @@ function Contact() {
     <div className="contact">
       <h1>Contactez-nous</h1>
       <p>Une remarque ? Une suggestion ? N'hesitez-pas à nous écrire.</p>
+
       <form className="form-general">
 
-        <label htmlFor="pseudo">
+        <div className="label">
           <input
             className="pseudo-input"
             type="text"
@@ -40,8 +41,8 @@ function Contact() {
             value={valuePseudo}
             onChange={handleChangePseudo}
           />
-        </label>
-        <label htmlFor="email">
+        </div>
+        <div className="label">
           <input
             className="email-input"
             type="email"
@@ -49,8 +50,8 @@ function Contact() {
             value={valueEmail}
             onChange={handleChangeEmail}
           />
-        </label>
-        <label htmlFor="topic">
+        </div>
+        <div className="label">
           <input
             className="topic-input"
             type="text"
@@ -58,8 +59,8 @@ function Contact() {
             value={valueTopic}
             onChange={handleChangeTopic}
           />
-        </label>
-        <label htmlFor="message">
+        </div>
+        <div className="label label-message">
           <input
             className="message-input"
             type="text"
@@ -67,7 +68,7 @@ function Contact() {
             value={valueMessage}
             onChange={handleChangeMessage}
           />
-        </label>
+        </div>
         <button className="send-button" type="submit">Envoyer</button>
       </form>
     </div>

@@ -1,23 +1,22 @@
 @use '../../../styles/vars';
 
 .form-general {
-  display: inline-block;
-  margin: 1rem;
-}
-.pseudo-input{
   display: flex;
-  margin: 1rem;
+  flex-direction: column;
+  align-items: center;
 }
-.email-input {
-  display: flex;
-  margin: 1rem;
+.label{
+  width:70%;
+  margin: 0.5rem 0;
 }
-.topic-input {
-  display: flex;
-  margin: 1rem;
+.label input{
+  width:100%;
+}
+.label-message{
+  height: 10vh;
+  vertical-align: top;
 }
 .message-input {
-  display: flex;
-  margin: 1rem;
-  height: 5rem;
+  height: 100%;
 }
+
