@@ -74,9 +74,11 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_USER:
       return {
         ...state,
-        ...action.user,
-        email: '',
-        password: '',
+        settingsLogIn: {
+          ...action.user,
+          email: '',
+          password: '',
+        },
       };
 
     default:
