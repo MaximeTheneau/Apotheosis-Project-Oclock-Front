@@ -1,11 +1,14 @@
 import './styles.scss';
 import { useSelector, useDispatch } from 'react-redux';
-import { setLoginCredentials } from '../../action/user';
+import { setLoginCredentials, login } from '../../action/user';
 
 function Login() {
   const {
     email, password,
   } = useSelector((state) => state.user.settingsLogIn);
+  const {
+    error, errorMessage,
+  } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const handleEmailChange = (event) => {
@@ -16,8 +19,20 @@ function Login() {
     dispatch(setLoginCredentials(event.currentTarget.value, 'password'));
   };
 
+  const handleClick = (event) => {
+    event.preventDefault();
+    dispatch(login());
+  };
+
   return (
     <form className="login">
+      {error
+      && (
+        <p
+          className="error-message"
+        >{errorMessage}
+        </p>
+      )}
       <div className="login-field">
         <label
           htmlFor="email"
@@ -28,6 +43,7 @@ function Login() {
             placeholder="email@omiam.com"
             type="email"
             id="email"
+            autoComplete="off"
             value={email}
             required
             className="login-input"
@@ -54,7 +70,7 @@ function Login() {
           />
         </label>
       </div>
-      <button type="submit" className="login-submit">Connexion</button>
+      <button type="submit" className="login-submit" onClick={handleClick}>Connexion</button>
     </form>
   );
 }
