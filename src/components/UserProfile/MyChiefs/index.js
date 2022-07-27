@@ -6,7 +6,7 @@ function MyChiefs() {
     <>
       <HeaderMyAccount />
       <div className="my-chiefs">
-        <h1>Mes Chefs</h1>
+        <h1 className="my-chiefs-title">Mes Chefs</h1>
       </div>
     </>
   );

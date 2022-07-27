@@ -6,7 +6,7 @@ function MyMiams() {
     <>
       <HeaderMyAccount />
       <div className="my-miams">
-        <h1>Carnet de Miam's</h1>
+        <h1 className="my-miams-title">Carnet de Miam's</h1>
       </div>
     </>
   );
