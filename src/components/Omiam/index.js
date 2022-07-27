@@ -29,8 +29,7 @@ function Omiam() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/mention-legales" element={<Privacy />} />
           <Route path="/conditions-generales-utilisation" element={<Tscs />} />
-          <Route path="/mon-compte" element={<Connectionform />} />
-          <Route path="/mon-compte" element={<Connectionform />} />
+          <Route path="/connexion" element={<Connectionform />} />
           <Route path="/Creer/Recette" element={<CreatedRecipe />} />
           <Route path="*" element={<Error />} />
           {/*
