@@ -5,6 +5,8 @@ import {
   LOGOUT,
   saveUser,
   saveFavorites,
+  redirect,
+  authError,
   fetchFavorites,
 } from '../action/user';
 
@@ -40,6 +42,9 @@ const userMiddleware = (store) => (next) => (action) => {
           // On mémorise l'utilisateur dans le state
           store.dispatch(saveUser(user));
 
+          // Redirection of the user towards to home page
+          store.dispatch(redirect('/'));
+
           // on mémorise ses favoris aussi
           //store.dispatch(fetchFavorites());
 
@@ -47,6 +52,9 @@ const userMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
+
+          store.dispatch(authError('Email ou mot de passe incorrect'));
+
           return next(action);
         });
 

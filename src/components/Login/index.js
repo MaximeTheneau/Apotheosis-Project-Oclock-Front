@@ -1,14 +1,15 @@
 import './styles.scss';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { setLoginCredentials, login } from '../../action/user';
 
 function Login() {
   const {
     email, password,
   } = useSelector((state) => state.user.settingsLogIn);
+  const {
+    error, errorMessage,
+  } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleEmailChange = (event) => {
     dispatch(setLoginCredentials(event.currentTarget.value, 'email'));
@@ -21,11 +22,17 @@ function Login() {
   const handleClick = (event) => {
     event.preventDefault();
     dispatch(login());
-    navigate('/', { replace: true });
   };
 
   return (
     <form className="login">
+      {error
+      && (
+        <p
+          className="error-message"
+        >{errorMessage}
+        </p>
+      )}
       <div className="login-field">
         <label
           htmlFor="email"

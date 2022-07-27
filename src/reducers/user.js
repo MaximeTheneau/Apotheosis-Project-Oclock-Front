@@ -1,6 +1,6 @@
 import {
   OPEN_LOGIN, OPEN_REGISTRATION, SET_LOGIN_CREDENTIALS, SET_REGISTRATION_CREDENTIALS,
-  LOGOUT, SAVE_USER, SAVE_FAVORITES,
+  LOGOUT, SAVE_USER, SAVE_FAVORITES, AUTH_ERROR,
 } from '../action/user';
 
 export const initialState = {
@@ -13,7 +13,7 @@ export const initialState = {
     avatar: '',
   },
   settingsLogIn: {
-    isLogIn: false,
+    logs: false,
     email: '',
     password: '',
     pseudo: '', // Renvoyé par l'API
@@ -23,6 +23,10 @@ export const initialState = {
   },
   isLoginOpen: true,
   isRegistrationOpen: false,
+  auth: {
+    error: false,
+    errorMessage: '',
+  },
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -64,7 +68,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         settingsLogIn: {
           ...state.settingsLogIn,
-          isLogIn: false,
+          logs: false,
           pseudo: '',
           avatar: '',
           token: '',
@@ -79,6 +83,13 @@ const reducer = (state = initialState, action = {}) => {
           email: '',
           password: '',
         },
+      };
+
+    case AUTH_ERROR:
+      return {
+        ...state,
+        error: true,
+        errorMessage: action.message,
       };
 
     default:

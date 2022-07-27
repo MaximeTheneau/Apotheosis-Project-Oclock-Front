@@ -79,3 +79,21 @@ export function saveFavorites(favorites) {
     favorites,
   };
 }
+
+export const REDIRECT = 'REDIRECT';
+
+export function redirect(lien) {
+  return {
+    type: REDIRECT,
+    lien,
+  };
+}
+
+export const AUTH_ERROR = 'AUTH_ERROR';
+
+export function authError(message) {
+  return {
+    type: AUTH_ERROR,
+    message,
+  };
+}

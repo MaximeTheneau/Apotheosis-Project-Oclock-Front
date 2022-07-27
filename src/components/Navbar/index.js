@@ -10,7 +10,7 @@ function Navbar() {
     dispatch(showSidebar());
   };
 
-  const { isLogIn } = useSelector((state) => state.user.settingsLogIn);
+  const { logs } = useSelector((state) => state.user.settingsLogIn);
 
   return (
     <div className="navbar">
@@ -55,7 +55,7 @@ function Navbar() {
           </NavLink>
         </ul>
         <div className="desktop-connexion">
-          {isLogIn
+          {logs
             ? (
               <Link to="/profil"><i className="icon-cook" />
               </Link>
@@ -72,7 +72,7 @@ function Navbar() {
             )}
         </div>
         <div className="icon">
-          {isLogIn
+          {logs
             ? (
               <Link to="/profil"><i className="icon-cook" />
               </Link>
