@@ -1,6 +1,9 @@
-import { DIFFICULTY_ACTION, INGREDIENTS_ACTION, TITLE_ACTION, TYPE_ACTION } from '../action/createdRecipe';
+import { DIFFICULTY_ACTION, DURATION_ACTION, INGREDIENT_ACTION, QUANTITY_ACTION, TITLE_ACTION, TYPE_ACTION, UNIT_ACTION } from '../action/createdRecipe';
 
 export const initialState = {
+
+  title: '',
+  caption: '',
   steps: {
     'etape 1': false,
     'etape 2': false,
@@ -12,10 +15,14 @@ export const initialState = {
     'etape 8': false,
     'etape 9': false,
   },
-  title: '',
-  ingredients: '',
-  types: '',
-
+  duration: '',
+  diffuculty: '',
+  category: '',
+  recipeIngredients: {
+    ingredient: '',
+    unit: '',
+    quantity: '',
+  },
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -23,34 +30,44 @@ const reducer = (state = initialState, action = {}) => {
     case TITLE_ACTION:
       return {
         ...state,
-        title: {
-          ...state.settings,
-          [action.field]: action.value,
-        },
+        [action.field]: action.value,
       };
-
-    case INGREDIENTS_ACTION:
-      return {
-        ...state,
-        ingredients: {
-          ...state.settings,
-          [action.field]: action.value,
-        },
-      };
-
     case TYPE_ACTION:
       return {
         ...state,
-        types: {
-          ...state.settings,
-          [action.field]: action.value,
-        },
+        [action.field]: action.value,
       };
     case DIFFICULTY_ACTION:
       return {
         ...state,
-        diffuculty: {
-          ...state.settings,
+        [action.field]: action.value,
+      };
+    case DURATION_ACTION:
+      return {
+        ...state,
+        [action.field]: action.value,
+      };
+    case INGREDIENT_ACTION:
+      return {
+        ...state,
+        recipeIngredients: {
+          ...state.recipeIngredients,
+          [action.field]: action.value,
+        },
+      };
+    case UNIT_ACTION:
+      return {
+        ...state,
+        recipeIngredients: {
+          ...state.recipeIngredients,
+          [action.field]: action.value,
+        },
+      };
+    case QUANTITY_ACTION:
+      return {
+        ...state,
+        recipeIngredients: {
+          ...state.recipeIngredients,
           [action.field]: action.value,
         },
       };

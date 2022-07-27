@@ -36,3 +36,46 @@ export function difficultyAction(value, field) {
     field: field,
   };
 }
+
+export const DURATION_ACTION = 'DURATION_ACTION';
+
+// Action creator => On l'utilise au moment du dispatch()
+export function durationAction(value, field) {
+  return {
+    type: DURATION_ACTION,
+    value: value,
+    field: field,
+  };
+}
+
+export const INGREDIENT_ACTION = 'INGREDIENT_ACTION';
+
+// Action creator => On l'utilise au moment du dispatch()
+export function ingredientAction(value, field) {
+  return {
+    type: INGREDIENT_ACTION,
+    value: value,
+    field: field,
+  };
+}
+
+export const UNIT_ACTION = 'UNIT_ACTION';
+
+// Action creator => On l'utilise au moment du dispatch()
+export function unitAction(value, field) {
+  return {
+    type: UNIT_ACTION,
+    value: value,
+    field: field,
+  };
+}
+export const QUANTITY_ACTION = 'QUANTITY_ACTION';
+
+// Action creator => On l'utilise au moment du dispatch()
+export function quantityAction(value, field) {
+  return {
+    type: QUANTITY_ACTION,
+    value: value,
+    field: field,
+  };
+}
