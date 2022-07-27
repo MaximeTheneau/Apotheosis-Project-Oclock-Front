@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import './styles.scss';
 import { useSelector } from 'react-redux';
 import Data from '../../../data/recipesHome';
 import Recipes from '../../../data/recipes';
 import SearchForm from '../Search/searchForm';
-import Logo from '../../Logo';
+import Spinner from '../../Spinner';
 
 function Home() {
   const valueSearch = useSelector((state) => state.recipes.form.search);
   const toogleValue = useSelector((state) => state.recipes.addCards);
+  console.log(toogleValue);
 
   const valueSearchFilterMaj = valueSearch.toLocaleLowerCase();
   const valueSearchFilter = valueSearchFilterMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
@@ -18,25 +20,32 @@ function Home() {
     const filterNameSearch = filterNameSearchMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
     return (filterNameSearch.includes(valueSearchFilter));
   });
+  const recipesSliceEffect = () => recipesFilter.slice(0, 6);
+  const recipesSlice = recipesFilter.slice(0, 6);
+
+  useEffect(() => {
+    // après chaque rendu du composant on appelle la fonction qui load les posts
+    recipesSliceEffect();
+  }, []);
+
   return (
     <>
-      {/* Title Page 
-      <Link to="/"><h1 className="title-page logo"><i className="icon-miam logo" />'miam
-        <span className="logo-slogan"> Une histoire de miam's</span>
-      </h1>
-      </Link> */}
+      {/* Title Page */}
       <Link to="/">
-        <Logo />
+        <h1 className="title-page logo">
+          <i className="icon-miam logo" />'miam
+          <span className="logo-slogan"> Une histoire de miam's</span>
+        </h1>
       </Link>
-      <Link to="/recettes/recherche"><p>Recherche</p></Link>
-      <Link to="/Creer/Recette"><p>Creer Recette</p></Link>
 
+      <Link to="/Creer/Recette"><p>Creer Recette</p></Link>
 
 
       <SearchForm />
 
+      { (!toogleValue) && <Spinner />}
+      { (toogleValue) && <SearchForm />}
       <div className="cards-home">
-
         {/* Cards Search */}
         { toogleValue ? (
           <div className="cards-type">
@@ -44,7 +53,7 @@ function Home() {
             <div className="cards-list-type">
 
               {/* Card */}
-              { recipesFilter.map((item) => (
+              { recipesSlice.map((item) => (
                 <div className="card">
                   <h2 className="card-recipe">{item.title}</h2>
                   <img
@@ -67,8 +76,7 @@ function Home() {
               )) }
             </div>
           </div>
-        ) : ''}
-
+        ) : '' }
 
         {/* Cards Miam */}
         <div className="cards">

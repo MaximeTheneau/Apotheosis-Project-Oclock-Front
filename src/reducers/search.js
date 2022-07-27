@@ -21,10 +21,7 @@ const reducer = (state = initialState, action = {}) => {
     case VALUE_TOOGLE:
       return {
         ...state,
-        form: {
-          ...state.settings,
-        },
-        addCards: !state.addCards,
+        addCards: !action.addCards,
       };
 
     default:
