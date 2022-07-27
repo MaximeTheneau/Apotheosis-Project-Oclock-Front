@@ -26,6 +26,7 @@ function CreatedRecipe() {
 
   const toogle = useSelector((state) => state.createdRecipe.toogle);
   const toogle2 = useSelector((state) => state.createdRecipe.toogle2);
+
   const toogle3 = useSelector((state) => state.createdRecipe.toogle3);
   const toogle4 = useSelector((state) => state.createdRecipe.toogle4);
   const toogle5 = useSelector((state) => state.createdRecipe.toogle5);
@@ -189,89 +190,89 @@ function CreatedRecipe() {
               <div className="step">
                 <span className="step-title">Étape 1</span>
                 <Etape
-                  onClick={() => dispatch(toogleSteps())}
                   onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape1'))}
                   value={valueEtape}
                 />
+                {(toogle2) ? '' : (<i className="icon-add" onClick={() => dispatch(toogleSteps())} />) }
               </div>
-              {(toogle) ? (
+              {(toogle2) ? (
                 <div className="step">
                   <span className="step-title">Étape 2</span>
                   <Etape
-                    onClick={() => dispatch(toogleSteps2())}
                     onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape2'))}
                     value={valueEtape2}
                   />
+                  {(toogle3) ? '' : (<i className="icon-add" onClick={() => dispatch(toogleSteps2())} />) }
                 </div>
               ) : '' }
               {(toogle3) ? (
                 <div className="step">
                   <span className="step-title">Étape 3</span>
                   <Etape
-                    onClick={() => dispatch(toogleSteps3())}
                     onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape3'))}
                     value={valueEtape3}
                   />
+                  {(toogle4) ? '' : (<i className="icon-add" onClick={() => dispatch(toogleSteps3())} />)}
                 </div>
               ) : ''}
               {(toogle4) ? (
                 <div className="step">
                   <span className="step-title">Étape 4</span>
                   <Etape
-                    onClick={() => dispatch(toogleStep4())}
                     onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape4'))}
                     value={valueEtape4}
                   />
+                  {(toogle5) ? '' : (<i className="icon-add" onClick={() => dispatch(toogleStep4())} />) }
                 </div>
               ) : ''}
               {(toogle5) ? (
                 <div className="step">
                   <span className="step-title">Étape 5</span>
                   <Etape
-                    onClick={() => dispatch(toogleStep5())}
                     onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape5'))}
                     value={valueEtape5}
                   />
+                  {(toogle6) ? '' : (<i className="icon-add" onClick={() => dispatch(toogleStep5())} />)}
                 </div>
               ) : ''}
               {(toogle6) ? (
                 <div className="step">
                   <span className="step-title">Étape 6</span>
                   <Etape
-                    onClick={() => dispatch(toogleStep6())}
                     onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape6'))}
                     value={valueEtape6}
                   />
+                  {(toogle7) ? '' : (<i className="icon-add" onClick={() => dispatch(toogleStep6())} />) }
                 </div>
               ) : ''}
               {(toogle7) ? (
                 <div className="step">
                   <span className="step-title">Étape 7</span>
                   <Etape
-                    onClick={() => dispatch(toogleStep7())}
                     onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape7'))}
                     value={valueEtape7}
                   />
+                  {(toogle8) ? '' : (<i className="icon-add" onClick={() => dispatch(toogleStep7())} />) }
                 </div>
               ) : ''}
               {(toogle8) ? (
                 <div className="step">
                   <span className="step-title">Étape 8</span>
                   <Etape
-                    onClick={() => dispatch(toogleStep8())}
                     onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape8'))}
                     value={valueEtape8}
                   />
+                  {(toogle9) ? '' : (<i className="icon-add" onClick={() => dispatch(toogleStep8())} />)}
                 </div>
               ) : ''}
               {(toogle9) ? (
                 <div className="step">
                   <span className="step-title">Étape 9</span>
                   <Etape
-                    onClick={() => dispatch(toogleStep9())}
                     onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape9'))}
                     value={valueEtape9}
                   />
+                  {(toogle8) ? (<i className="icon-add" onClick={() => dispatch(toogleStep9())} />) : '' }
                 </div>
               ) : '' }
 

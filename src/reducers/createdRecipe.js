@@ -111,7 +111,7 @@ const reducer = (state = initialState, action = {}) => {
     case TOOGLE_STEPS:
       return {
         ...state,
-        toogle: !state.toogle,
+        toogle2: !state.toogle2,
       };
     case TOOGLE_STEPS2:
       return {
@@ -151,6 +151,8 @@ const reducer = (state = initialState, action = {}) => {
     case TOOGLE_STEPS9:
       return {
         ...state,
+        toogle9: !state.toogle9,
+
       };
     default:
       return state;
