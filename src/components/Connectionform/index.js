@@ -19,7 +19,7 @@ function Connectionform() {
   return (
     <div className="form">
       <div className="form-title">
-        <Link to="/login">
+        <Link to="/connexion">
           <h2
             className="form-h2"
             onClick={handleLoginClick}
@@ -27,7 +27,7 @@ function Connectionform() {
             Se connecter
           </h2>
         </Link>
-        <Link to="/login">
+        <Link to="/connexion">
           <h2
             className="form-h2"
             onClick={handleRegistrationClick}
