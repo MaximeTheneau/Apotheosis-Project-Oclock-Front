@@ -1,5 +1,5 @@
 import HeaderMyAccount from '../HeaderMyCompte';
-import Data from '../../../data/recipesHome';
+import data from '../../../data/recipesHome';
 import './styles.scss';
 
 function MyRecipes() {
@@ -8,33 +8,37 @@ function MyRecipes() {
       <HeaderMyAccount />
       <div className="my-recipes">
         <h1 className="my-recipes-title">Mes Recettes</h1>
-
-        {/* Cards Last */}
-        <div className="cards">
-          <div className="cards-list">
-
-            {/* Cardn Last */}
-            { Data.lastRecipes.map((item) => (
-              <div className="card">
-                <h2 className="card-recipe">{item.title}</h2>
+        <div className="my-recipes-cards">
+          <div className="my-recipes-card">
+            { data.lastRecipes.map((item) => (
+              <div className="my-recipes-card-img">
                 <img
                   src={item.picture}
                   alt="Name"
                   className="card-img"
                 />
-                <div className="card-container">
-                  <ul className="card-container-list">
-                    <li><img className="card-container-list-img-user" src="https://image.shutterstock.com/image-photo/carer-pushing-senior-woman-wheelchair-260nw-1148689052.jpg" alt="zz" /></li>
+                <div className="my-recipes-card-block">
+                  <ul className="my-recipes-card-ul">
+                    <li><h2 className="my-recipes-card-title">{item.title}</h2></li>
                     <li><i className="icon-dish" /></li>
+                    <li><i className="icon-kitchen-hat" /></li>
                     <li>
                       <span>15
                         <i className="icon-miam" />
                       </span>
                     </li>
+                    <li><h2>Aperçu de la Recette</h2></li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis.</li>
+                    <li><h2>Recettes similaire</h2></li>
+                    <ul>
+                      <li>Titre de la recette</li>
+                      <li>Titre de la recette</li>
+                      <li>Titre de la recette</li>
+                    </ul>
                   </ul>
                 </div>
               </div>
-            )) }
+            ))}
           </div>
         </div>
       </div>
