@@ -1,4 +1,4 @@
-import { SET_SETTINGS_FIELD, VALUE_TOOGLE } from '../action/recipes';
+import { SET_SETTINGS_FIELD, VALUE_TOOGLE } from '../action/homePage';
 
 export const initialState = {
   list: [],

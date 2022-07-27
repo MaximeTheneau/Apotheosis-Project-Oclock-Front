@@ -1,16 +1,26 @@
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import './styles.scss';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Data from '../../../data/recipesHome';
 import Recipes from '../../../data/recipes';
 import SearchForm from '../Search/searchForm';
 import Spinner from '../../Spinner';
+import { fetchRecipes } from '../../../action/homePage';
 
 function Home() {
-  const valueSearch = useSelector((state) => state.recipes.form.search);
-  const toogleValue = useSelector((state) => state.recipes.addCards);
-  console.log(toogleValue);
+  const dispatch = useDispatch();
+  useEffect(
+    () => {
+      // On veut recup la liste des recette depuis l'API
+      // Pour ça, on va dispatcher une action (émettre l'intention de charger les recettes)
+      dispatch(fetchRecipes());
+    },
+    [],
+  );
+  const valueSearch = useSelector((state) => state.homePage.form.search);
+  const toogleValue = useSelector((state) => state.homePage.addCards);
+  // console.log(toogleValue);
 
   const valueSearchFilterMaj = valueSearch.toLocaleLowerCase();
   const valueSearchFilter = valueSearchFilterMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
