@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 
-function Etape({onChange}) {
+function Etape({ onChange }) {
   return (
-    <>
+    <div className="step">
       <textarea
-        placeholder="Etape 1"
+        placeholder="Votre étapes"
         rows="1"
         onChange={onChange}
       />
       <i className="icon-add" />
-    </>
+    </div>
   );
 }
 Etape.propTypes = {
