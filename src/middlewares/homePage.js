@@ -4,7 +4,7 @@ import axios from 'axios';
 const homePage = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_RECIPES: {
-      axios.get('http://localhost:3001/recipes')
+      axios.get('http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes')
         .then(
           (response) => {
             store.dispatch(saveRecipes(response.data));

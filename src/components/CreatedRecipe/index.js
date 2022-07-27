@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { difficultyAction, durationAction, titleAction, typeAction, ingredientAction, unitAction, quantityAction, etapeAction, postCreated } from '../../action/createdRecipe';
+import { difficultyAction, durationAction, titleAction, typeAction, ingredientAction, unitAction, quantityAction, etapeAction, postCreated, captionAction } from '../../action/createdRecipe';
 import Etape from './Field/etapes';
 import './styles.scss';
 
 function CreatedRecipe() {
   const dispatch = useDispatch();
   const valueTitle = useSelector((state) => state.title);
-  // const valueIngredient = useSelector((state) => state.ingredients);
-  const valueType = useSelector((state) => state.type);
+  const valueType = useSelector((state) => state.createdRecipe.category);
+  const valueCaption = useSelector((state) => state.createdRecipe.captionAction);
   const valueDifficulty = useSelector((state) => state.createdRecipe.difficulty);
   const valueTime = useSelector((state) => state.createdRecipe.duration);
   const valueIngredient = useSelector((state) => state.createdRecipe.ingredient);
@@ -23,12 +23,12 @@ function CreatedRecipe() {
   const valueEtape8 = useSelector((state) => state.createdRecipe.steps.etape8);
   const valueEtape9 = useSelector((state) => state.createdRecipe.steps.etape9);
 
-  // console.log(valueTitle);
+  // console.log(valueType);
   const handleChangeTitle = ((evt) => {
     dispatch(titleAction(evt.target.value, 'title'));
   });
   const handleChangeType = ((evt) => {
-    dispatch(typeAction(evt.target.value, 'type'));
+    dispatch(typeAction(evt.target.value, 'category'));
   });
   const handleChangeDifficulty = ((evt) => {
     dispatch(difficultyAction(evt.target.value, 'difficulty'));
@@ -52,25 +52,76 @@ function CreatedRecipe() {
       <form onSubmit={handleSumbit}>
         <div>
           <span className="label-title">Title</span>
-          <input 
+          <input
             type="text"
             onChange={handleChangeTitle}
             value={valueTitle}
             placeholder="Titre de votre recette"
           />
         </div>
-        <div className="form-radio" onChange={handleChangeType} >
-          <span className="label-title">Type</span>
-          <input type="radio" value="1" checked={valueDifficulty} name="Type" /> <i className="icon-drink" />
-          <input type="radio" value="2" checked={valueDifficulty} name="Type" /> <i className="icon-entrance" /> <i className="icon-kitchen-hat"/>
-          <input type="radio" value="3" checked={valueDifficulty} name="Type" /> <i className="icon-dish" /> <i className="icon-kitchen-hat"/> <i className="icon-kitchen-hat"/>
-          <input type="radio" value="3" checked={valueDifficulty} name="Type" /> <i className="icon-cake" /> <i className="icon-kitchen-hat"/> <i className="icon-kitchen-hat"/>
+        <div>
+          <span className="label-title">Caption</span>
+          <textarea
+            placeholder="Caption"
+            rows="1"
+            onChange={(evt) => dispatch(captionAction(evt.target.value, 'caption'))}
+            value={valueCaption}
+          />
         </div>
-        <div className="form-radio" onChange={handleChangeDifficulty}>
+        <div className="form-radio">
+          <span className="label-title">Type</span>
+          <input
+            name="type"
+            type="radio"
+            value="1"
+            checked={valueType === '1'}
+            onChange={handleChangeType}
+          />
+          <i className="icon-drink" />
+          <input
+            name="type"
+            type="radio"
+            value="2"
+            checked={valueType === '2'}
+            onChange={handleChangeType}
+          />
+          <i className="icon-entrance" />
+          <input
+            name="type"
+            type="radio"
+            value="3"
+            checked={valueType === '3'}
+            onChange={handleChangeType}
+          />
+          <i className="icon-dish" />
+          <input
+            name="type"
+            type="radio"
+            value="4"
+            checked={valueType === '4'}
+            onChange={handleChangeType}
+          /><i className="icon-dish" />
+        </div>
+        <div className="form-radio" >
           <span className="label-title">Difficulty</span>
-          <input type="radio" value="1" checked={valueType} name="Difficulty" /> <i className="icon-kitchen-hat" />
-          <input type="radio" value="2" checked={valueType} name="Difficulty" /> <i className="icon-kitchen-hat" /> <i className="icon-kitchen-hat"/>
-          <input type="radio" value="3" checked={valueType} name="Difficulty" /> <i className="icon-kitchen-hat" /> <i className="icon-kitchen-hat" /> <i className="icon-kitchen-hat" />
+          <input
+            type="radio"
+            value="1"
+            checked={valueDifficulty === '1'}
+            onChange={handleChangeDifficulty}
+          /> <i className="icon-kitchen-hat" />
+          <input
+            type="radio"
+            value="2"
+            checked={valueDifficulty === '2'}
+            onChange={handleChangeDifficulty}
+          /> <i className="icon-kitchen-hat" /> <i className="icon-kitchen-hat"/>
+          <input
+            type="radio"
+            value="3"
+            checked={valueDifficulty === '3'}
+            onChange={handleChangeDifficulty}
+          /> <i className="icon-kitchen-hat" /> <i className="icon-kitchen-hat" /> <i className="icon-kitchen-hat" />
         </div>
         <div>
           <span className="label-title">Temps</span>

@@ -1,4 +1,4 @@
-import { DIFFICULTY_ACTION,
+import { CAPTION_ACTION, DIFFICULTY_ACTION,
   DURATION_ACTION,
   ETAPE_ACTION,
   INGREDIENT_ACTION,
@@ -34,6 +34,11 @@ export const initialState = {
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case TITLE_ACTION:
+      return {
+        ...state,
+        [action.field]: action.value,
+      };
+    case CAPTION_ACTION:
       return {
         ...state,
         [action.field]: action.value,

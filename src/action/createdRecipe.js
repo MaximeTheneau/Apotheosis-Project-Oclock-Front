@@ -45,6 +45,15 @@ export function durationAction(value, field) {
     field: field,
   };
 }
+export const CAPTION_ACTION = 'CAPTION_ACTION';
+
+export function captionAction(value, field) {
+  return {
+    type: CAPTION_ACTION,
+    value: value,
+    field: field,
+  };
+}
 
 export const INGREDIENT_ACTION = 'INGREDIENT_ACTION';
 
