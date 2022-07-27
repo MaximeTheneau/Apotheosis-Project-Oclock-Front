@@ -3,6 +3,15 @@ import { CAPTION_ACTION, DIFFICULTY_ACTION,
   ETAPE_ACTION,
   INGREDIENT_ACTION,
   QUANTITY_ACTION, TITLE_ACTION,
+  TOOGLE_STEPS,
+  TOOGLE_STEPS2,
+  TOOGLE_STEPS3,
+  TOOGLE_STEPS4,
+  TOOGLE_STEPS5,
+  TOOGLE_STEPS6,
+  TOOGLE_STEPS7,
+  TOOGLE_STEPS8,
+  TOOGLE_STEPS9,
   TYPE_ACTION, UNIT_ACTION
 } from '../action/createdRecipe';
 
@@ -29,6 +38,15 @@ export const initialState = {
     unit: '',
     quantity: '',
   },
+  toogle: false,
+  toogle3: false,
+  toogle4: false,
+  toogle5: false,
+  toogle6: false,
+  toogle7: false,
+  toogle8: false,
+  toogle9: false,
+
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -89,6 +107,50 @@ const reducer = (state = initialState, action = {}) => {
           ...state.steps,
           [action.field]: action.value,
         },
+      };
+    case TOOGLE_STEPS:
+      return {
+        ...state,
+        toogle: !state.toogle,
+      };
+    case TOOGLE_STEPS2:
+      return {
+        ...state,
+        toogle3: !state.toogle3,
+      };
+    case TOOGLE_STEPS3:
+      return {
+        ...state,
+        toogle4: !state.toogle4,
+      };
+    case TOOGLE_STEPS4:
+      return {
+        ...state,
+        toogle5: !state.toogle5,
+      };
+    case TOOGLE_STEPS5:
+      return {
+        ...state,
+        toogle6: !state.toogle6,
+      };
+    case TOOGLE_STEPS6:
+      return {
+        ...state,
+        toogle7: !state.toogle7,
+      };
+    case TOOGLE_STEPS7:
+      return {
+        ...state,
+        toogle8: !state.toogle8,
+      };
+    case TOOGLE_STEPS8:
+      return {
+        ...state,
+        toogle9: !state.toogle9,
+      };
+    case TOOGLE_STEPS9:
+      return {
+        ...state,
       };
     default:
       return state;

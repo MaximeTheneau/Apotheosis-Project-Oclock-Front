@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-function Etape({ onChange }) {
+function Etape({ onChange, onClick }) {
   return (
     <div className="step">
       <textarea
@@ -8,12 +8,13 @@ function Etape({ onChange }) {
         rows="1"
         onChange={onChange}
       />
-      <i className="icon-add" />
+      <i className="icon-add" onClick={onClick} />
     </div>
   );
 }
 Etape.propTypes = {
   onChange: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default Etape;

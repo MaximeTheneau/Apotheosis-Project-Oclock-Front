@@ -100,3 +100,81 @@ export function postCreated() {
     type: POST_CREACTED,
   };
 }
+
+export const TOOGLE_STEPS = 'TOOGLE_STEPS';
+
+export function toogleSteps() {
+  return {
+    type: TOOGLE_STEPS,
+  };
+}
+
+export const TOOGLE_STEPS2 = 'TOOGLE_STEPS2';
+
+export function toogleSteps2() {
+  return {
+    type: TOOGLE_STEPS2,
+  };
+}
+
+export const TOOGLE_STEPS3 = 'TOOGLE_STEPS3';
+
+export function toogleSteps3() {
+  return {
+    type: TOOGLE_STEPS3,
+  };
+}
+export const TOOGLE_STEPS4 = 'TOOGLE_STEPS4';
+
+export function toogleStep4(value, field) {
+  return {
+    type: TOOGLE_STEPS4,
+    value: value,
+    field: field,
+  };
+}
+export const TOOGLE_STEPS5 = 'TOOGLE_STEPS5';
+
+export function toogleStep5(value, field) {
+  return {
+    type: TOOGLE_STEPS5,
+    value: value,
+    field: field,
+  };
+}
+export const TOOGLE_STEPS6 = 'TOOGLE_STEPS6';
+
+export function toogleStep6(value, field) {
+  return {
+    type: TOOGLE_STEPS6,
+    value: value,
+    field: field,
+  };
+}
+export const TOOGLE_STEPS7 = 'TOOGLE_STEPS7';
+
+export function toogleStep7(value, field) {
+  return {
+    type: TOOGLE_STEPS7,
+    value: value,
+    field: field,
+  };
+}
+export const TOOGLE_STEPS8 = 'TOOGLE_STEPS8';
+
+export function toogleStep8(value, field) {
+  return {
+    type: TOOGLE_STEPS8,
+    value: value,
+    field: field,
+  };
+}
+export const TOOGLE_STEPS9 = 'TOOGLE_STEPS9';
+
+export function toogleStep9(value, field) {
+  return {
+    type: TOOGLE_STEPS9,
+    value: value,
+    field: field,
+  };
+}

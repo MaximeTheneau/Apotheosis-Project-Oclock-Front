@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import homePage from './search';
+import homePage from './homePage';
 import header from './header';
 import contact from './contact';
 import createdRecipe from './createdRecipe';
