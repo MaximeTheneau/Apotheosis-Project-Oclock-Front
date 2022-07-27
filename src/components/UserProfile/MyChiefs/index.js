@@ -1,10 +1,14 @@
+import HeaderMyAccount from '../HeaderMyCompte';
 import './styles.scss';
 
 function MyChiefs() {
   return (
-    <div className="my-recipes">
-      <h2>Mes Chefs</h2>
-    </div>
+    <>
+      <HeaderMyAccount />
+      <div className="my-chiefs">
+        <h1>Mes Chefs</h1>
+      </div>
+    </>
   );
 }
 

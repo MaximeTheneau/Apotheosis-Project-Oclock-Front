@@ -1,16 +1,13 @@
-import { Link } from 'react-router-dom';
 import HeaderMyAccount from './HeaderMyCompte';
-import MyMiams from './MyMiams';
+
 import './styles.scss';
 
 function UserProfile() {
   return (
-    <>
+    <div className="contents-choose">
       <HeaderMyAccount />
-      <div className="contenu-choose">
-        <MyMiams />
-      </div>
-    </>
+    </div>
+
   );
 }
 

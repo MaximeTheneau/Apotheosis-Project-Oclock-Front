@@ -5,7 +5,6 @@ import contact from './contact';
 import createdRecipe from './createdRecipe';
 import user from './user';
 
-
 const rootReducer = combineReducers({
   recipes: recipes,
   header: header,
