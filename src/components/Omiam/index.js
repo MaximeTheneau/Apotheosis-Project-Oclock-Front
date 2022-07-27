@@ -15,6 +15,9 @@ import UserProfile from '../UserProfile';
 import Error from '../Error';
 
 import './styles.scss';
+import MyMiams from '../UserProfile/MyMiams';
+import MyRecipes from '../UserProfile/MyRecipes';
+import MyChiefs from '../UserProfile/MyChiefs';
 
 // == Composant
 function Omiam() {
@@ -32,8 +35,9 @@ function Omiam() {
           <Route path="/conditions-generales-utilisation" element={<Tscs />} />
           <Route path="/connexion" element={<Connectionform />} />
           <Route path="/mon-compte" element={<UserProfile />} />
-          <Route path="/mon-compte/mes-miams" element={<UserProfile />} />
-          <Route path="/mon-compte/mes-recettes" element={<UserProfile />} />
+          <Route path="/mon-compte/mes-miams" element={<MyMiams />} />
+          <Route path="/mon-compte/mes-recettes" element={<MyRecipes />} />
+          <Route path="/mon-compte/mes-chefs" element={<MyChiefs />} />
           <Route path="/Creer/Recette" element={<CreatedRecipe />} />
           <Route path="*" element={<Error />} />
           {/*

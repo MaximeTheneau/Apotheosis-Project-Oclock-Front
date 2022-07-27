@@ -14,12 +14,12 @@ function UserProfile() {
             <Link to="/mon-compte/mes-miams">
               <li className="my-miams"><i className="icon-miam" />Carnet de Miams</li>
             </Link>
-            <Link to="/mon-compte">
-              <li className="my-chief"><i className="icon-cook" />Mes Chefs</li>
+            <Link to="/mon-compte/mes-chefs">
+              <li className="my-chiefs"><i className="icon-cook" />Mes Chefs</li>
             </Link>
           </ul>
           <div className="contenu-choose">
-            
+
           </div>
         </div>
       </div>
