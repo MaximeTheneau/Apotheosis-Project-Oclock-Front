@@ -1,6 +1,6 @@
 import './styles.scss';
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { Link, NavLink } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import Logo from '../Logo';
 import { showSidebar } from '../../action/header';
 
@@ -10,47 +10,77 @@ function Navbar() {
     dispatch(showSidebar());
   };
 
+  const { isLogIn } = useSelector((state) => state.user.settingsLogIn);
+
   return (
     <div className="navbar">
       <div className="navbar-wrapper">
         <div className="navbar-wrapper-logo">
-          <Link to="/">
+          <NavLink to="/">
             <Logo />
-          </Link>
+          </NavLink>
         </div>
         <ul className="navbar-wrapper-links">
-          <li className="navbar-wrapper-item">
-            <Link to="/miam" className="navbar-links">
-              Les recettes Miam
-            </Link>
-          </li>
-          <li className="navbar-wrapper-item">
-            <Link to="/dernieres-recettes" className="menu-links">
-              Les dernières recettes
-            </Link>
-          </li>
-          <li className="navbar-wrapper-item">
-            <Link to="/chefs" className="menu-links">
-              Chefs à la Une
-            </Link>
-          </li>
-          <li className="navbar-wrapper-item">
-            <Link to="/recettes-aleatoires" className="menu-links">
-              Recettes aléatoires
-            </Link>
-          </li>
-          <li className="navbar-wrapper-item">
-            <Link to="/connexion" className="menu-links">
-              Se connecter
-            </Link>
-          </li>
-          <li className="navbar-wrapper-item">
-            <Link to="/inscription" className="menu-links">
-              Créer un compte
-            </Link>
-          </li>
+          <NavLink
+            to="/miam"
+            className={
+              ({ isActive }) => (isActive ? 'navbar-wrapper-item--active' : 'navbar-wrapper-item')
+              }
+          >
+            Les recettes Miam
+          </NavLink>
+          <NavLink
+            to="/dernieres-recettes"
+            className={
+              ({ isActive }) => (isActive ? 'navbar-wrapper-item--active' : 'navbar-wrapper-item')
+              }
+          >
+            Les dernières recettes
+          </NavLink>
+          <NavLink
+            to="/chefs"
+            className={
+              ({ isActive }) => (isActive ? 'navbar-wrapper-item--active' : 'navbar-wrapper-item')
+              }
+          >
+            Chefs à la Une
+          </NavLink>
+          <NavLink
+            to="/recettes-aleatoires"
+            className={
+              ({ isActive }) => (isActive ? 'navbar-wrapper-item--active' : 'navbar-wrapper-item')
+              }
+          >
+            Recettes aléatoires
+          </NavLink>
         </ul>
-        <div>
+        <div className="desktop-connexion">
+          {isLogIn
+            ? (
+              <Link to="/profil"><i className="icon-cook" />
+              </Link>
+            )
+            : (
+              <button
+                type="button"
+                className="navbar-wrapper-button"
+              >
+                <Link to="/connexion" className="menu-links">
+                  Connexion
+                </Link>
+              </button>
+            )}
+        </div>
+        <div className="icon">
+          {isLogIn
+            ? (
+              <Link to="/profil"><i className="icon-cook" />
+              </Link>
+            )
+            : (
+              <Link to="/connexion"><i className="icon-lock" />
+              </Link>
+            )}
           <i className="icon-bars" onClick={() => handleClick()} />
         </div>
       </div>

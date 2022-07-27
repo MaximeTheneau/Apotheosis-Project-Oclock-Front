@@ -28,44 +28,83 @@
     }
 
     &-item {
-      line-height: 1rem;
-      padding: 0.5rem;
+      padding: 1rem;
       font-size: 0.9rem;
       font-weight: bold;
       cursor: pointer;
-      transition: vars.$slow-transition;
-
-      &:first-child {
-        border-radius: 0.3rem 0 0 0.3rem;
-      }
-
-      &:last-child {
-        border-radius: 0 0.3rem 0.3rem 0;
-      }
 
       &:hover {
-        background-color: vars.$grey-omiam;
-        transition: vars.$fast-transition;
+        transform: scale(1.1);
       }
-    }  
+
+      &--active {
+        background-color: vars.$grey-omiam;
+        padding: 0.5rem;
+        font-size: 0.9rem;
+        font-weight: bold;
+        border-radius: 0.3rem;
+      }
+    } 
+
+    &-button {
+    font-family: 'font-title';
+    cursor: pointer;
+    font-size: 1.5rem;
+    border: 0;
+    padding: 0rem 1.5rem;
+    line-height: 1.8;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px vars.$grey-omiam;
+    border-radius: 10px;
+    background-color: vars.$grey-omiam;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+    }
   }
 }
 
-.icon-bars {
+.desktop-connexion {
+  padding-right: 1.5rem;
+}
+
+.icon {
+  display: none;
+}
+
+.icon-bars, .icon-lock{
     font-size: 2rem;
-    padding-right: 1rem;
+    padding-right: 1.5rem;
     display:none;
     cursor: pointer;
 }
 
+.icon-cook {
+  font-size: 3rem;
+  padding-right: 3rem;
+  cursor: pointer;
+}
+
+
 @media screen and (max-width: 768px) {
-  .navbar-wrapper-links {
+  .navbar-wrapper-links, .navbar-wrapper-button, .desktop-connexion {
     display: none;
   }
 
-  .icon-bars{
+  .icon-bars, .icon-lock, .icon-cook {
+    display: inline-block;
+    padding-right: 1.5rem;
+    font-size: 2rem;
+  }
+
+  .icon {
+    display:flex;
+    flex-direction: row;
     display: block;
   }
+
 
   /*.navbar-wrapper-item {
     display: flex;

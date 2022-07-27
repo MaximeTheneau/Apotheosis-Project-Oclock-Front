@@ -13,13 +13,13 @@
   transform: translateX(100vw); 
 
   &-links {
-    padding-top: 2rem;
+    padding-top: 4rem;
   }
 
   &-item {
     line-height: 1rem;
       padding: 0.5rem;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       cursor: pointer;
       transition: vars.$slow-transition;
       font-weight: bold;

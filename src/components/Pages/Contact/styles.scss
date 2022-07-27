@@ -1,0 +1,41 @@
+@use '../../../styles/vars';
+
+.form-general {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.label{
+  width:70%;
+  margin: 0.5rem 0;
+}
+.label input{
+  &::placeholder{
+    padding: 5rem 0 ;
+  }
+  width:100%;
+}
+textarea{
+  &.message-input{
+    width: 100%;
+  }
+
+  .message-input {
+    width: 100%;
+  }
+}
+textarea:focus-visible {
+  outline: none;
+}
+.send-button {
+  font-size: 4rem;
+  background: vars.$blue-omiam;
+  padding: 0.5rem;
+  border: 1px solid vars.$grey-omiam;
+  color: #fff;
+  cursor: pointer;
+}
+input[type="text"], textarea, input[type="email"], .send-button {
+  border-radius: vars.$raduis-img;
+}
+
