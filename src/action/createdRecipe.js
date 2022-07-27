@@ -28,7 +28,6 @@ export function typeAction(value, field) {
 
 export const DIFFICULTY_ACTION = 'DIFFICULTY_ACTION';
 
-// Action creator => On l'utilise au moment du dispatch()
 export function difficultyAction(value, field) {
   return {
     type: DIFFICULTY_ACTION,
@@ -39,7 +38,6 @@ export function difficultyAction(value, field) {
 
 export const DURATION_ACTION = 'DURATION_ACTION';
 
-// Action creator => On l'utilise au moment du dispatch()
 export function durationAction(value, field) {
   return {
     type: DURATION_ACTION,
@@ -50,7 +48,6 @@ export function durationAction(value, field) {
 
 export const INGREDIENT_ACTION = 'INGREDIENT_ACTION';
 
-// Action creator => On l'utilise au moment du dispatch()
 export function ingredientAction(value, field) {
   return {
     type: INGREDIENT_ACTION,
@@ -61,7 +58,6 @@ export function ingredientAction(value, field) {
 
 export const UNIT_ACTION = 'UNIT_ACTION';
 
-// Action creator => On l'utilise au moment du dispatch()
 export function unitAction(value, field) {
   return {
     type: UNIT_ACTION,
@@ -71,10 +67,20 @@ export function unitAction(value, field) {
 }
 export const QUANTITY_ACTION = 'QUANTITY_ACTION';
 
-// Action creator => On l'utilise au moment du dispatch()
 export function quantityAction(value, field) {
   return {
     type: QUANTITY_ACTION,
+    value: value,
+    field: field,
+  };
+}
+
+export const ETAPE_ACTION = 'ETAPE_ACTION';
+
+// Action creator => On l'utilise au moment du dispatch()
+export function etapeAction(value, field) {
+  return {
+    type: ETAPE_ACTION,
     value: value,
     field: field,
   };

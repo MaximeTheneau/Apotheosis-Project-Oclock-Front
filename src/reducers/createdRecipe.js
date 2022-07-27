@@ -1,19 +1,19 @@
-import { DIFFICULTY_ACTION, DURATION_ACTION, INGREDIENT_ACTION, QUANTITY_ACTION, TITLE_ACTION, TYPE_ACTION, UNIT_ACTION } from '../action/createdRecipe';
+import { DIFFICULTY_ACTION, DURATION_ACTION, ETAPE_ACTION, INGREDIENT_ACTION, QUANTITY_ACTION, TITLE_ACTION, TYPE_ACTION, UNIT_ACTION } from '../action/createdRecipe';
 
 export const initialState = {
 
   title: '',
   caption: '',
   steps: {
-    'etape 1': false,
-    'etape 2': false,
-    'etape 3': false,
-    'etape 4': false,
-    'etape 5': false,
-    'etape 6': false,
-    'etape 7': false,
-    'etape 8': false,
-    'etape 9': false,
+    etape1: '',
+    etape2: '',
+    etape3: '',
+    etape4: '',
+    etape5: '',
+    etape6: '',
+    etape7: '',
+    etape8: '',
+    etape9: '',
   },
   duration: '',
   diffuculty: '',
@@ -68,6 +68,14 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         recipeIngredients: {
           ...state.recipeIngredients,
+          [action.field]: action.value,
+        },
+      };
+    case ETAPE_ACTION:
+      return {
+        ...state,
+        steps: {
+          ...state.steps,
           [action.field]: action.value,
         },
       };

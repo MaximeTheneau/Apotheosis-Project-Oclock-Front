@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { difficultyAction, durationAction, titleAction, typeAction, ingredientAction, unitAction, quantityAction } from '../../action/createdRecipe';
+import { difficultyAction, durationAction, titleAction, typeAction, ingredientAction, unitAction, quantityAction, etapeAction } from '../../action/createdRecipe';
+import Etape from './Field/etapes';
 import './styles.scss';
 
 function CreatedRecipe() {
@@ -38,7 +39,7 @@ function CreatedRecipe() {
           <span className="label-title">Title</span>
           <input type="text" onChange={handleChangeTitle} value={valueTitle} />
         </div>
-        <div className="form-radio" onChange={handleChangeType}>
+        <div className="form-radio" onChange={handleChangeType} >
           <span className="label-title">Type</span>
           <input type="radio" value="1" checked={valueDifficulty} name="Type" /> <i className="icon-drink" />
           <input type="radio" value="2" checked={valueDifficulty} name="Type" /> <i className="icon-entrance" /> <i className="icon-kitchen-hat"/>
@@ -96,11 +97,7 @@ function CreatedRecipe() {
           <span className="label-title">Etape 1</span>
           <div className="etape">
             <div className="etape-add">
-              <textarea
-                placeholder="Etape 1"
-                rows="1"
-              />
-              <i className="icon-add" />
+              <Etape onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape1'))} />
             </div>
             <button type="submit">Envoyer <i className="icon-oven-open" /></button>
           </div>
