@@ -72,6 +72,7 @@ const reducer = (state = initialState, action = {}) => {
           pseudo: '',
           avatar: '',
           token: '',
+          favorites: [],
         },
       };
 
@@ -82,6 +83,10 @@ const reducer = (state = initialState, action = {}) => {
           ...action.user,
           email: '',
           password: '',
+        },
+        auth: {
+          error: false,
+          errorMessage: '',
         },
       };
 
