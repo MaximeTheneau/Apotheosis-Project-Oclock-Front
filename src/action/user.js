@@ -37,3 +37,45 @@ export function openRegistration() {
     type: OPEN_REGISTRATION,
   };
 }
+
+export const LOGIN = 'LOGIN';
+
+export function login() {
+  return {
+    type: LOGIN,
+  };
+}
+
+export const SAVE_USER = 'SAVE_USER';
+
+export function saveUser(user) {
+  return {
+    type: SAVE_USER,
+    user,
+  };
+}
+
+export const LOGOUT = 'LOGOUT';
+
+export function logout() {
+  return {
+    type: LOGOUT,
+  };
+}
+
+export const FETCH_FAVORITES = 'FETCH_FAVORITES';
+
+export function fetchFavorites() {
+  return {
+    type: FETCH_FAVORITES,
+  };
+}
+
+export const SAVE_FAVORITES = 'SAVE_FAVORITES';
+
+export function saveFavorites(favorites) {
+  return {
+    type: SAVE_FAVORITES,
+    favorites,
+  };
+}

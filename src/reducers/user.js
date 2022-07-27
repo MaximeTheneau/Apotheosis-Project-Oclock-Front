@@ -1,5 +1,6 @@
 import {
-  OPEN_LOGIN, OPEN_REGISTRATION, SET_LOGIN_CREDENTIALS, SET_REGISTRATION_CREDENTIALS 
+  OPEN_LOGIN, OPEN_REGISTRATION, SET_LOGIN_CREDENTIALS, SET_REGISTRATION_CREDENTIALS,
+  LOGOUT, SAVE_USER, SAVE_FAVORITES, 
 } from '../action/user';
 
 export const initialState = {
@@ -9,11 +10,16 @@ export const initialState = {
     email: '',
     password: '',
     confirmedPassword: '',
+    avatar: '',
   },
   settingsLogIn: {
     isLogIn: false,
     email: '',
     password: '',
+    pseudo: '', // Renvoyé par l'API
+    avatar: '', // Renvoyé par l'API
+    token: '', // Renvoyé par l'API
+    favorites: [], // Renvoyé par l'API GET /favorites
   },
   isLoginOpen: true,
   isRegistrationOpen: false,
@@ -51,6 +57,26 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         isLoginOpen: false,
         isRegistrationOpen: true,
+      };
+
+    case LOGOUT:
+      return {
+        ...state,
+        settingsLogIn: {
+          ...state.settingsLogIn,
+          isLogIn: false,
+          pseudo: '',
+          avatar: '',
+          token: '',
+        },
+      };
+
+    case SAVE_USER:
+      return {
+        ...state,
+        ...action.user,
+        email: '',
+        password: '',
       };
 
     default:
