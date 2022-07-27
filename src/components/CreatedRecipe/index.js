@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { difficultyAction, durationAction, titleAction, typeAction, ingredientAction, unitAction, quantityAction, etapeAction } from '../../action/createdRecipe';
+import { difficultyAction, durationAction, titleAction, typeAction, ingredientAction, unitAction, quantityAction, etapeAction, postCreated } from '../../action/createdRecipe';
 import Etape from './Field/etapes';
 import './styles.scss';
 
@@ -40,11 +40,16 @@ function CreatedRecipe() {
     console.log(evt.target.files[0]);
     // dispatch(durationAction(evt.target.value, 'duration'));
   });
-
+  const handleSumbit = ((evt) => {
+    evt.preventDefault();
+    console.log(evt);
+    dispatch(postCreated());
+    // dispatch(durationAction(evt.target.value, 'duration'));
+  });
   return (
     <div className="createdRecipe">
       <h1>Créer Une recette</h1>
-      <form>
+      <form onSubmit={handleSumbit}>
         <div>
           <span className="label-title">Title</span>
           <input 

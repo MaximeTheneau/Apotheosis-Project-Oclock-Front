@@ -84,75 +84,10 @@ export function etapeAction(value, field) {
     field: field,
   };
 }
-export const ETAPE2_ACTION = 'ETAPE2_ACTION';
+export const POST_CREACTED = 'POST_CREACTED';
 
-export function etape2Action(value, field) {
+export function postCreated() {
   return {
-    type: ETAPE2_ACTION,
-    value: value,
-    field: field,
-  };
-}
-export const ETAPE3_ACTION = 'ETAPE3_ACTION';
-
-export function etape3Action(value, field) {
-  return {
-    type: ETAPE3_ACTION,
-    value: value,
-    field: field,
-  };
-}
-export const ETAPE4_ACTION = 'ETAPE4_ACTION';
-
-export function etape4Action(value, field) {
-  return {
-    type: ETAPE4_ACTION,
-    value: value,
-    field: field,
-  };
-}
-export const ETAPE5_ACTION = 'ETAPE5_ACTION';
-
-export function etape5Action(value, field) {
-  return {
-    type: ETAPE5_ACTION,
-    value: value,
-    field: field,
-  };
-}
-export const ETAPE6_ACTION = 'ETAPE6_ACTION';
-
-export function etape6Action(value, field) {
-  return {
-    type: ETAPE6_ACTION,
-    value: value,
-    field: field,
-  };
-}
-export const ETAPE7_ACTION = 'ETAPE7_ACTION';
-
-export function etape7Action(value, field) {
-  return {
-    type: ETAPE7_ACTION,
-    value: value,
-    field: field,
-  };
-}
-export const ETAPE8_ACTION = 'ETAPE8_ACTION';
-
-export function etape8Action(value, field) {
-  return {
-    type: ETAPE8_ACTION,
-    value: value,
-    field: field,
-  };
-}
-export const ETAPE9_ACTION = 'ETAPE9_ACTION';
-
-export function etape9Action(value, field) {
-  return {
-    type: ETAPE2_ACTION,
-    value: value,
-    field: field,
+    type: POST_CREACTED,
   };
 }
