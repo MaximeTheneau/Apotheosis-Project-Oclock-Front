@@ -7,6 +7,8 @@ function CreatedRecipe() {
   const valueTitle = useSelector((state) => state.title);
   // const valueIngredient = useSelector((state) => state.ingredients);
   const valueType = useSelector((state) => state.type);
+  const valueDifficulty = useSelector((state) => state.difficulty);
+
 
   // console.log(valueTitle);
   const handleChangeTitle = ((evt) => {
@@ -30,39 +32,33 @@ function CreatedRecipe() {
         </div>
         <div className="form-radio" onChange={handleChangeType}>
           <span className="label-title">Type</span>
-          <input type="radio" value="1" checked={valueType} name="Difficulty" /> <i className="icon-kitchen-hat"/>
-          <input type="radio" value="2" checked={valueType} name="Difficulty" /> <i className="icon-kitchen-hat"/> <i className="icon-kitchen-hat"/>
-          <input type="radio" value="3" checked={valueType} name="Difficulty" /> <i className="icon-kitchen-hat"/> <i className="icon-kitchen-hat"/> <i className="icon-kitchen-hat"/>
+          <input type="radio" value="1" checked={valueDifficulty} name="Type" /> <i className="icon-drink" />
+          <input type="radio" value="2" checked={valueDifficulty} name="Type" /> <i className="icon-entrance" /> <i className="icon-kitchen-hat"/>
+          <input type="radio" value="3" checked={valueDifficulty} name="Type" /> <i className="icon-dish" /> <i className="icon-kitchen-hat"/> <i className="icon-kitchen-hat"/>
+          <input type="radio" value="3" checked={valueDifficulty} name="Type" /> <i className="icon-cake" /> <i className="icon-kitchen-hat"/> <i className="icon-kitchen-hat"/>
         </div>
         <div className="form-radio" onChange={handleChangeDifficulty}>
           <span className="label-title">Difficulty</span>
-          <input type="radio" value="1" checked={valueType} name="Difficulty" /> <i className="icon-kitchen-hat"/>
-          <input type="radio" value="2" checked={valueType} name="Difficulty" /> <i className="icon-kitchen-hat"/> <i className="icon-kitchen-hat"/>
-          <input type="radio" value="3" checked={valueType} name="Difficulty" /> <i className="icon-kitchen-hat"/> <i className="icon-kitchen-hat"/> <i className="icon-kitchen-hat"/>
+          <input type="radio" value="1" checked={valueType} name="Difficulty" /> <i className="icon-kitchen-hat" />
+          <input type="radio" value="2" checked={valueType} name="Difficulty" /> <i className="icon-kitchen-hat" /> <i className="icon-kitchen-hat"/>
+          <input type="radio" value="3" checked={valueType} name="Difficulty" /> <i className="icon-kitchen-hat" /> <i className="icon-kitchen-hat" /> <i className="icon-kitchen-hat" />
         </div>
         <div>
           <span className="label-title">Temps</span>
-          <select name="duration" id="duration">
-            <option value="">----</option>
-            <option value="1">1</option>
-          </select>
+          <input type="number" placeholder="1" />
         </div>
         <div>
           <span className="label-title">Image</span>
-          <input type="file" />
+          <input type="file" value="" />
         </div>
         <div>
           <span className="label-title">Ingredient pour 4 personnes.</span>
           <div className="ingredients">
             <div className="ingredients-add">
               <input type="text" />
-
-              <select name="unit" className="ingredients-type" id="duration">
-                <option value="">----</option>
-                <option value="cl">cl</option>
-              </select>
-              <input className="ingredients-type" type="text" />
-              <i className="icon-add"/>
+              <input type="text" />
+              <input className="ingredients-type" type="number" />
+              <i className="icon-add" />
             </div>
           </div>
         </div>
@@ -70,10 +66,13 @@ function CreatedRecipe() {
           <span className="label-title">Etape 1</span>
           <div className="etape">
             <div className="etape-add">
-              <button type="submit">eeee</button>
-              <input type="text"/>
+              <textarea
+                placeholder="Etape 1"
+                rowss="1"
+              />
               <i className="icon-add" />
             </div>
+            <button type="submit">Envoyer <i className="icon-oven-open" /></button>
           </div>
         </div>
       </form>
