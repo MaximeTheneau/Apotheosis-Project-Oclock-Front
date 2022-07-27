@@ -19,21 +19,19 @@ function Connectionform() {
   return (
     <div className="form">
       <div className="form-title">
-        <Link to="/connexion">
-          <h2
-            className="form-h2"
-            onClick={handleLoginClick}
-          >
-            Se connecter
-          </h2>
+        <Link
+          to="/connexion"
+          className={isLoginOpen ? 'form-h2--active' : 'form-h2'}
+          onClick={handleLoginClick}
+        >
+          Se connecter
         </Link>
-        <Link to="/connexion">
-          <h2
-            className="form-h2"
-            onClick={handleRegistrationClick}
-          >
-            Créer un compte
-          </h2>
+        <Link
+          to="/connexion"
+          className={isRegistrationOpen ? 'form-h2--active' : 'form-h2'}
+          onClick={handleRegistrationClick}
+        >
+          Créer un compte
         </Link>
       </div>
       {isLoginOpen && <Login />}
