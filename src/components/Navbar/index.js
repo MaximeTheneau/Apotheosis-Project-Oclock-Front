@@ -65,7 +65,7 @@ function Navbar() {
                 type="button"
                 className="navbar-wrapper-button"
               >
-                <Link to="/login" className="menu-links">
+                <Link to="/connexion" className="menu-links">
                   Connexion
                 </Link>
               </button>
@@ -78,7 +78,7 @@ function Navbar() {
               </Link>
             )
             : (
-              <Link to="/login"><i className="icon-lock" />
+              <Link to="/connexion"><i className="icon-lock" />
               </Link>
             )}
           <i className="icon-bars" onClick={() => handleClick()} />
