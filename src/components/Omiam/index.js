@@ -32,11 +32,11 @@ function Omiam() {
           <Route path="/conditions-generales-utilisation" element={<Tscs />} />
           <Route path="/connexion" element={<Connectionform />} />
           <Route path="/mon-compte" element={<UserProfile />} />
+          <Route path="/mon-compte/mes-miams" element={<UserProfile />} />
+          <Route path="/mon-compte/mes-recettes" element={<UserProfile />} />
           <Route path="/Creer/Recette" element={<CreatedRecipe />} />
           <Route path="*" element={<Error />} />
           {/*
-            <Route path="/mon-compte/mes-miams" element={< />} />
-            <Route path="/mon-compte/mes-recettes" element={< />} />
             <Route path="/mon-compte/ajouter-une-recette" element={< />} />
             <Route path="/inscription" element={< />} />
           */}

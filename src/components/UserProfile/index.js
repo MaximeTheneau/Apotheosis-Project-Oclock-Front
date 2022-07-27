@@ -7,7 +7,7 @@ function UserProfile() {
       <Link to="/mon-compte" />
       <div className="user-profile">
         <div className="list">
-          <ul className="list-choise">
+          <ul className="list-choose">
             <Link to="/mon-compte/mes-recettes">
               <li className="my-recipe"><i className="icon-glove" />Mes Recettes</li>
             </Link>
@@ -18,6 +18,9 @@ function UserProfile() {
               <li className="my-chief"><i className="icon-cook" />Mes Chefs</li>
             </Link>
           </ul>
+          <div className="contenu-choose">
+            
+          </div>
         </div>
       </div>
     </>
