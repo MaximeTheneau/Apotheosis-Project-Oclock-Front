@@ -9,7 +9,7 @@ function CreatedRecipe() {
   // const valueIngredient = useSelector((state) => state.ingredients);
   const valueType = useSelector((state) => state.type);
   const valueDifficulty = useSelector((state) => state.createdRecipe.difficulty);
-  const valueDuration = useSelector((state) => state.createdRecipe.difficulty);
+  const valueTime = useSelector((state) => state.createdRecipe.duration);
   const valueIngredient = useSelector((state) => state.createdRecipe.ingredient);
   const valueUnit = useSelector((state) => state.createdRecipe.recipeIngredients.unit);
   const valueQuantity = useSelector((state) => state.createdRecipe.recipeIngredients.quantity);
@@ -22,9 +22,6 @@ function CreatedRecipe() {
   const valueEtape7 = useSelector((state) => state.createdRecipe.steps.etape7);
   const valueEtape8 = useSelector((state) => state.createdRecipe.steps.etape8);
   const valueEtape9 = useSelector((state) => state.createdRecipe.steps.etape9);
-
-
-
 
   // console.log(valueTitle);
   const handleChangeTitle = ((evt) => {
@@ -39,7 +36,10 @@ function CreatedRecipe() {
   const handleChangeTime = ((evt) => {
     dispatch(durationAction(evt.target.value, 'duration'));
   });
-
+  const handleChangeFile = ((evt) => {
+    console.log(evt.target.files[0]);
+    // dispatch(durationAction(evt.target.value, 'duration'));
+  });
 
   return (
     <div className="createdRecipe">
@@ -73,13 +73,17 @@ function CreatedRecipe() {
             type="number"
             placeholder="15"
             onChange={handleChangeTime}
-            value={valueDuration}
+            value={valueTime}
           />
           <span className="label-description">min</span>
         </div>
         <div>
           <span className="label-title">Image</span>
-          <input type="file" value="" />
+          <input
+            type="file"
+            value=""
+            onChange={handleChangeFile}
+          />
         </div>
         <div>
           <span className="label-title">Ingredient pour 4 personnes.</span>
