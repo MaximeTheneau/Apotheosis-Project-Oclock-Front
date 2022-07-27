@@ -10,26 +10,26 @@ import {
 
 const axiosInstance = axios.create({
   // par exemple, on peut définir une url de base !
-  baseURL: 'http://adrienpinilla-server.eddi.cloud/omiam/current/public',
+  baseURL: 'http://adrienpinilla-server.eddi.cloud/omiam/current/public/api',
 });
 
 const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case LOGIN: {
-      // const state = store.getState();
-      // const { email, password } = state.user;
+      const state = store.getState();
+      const { email, password } = state.user.settingsLogIn;
       // équivalent : double destructuration
-      const { user: { email, password } } = store.settingsLogin.getState();
+      //const { user: { email, password } } = store.user.getState();
 
       axiosInstance.post(
         'login',
         {
-          email: email,
+          username: email,
           password: password,
         },
       )
         .then((response) => {
-          // console.log(response);
+          console.log(response);
           // on extrait la propriété data de la reponse
           // que l'on stocke dans une vaiable user
           const { data: user } = response;
@@ -41,7 +41,7 @@ const userMiddleware = (store) => (next) => (action) => {
           store.dispatch(saveUser(user));
 
           // on mémorise ses favoris aussi
-          store.dispatch(fetchFavorites());
+          //store.dispatch(fetchFavorites());
 
           return next(action);
         })

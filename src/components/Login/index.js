@@ -1,6 +1,6 @@
 import './styles.scss';
 import { useSelector, useDispatch } from 'react-redux';
-import { setLoginCredentials } from '../../action/user';
+import { setLoginCredentials, login } from '../../action/user';
 
 function Login() {
   const {
@@ -16,6 +16,11 @@ function Login() {
     dispatch(setLoginCredentials(event.currentTarget.value, 'password'));
   };
 
+  const handleClick = (event) => {
+    event.preventDefault();
+    dispatch(login());
+  };
+
   return (
     <form className="login">
       <div className="login-field">
@@ -28,6 +33,7 @@ function Login() {
             placeholder="email@omiam.com"
             type="email"
             id="email"
+            autoComplete="off"
             value={email}
             required
             className="login-input"
@@ -54,7 +60,7 @@ function Login() {
           />
         </label>
       </div>
-      <button type="submit" className="login-submit">Connexion</button>
+      <button type="submit" className="login-submit" onClick={handleClick}>Connexion</button>
     </form>
   );
 }
