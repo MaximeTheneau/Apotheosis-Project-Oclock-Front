@@ -11,6 +11,7 @@ import Aboutus from '../Pages/Aboutus';
 import Tscs from '../Pages/Tscs';
 import Privacy from '../Pages/Privacy';
 import Contact from '../Pages/Contact';
+import UserProfile from '../UserProfile';
 import Error from '../Error';
 
 import './styles.scss';
@@ -30,6 +31,7 @@ function Omiam() {
           <Route path="/mention-legales" element={<Privacy />} />
           <Route path="/conditions-generales-utilisation" element={<Tscs />} />
           <Route path="/connexion" element={<Connectionform />} />
+          <Route path="/mon-compte" element={<UserProfile />} />
           <Route path="/Creer/Recette" element={<CreatedRecipe />} />
           <Route path="*" element={<Error />} />
           {/*
