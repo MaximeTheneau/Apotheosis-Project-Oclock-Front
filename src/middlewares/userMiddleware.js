@@ -46,7 +46,7 @@ const userMiddleware = (store) => (next) => (action) => {
           store.dispatch(redirect('/'));
 
           // - Save the JWT in localStorage
-          //localStorage.setItem('token', response.user.token);
+          //window.localStorage.setItem('token', user.token);
 
           // on mémorise ses favoris aussi
           //store.dispatch(fetchFavorites());
