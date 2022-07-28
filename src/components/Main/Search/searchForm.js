@@ -50,7 +50,7 @@ function SearchForm() {
           <li className="list-categories-icon"><Link to="/e"><i className="icon-drink" /></Link></li>
           <li className="list-categories-icon"><i className="icon-radish" /></li>
           <li className="list-categories-icon"><i className="icon-dish" /></li>
-          <li className="list-categories-icon"><i className="icon-cakes" /></li>
+          <li className="list-categories-icon"><i className="icon-cakes" /><i className="icon-cakes" /><i className="icon-cakes" /></li>
         </ul>
       </div>
     </div>
