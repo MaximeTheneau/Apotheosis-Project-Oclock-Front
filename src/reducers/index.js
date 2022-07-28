@@ -6,7 +6,6 @@ import createdRecipe from './createdRecipe';
 import user from './user';
 import recipes from './recipes';
 
-
 const rootReducer = combineReducers({
   homePage: homePage,
   header: header,
