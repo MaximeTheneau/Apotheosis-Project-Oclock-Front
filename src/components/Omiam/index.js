@@ -1,4 +1,6 @@
 import { Route, Routes } from 'react-router';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import Header from '../Header';
 import Main from '../Main';
 import Footer from '../Footer';
@@ -16,11 +18,22 @@ import MyRecipes from '../UserProfile/MyRecipes';
 import MyMiams from '../UserProfile/MyMiams';
 import MyChiefs from '../UserProfile/MyChiefs';
 import Error from '../Error';
+import { keepLogin } from '../../action/user';
 
 import './styles.scss';
 
 // == Composant
 function Omiam() {
+  const loggedIn = localStorage.getItem('logs');
+  const token = localStorage.getItem('token');
+  const dispatch = useDispatch();
+  useEffect(
+    () => {
+      dispatch(keepLogin(token, loggedIn));
+    },
+    [],
+  );
+
   return (
     <>
       <Header />

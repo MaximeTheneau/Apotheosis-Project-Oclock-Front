@@ -1,6 +1,6 @@
 import './styles.scss';
 import { useSelector, useDispatch } from 'react-redux';
-import { setLoginCredentials, login } from '../../action/user';
+import { setLoginCredentials, login, authError } from '../../action/user';
 
 function Login() {
   const {
@@ -21,6 +21,16 @@ function Login() {
 
   const handleClick = (event) => {
     event.preventDefault();
+    if (email === '' && password === '') {
+      return dispatch(authError('Veuillez saisir votre adresse email et mot de passe'));
+    }
+    if (email === '') {
+      return dispatch(authError('Veuillez saisir votre adresse email'));
+    }
+    if (password === '') {
+      return dispatch(authError('Veuillez saisir votre mot de passe'));
+    }
+
     dispatch(login());
   };
 
