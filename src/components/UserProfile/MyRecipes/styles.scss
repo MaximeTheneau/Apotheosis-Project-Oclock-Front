@@ -1,11 +1,26 @@
 .my-recipes-title {
   margin-top: 1rem;
 }
-.my-recipes-card-img {
-  display: flex;
-  align-items: center;
+// Responsive - 425 px
+@media screen and (max-width: 425px) {
+  .my-recipes-card-img {
+    display: flex;
+  }
+  img.my-recipes-img {
+    width: 8rem;
+    justify-content: none; 
+  }
+  .my-recipes-responsive {
+    display: none;
+  }
 }
-img.my-recipes-img {
-  height: 10rem;
-  width: 8rem; 
+// Responsive + 425 px
+@media screen and (min-width: 426px) {
+  img.my-recipes-img {
+    width: 15rem; 
+  }
+  .my-recipes-card-img {
+    display: flex;
+    justify-content: center;
+   }
 }
