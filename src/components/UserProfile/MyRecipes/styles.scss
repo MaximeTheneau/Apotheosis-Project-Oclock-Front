@@ -1,4 +1,11 @@
 .my-recipes-title {
   margin-top: 1rem;
 }
-
+.my-recipes-card-img {
+  display: flex;
+  align-items: center;
+}
+img.my-recipes-img {
+  height: 10rem;
+  width: 8rem; 
+}
