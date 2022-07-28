@@ -1,5 +1,5 @@
 import HeaderMyAccount from '../HeaderMyCompte';
-import data from '../../../data/recipesHome';
+import data from '../../../middlewares/myAccountRecipes';
 import './styles.scss';
 
 function MyRecipes() {
@@ -10,7 +10,7 @@ function MyRecipes() {
         <h1 className="my-recipes-title">Mes Recettes</h1>
         <div className="my-recipes-cards">
           <div className="my-recipes-card">
-            { data.lastRecipes.map((item) => (
+            { data.map((item) => (
               <div className="my-recipes-card-img">
                 <img
                   src={item.picture}
