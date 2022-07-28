@@ -11,6 +11,14 @@ export const initialState = {
     password: '',
     confirmedPassword: '',
     avatar: '',
+    signinError: {
+      validPassword: false,
+      errorMessagePassword: '',
+      validEmail: false,
+      errorMessageEmail: '',
+      validMatch: false,
+      errorMessagematchPassword: '',
+    },
   },
   settingsLogIn: {
     logs: false,

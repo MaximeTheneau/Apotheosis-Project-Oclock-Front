@@ -1,6 +1,8 @@
 import './styles.scss';
 import { useSelector, useDispatch } from 'react-redux';
-import { setRegistrationcredentials } from '../../action/user';
+import { useEffect } from 'react';
+import { isValidEmail, isValidPassword, validMatchPassword } from '../../Utils/validators'
+import { setRegistrationcredentials, authError } from '../../action/user';
 
 function Register() {
   const {
@@ -24,8 +26,14 @@ function Register() {
     dispatch(setRegistrationcredentials(event.currentTarget.value, 'confirmedPassword'));
   };
 
-  const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
-  const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+  const handleClick = () => {
+
+  };
+
+  useEffect(() => {
+    isValidEmail(email);
+  }, [email]);
+
   return (
     <form className="registration">
       <div className="registration-field">
@@ -100,7 +108,7 @@ function Register() {
           />
         </label>
       </div>
-      <button type="submit" className="registration-submit">Valider</button>
+      <button type="submit" className="registration-submit" onClick={handleClick}>Valider</button>
     </form>
   );
 }
