@@ -6,7 +6,8 @@ import SearchForm from './searchForm';
 
 function Search() {
   const valueSearch = useSelector((state) => state.recipes.form.search);
-
+  const recipe = useSelector((state) => state);
+  // console.log(recipe);
   const valueSearchFilterMaj = valueSearch.toLocaleLowerCase();
   const valueSearchFilter = valueSearchFilterMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
 

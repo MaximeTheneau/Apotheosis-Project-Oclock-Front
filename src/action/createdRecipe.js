@@ -45,6 +45,15 @@ export function durationAction(value, field) {
     field: field,
   };
 }
+export const CAPTION_ACTION = 'CAPTION_ACTION';
+
+export function captionAction(value, field) {
+  return {
+    type: CAPTION_ACTION,
+    value: value,
+    field: field,
+  };
+}
 
 export const INGREDIENT_ACTION = 'INGREDIENT_ACTION';
 
@@ -84,74 +93,87 @@ export function etapeAction(value, field) {
     field: field,
   };
 }
-export const ETAPE2_ACTION = 'ETAPE2_ACTION';
+export const POST_CREACTED = 'POST_CREACTED';
 
-export function etape2Action(value, field) {
+export function postCreated() {
   return {
-    type: ETAPE2_ACTION,
+    type: POST_CREACTED,
+  };
+}
+
+export const TOOGLE_STEPS = 'TOOGLE_STEPS';
+
+export function toogleSteps() {
+  return {
+    type: TOOGLE_STEPS,
+  };
+}
+
+export const TOOGLE_STEPS2 = 'TOOGLE_STEPS2';
+
+export function toogleSteps2() {
+  return {
+    type: TOOGLE_STEPS2,
+  };
+}
+
+export const TOOGLE_STEPS3 = 'TOOGLE_STEPS3';
+
+export function toogleSteps3() {
+  return {
+    type: TOOGLE_STEPS3,
+  };
+}
+export const TOOGLE_STEPS4 = 'TOOGLE_STEPS4';
+
+export function toogleStep4(value, field) {
+  return {
+    type: TOOGLE_STEPS4,
     value: value,
     field: field,
   };
 }
-export const ETAPE3_ACTION = 'ETAPE3_ACTION';
+export const TOOGLE_STEPS5 = 'TOOGLE_STEPS5';
 
-export function etape3Action(value, field) {
+export function toogleStep5(value, field) {
   return {
-    type: ETAPE3_ACTION,
+    type: TOOGLE_STEPS5,
     value: value,
     field: field,
   };
 }
-export const ETAPE4_ACTION = 'ETAPE4_ACTION';
+export const TOOGLE_STEPS6 = 'TOOGLE_STEPS6';
 
-export function etape4Action(value, field) {
+export function toogleStep6(value, field) {
   return {
-    type: ETAPE4_ACTION,
+    type: TOOGLE_STEPS6,
     value: value,
     field: field,
   };
 }
-export const ETAPE5_ACTION = 'ETAPE5_ACTION';
+export const TOOGLE_STEPS7 = 'TOOGLE_STEPS7';
 
-export function etape5Action(value, field) {
+export function toogleStep7(value, field) {
   return {
-    type: ETAPE5_ACTION,
+    type: TOOGLE_STEPS7,
     value: value,
     field: field,
   };
 }
-export const ETAPE6_ACTION = 'ETAPE6_ACTION';
+export const TOOGLE_STEPS8 = 'TOOGLE_STEPS8';
 
-export function etape6Action(value, field) {
+export function toogleStep8(value, field) {
   return {
-    type: ETAPE6_ACTION,
+    type: TOOGLE_STEPS8,
     value: value,
     field: field,
   };
 }
-export const ETAPE7_ACTION = 'ETAPE7_ACTION';
+export const TOOGLE_STEPS9 = 'TOOGLE_STEPS9';
 
-export function etape7Action(value, field) {
+export function toogleStep9(value, field) {
   return {
-    type: ETAPE7_ACTION,
-    value: value,
-    field: field,
-  };
-}
-export const ETAPE8_ACTION = 'ETAPE8_ACTION';
-
-export function etape8Action(value, field) {
-  return {
-    type: ETAPE8_ACTION,
-    value: value,
-    field: field,
-  };
-}
-export const ETAPE9_ACTION = 'ETAPE9_ACTION';
-
-export function etape9Action(value, field) {
-  return {
-    type: ETAPE2_ACTION,
+    type: TOOGLE_STEPS9,
     value: value,
     field: field,
   };

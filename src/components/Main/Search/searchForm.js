@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import './styles.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSettingsField, submitValue, valueToogle } from '../../../action/recipes';
+import { setSettingsField, submitValue, valueToogle } from '../../../action/homePage';
 
 function SearchForm() {
   const dispatch = useDispatch();
-  const valueSearch = useSelector((state) => state.recipes.form.search);
+  const valueSearch = useSelector((state) => state.homePage.form.search);
   // console.log(recipesFilter);
 
   const handleChange = (evt) => {
