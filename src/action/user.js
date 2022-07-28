@@ -105,3 +105,13 @@ export function register() {
     type: REGISTER,
   };
 }
+
+export const KEEP_LOGIN = 'KEEP_LOGIN';
+
+export function keepLogin(token, logs) {
+  return {
+    type: KEEP_LOGIN,
+    token,
+    logs,
+  };
+}

@@ -1,6 +1,6 @@
 import {
   OPEN_LOGIN, OPEN_REGISTRATION, SET_LOGIN_CREDENTIALS, SET_REGISTRATION_CREDENTIALS,
-  LOGOUT, SAVE_USER, SAVE_FAVORITES, AUTH_ERROR,
+  LOGOUT, SAVE_USER, SAVE_FAVORITES, AUTH_ERROR, KEEP_LOGIN,
 } from '../action/user';
 
 export const initialState = {
@@ -104,6 +104,16 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         error: true,
         errorMessage: action.message,
+      };
+
+    case KEEP_LOGIN:
+      return {
+        ...state,
+        settingsLogIn: {
+          ...state.settingsLogIn,
+          logs: action.logs,
+          token: action.token,
+        },
       };
 
     default:

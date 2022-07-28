@@ -99,7 +99,7 @@ function Register() {
           Confirmation du mot de passe *
           <input
             placeholder="*****"
-            type="confirmedpassword"
+            type="password"
             id="confirmedpassword"
             value={confirmedPassword}
             required

@@ -18,8 +18,6 @@ const userMiddleware = (store) => (next) => (action) => {
     case LOGIN: {
       const state = store.getState();
       const { email, password } = state.user.settingsLogIn;
-      // équivalent : double destructuration
-      //const { user: { email, password } } = store.user.getState();
 
       axiosInstance.post(
         'login',
@@ -40,11 +38,13 @@ const userMiddleware = (store) => (next) => (action) => {
           // On mémorise l'utilisateur dans le state
           store.dispatch(saveUser(user));
 
-          // - Save the JWT in localStorage
-          //window.localStorage.setItem('token', user.token);
-
           // Redirect of the user towards to home page
-          store.dispatch(redirect('/'));
+          //store.dispatch(redirect('/'));
+          window.location = '/';
+
+          // - Save the JWT in localStorage
+          localStorage.setItem('token', user.token);
+          localStorage.setItem('logs', true);
 
           return next(action);
         })
@@ -61,10 +61,10 @@ const userMiddleware = (store) => (next) => (action) => {
     case LOGOUT:
       // on nettoie notre instance axios du token
       axiosInstance.defaults.headers.common.Authorization = null;
+      localStorage.removeItem('token');
+      localStorage.removeItem('logs');
       // syntaxe alternative
       // delete axiosInstance.defaults.headers.common.Authorization;
-
-      console.log('nettoyage');
 
       return next(action);
     case REGISTER: {
@@ -95,7 +95,7 @@ const userMiddleware = (store) => (next) => (action) => {
           console.log(response);
 
           // Redirect of the user towards to home page
-          store.dispatch(redirect('/'));
+          store.dispatch(redirect('/login'));
 
           return next(action);
         })
