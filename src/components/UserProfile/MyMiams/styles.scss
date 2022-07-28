@@ -1,3 +1,26 @@
 .my-miams-title {
   margin-top: 1rem;
 }
+// Responsive - 425 px
+@media screen and (max-width: 425px) {
+  .my-miams-card-img {
+    display: flex;
+  }
+  img.my-miams-img {
+    width: 8rem;
+    justify-content: none; 
+  }
+  .my-miams-responsive {
+    display: none;
+  }
+}
+// Responsive + 425 px
+@media screen and (min-width: 426px) {
+  img.my-miams-img {
+    width: 15rem; 
+  }
+  .my-miams-card-img {
+    display: flex;
+    justify-content: center;
+   }
+}
