@@ -27,7 +27,6 @@ function Categories() {
             <li className="list-categories-icon"><i className="icon-radish" /></li>
             <li className="list-categories-icon"><i className="icon-dish" /></li>
             <li className="list-categories-icon"><i className="icon-cakes" /></li>
-            <li className="list-categories-icon"><i className="icon-cakes" /></li>
           </ul>
         </div>
       </div>
