@@ -6,6 +6,7 @@ import {
   redirect,
   authError,
   REGISTER,
+  resetRegistrationForm,
 } from '../action/user';
 
 const axiosInstance = axios.create({
@@ -95,7 +96,7 @@ const userMiddleware = (store) => (next) => (action) => {
           console.log(response);
 
           // Redirect of the user towards to home page
-          store.dispatch(redirect('/login'));
+          store.dispatch(resetRegistrationForm());
 
           return next(action);
         })

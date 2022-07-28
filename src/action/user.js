@@ -115,3 +115,11 @@ export function keepLogin(token, logs) {
     logs,
   };
 }
+
+export const RESET_REGISTRATION_FORM = 'RESET_REGISTRATION_FORM';
+
+export function resetRegistrationForm() {
+  return {
+    type: RESET_REGISTRATION_FORM,
+  };
+}

@@ -1,6 +1,6 @@
 import {
   OPEN_LOGIN, OPEN_REGISTRATION, SET_LOGIN_CREDENTIALS, SET_REGISTRATION_CREDENTIALS,
-  LOGOUT, SAVE_USER, SAVE_FAVORITES, AUTH_ERROR, KEEP_LOGIN,
+  LOGOUT, SAVE_USER, AUTH_ERROR, KEEP_LOGIN, RESET_REGISTRATION_FORM,
 } from '../action/user';
 
 export const initialState = {
@@ -114,6 +114,20 @@ const reducer = (state = initialState, action = {}) => {
           logs: action.logs,
           token: action.token,
         },
+      };
+
+    case RESET_REGISTRATION_FORM:
+      return {
+        ...state,
+        settingsRegister: {
+          ...state.settingsRegister,
+          pseudo: '',
+          email: '',
+          password: '',
+          confirmedPassword: '',
+        },
+        isLoginOpen: true,
+        isRegistrationOpen: false,
       };
 
     default:
