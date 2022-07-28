@@ -1,10 +1,19 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchRecipesMyAccount } from '../../../action/myAccountRecipes';
 import HeaderMyAccount from '../HeaderMyCompte';
 
 import './styles.scss';
 
 function MyRecipes() {
   const recipesMyAccount = useSelector((state) => state.myAccountRecipes.list);
+  const dispatch = useDispatch();
+  useEffect(
+    () => {
+      dispatch(fetchRecipesMyAccount());
+    },
+    [],
+  );
   return (
     <>
       <HeaderMyAccount />
@@ -26,7 +35,7 @@ function MyRecipes() {
                       <li><i className="icon-dish" /></li>
                       <li><i className="icon-kitchen-hat" /></li>
                       <li>
-                        <span>15
+                        <span>{item.nbMiams}
                           <i className="icon-miam" />
                         </span>
                       </li>
