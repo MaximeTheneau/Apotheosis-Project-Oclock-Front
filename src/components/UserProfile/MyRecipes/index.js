@@ -1,8 +1,19 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchRecipesMyAccount } from '../../../action/myAccountRecipes';
 import HeaderMyAccount from '../HeaderMyCompte';
-import data from '../../../data/recipesHome';
+
 import './styles.scss';
 
 function MyRecipes() {
+  const recipesMyAccount = useSelector((state) => state.myAccountRecipes.list);
+  const dispatch = useDispatch();
+  useEffect(
+    () => {
+      dispatch(fetchRecipesMyAccount());
+    },
+    [],
+  );
   return (
     <>
       <HeaderMyAccount />
@@ -10,7 +21,7 @@ function MyRecipes() {
         <h1 className="my-recipes-title">Mes Recettes</h1>
         <div className="my-recipes-cards">
           <div className="my-recipes-card">
-            { data.lastRecipes.map((item) => (
+            {recipesMyAccount.map((item) => (
               <div className="my-recipes-card-img">
                 <img
                   src={item.picture}
@@ -24,7 +35,7 @@ function MyRecipes() {
                       <li><i className="icon-dish" /></li>
                       <li><i className="icon-kitchen-hat" /></li>
                       <li>
-                        <span>15
+                        <span>{item.nbMiams}
                           <i className="icon-miam" />
                         </span>
                       </li>

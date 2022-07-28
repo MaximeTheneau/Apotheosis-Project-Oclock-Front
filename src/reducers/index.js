@@ -5,6 +5,7 @@ import contact from './contact';
 import createdRecipe from './createdRecipe';
 import user from './user';
 import recipes from './recipes';
+import myAccountRecipes from './myAccountRecipes'
 
 const rootReducer = combineReducers({
   homePage: homePage,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   recipes: recipes,
   createdRecipe: createdRecipe,
   user: user,
+  myAccountRecipes: myAccountRecipes,
 
 });
 
