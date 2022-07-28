@@ -1,16 +1,16 @@
-export const FETCH_RECIPES = 'FETCH_RECIPES';
+export const FETCH_RECIPES_MY_ACCOUNT = 'FETCH_RECIPES_MY_ACCOUNT';
 
-export function fetchRecipes() {
+export function fetchRecipesMyAccount() {
   return {
-    type: FETCH_RECIPES,
+    type: FETCH_RECIPES_MY_ACCOUNT,
   };
 }
 
-export const SAVE_RECIPES = 'SAVE_RECIPES';
+export const SAVE_RECIPES_MY_ACCOUNT = 'SAVE_RECIPES_MY_ACCOUNT';
 
-export function saveRecipes(myAccountRecipes) {
+export function saveRecipesMyAccount(myAccountRecipes) {
   return {
-    type: SAVE_RECIPES,
+    type: SAVE_RECIPES_MY_ACCOUNT,
     list: myAccountRecipes,
   };
 }

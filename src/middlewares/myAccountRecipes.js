@@ -1,14 +1,14 @@
 import axios from 'axios';
-import { FETCH_RECIPES, saveRecipes } from '../action/myAccountRecipes';
+import { FETCH_RECIPES_MY_ACCOUNT, saveRecipesMyAccount } from '../action/myAccountRecipes';
 
 const myAccountRecipes = (store) => (next) => (action) => {
   switch (action.type) {
-    case FETCH_RECIPES: {
+    case FETCH_RECIPES_MY_ACCOUNT: {
       axios.get('http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes/user/1')
         .then(
           (response) => {
             console.log(response);
-            store.dispatch(saveRecipes(response.data));
+            store.dispatch(saveRecipesMyAccount(response.data));
           },
         )
         .catch(

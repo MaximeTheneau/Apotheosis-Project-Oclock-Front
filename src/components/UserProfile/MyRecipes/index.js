@@ -1,8 +1,10 @@
+import { useSelector } from 'react-redux';
 import HeaderMyAccount from '../HeaderMyCompte';
-import data from '../../../middlewares/myAccountRecipes';
+
 import './styles.scss';
 
 function MyRecipes() {
+  const recipesMyAccount = useSelector((state) => state.myAccountRecipes.list);
   return (
     <>
       <HeaderMyAccount />
@@ -10,7 +12,7 @@ function MyRecipes() {
         <h1 className="my-recipes-title">Mes Recettes</h1>
         <div className="my-recipes-cards">
           <div className="my-recipes-card">
-            { data.map((item) => (
+            {recipesMyAccount.map((item) => (
               <div className="my-recipes-card-img">
                 <img
                   src={item.picture}

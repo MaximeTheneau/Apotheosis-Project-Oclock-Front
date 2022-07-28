@@ -1,4 +1,4 @@
-import { SAVE_RECIPES } from '../action/myAccountRecipes';
+import { SAVE_RECIPES_MY_ACCOUNT } from '../action/myAccountRecipes';
 
 export const initialState = {
   list: [],
@@ -6,7 +6,7 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case SAVE_RECIPES:
+    case SAVE_RECIPES_MY_ACCOUNT:
       return {
         ...state,
         list: action.list,
