@@ -10,15 +10,26 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case POST_CREACTED: {
       const state = store.getState();
-      const { title, difficulty, category, duration} = state.createdRecipe;
+      const {
+        title,
+        caption,
+        difficulty,
+        category,
+        duration,
+      } = state.createdRecipe;
+      const {
+        steps,
+      } = state.createdRecipe;
       const { token } = state.user.settingsLogIn;
 
       const formData = new FormData();
       formData.append('json', JSON.stringify({
         title: title,
+        caption: caption,
         duration: parseInt(duration, 10),
         difficulty: parseInt(difficulty, 10),
         category: parseInt(category, 10),
+        steps: steps,
       }));
       formData.append('picture', null);
       axios({
@@ -35,7 +46,7 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
         // j'enregistre mon token sur l'instance d'axios
         // axiosInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
         return next(action);
-       })
+      })
         .catch((error) => {
           console.log(error);
           return next(action);

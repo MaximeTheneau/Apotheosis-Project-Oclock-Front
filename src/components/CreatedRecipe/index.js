@@ -35,7 +35,6 @@ function CreatedRecipe() {
   const toogle8 = useSelector((state) => state.createdRecipe.toogle8);
   const toogle9 = useSelector((state) => state.createdRecipe.toogle9);
 
-
   const handleChangeTitle = ((evt) => {
     dispatch(titleAction(evt.target.value, 'title'));
   });
@@ -104,6 +103,7 @@ function CreatedRecipe() {
             value="3"
             checked={valueType === '3'}
             onChange={handleChangeType}
+            required
           />
           <i className="icon-dish" />
           <input
@@ -127,13 +127,13 @@ function CreatedRecipe() {
             value="2"
             checked={valueDifficulty === '2'}
             onChange={handleChangeDifficulty}
-          /> <i className="icon-kitchen-hat" /> <i className="icon-kitchen-hat"/>
+          /> <i className="icon-kitchen-hat" /> <i className="icon-kitchen-hat " />
           <input
             type="radio"
             value="3"
             checked={valueDifficulty === '3'}
             onChange={handleChangeDifficulty}
-          /> <i className="icon-kitchen-hat" /> <i className="icon-kitchen-hat" /> <i className="icon-kitchen-hat" />
+          /> <i className="icon-difficulty-1" /> <i className="icon-difficulty-2" /> <i className="icon-diff" />
         </div>
         <div>
           <span className="label-title">Temps</span>
