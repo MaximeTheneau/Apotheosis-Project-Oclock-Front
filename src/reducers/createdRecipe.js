@@ -3,6 +3,7 @@ import {
   DIFFICULTY_ACTION,
   DURATION_ACTION,
   ETAPE_ACTION,
+  FILE_ACTION,
   INGREDIENT_ACTION,
   QUANTITY_ACTION, TITLE_ACTION,
   TOOGLE_STEPS,
@@ -26,8 +27,7 @@ export const initialState = {
   duration: null,
   difficulty: null,
   category: '',
-  recipeIngredients: [
-  ],
+  recipeIngredients: [],
   toogle: false,
   toogle3: false,
   toogle4: false,
@@ -77,10 +77,10 @@ const reducer = (state = initialState, action = {}) => {
     case UNIT_ACTION:
       return {
         ...state,
-        recipeIngredients: [{
+        recipeIngredients: {
           ...state.recipeIngredients,
           [action.field]: action.value,
-        }],
+        },
       };
     case QUANTITY_ACTION:
       return {
@@ -143,6 +143,11 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         toogle9: !state.toogle9,
 
+      };
+    case FILE_ACTION:
+      return {
+        ...state,
+        picture: action.value,
       };
     default:
       return state;

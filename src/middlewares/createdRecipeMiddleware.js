@@ -1,10 +1,5 @@
 import axios from 'axios';
 import { POST_CREACTED } from '../action/createdRecipe';
-import { redirect } from '../action/user';
-
-const axiosInstance = axios.create({
-  baseURL: 'http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/',
-});
 
 const createdRecipeMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -17,8 +12,14 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
         category,
         duration,
       } = state.createdRecipe;
+      /*const {
+        recipeIngredients,
+      } = state.createdRecipe; */
       const {
         steps,
+      } = state.createdRecipe;
+      const {
+        picture,
       } = state.createdRecipe;
       const { token } = state.user.settingsLogIn;
 
@@ -29,9 +30,10 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
         duration: parseInt(duration, 10),
         difficulty: parseInt(difficulty, 10),
         category: parseInt(category, 10),
+        // recipeIngredients: recipeIngredients,
         steps: steps,
       }));
-      formData.append('picture', null);
+      formData.append('picture', document.getElementById('fileUpload').files[0]);
       axios({
         method: 'post',
         url: 'http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes',

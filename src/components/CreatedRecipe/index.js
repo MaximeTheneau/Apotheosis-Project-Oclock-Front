@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { difficultyAction, durationAction, titleAction, typeAction, ingredientAction, unitAction, quantityAction, etapeAction, postCreated, captionAction, toogleSteps, toogleStep9, toogleStep8, toogleStep7, toogleStep6, toogleStep5, toogleStep4, toogleSteps3, toogleSteps2 } from '../../action/createdRecipe';
+import { fileAction, difficultyAction, durationAction, titleAction, typeAction, ingredientAction, unitAction, quantityAction, etapeAction, postCreated, captionAction, toogleSteps, toogleStep9, toogleStep8, toogleStep7, toogleStep6, toogleStep5, toogleStep4, toogleSteps3, toogleSteps2 } from '../../action/createdRecipe';
 import Etape from './Field/etapes';
 import './styles.scss';
 
@@ -23,6 +23,8 @@ function CreatedRecipe() {
   const valueEtape7 = useSelector((state) => state.createdRecipe.steps.etape7);
   const valueEtape8 = useSelector((state) => state.createdRecipe.steps.etape8);
   const valueEtape9 = useSelector((state) => state.createdRecipe.steps.etape9);
+
+  const valueFile = useSelector((state) => state.createdRecipe.picture);
 
   const toogle = useSelector((state) => state.createdRecipe.toogle);
   const toogle2 = useSelector((state) => state.createdRecipe.toogle2);
@@ -50,7 +52,7 @@ function CreatedRecipe() {
   });
   const handleChangeFile = ((evt) => {
     // console.log(evt.target.files[0]);
-    // dispatch(durationAction(evt.target.value, 'duration'));
+    dispatch(fileAction(evt.target.files[0]));
   });
   const handleSumbit = ((evt) => {
     evt.preventDefault();
@@ -149,8 +151,8 @@ function CreatedRecipe() {
           <span className="label-title">Image</span>
           <input
             type="file"
-            value=""
             onChange={handleChangeFile}
+            id="fileUpload"
           />
         </div>
         <div>
