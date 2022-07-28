@@ -8,6 +8,7 @@
   }
   img.my-recipes-img {
     width: 8rem;
+    height: 8rem;
     justify-content: none; 
   }
   .my-recipes-responsive {
@@ -17,7 +18,8 @@
 // Responsive + 425 px
 @media screen and (min-width: 426px) {
   img.my-recipes-img {
-    width: 15rem; 
+    width: 15rem;
+    height: 15rem; 
   }
   .my-recipes-card-img {
     display: flex;
