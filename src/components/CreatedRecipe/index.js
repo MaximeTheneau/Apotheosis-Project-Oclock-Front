@@ -40,6 +40,7 @@ function CreatedRecipe() {
     dispatch(titleAction(evt.target.value, 'title'));
   });
   const handleChangeType = ((evt) => {
+    console.log(evt.target.value);
     dispatch(typeAction(evt.target.value, 'category'));
   });
   const handleChangeDifficulty = ((evt) => {
@@ -49,19 +50,18 @@ function CreatedRecipe() {
     dispatch(durationAction(evt.target.value, 'duration'));
   });
   const handleChangeFile = ((evt) => {
-    console.log(evt.target.files[0]);
+    // console.log(evt.target.files[0]);
     // dispatch(durationAction(evt.target.value, 'duration'));
   });
   const handleSumbit = ((evt) => {
     evt.preventDefault();
-    console.log(evt);
     dispatch(postCreated());
     // dispatch(durationAction(evt.target.value, 'duration'));
   });
   return (
     <div className="createdRecipe">
       <h1>Créer Une recette</h1>
-      <form onSubmit={handleSumbit}>
+      <form onSubmit={handleSumbit} action="/path/to/api" method="POST" encytpe="ENCTYPE_HERE">
         <div>
           <span className="label-title">Title</span>
           <input
@@ -85,16 +85,16 @@ function CreatedRecipe() {
           <input
             name="type"
             type="radio"
-            value="1"
-            checked={valueType === '1'}
+            value={1}
+            checked={valueType}
             onChange={handleChangeType}
           />
           <i className="icon-drink" />
           <input
             name="type"
             type="radio"
-            value="2"
-            checked={valueType === '2'}
+            value={2}
+            checked={valueType === 2}
             onChange={handleChangeType}
           />
           <i className="icon-entrance" />

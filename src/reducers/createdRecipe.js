@@ -30,8 +30,8 @@ export const initialState = {
     etape8: '',
     etape9: '',
   },
-  duration: '',
-  diffuculty: '',
+  duration: null,
+  difficulty: null,
   category: '',
   recipeIngredients: {
     ingredient: '',

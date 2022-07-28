@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 function Etape({ onChange }) {
   return (
     <textarea
-      placeholder="Votre étapes"
+      placeholder="Votre étape"
       rows="1"
       onChange={onChange}
     />
