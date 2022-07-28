@@ -15,7 +15,7 @@ function MyMiams() {
                 <img
                   src={item.picture}
                   alt="Name"
-                  className="card-img"
+                  className="my-miams-img"
                 />
                 <div className="my-miams-card-block">
                   <ul className="my-miams-card-ul">
@@ -30,7 +30,7 @@ function MyMiams() {
                     <li><h2>Aperçu de la Recette</h2></li>
                     <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis.</li>
                     <li><h2>Recettes similaire</h2></li>
-                    <ul>
+                    <ul className="my-miams-list">
                       <li>Titre de la recette</li>
                       <li>Titre de la recette</li>
                       <li>Titre de la recette</li>
