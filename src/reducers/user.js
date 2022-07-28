@@ -16,10 +16,10 @@ export const initialState = {
     logs: false,
     email: '',
     password: '',
+    userid: '',
     pseudo: '', // Renvoyé par l'API
     avatar: '', // Renvoyé par l'API
     token: '', // Renvoyé par l'API
-    favorites: [], // Renvoyé par l'API GET /favorites
   },
   isLoginOpen: true,
   isRegistrationOpen: false,
@@ -72,6 +72,7 @@ const reducer = (state = initialState, action = {}) => {
           pseudo: '',
           avatar: '',
           token: '',
+          userid: '',
           favorites: [],
         },
       };

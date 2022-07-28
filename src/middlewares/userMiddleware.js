@@ -1,13 +1,10 @@
 import axios from 'axios';
 import {
-  FETCH_FAVORITES,
   LOGIN,
   LOGOUT,
   saveUser,
-  saveFavorites,
   redirect,
   authError,
-  fetchFavorites,
 } from '../action/user';
 
 const axiosInstance = axios.create({
@@ -48,9 +45,6 @@ const userMiddleware = (store) => (next) => (action) => {
           // - Save the JWT in localStorage
           //window.localStorage.setItem('token', user.token);
 
-          // on mémorise ses favoris aussi
-          //store.dispatch(fetchFavorites());
-
           return next(action);
         })
         .catch((error) => {
@@ -72,38 +66,7 @@ const userMiddleware = (store) => (next) => (action) => {
       console.log('nettoyage');
 
       return next(action);
-    case FETCH_FAVORITES: {
-      // const { user: { token } } = store.getState();
 
-      // dans nos requête qui font suite au login,
-      // plus besoin de joindre le token à la main,
-      // il est déjà présent dans l'instance d'axios
-
-      console.log(axiosInstance);
-
-      axiosInstance.get(
-        'favorites',
-        // On envoie le token dans un header de notre requete pour l'autorisation
-        // {
-        //   headers: {
-        //     Authorization: `bearer ${token}`,
-        //   },
-        // },
-      )
-        .then((response) => {
-          // console.log(response);
-          // Une fois qu'on a reucp la liste des favoris, on veut les mémoriser dans le state
-          // Pour que notre UI les affiche !
-          store.dispatch(saveFavorites(response.data.favorites));
-          return next(action);
-        })
-        .catch((err) => {
-          console.log(err);
-          return next(action);
-        });
-
-      return next(action);
-    }
     default:
       return next(action);
   }
