@@ -97,3 +97,11 @@ export function authError(message) {
     message,
   };
 }
+
+export const REGISTER = 'REGISTER';
+
+export function register() {
+  return {
+    type: REGISTER,
+  };
+}

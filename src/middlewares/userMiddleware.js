@@ -5,6 +5,7 @@ import {
   saveUser,
   redirect,
   authError,
+  REGISTER,
 } from '../action/user';
 
 const axiosInstance = axios.create({
@@ -39,11 +40,11 @@ const userMiddleware = (store) => (next) => (action) => {
           // On mémorise l'utilisateur dans le state
           store.dispatch(saveUser(user));
 
-          // Redirect of the user towards to home page
-          store.dispatch(redirect('/'));
-
           // - Save the JWT in localStorage
           //window.localStorage.setItem('token', user.token);
+
+          // Redirect of the user towards to home page
+          store.dispatch(redirect('/'));
 
           return next(action);
         })
@@ -66,6 +67,48 @@ const userMiddleware = (store) => (next) => (action) => {
       console.log('nettoyage');
 
       return next(action);
+    case REGISTER: {
+      const state = store.getState();
+      const {
+        email, password, pseudo,
+      } = state.user.settingsRegister;
+
+      const formData = new FormData();
+      formData.append('json', JSON.stringify({
+        email: email,
+        pseudo: pseudo,
+        password: password,
+      }));
+
+      formData.append('picture', null);
+      console.log(formData);
+
+      axios({
+        method: 'post',
+        url: 'http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/users',
+        data: formData,
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+        .then((response) => {
+          console.log(response);
+
+          // Redirect of the user towards to home page
+          store.dispatch(redirect('/'));
+
+          return next(action);
+        })
+        .catch((error) => {
+          console.log(error);
+
+          //store.dispatch(authError('Email ou mot de passe incorrect'));
+
+          return next(action);
+        });
+
+      return next(action);
+    }
 
     default:
       return next(action);

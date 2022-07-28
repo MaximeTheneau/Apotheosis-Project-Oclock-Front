@@ -2,7 +2,7 @@ import './styles.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { isValidEmail, isValidPassword, validMatchPassword } from '../../Utils/validators'
-import { setRegistrationcredentials, authError } from '../../action/user';
+import { setRegistrationcredentials, authError, register } from '../../action/user';
 
 function Register() {
   const {
@@ -26,8 +26,9 @@ function Register() {
     dispatch(setRegistrationcredentials(event.currentTarget.value, 'confirmedPassword'));
   };
 
-  const handleClick = () => {
-
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(register());
   };
 
   useEffect(() => {
@@ -35,7 +36,7 @@ function Register() {
   }, [email]);
 
   return (
-    <form className="registration">
+    <form className="registration" onSubmit={handleSubmit} action="/path/to/api" method="POST" encytpe="ENCTYPE_HERE">
       <div className="registration-field">
         <label
           htmlFor="pseudo"
@@ -108,7 +109,7 @@ function Register() {
           />
         </label>
       </div>
-      <button type="submit" className="registration-submit" onClick={handleClick}>Valider</button>
+      <button type="submit" className="registration-submit">Valider</button>
     </form>
   );
 }
