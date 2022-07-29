@@ -9,8 +9,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const enhancers = composeEnhancers(
 
-  applyMiddleware(recipe, userMiddleware, createdRecipeMiddleware),
-  applyMiddleware(recipe, userMiddleware, myAccountRecipes),
+  applyMiddleware(recipe, userMiddleware, createdRecipeMiddleware, myAccountRecipes),
 
 );
 
