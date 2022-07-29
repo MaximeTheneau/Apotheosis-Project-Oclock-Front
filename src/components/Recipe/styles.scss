@@ -2,4 +2,22 @@
 
 img.one-recipe-img {
   width: 30vh;
+  margin: 1rem;
 }
+ul.one-recipe-steps-ul {
+  margin: 1rem;
+}
+textarea.one-recipe-comment-textarea {
+  width: 50vh;
+  margin: 1rem;
+}
+.one-recipe-comment-send-button {
+  font-size: 4rem;
+  background: vars.$blue-omiam;
+  padding: 0.5rem;
+  border: 1px solid vars.$grey-omiam;
+  color: #fff;
+  margin: 1rem;
+  cursor: pointer;
+}
+

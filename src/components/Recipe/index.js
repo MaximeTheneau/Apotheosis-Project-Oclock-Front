@@ -1,3 +1,4 @@
+import Comments from './Comments';
 import './styles.scss';
 
 function Recipe() {
@@ -31,6 +32,7 @@ function Recipe() {
             <li><p className="one-recipe-steps-etape">Faites un puits au milieu et versez-y les œufs.</p></li>
           </ul>
         </div>
+        <Comments />
       </div>
     </div>
   );
