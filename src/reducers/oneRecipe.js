@@ -1,4 +1,4 @@
-import { FETCH_RECIPE } from '../action/oneRecipe';
+import { SAVE_RECIPE } from '../action/oneRecipe';
 
 export const initialState = {
   list: [],
@@ -6,7 +6,7 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case FETCH_RECIPE:
+    case SAVE_RECIPE:
       return {
         ...state,
         list: action.list,

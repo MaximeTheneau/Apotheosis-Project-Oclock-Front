@@ -8,9 +8,9 @@ export function fetchRecipe() {
 
 export const SAVE_RECIPE = 'SAVE_RECIPE';
 
-export function saveRecipe(recipe) {
+export function saveRecipe(oneRecipe) {
   return {
     type: SAVE_RECIPE,
-    list: recipe,
+    list: oneRecipe,
   };
 }

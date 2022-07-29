@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchRecipe } from '../../action/oneRecipe';
 import Comments from './Comments';
 import './styles.scss';
 
 function Recipe() {
+  const oneRecipe = useSelector((state) => state.oneRecipe.list);
   const dispatch = useDispatch();
   useEffect(
     () => {
@@ -21,7 +22,7 @@ function Recipe() {
       </div>
       <div className="one-recipe-img">
         <img
-          src="http://adrienpinilla-server.eddi.cloud/omiam/current/public/sources/images/recipe/recipe_2.png"
+          src=""
           alt="Name"
           className="one-recipe-img"
         />
@@ -33,7 +34,7 @@ function Recipe() {
           <li><p className="one-recipe-caption">
             Découvrez la recette du Mojito, la star des cocktails de l'été grâce à
             sa menthe parfumée et son irrésistible fraîcheur.
-              </p>
+          </p>
           </li>
         </ul>
         <div className="one-recipe-steps">
@@ -42,10 +43,11 @@ function Recipe() {
             <li><p className="one-recipe-steps-etape">Faites un puits au milieu et versez-y les œufs.</p></li>
           </ul>
         </div>
-        <Comments />
       </div>
+      <Comments />
     </div>
   );
 }
 
 export default Recipe;
+
