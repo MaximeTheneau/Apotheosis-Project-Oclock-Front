@@ -5,6 +5,7 @@ import Comments from './Comments';
 import './styles.scss';
 
 function Recipe() {
+  //! Warning !!! Look reducers list is not Array!!!
   const oneRecipe = useSelector((state) => state.oneRecipe.list);
   const dispatch = useDispatch();
   useEffect(
