@@ -1,24 +1,24 @@
 import axios from 'axios';
-import { FETCH_RECIPES, saveRecipes } from '../action/recipes';
+import { FETCH_RECIPES } from '../action/recipes';
 
-// Lorsqu'on met en place un middleware, il ne faut pas oublier de le brancher au store !
-const recipes = (store) => (next) => (action) => {
+const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_RECIPES: {
-      axios.post('http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes')
-        .then(
-          (response) => {
-            // Ici on recup bien les données de notre API (les recettes)
-            // On veut maintenant les rajouter dans le state
-            // Pour ça on va dispatcher une action (l'intention de mémoriser les recettes)
-            store.dispatch(saveRecipes(response.data));
-          },
-        )
-        .catch(
-          (error) => {
-            console.log(error);
-          },
-        );
+      const state = store.getState();
+      // const { email, password } = state.user.settingsLogIn;
+      // équivalent : double destructuration
+      // const { user: { email, password } } = store.user.getState();
+
+      axios.get('http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes')
+        .then((response) => {
+          console.log(response.data);
+
+          return next(action);
+        })
+        .catch((error) => {
+          console.log(error);
+          return next(action);
+        });
 
       return next(action);
     }
@@ -27,4 +27,4 @@ const recipes = (store) => (next) => (action) => {
   }
 };
 
-export default recipes;
+export default userMiddleware;

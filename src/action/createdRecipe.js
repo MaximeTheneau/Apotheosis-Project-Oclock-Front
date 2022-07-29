@@ -178,3 +178,12 @@ export function toogleStep9(value, field) {
     field: field,
   };
 }
+export const FILE_ACTION = 'FILE_ACTION';
+
+export function fileAction(value, field) {
+  return {
+    type: FILE_ACTION,
+    value: value,
+    field: field,
+  };
+}

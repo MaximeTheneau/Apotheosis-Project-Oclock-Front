@@ -1,6 +1,9 @@
-import { CAPTION_ACTION, DIFFICULTY_ACTION,
+import {
+  CAPTION_ACTION,
+  DIFFICULTY_ACTION,
   DURATION_ACTION,
   ETAPE_ACTION,
+  FILE_ACTION,
   INGREDIENT_ACTION,
   QUANTITY_ACTION, TITLE_ACTION,
   TOOGLE_STEPS,
@@ -12,32 +15,19 @@ import { CAPTION_ACTION, DIFFICULTY_ACTION,
   TOOGLE_STEPS7,
   TOOGLE_STEPS8,
   TOOGLE_STEPS9,
-  TYPE_ACTION, UNIT_ACTION
+  TYPE_ACTION,
+  UNIT_ACTION,
 } from '../action/createdRecipe';
 
 export const initialState = {
 
   title: '',
   caption: '',
-  steps: {
-    etape1: '',
-    etape2: '',
-    etape3: '',
-    etape4: '',
-    etape5: '',
-    etape6: '',
-    etape7: '',
-    etape8: '',
-    etape9: '',
-  },
-  duration: '',
-  diffuculty: '',
+  steps: [],
+  duration: null,
+  difficulty: null,
   category: '',
-  recipeIngredients: {
-    ingredient: '',
-    unit: '',
-    quantity: '',
-  },
+  recipeIngredients: [],
   toogle: false,
   toogle3: false,
   toogle4: false,
@@ -153,6 +143,11 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         toogle9: !state.toogle9,
 
+      };
+    case FILE_ACTION:
+      return {
+        ...state,
+        picture: action.value,
       };
     default:
       return state;

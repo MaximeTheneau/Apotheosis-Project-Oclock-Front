@@ -3,11 +3,15 @@ import reducer from 'src/reducers';
 import myAccountRecipes from '../middlewares/myAccountRecipes';
 import recipe from '../middlewares/recipes';
 import userMiddleware from '../middlewares/userMiddleware';
+import createdRecipeMiddleware from '../middlewares/createdRecipeMiddleware';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const enhancers = composeEnhancers(
+
+  applyMiddleware(recipe, userMiddleware, createdRecipeMiddleware),
   applyMiddleware(recipe, userMiddleware, myAccountRecipes),
+
 );
 
 const store = createStore(reducer, enhancers);

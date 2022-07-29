@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { difficultyAction, durationAction, titleAction, typeAction, ingredientAction, unitAction, quantityAction, etapeAction, postCreated, captionAction, toogleSteps, toogleStep9, toogleStep8, toogleStep7, toogleStep6, toogleStep5, toogleStep4, toogleSteps3, toogleSteps2 } from '../../action/createdRecipe';
+import { fileAction, difficultyAction, durationAction, titleAction, typeAction, ingredientAction, unitAction, quantityAction, etapeAction, postCreated, captionAction, toogleSteps, toogleStep9, toogleStep8, toogleStep7, toogleStep6, toogleStep5, toogleStep4, toogleSteps3, toogleSteps2 } from '../../action/createdRecipe';
 import Etape from './Field/etapes';
 import './styles.scss';
 
@@ -24,6 +24,8 @@ function CreatedRecipe() {
   const valueEtape8 = useSelector((state) => state.createdRecipe.steps.etape8);
   const valueEtape9 = useSelector((state) => state.createdRecipe.steps.etape9);
 
+  const valueFile = useSelector((state) => state.createdRecipe.picture);
+
   const toogle = useSelector((state) => state.createdRecipe.toogle);
   const toogle2 = useSelector((state) => state.createdRecipe.toogle2);
 
@@ -35,11 +37,11 @@ function CreatedRecipe() {
   const toogle8 = useSelector((state) => state.createdRecipe.toogle8);
   const toogle9 = useSelector((state) => state.createdRecipe.toogle9);
 
-
   const handleChangeTitle = ((evt) => {
     dispatch(titleAction(evt.target.value, 'title'));
   });
   const handleChangeType = ((evt) => {
+    console.log(evt.target.value);
     dispatch(typeAction(evt.target.value, 'category'));
   });
   const handleChangeDifficulty = ((evt) => {
@@ -49,19 +51,18 @@ function CreatedRecipe() {
     dispatch(durationAction(evt.target.value, 'duration'));
   });
   const handleChangeFile = ((evt) => {
-    console.log(evt.target.files[0]);
-    // dispatch(durationAction(evt.target.value, 'duration'));
+    // console.log(evt.target.files[0]);
+    dispatch(fileAction(evt.target.files[0]));
   });
   const handleSumbit = ((evt) => {
     evt.preventDefault();
-    console.log(evt);
     dispatch(postCreated());
     // dispatch(durationAction(evt.target.value, 'duration'));
   });
   return (
     <div className="createdRecipe">
       <h1>Créer Une recette</h1>
-      <form onSubmit={handleSumbit}>
+      <form onSubmit={handleSumbit} action="/path/to/api" method="POST" encytpe="ENCTYPE_HERE">
         <div>
           <span className="label-title">Title</span>
           <input
@@ -85,16 +86,16 @@ function CreatedRecipe() {
           <input
             name="type"
             type="radio"
-            value="1"
-            checked={valueType === '1'}
+            value={1}
+            checked={valueType}
             onChange={handleChangeType}
           />
           <i className="icon-drink" />
           <input
             name="type"
             type="radio"
-            value="2"
-            checked={valueType === '2'}
+            value={2}
+            checked={valueType === 2}
             onChange={handleChangeType}
           />
           <i className="icon-entrance" />
@@ -104,6 +105,7 @@ function CreatedRecipe() {
             value="3"
             checked={valueType === '3'}
             onChange={handleChangeType}
+            required
           />
           <i className="icon-dish" />
           <input
@@ -127,13 +129,13 @@ function CreatedRecipe() {
             value="2"
             checked={valueDifficulty === '2'}
             onChange={handleChangeDifficulty}
-          /> <i className="icon-kitchen-hat" /> <i className="icon-kitchen-hat"/>
+          /> <i className="icon-kitchen-hat" /> <i className="icon-kitchen-hat " />
           <input
             type="radio"
             value="3"
             checked={valueDifficulty === '3'}
             onChange={handleChangeDifficulty}
-          /> <i className="icon-kitchen-hat" /> <i className="icon-kitchen-hat" /> <i className="icon-kitchen-hat" />
+          /> <i className="icon-difficulty-1" /> <i className="icon-difficulty-2" /> <i className="icon-diff" />
         </div>
         <div>
           <span className="label-title">Temps</span>
@@ -149,8 +151,8 @@ function CreatedRecipe() {
           <span className="label-title">Image</span>
           <input
             type="file"
-            value=""
             onChange={handleChangeFile}
+            id="fileUpload"
           />
         </div>
         <div>
