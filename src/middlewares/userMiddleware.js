@@ -37,7 +37,7 @@ const userMiddleware = (store) => (next) => (action) => {
           axiosInstance.defaults.headers.common.Authorization = `Bearer ${user.token}`;
 
           // On mémorise l'utilisateur dans le state
-          store.dispatch(saveUser(user));
+          //store.dispatch(saveUser(user));
 
           // Redirect of the user towards to home page
           //store.dispatch(redirect('/'));
@@ -46,6 +46,9 @@ const userMiddleware = (store) => (next) => (action) => {
           // - Save the JWT in localStorage
           localStorage.setItem('token', user.token);
           localStorage.setItem('logs', true);
+
+          // On mémorise l'utilisateur dans le state
+          store.dispatch(saveUser(user));
 
           return next(action);
         })
