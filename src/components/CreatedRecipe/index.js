@@ -70,6 +70,7 @@ function CreatedRecipe() {
     dispatch(postCreated());
     // dispatch(durationAction(evt.target.value, 'duration'));
   });
+  const onChange = (evt) => dispatch(ingredientAction(evt.target.value, 'ingredient'))
   return (
     <div className="createdRecipe">
       <h1>Créer Une recette</h1>
@@ -171,17 +172,11 @@ function CreatedRecipe() {
           <div className="ingredients">
             <div className="ingredients-add">
               <div className="ingredients-add-select">
-
                 {(TooglelistIngredients) ? (
-                  <select>
+                  <select onChange={(evt) => dispatch(ingredientAction(evt.target.value, 'ingredient'))}>
+                    <option>----</option>
                     { listIngredients.map((item) => (
-                      <option
-                        value={valueIngredient}
-                        onChange={(evt) => dispatch(ingredientAction(evt.target.value, 'ingredient'))}
-                      >
-                        {item.name}
-                      </option>
-                    )) }
+                      <option value={valueIngredient}>{item.name}</option>))}
                   </select>
                 ) : (
                   <input

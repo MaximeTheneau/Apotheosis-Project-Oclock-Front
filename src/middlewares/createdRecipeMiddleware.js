@@ -12,14 +12,11 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
         category,
         duration,
       } = state.createdRecipe;
-      /*const {
-        recipeIngredients,
-      } = state.createdRecipe; */
       const {
-        steps,
+        recipeIngredients,
       } = state.createdRecipe;
       const {
-        picture,
+        steps,
       } = state.createdRecipe;
       const { token } = state.user.settingsLogIn;
 
@@ -30,7 +27,7 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
         duration: parseInt(duration, 10),
         difficulty: parseInt(difficulty, 10),
         category: parseInt(category, 10),
-        // recipeIngredients: recipeIngredients,
+        recipeIngredients: recipeIngredients,
         steps: steps,
       }));
       formData.append('picture', document.getElementById('fileUpload').files[0]);
