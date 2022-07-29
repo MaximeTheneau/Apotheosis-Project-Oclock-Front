@@ -40,7 +40,7 @@ function Recipe() {
               <div className="one-recipe-steps">
                 <ul className="one-recipe-steps-ul">
                   <li><h2 className="one-recipe-steps-title">Etape 1</h2></li>
-                  <li><p className="one-recipe-steps-etape">{item.etape1}</p></li>
+                  <li><p className="one-recipe-steps-etape">{item.steps.etape1}</p></li>
                 </ul>
               </div>
             </div>
