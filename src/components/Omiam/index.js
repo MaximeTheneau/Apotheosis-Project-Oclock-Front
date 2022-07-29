@@ -15,6 +15,7 @@ import Privacy from '../Pages/Privacy';
 import Contact from '../Pages/Contact';
 import UserProfile from '../UserProfile';
 import MyRecipes from '../UserProfile/MyRecipes';
+import Recipe from '../Recipe';
 import MyMiams from '../UserProfile/MyMiams';
 import MyChiefs from '../UserProfile/MyChiefs';
 import Error from '../Error';
@@ -41,6 +42,7 @@ function Omiam() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/recettes/:slug" element={<Categories />} />
+          <Route path="/recette" element={<Recipe />} />
           <Route path="/recette/recherche" element={<Search />} />
           <Route path="/qui-sommes-nous" element={<Aboutus />} />
           <Route path="/contact" element={<Contact />} />
