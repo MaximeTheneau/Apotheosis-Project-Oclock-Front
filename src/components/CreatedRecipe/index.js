@@ -1,10 +1,18 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fileAction, difficultyAction, durationAction, titleAction, typeAction, ingredientAction, unitAction, quantityAction, etapeAction, postCreated, captionAction, toogleSteps, toogleStep9, toogleStep8, toogleStep7, toogleStep6, toogleStep5, toogleStep4, toogleSteps3, toogleSteps2 } from '../../action/createdRecipe';
+import { fileAction, difficultyAction, durationAction, titleAction, typeAction, ingredientAction, unitAction, quantityAction, etapeAction, postCreated, captionAction, toogleSteps, toogleStep9, toogleStep8, toogleStep7, toogleStep6, toogleStep5, toogleStep4, toogleSteps3, toogleSteps2, fetchAction } from '../../action/createdRecipe';
 import Etape from './Field/etapes';
 import './styles.scss';
 
 function CreatedRecipe() {
   const dispatch = useDispatch();
+  useEffect(
+    () => {
+      dispatch(fetchAction());
+    },
+    [],
+  );
 
   const valueTitle = useSelector((state) => state.title);
   const valueType = useSelector((state) => state.createdRecipe.category);
@@ -36,6 +44,7 @@ function CreatedRecipe() {
   const toogle7 = useSelector((state) => state.createdRecipe.toogle7);
   const toogle8 = useSelector((state) => state.createdRecipe.toogle8);
   const toogle9 = useSelector((state) => state.createdRecipe.toogle9);
+  const listIngredients = useSelector((state) => state.createdRecipe.listIngredients);
 
   const handleChangeTitle = ((evt) => {
     dispatch(titleAction(evt.target.value, 'title'));
@@ -159,6 +168,22 @@ function CreatedRecipe() {
           <span className="label-title">Ingredient pour 4 personnes.</span>
           <div className="ingredients">
             <div className="ingredients-add">
+              <select>
+              {listIngredients.map((evt) => (
+                <option
+                value={valueIngredient}
+                onChange={(evt) => dispatch(ingredientAction(evt.target.value, 'ingredient'))}
+              >
+              ))}
+                </option>
+              </select>
+              <input
+                className="ingredients-type"
+                type="text"
+                onChange={(evt) => dispatch(ingredientAction(evt.target.value, 'ingredient'))}
+                value={valueIngredient}
+                placeholder="Lait"
+              />
               <input
                 className="ingredients-type"
                 type="number"
@@ -172,13 +197,6 @@ function CreatedRecipe() {
                 onChange={(evt) => dispatch(unitAction(evt.target.value, 'unit'))}
                 value={valueUnit}
                 placeholder="cl"
-              />
-              <input
-                className="ingredients-type"
-                type="text"
-                onChange={(evt) => dispatch(ingredientAction(evt.target.value, 'ingredient'))}
-                value={valueIngredient}
-                placeholder="Lait"
               />
 
               <i className="icon-add" />

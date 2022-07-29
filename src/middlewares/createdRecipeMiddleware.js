@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { POST_CREACTED } from '../action/createdRecipe';
+import { FETCH_ACTION, POST_CREACTED, saveFetchIngredients } from '../action/createdRecipe';
 
 const createdRecipeMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -56,38 +56,24 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
 
       return next(action);
     }
+    case FETCH_ACTION: {
+      axios.get('http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/ingredients')
+        .then(
+          (response) => {
+            console.log(response);
+            store.dispatch(saveFetchIngredients(response.data));
+          },
+        )
+        .catch(
+          (error) => {
+            console.log(error);
+          },
+        );
+      return next(action);
+    }
     default:
       return next(action);
   }
 };
 
 export default createdRecipeMiddleware;
-/* 
-      /const {
-        speudo,
-        token,
-        userid,
-        role,
-        logs,
-      } = state.user.settingsLogIn;
-      const { title } = state.createdRecipe;
-
-caption: caption,
-        steps: {
-          etape1: etape1,
-          etape2: etape2,
-          etape3: etape3,
-          etape4: etape4,
-          etape5: etape5,
-          etape6: etape6,
-          etape7: etape7,
-          etape8: etape8,
-          etape9: etape9,
-        },
-        duration: duration,
-        difficulty: difficulty,
-        category: category,
-        recipeIngredients: {
-          ingredient: ingredient,
-          unit: unit,
-          quantity: quantity,*/

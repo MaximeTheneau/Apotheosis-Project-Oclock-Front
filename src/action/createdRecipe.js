@@ -187,3 +187,19 @@ export function fileAction(value, field) {
     field: field,
   };
 }
+
+export const FETCH_ACTION = 'FETCH_ACTION';
+
+export function fetchAction() {
+  return {
+    type: FETCH_ACTION,
+  };
+}
+export const SAVE_FETCH_INGREDIENTS = 'SAVE_FETCH_INGREDIENTS';
+
+export function saveFetchIngredients(listIngredientsFetch) {
+  return {
+    type: SAVE_FETCH_INGREDIENTS,
+    listIngredients: listIngredientsFetch,
+  };
+}
