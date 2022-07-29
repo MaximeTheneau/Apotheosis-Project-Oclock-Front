@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fileAction, difficultyAction, durationAction, titleAction, typeAction, ingredientAction, unitAction, quantityAction, etapeAction, postCreated, captionAction, toogleSteps, toogleStep9, toogleStep8, toogleStep7, toogleStep6, toogleStep5, toogleStep4, toogleSteps3, toogleSteps2, fetchAction } from '../../action/createdRecipe';
+import { fileAction, difficultyAction, durationAction, titleAction, typeAction, ingredientAction, unitAction, quantityAction, etapeAction, postCreated, captionAction, toogleSteps, toogleStep9, toogleStep8, toogleStep7, toogleStep6, toogleStep5, toogleStep4, toogleSteps3, toogleSteps2, fetchAction, toogleIngredients } from '../../action/createdRecipe';
 import Etape from './Field/etapes';
 import './styles.scss';
 
@@ -32,9 +32,9 @@ function CreatedRecipe() {
   const valueEtape8 = useSelector((state) => state.createdRecipe.steps.etape8);
   const valueEtape9 = useSelector((state) => state.createdRecipe.steps.etape9);
 
-  const valueFile = useSelector((state) => state.createdRecipe.picture);
+  // const valueFile = useSelector((state) => state.createdRecipe.picture);
 
-  const toogle = useSelector((state) => state.createdRecipe.toogle);
+  // const toogle = useSelector((state) => state.createdRecipe.toogle);
   const toogle2 = useSelector((state) => state.createdRecipe.toogle2);
 
   const toogle3 = useSelector((state) => state.createdRecipe.toogle3);
@@ -45,6 +45,8 @@ function CreatedRecipe() {
   const toogle8 = useSelector((state) => state.createdRecipe.toogle8);
   const toogle9 = useSelector((state) => state.createdRecipe.toogle9);
   const listIngredients = useSelector((state) => state.createdRecipe.listIngredients);
+  const TooglelistIngredients = useSelector((state) => state.createdRecipe.toogleIngredients);
+
 
   const handleChangeTitle = ((evt) => {
     dispatch(titleAction(evt.target.value, 'title'));
@@ -168,22 +170,30 @@ function CreatedRecipe() {
           <span className="label-title">Ingredient pour 4 personnes.</span>
           <div className="ingredients">
             <div className="ingredients-add">
-              <select>
-              {listIngredients.map((evt) => (
-                <option
-                value={valueIngredient}
-                onChange={(evt) => dispatch(ingredientAction(evt.target.value, 'ingredient'))}
-              >
-              ))}
-                </option>
-              </select>
-              <input
-                className="ingredients-type"
-                type="text"
-                onChange={(evt) => dispatch(ingredientAction(evt.target.value, 'ingredient'))}
-                value={valueIngredient}
-                placeholder="Lait"
-              />
+              <div className="ingredients-add-select">
+
+                {(TooglelistIngredients) ? (
+                  <select>
+                    { listIngredients.map((item) => (
+                      <option
+                        value={valueIngredient}
+                        onChange={(evt) => dispatch(ingredientAction(evt.target.value, 'ingredient'))}
+                      >
+                        {item.name}
+                      </option>
+                    )) }
+                  </select>
+                ) : (
+                  <input
+                    className="ingredients-type"
+                    type="text"
+                    onChange={(evt) => dispatch(ingredientAction(evt.target.value, 'ingredient'))}
+                    value={valueIngredient}
+                    placeholder="Lait"
+                  />
+                ) }
+                {(TooglelistIngredients) ? ( <i className="icon-add" onClick={() => dispatch(toogleIngredients())} /> ) : ( <i className="icon-stop" onClick={() => dispatch(toogleIngredients())} /> ) }
+              </div>
               <input
                 className="ingredients-type"
                 type="number"
@@ -198,8 +208,6 @@ function CreatedRecipe() {
                 value={valueUnit}
                 placeholder="cl"
               />
-
-              <i className="icon-add" />
             </div>
           </div>
         </div>

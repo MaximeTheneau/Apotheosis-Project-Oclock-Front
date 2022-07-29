@@ -178,6 +178,13 @@ export function toogleStep9(value, field) {
     field: field,
   };
 }
+export const TOOGLE_INGREDIENTS = 'TOOGLE_INGREDIENTS';
+
+export function toogleIngredients() {
+  return {
+    type: TOOGLE_INGREDIENTS,
+  };
+}
 export const FILE_ACTION = 'FILE_ACTION';
 
 export function fileAction(value, field) {

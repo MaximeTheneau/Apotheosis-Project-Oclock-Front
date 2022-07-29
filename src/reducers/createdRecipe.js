@@ -6,6 +6,7 @@ import {
   FILE_ACTION,
   INGREDIENT_ACTION,
   QUANTITY_ACTION, SAVE_FETCH_INGREDIENTS, TITLE_ACTION,
+  TOOGLE_INGREDIENTS,
   TOOGLE_STEPS,
   TOOGLE_STEPS2,
   TOOGLE_STEPS3,
@@ -36,6 +37,7 @@ export const initialState = {
   toogle7: false,
   toogle8: false,
   toogle9: false,
+  toogleIngredients: true,
   listIngredients: [],
 
 };
@@ -143,6 +145,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         toogle9: !state.toogle9,
+
+      };
+    case TOOGLE_INGREDIENTS:
+      return {
+        ...state,
+        toogleIngredients: !state.toogleIngredients,
 
       };
     case FILE_ACTION:
