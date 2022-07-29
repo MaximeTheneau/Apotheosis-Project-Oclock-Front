@@ -28,7 +28,7 @@ export const initialState = {
     pseudo: '', // Renvoyé par l'API
     avatar: '', // Renvoyé par l'API
     role: '',
-    token: localStorage.getItem('token') || null,
+    token: '',
   },
   isLoginOpen: true,
   isRegistrationOpen: false,

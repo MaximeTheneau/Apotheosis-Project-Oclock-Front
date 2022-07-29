@@ -21,21 +21,31 @@ function HeaderMyAccount() {
         <Link to="/">
           <div className="profilelogodiv">
             <h2 className="profilelogodiv-title">
-              <i className="icon-miam" /><em className="profilelogodiv-sloggan-highlight">'</em>miam
+              <i className="icon-miam icon-miam-profilelogo" />'miam
             </h2>
             <span className="profilelogodiv-sloggan">Une histoire de miam's</span>
           </div>
         </Link>
-        <div>
-          <HiDotsVertical
-            className="profilelogo-dropdownmenu-mobile"
-            onClick={handleClickMenu}
-          />
+        <div className="dropdown-list">
+          <div onClick={handleClickMenu}>
+            <HiDotsVertical
+              className="profilelogo-dropdownmenu-mobile"
+            />
+          </div>
           {
             isListOpen && (
-              <ul>
-                <Link to="/connexion">Paramètres</Link>
-                <Link to="/connexion" onClick={handleLogout}>Déconnexion</Link>
+              <ul className="dropdown-list">
+                <Link
+                  to="/parametres"
+                  className="dropdown-list-link"
+                >Paramètres
+                </Link>
+                <Link
+                  to="/connexion"
+                  onClick={handleLogout}
+                  className="dropdown-list-link"
+                >Déconnexion
+                </Link>
               </ul>
             )
           }
