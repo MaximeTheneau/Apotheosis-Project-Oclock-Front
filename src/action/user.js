@@ -97,3 +97,29 @@ export function authError(message) {
     message,
   };
 }
+
+export const REGISTER = 'REGISTER';
+
+export function register() {
+  return {
+    type: REGISTER,
+  };
+}
+
+export const KEEP_LOGIN = 'KEEP_LOGIN';
+
+export function keepLogin(token, logs) {
+  return {
+    type: KEEP_LOGIN,
+    token,
+    logs,
+  };
+}
+
+export const RESET_REGISTRATION_FORM = 'RESET_REGISTRATION_FORM';
+
+export function resetRegistrationForm() {
+  return {
+    type: RESET_REGISTRATION_FORM,
+  };
+}

@@ -1,4 +1,6 @@
 import { Route, Routes } from 'react-router';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import Header from '../Header';
 import Main from '../Main';
 import Footer from '../Footer';
@@ -11,12 +13,27 @@ import Aboutus from '../Pages/Aboutus';
 import Tscs from '../Pages/Tscs';
 import Privacy from '../Pages/Privacy';
 import Contact from '../Pages/Contact';
+import UserProfile from '../UserProfile';
+import MyRecipes from '../UserProfile/MyRecipes';
+import MyMiams from '../UserProfile/MyMiams';
+import MyChiefs from '../UserProfile/MyChiefs';
 import Error from '../Error';
+import { keepLogin } from '../../action/user';
 
 import './styles.scss';
 
 // == Composant
 function Omiam() {
+  const loggedIn = localStorage.getItem('logs');
+  const token = localStorage.getItem('token');
+  const dispatch = useDispatch();
+  useEffect(
+    () => {
+      dispatch(keepLogin(token, loggedIn));
+    },
+    [],
+  );
+
   return (
     <>
       <Header />
@@ -30,11 +47,13 @@ function Omiam() {
           <Route path="/mention-legales" element={<Privacy />} />
           <Route path="/conditions-generales-utilisation" element={<Tscs />} />
           <Route path="/connexion" element={<Connectionform />} />
+          <Route path="/mon-compte" element={<UserProfile />} />
+          <Route path="/mon-compte/mes-recettes" element={<MyRecipes />} />
+          <Route path="/mon-compte/mes-miams" element={<MyMiams />} />
+          <Route path="/mon-compte/mes-chefs" element={<MyChiefs />} />
           <Route path="/Creer/Recette" element={<CreatedRecipe />} />
           <Route path="*" element={<Error />} />
           {/*
-            <Route path="/mon-compte/mes-miams" element={< />} />
-            <Route path="/mon-compte/mes-recettes" element={< />} />
             <Route path="/mon-compte/ajouter-une-recette" element={< />} />
             <Route path="/inscription" element={< />} />
           */}

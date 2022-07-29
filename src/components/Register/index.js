@@ -1,6 +1,8 @@
 import './styles.scss';
 import { useSelector, useDispatch } from 'react-redux';
-import { setRegistrationcredentials } from '../../action/user';
+import { useEffect } from 'react';
+import { isValidEmail, isValidPassword, validMatchPassword } from '../../Utils/validators'
+import { setRegistrationcredentials, authError, register } from '../../action/user';
 
 function Register() {
   const {
@@ -24,8 +26,17 @@ function Register() {
     dispatch(setRegistrationcredentials(event.currentTarget.value, 'confirmedPassword'));
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(register());
+  };
+
+  useEffect(() => {
+    isValidEmail(email);
+  }, [email]);
+
   return (
-    <form className="registration">
+    <form className="registration" onSubmit={handleSubmit} action="/path/to/api" method="POST" encytpe="ENCTYPE_HERE">
       <div className="registration-field">
         <label
           htmlFor="pseudo"
@@ -88,7 +99,7 @@ function Register() {
           Confirmation du mot de passe *
           <input
             placeholder="*****"
-            type="confirmedpassword"
+            type="password"
             id="confirmedpassword"
             value={confirmedPassword}
             required

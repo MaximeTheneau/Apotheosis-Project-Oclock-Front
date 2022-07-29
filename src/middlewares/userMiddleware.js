@@ -1,13 +1,12 @@
 import axios from 'axios';
 import {
-  FETCH_FAVORITES,
   LOGIN,
   LOGOUT,
   saveUser,
-  saveFavorites,
   redirect,
   authError,
-  fetchFavorites,
+  REGISTER,
+  resetRegistrationForm,
 } from '../action/user';
 
 const axiosInstance = axios.create({
@@ -20,8 +19,6 @@ const userMiddleware = (store) => (next) => (action) => {
     case LOGIN: {
       const state = store.getState();
       const { email, password } = state.user.settingsLogIn;
-      // équivalent : double destructuration
-      //const { user: { email, password } } = store.user.getState();
 
       axiosInstance.post(
         'login',
@@ -43,13 +40,12 @@ const userMiddleware = (store) => (next) => (action) => {
           store.dispatch(saveUser(user));
 
           // Redirect of the user towards to home page
-          store.dispatch(redirect('/'));
+          //store.dispatch(redirect('/'));
+          window.location = '/';
 
           // - Save the JWT in localStorage
-          //localStorage.setItem('token', response.user.token);
-
-          // on mémorise ses favoris aussi
-          //store.dispatch(fetchFavorites());
+          localStorage.setItem('token', user.token);
+          localStorage.setItem('logs', true);
 
           return next(action);
         })
@@ -66,44 +62,55 @@ const userMiddleware = (store) => (next) => (action) => {
     case LOGOUT:
       // on nettoie notre instance axios du token
       axiosInstance.defaults.headers.common.Authorization = null;
+      localStorage.removeItem('token');
+      localStorage.removeItem('logs');
       // syntaxe alternative
       // delete axiosInstance.defaults.headers.common.Authorization;
 
-      console.log('nettoyage');
-
       return next(action);
-    case FETCH_FAVORITES: {
-      // const { user: { token } } = store.getState();
+    case REGISTER: {
+      const state = store.getState();
+      const {
+        email, password, pseudo,
+      } = state.user.settingsRegister;
 
-      // dans nos requête qui font suite au login,
-      // plus besoin de joindre le token à la main,
-      // il est déjà présent dans l'instance d'axios
+      const formData = new FormData();
+      formData.append('json', JSON.stringify({
+        email: email,
+        pseudo: pseudo,
+        password: password,
+      }));
 
-      console.log(axiosInstance);
+      formData.append('picture', null);
+      console.log(formData);
 
-      axiosInstance.get(
-        'favorites',
-        // On envoie le token dans un header de notre requete pour l'autorisation
-        // {
-        //   headers: {
-        //     Authorization: `bearer ${token}`,
-        //   },
-        // },
-      )
+      axios({
+        method: 'post',
+        url: 'http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/users',
+        data: formData,
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
         .then((response) => {
-          // console.log(response);
-          // Une fois qu'on a reucp la liste des favoris, on veut les mémoriser dans le state
-          // Pour que notre UI les affiche !
-          store.dispatch(saveFavorites(response.data.favorites));
+          console.log(response);
+
+          // Redirect of the user towards to home page
+          store.dispatch(resetRegistrationForm());
+
           return next(action);
         })
-        .catch((err) => {
-          console.log(err);
+        .catch((error) => {
+          console.log(error);
+
+          //store.dispatch(authError('Email ou mot de passe incorrect'));
+
           return next(action);
         });
 
       return next(action);
     }
+
     default:
       return next(action);
   }

@@ -1,6 +1,6 @@
 import {
   OPEN_LOGIN, OPEN_REGISTRATION, SET_LOGIN_CREDENTIALS, SET_REGISTRATION_CREDENTIALS,
-  LOGOUT, SAVE_USER, SAVE_FAVORITES, AUTH_ERROR,
+  LOGOUT, SAVE_USER, AUTH_ERROR, KEEP_LOGIN, RESET_REGISTRATION_FORM,
 } from '../action/user';
 
 export const initialState = {
@@ -11,15 +11,23 @@ export const initialState = {
     password: '',
     confirmedPassword: '',
     avatar: '',
+    signinError: {
+      validPassword: false,
+      errorMessagePassword: '',
+      validEmail: false,
+      errorMessageEmail: '',
+      validMatch: false,
+      errorMessagematchPassword: '',
+    },
   },
   settingsLogIn: {
     logs: false,
     email: '',
     password: '',
+    userid: '',
     pseudo: '', // Renvoyé par l'API
     avatar: '', // Renvoyé par l'API
     token: '', // Renvoyé par l'API
-    favorites: [], // Renvoyé par l'API GET /favorites
   },
   isLoginOpen: true,
   isRegistrationOpen: false,
@@ -72,6 +80,7 @@ const reducer = (state = initialState, action = {}) => {
           pseudo: '',
           avatar: '',
           token: '',
+          userid: '',
           favorites: [],
         },
       };
@@ -95,6 +104,30 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         error: true,
         errorMessage: action.message,
+      };
+
+    case KEEP_LOGIN:
+      return {
+        ...state,
+        settingsLogIn: {
+          ...state.settingsLogIn,
+          logs: action.logs,
+          token: action.token,
+        },
+      };
+
+    case RESET_REGISTRATION_FORM:
+      return {
+        ...state,
+        settingsRegister: {
+          ...state.settingsRegister,
+          pseudo: '',
+          email: '',
+          password: '',
+          confirmedPassword: '',
+        },
+        isLoginOpen: true,
+        isRegistrationOpen: false,
       };
 
     default:
