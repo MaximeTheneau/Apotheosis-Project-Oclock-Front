@@ -1,6 +1,6 @@
 import {
   OPEN_LOGIN, OPEN_REGISTRATION, SET_LOGIN_CREDENTIALS, SET_REGISTRATION_CREDENTIALS,
-  LOGOUT, SAVE_USER, AUTH_ERROR, KEEP_LOGIN, RESET_REGISTRATION_FORM,
+  LOGOUT, SAVE_USER, AUTH_ERROR, KEEP_LOGIN, RESET_REGISTRATION_FORM, TOGGLE_DROPDOWN_MENU,
 } from '../action/user';
 
 export const initialState = {
@@ -27,6 +27,7 @@ export const initialState = {
     userid: '',
     pseudo: '', // Renvoyé par l'API
     avatar: '', // Renvoyé par l'API
+    role: '',
     token: localStorage.getItem('token') || null,
   },
   isLoginOpen: true,
@@ -34,6 +35,9 @@ export const initialState = {
   auth: {
     error: false,
     errorMessage: '',
+  },
+  userProfile: {
+    isListOpen: false,
   },
 };
 
@@ -116,6 +120,7 @@ const reducer = (state = initialState, action = {}) => {
           avatar: action.avatar,
           userid: action.userid,
           role: action.role,
+          pseudo: action.pseudo,
         },
       };
 
@@ -131,6 +136,15 @@ const reducer = (state = initialState, action = {}) => {
         },
         isLoginOpen: true,
         isRegistrationOpen: false,
+      };
+
+    case TOGGLE_DROPDOWN_MENU:
+      return {
+        ...state,
+        userProfile: {
+          ...state.userProfile,
+          isListOpen: !state.userProfile.isListOpen,
+        },
       };
 
     default:

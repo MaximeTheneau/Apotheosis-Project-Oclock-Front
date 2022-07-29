@@ -1,5 +1,44 @@
 @use './src/styles/vars';
 
+.user-info {
+  padding-bottom: 0.5rem;
+
+  &-avatar{
+    width: 30%;
+    border-radius: 100%;
+  }
+
+  &-pseudo{
+    color: white;
+    font-weight: bold;
+    font-family: 'main-font';
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+}
+
 .header-user-profile {
   background-color: vars.$blue-omiam;
+}
+
+.profilelogo-dropdownmenu {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-family: 'font-title';
+  font-size: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.profilelogo-dropdownmenu-mobile {
+  font-size: 1.5rem;
+}
+
+
+@media screen and (min-width: 768px) {
+  .user-info-avatar{
+    width: 15%;
+    border-radius: 100%;
+  }
 }

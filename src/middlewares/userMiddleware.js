@@ -45,6 +45,7 @@ const userMiddleware = (store) => (next) => (action) => {
           localStorage.setItem('avatar', user.avatar);
           localStorage.setItem('role', user.role);
           localStorage.setItem('logs', true);
+          localStorage.setItem('pseudo', user.pseudo);
 
           // Redirect of the user towards to home page
           //store.dispatch(redirect('/'));
@@ -73,6 +74,7 @@ const userMiddleware = (store) => (next) => (action) => {
       localStorage.removeItem('avatar');
       localStorage.removeItem('role');
       localStorage.removeItem('userid');
+      localStorage.removeItem('pseudo');
 
       return next(action);
     case REGISTER: {

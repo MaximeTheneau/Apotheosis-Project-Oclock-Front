@@ -29,11 +29,12 @@ function Omiam() {
   const avatar = localStorage.getItem('avatar');
   const userid = localStorage.getItem('userid');
   const role = localStorage.getItem('role');
+  const pseudo = localStorage.getItem('pseudo');
 
   const dispatch = useDispatch();
   useEffect(
     () => {
-      dispatch(keepLogin(token, loggedIn, avatar, userid, role));
+      dispatch(keepLogin(token, loggedIn, avatar, userid, role, pseudo));
     },
     [],
   );
