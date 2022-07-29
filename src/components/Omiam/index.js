@@ -27,10 +27,15 @@ import './styles.scss';
 function Omiam() {
   const loggedIn = localStorage.getItem('logs');
   const token = localStorage.getItem('token');
+  const avatar = localStorage.getItem('avatar');
+  const userid = localStorage.getItem('userid');
+  const role = localStorage.getItem('role');
+  const pseudo = localStorage.getItem('pseudo');
+
   const dispatch = useDispatch();
   useEffect(
     () => {
-      dispatch(keepLogin(token, loggedIn));
+      dispatch(keepLogin(token, loggedIn, avatar, userid, role, pseudo));
     },
     [],
   );

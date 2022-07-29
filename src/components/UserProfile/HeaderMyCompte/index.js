@@ -1,23 +1,61 @@
+import { HiDotsVertical } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout, toggleDropdownMenu } from '../../../action/user';
 import './styles.scss';
 
 function HeaderMyAccount() {
+  const { avatar, pseudo } = useSelector((state) => state.user.settingsLogIn);
+  const { isListOpen } = useSelector((state) => state.user.userProfile);
+  const dispatch = useDispatch();
+  const handleClickMenu = () => {
+    dispatch(toggleDropdownMenu());
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
   return (
-    <div className="user-profile">
-      <div className="list">
-        <ul className="list-choose">
-          <Link to="/mon-compte/mes-recettes">
-            <li className="my-recipe"><i className="icon-glove" /><h2>Mes Recettes</h2></li>
-          </Link>
-          <Link to="/mon-compte/mes-miams">
-            <li className="my-miams"><i className="icon-miam" /><h2>Carnet de Miams</h2></li>
-          </Link>
-          <Link to="/mon-compte/mes-chefs">
-            <li className="my-chiefs"><i className="icon-cook" /><h2>Mes Chefs</h2></li>
-          </Link>
-        </ul>
+    <header className="header-user-profile">
+      <div className="profilelogo-dropdownmenu">
+        <Link to="/">
+          <div className="profilelogodiv">
+            <h2 className="profilelogodiv-title">
+              <i className="icon-miam icon-miam-profilelogo" />'miam
+            </h2>
+            <span className="profilelogodiv-sloggan">Une histoire de miam's</span>
+          </div>
+        </Link>
+        <div className="dropdown-list">
+          <div onClick={handleClickMenu}>
+            <HiDotsVertical
+              className="profilelogo-dropdownmenu-mobile"
+            />
+          </div>
+          {
+            isListOpen && (
+              <ul className="dropdown-list">
+                <Link
+                  to="/parametres"
+                  className="dropdown-list-link"
+                >Paramètres
+                </Link>
+                <Link
+                  to="/connexion"
+                  onClick={handleLogout}
+                  className="dropdown-list-link"
+                >Déconnexion
+                </Link>
+              </ul>
+            )
+          }
+        </div>
       </div>
-    </div>
+      <div className="user-info">
+        <img src={avatar} alt="user profile" className="user-info-avatar" />
+        <p className="user-info-pseudo">{pseudo}</p>
+      </div>
+    </header>
   );
 }
 
