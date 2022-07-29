@@ -1,7 +1,17 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchRecipe } from '../../action/oneRecipe';
 import Comments from './Comments';
 import './styles.scss';
 
 function Recipe() {
+  const dispatch = useDispatch();
+  useEffect(
+    () => {
+      dispatch(fetchRecipe());
+    },
+    [],
+  );
   return (
     <div className="one-recipe">
       <div className="one-recipe-header">
