@@ -8,7 +8,15 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
         .then(
           (response) => {
             console.log(response);
-            store.dispatch(saveRecipe(response.data));
+            let result = null;
+            if (Array.isArray(response.data)) {
+              result = response.data;
+            }
+            else {
+              result = [response.data];
+            }
+            console.log(result);
+            store.dispatch(saveRecipe(result));
           },
         )
         .catch(
@@ -24,3 +32,10 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
 };
 
 export default onRecipeMiddleware;
+
+/*
+let result = response.data;
+        if (!Array.isArray(response.data)){
+            result = [response.data];
+        }
+*/

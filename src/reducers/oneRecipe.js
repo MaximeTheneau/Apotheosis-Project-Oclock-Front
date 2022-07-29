@@ -1,8 +1,7 @@
 import { SAVE_RECIPE } from '../action/oneRecipe';
 
 export const initialState = {
-  //! Warning !!!
-  list: {},
+  list: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
