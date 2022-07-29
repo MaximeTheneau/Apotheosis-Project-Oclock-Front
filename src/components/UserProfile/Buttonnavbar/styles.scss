@@ -13,6 +13,7 @@
       flex-direction: column;
       cursor: pointer;
       margin: 1rem;
+      padding: 1rem;
 
       &:hover {
         transform: scale(1.1);
@@ -27,6 +28,9 @@
       }
     }
   }
+}
+.profile-title {
+  font-size: 1.5rem;
 }
 
 .icon-glove-profile, .icon-miam-profile, .icon-cook-profile {

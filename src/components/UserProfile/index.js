@@ -3,7 +3,7 @@ import Buttonnavbar from './Buttonnavbar';
 
 import './styles.scss';
 
-function UserProfile() {
+function UserProfileHeader() {
   return (
     <div className="contents-choose">
       <HeaderMyAccount />
@@ -13,4 +13,4 @@ function UserProfile() {
   );
 }
 
-export default UserProfile;
+export default UserProfileHeader;
