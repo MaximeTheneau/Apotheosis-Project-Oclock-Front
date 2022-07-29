@@ -27,7 +27,7 @@ export const initialState = {
     userid: '',
     pseudo: '', // Renvoyé par l'API
     avatar: '', // Renvoyé par l'API
-    token: '', // Renvoyé par l'API
+    token: localStorage.getItem('token') || null,
   },
   isLoginOpen: true,
   isRegistrationOpen: false,
@@ -81,7 +81,7 @@ const reducer = (state = initialState, action = {}) => {
           avatar: '',
           token: '',
           userid: '',
-          favorites: [],
+          role: '',
         },
       };
 
@@ -113,6 +113,9 @@ const reducer = (state = initialState, action = {}) => {
           ...state.settingsLogIn,
           logs: action.logs,
           token: action.token,
+          avatar: action.avatar,
+          userid: action.userid,
+          role: action.role,
         },
       };
 

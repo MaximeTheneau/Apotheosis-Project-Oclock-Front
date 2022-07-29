@@ -37,15 +37,18 @@ const userMiddleware = (store) => (next) => (action) => {
           axiosInstance.defaults.headers.common.Authorization = `Bearer ${user.token}`;
 
           // On mémorise l'utilisateur dans le state
-          //store.dispatch(saveUser(user));
+          store.dispatch(saveUser(user));
+
+          // - Save the JWT in localStorage
+          localStorage.setItem('token', user.token);
+          localStorage.setItem('userid', user.userid);
+          localStorage.setItem('avatar', user.avatar);
+          localStorage.setItem('role', user.role);
+          localStorage.setItem('logs', true);
 
           // Redirect of the user towards to home page
           //store.dispatch(redirect('/'));
           window.location = '/';
-
-          // - Save the JWT in localStorage
-          localStorage.setItem('token', user.token);
-          localStorage.setItem('logs', true);
 
           // On mémorise l'utilisateur dans le state
           store.dispatch(saveUser(user));
@@ -67,8 +70,9 @@ const userMiddleware = (store) => (next) => (action) => {
       axiosInstance.defaults.headers.common.Authorization = null;
       localStorage.removeItem('token');
       localStorage.removeItem('logs');
-      // syntaxe alternative
-      // delete axiosInstance.defaults.headers.common.Authorization;
+      localStorage.removeItem('avatar');
+      localStorage.removeItem('role');
+      localStorage.removeItem('userid');
 
       return next(action);
     case REGISTER: {

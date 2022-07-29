@@ -108,11 +108,14 @@ export function register() {
 
 export const KEEP_LOGIN = 'KEEP_LOGIN';
 
-export function keepLogin(token, logs) {
+export function keepLogin(token, logs, avatar, userid, role) {
   return {
     type: KEEP_LOGIN,
     token,
     logs,
+    avatar,
+    userid,
+    role,
   };
 }
 
