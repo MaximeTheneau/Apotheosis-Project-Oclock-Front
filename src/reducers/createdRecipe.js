@@ -47,7 +47,7 @@ export const initialState = {
   toogleIngredients: true,
   listIngredients: [],
   toogleCreatedIngredients: false,
-  toogleCreatedIngredients1: false,
+  toogleCreatedIngredients1: null,
 
 };
 
@@ -193,9 +193,8 @@ const reducer = (state = initialState, action = {}) => {
     case TOOGLE_CREATED_INGREDIENTS1:
       return {
         ...state,
-        toogleCreatedIngredients1: !state.toogleCreatedIngredients1,
+        toogleCreatedIngredients1: state.toogleCreatedIngredients1 + 1,
       };
-    
 
     default:
       return state;

@@ -226,11 +226,10 @@ export function toggleCreatedIngredients() {
 }
 export const TOOGLE_CREATED_INGREDIENTS1 = 'TOOGLE_CREATED_INGREDIENTS1';
 
-export function toogleCreatedIngredients1(value, field) {
+export function toogleCreatedIngredients1(toogleCreatedAction) {
   return {
     type: TOOGLE_CREATED_INGREDIENTS1,
-    value: value,
-    field: field,
+    toogleCreatedIngredients1: toogleCreatedAction,
   };
 }
 export const GLOBAL_INGREDIENT = 'GLOBAL_INGREDIENT';
