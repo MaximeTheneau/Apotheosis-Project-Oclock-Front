@@ -4,7 +4,7 @@ function option({ value }) {
   return (
     <>
     {
-      AlistIngredients.map((item) => (
+      listIngredients.map((item) => (
        <option
          value={value}
          >

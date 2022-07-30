@@ -210,3 +210,19 @@ export function saveFetchIngredients(listIngredientsFetch) {
     listIngredients: listIngredientsFetch,
   };
 }
+export const TOOGLE_CREATED_RECIPE = 'TOOGLE_CREATED_RECIPE';
+
+export function toogleCreatedRecipe() {
+  return {
+    type: TOOGLE_CREATED_RECIPE,
+  };
+}
+export const GLOBAL_INGREDIENT = 'GLOBAL_INGREDIENT';
+
+export function globalIngredients(ingredient, unit) {
+  return {
+    type: GLOBAL_INGREDIENT,
+    ingredient: ingredient,
+    unit: unit,
+  };
+}

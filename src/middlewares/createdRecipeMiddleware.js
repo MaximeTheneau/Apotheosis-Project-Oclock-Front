@@ -12,9 +12,14 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
         category,
         duration,
       } = state.createdRecipe;
+
       const {
-        recipeIngredients,
-      } = state.createdRecipe;
+        unit,
+        quantity,
+        ingredient,
+      } = state.createdRecipe.recipeIngredients;
+
+      
       const {
         steps,
       } = state.createdRecipe;
@@ -27,9 +32,15 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
         duration: parseInt(duration, 10),
         difficulty: parseInt(difficulty, 10),
         category: parseInt(category, 10),
-        recipeIngredients: recipeIngredients,
+        recipeIngredients: [
+          {
+            ingredient: parseInt(ingredient, 10),
+            unit: unit,
+            quantity: parseInt(quantity, 10),
+          }],
         steps: steps,
       }));
+
       formData.append('picture', document.getElementById('fileUpload').files[0]);
       axios({
         method: 'post',
@@ -38,7 +49,7 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}`,
-        },
+        },      
       }).then((response) => {
         console.log(response.data);
         // const { data: user } = response;
@@ -63,7 +74,7 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
         )
         .catch(
           (error) => {
-            console.log(error);
+            console.log(error.data);
           },
         );
       return next(action);

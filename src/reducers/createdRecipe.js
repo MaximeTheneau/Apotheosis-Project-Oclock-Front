@@ -4,8 +4,10 @@ import {
   DURATION_ACTION,
   ETAPE_ACTION,
   FILE_ACTION,
+  GLOBAL_INGREDIENT,
   INGREDIENT_ACTION,
   QUANTITY_ACTION, SAVE_FETCH_INGREDIENTS, TITLE_ACTION,
+  TOOGLE_CREATED_RECIPE,
   TOOGLE_INGREDIENTS,
   TOOGLE_STEPS,
   TOOGLE_STEPS2,
@@ -25,6 +27,9 @@ export const initialState = {
   title: '',
   caption: '',
   steps: [],
+  unit: [],
+  quantity: [],
+  ingredients: [],
   duration: null,
   difficulty: null,
   category: '',
@@ -67,29 +72,42 @@ const reducer = (state = initialState, action = {}) => {
     case DURATION_ACTION:
       return {
         ...state,
-        [action.field]: action.value,
-      };
-    case INGREDIENT_ACTION:
-      return {
-        ...state,
         recipeIngredients: {
           ...state.recipeIngredients,
           [action.field]: action.value,
         },
       };
-    case UNIT_ACTION:
+    case INGREDIENT_ACTION:
+      return {
+        ...state,
+        ingredients: {
+          ...state.ingredients,
+          [action.field]: action.value,
+        },
+      };
+    case GLOBAL_INGREDIENT:
       return {
         ...state,
         recipeIngredients: {
           ...state.recipeIngredients,
+          ingredient1:{
+            [action.field]: action.value,
+          }
+        },
+      };
+    case UNIT_ACTION:
+      return {
+        ...state,
+        unit: {
+          ...state.unit,
           [action.field]: action.value,
         },
       };
     case QUANTITY_ACTION:
       return {
         ...state,
-        recipeIngredients: {
-          ...state.recipeIngredients,
+        quantity: {
+          ...state.quantity,
           [action.field]: action.value,
         },
       };
@@ -162,6 +180,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         listIngredients: action.listIngredients,
+      };
+    case TOOGLE_CREATED_RECIPE:
+      return {
+        ...state,
+        toogleCreatedIngredients: !state.toogleCreatedIngredients,
       };
     default:
       return state;
