@@ -217,6 +217,22 @@ export function toogleCreatedRecipe() {
     type: TOOGLE_CREATED_RECIPE,
   };
 }
+export const TOOGLE_CREATED_INGREDIENTS = 'TOOGLE_CREATED_INGREDIENTS';
+
+export function toggleCreatedIngredients() {
+  return {
+    type: TOOGLE_CREATED_INGREDIENTS,
+  };
+}
+export const TOOGLE_CREATED_INGREDIENTS1 = 'TOOGLE_CREATED_INGREDIENTS1';
+
+export function toogleCreatedIngredients1(value, field) {
+  return {
+    type: TOOGLE_CREATED_INGREDIENTS1,
+    value: value,
+    field: field,
+  };
+}
 export const GLOBAL_INGREDIENT = 'GLOBAL_INGREDIENT';
 
 export function globalIngredients(ingredient, unit) {

@@ -1,6 +1,7 @@
+import { element } from 'prop-types';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fileAction, difficultyAction, durationAction, titleAction, typeAction, etapeAction, postCreated, captionAction, toogleSteps, toogleStep9, toogleStep8, toogleStep7, toogleStep6, toogleStep5, toogleStep4, toogleSteps3, toogleSteps2, globalIngredients, ingredientAction, unitAction, quantityAction, fetchAction, } from '../../action/createdRecipe';
+import { fileAction, difficultyAction, durationAction, titleAction, typeAction, etapeAction, postCreated, captionAction, toogleSteps, toogleStep9, toogleStep8, toogleStep7, toogleStep6, toogleStep5, toogleStep4, toogleSteps3, toogleSteps2, globalIngredients, ingredientAction, unitAction, quantityAction, fetchAction, toggleCreatedIngredients, toogleCreatedRecipe, } from '../../action/createdRecipe';
 import Etape from './Field/etapes';
 import Ingredient from './Ingredient';
 import Quantity from './Quantity';
@@ -35,8 +36,12 @@ function CreatedRecipe() {
   const toogle7 = useSelector((state) => state.createdRecipe.toogle7);
   const toogle8 = useSelector((state) => state.createdRecipe.toogle8);
   const toogle9 = useSelector((state) => state.createdRecipe.toogle9);
-  const listIngredients = useSelector((state) => state.createdRecipe.listIngredients);
+  const toogleCreatedIngredients = useSelector((state) => state.createdRecipe.toogleCreatedIngredients);
+  const toogleCreatedIngredients1 = useSelector((state) => state.createdRecipe.toogleCreatedIngredients1);
 
+
+  const listIngredients = useSelector((state) => state.createdRecipe.listIngredients);
+  // const listIngredients = listIngredientsFull.slice(0, 1);
 
   const handleChangeTitle = ((evt) => {
     dispatch(titleAction(evt.target.value, 'title'));
@@ -165,29 +170,25 @@ function CreatedRecipe() {
         <div>
           <span className="label-title">Ingredient pour 4 personnes.</span>
           <div className="ingredients">
-            { listIngredients.map((item) => (
-              <div className="ingredient">
-                <Ingredient onChange={(evt) => dispatch(ingredientAction(evt.target.value,
-                  'ingredient{item.id}'))} />
-                <Unit onChange={(evt) => dispatch(unitAction(evt.target.value, 'unit{item.id}'))} />
-                <Quantity onChange={(evt) => dispatch(quantityAction(evt.target.value, 'quantity{item.id}'))} />
-              </div>
-            ))}
             <div className="ingredient">
-              <Ingredient onChange={(evt) => dispatch(ingredientAction(evt.target.value, 'ingredient2'))} />
-              <Unit onChange={(evt) => dispatch(unitAction(evt.target.value, 'unit2'))} />
-              <Quantity onChange={(evt) => dispatch(quantityAction(evt.target.value, 'quantity2'))} />
+              <Ingredient onChange={(evt) => dispatch(ingredientAction(evt.target.value, 'ingredient'))} />
+              <Unit onChange={(evt) => dispatch(unitAction(evt.target.value, 'unit'))} />
+              <Quantity onChange={(evt) => dispatch(quantityAction(evt.target.value, 'quantity'))} />
             </div>
-            <div className="ingredient">
-              <Ingredient onChange={(evt) => dispatch(ingredientAction(evt.target.value, 'ingredient3'))} />
-              <Unit onChange={(evt) => dispatch(unitAction(evt.target.value, 'unit3'))} />
-              <Quantity onChange={(evt) => dispatch(quantityAction(evt.target.value, 'quantity3'))} />
-            </div>
+            {(toogleCreatedIngredients) ? '' : (<span onClick={() => dispatch(toggleCreatedIngredients())}>Ajouter un ingredient</span>)}
+
+            {(toogleCreatedIngredients)
+              ? listIngredients.map((item) => (
+                <div className="ingredient">
+                  <Ingredient onChange={(evt) => dispatch(ingredientAction(evt.target.value, `ingredient${item.id}`))} />
+                  <Unit onChange={(evt) => dispatch(unitAction(evt.target.value, `unit${item.id}`))} />
+                  <Quantity onChange={(evt) => dispatch(quantityAction(evt.target.value, `quantity${item.id}`))} />
+                  {(toogleCreatedIngredients1) ? (<span onClick={() => dispatch(toggleCreatedIngredients())}>Ajouter un ingredient</span>) : ''}
+                </div>
+              ))
+              : ''}
+
           </div>
-
-
-
-
 
         </div>
         <div>

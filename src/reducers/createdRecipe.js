@@ -1,3 +1,4 @@
+/* eslint-disable no-duplicate-case */
 import {
   CAPTION_ACTION,
   DIFFICULTY_ACTION,
@@ -7,7 +8,8 @@ import {
   GLOBAL_INGREDIENT,
   INGREDIENT_ACTION,
   QUANTITY_ACTION, SAVE_FETCH_INGREDIENTS, TITLE_ACTION,
-  TOOGLE_CREATED_RECIPE,
+  TOOGLE_CREATED_INGREDIENTS,
+  TOOGLE_CREATED_INGREDIENTS1,
   TOOGLE_INGREDIENTS,
   TOOGLE_STEPS,
   TOOGLE_STEPS2,
@@ -44,6 +46,8 @@ export const initialState = {
   toogle9: false,
   toogleIngredients: true,
   listIngredients: [],
+  toogleCreatedIngredients: false,
+  toogleCreatedIngredients1: false,
 
 };
 
@@ -168,7 +172,7 @@ const reducer = (state = initialState, action = {}) => {
     case TOOGLE_INGREDIENTS:
       return {
         ...state,
-        toogleIngredients: !state.toogleIngredients,
+        toogle9: !state.toogle9,
 
       };
     case FILE_ACTION:
@@ -181,11 +185,18 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         listIngredients: action.listIngredients,
       };
-    case TOOGLE_CREATED_RECIPE:
+    case TOOGLE_CREATED_INGREDIENTS:
       return {
         ...state,
         toogleCreatedIngredients: !state.toogleCreatedIngredients,
       };
+    case TOOGLE_CREATED_INGREDIENTS1:
+      return {
+        ...state,
+        toogleCreatedIngredients1: !state.toogleCreatedIngredients1,
+      };
+    
+
     default:
       return state;
   }
