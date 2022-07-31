@@ -48,3 +48,13 @@ export function valueToogle() {
     type: VALUE_TOOGLE,
   };
 }
+
+export const TOGGLE_SPINNER = 'TOGGLE_SPINNER';
+
+export function toggleSpinner(value, field) {
+  return {
+    type: TOGGLE_SPINNER,
+    value: value,
+    field: field,
+  };
+}

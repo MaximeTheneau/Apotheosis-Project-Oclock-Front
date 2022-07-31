@@ -1,4 +1,4 @@
-import { SET_SETTINGS_FIELD, VALUE_TOOGLE } from '../action/homePage';
+import { SET_SETTINGS_FIELD, TOGGLE_SPINNER, VALUE_TOOGLE } from '../action/homePage';
 
 export const initialState = {
   list: [],
@@ -6,6 +6,7 @@ export const initialState = {
     search: '',
   },
   addCards: false,
+  toggleSpinner: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -21,7 +22,12 @@ const reducer = (state = initialState, action = {}) => {
     case VALUE_TOOGLE:
       return {
         ...state,
-        addCards: !action.addCards,
+        addCards: !state.addCards,
+      };
+    case TOGGLE_SPINNER:
+      return {
+        ...state,
+        toggleSpinner: !state.toggleSpinner,
       };
 
     default:
