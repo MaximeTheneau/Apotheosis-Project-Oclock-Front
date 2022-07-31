@@ -7,6 +7,7 @@ import {
   FILE_ACTION,
   GLOBAL_INGREDIENT,
   INGREDIENT_ACTION,
+  INGREDIENT_NAME_ACTION,
   QUANTITY_ACTION, SAVE_FETCH_INGREDIENTS, TITLE_ACTION,
   TOOGLE_CREATED_INGREDIENTS,
   TOOGLE_CREATED_INGREDIENTS1,
@@ -32,6 +33,7 @@ export const initialState = {
   unit: [],
   quantity: [],
   ingredients: [],
+  ingredientAdd: [],
   duration: null,
   difficulty: null,
   category: '',
@@ -46,7 +48,7 @@ export const initialState = {
   toogle9: false,
   toogleIngredients: true,
   listIngredients: [],
-  toogleCreatedIngredients: false,
+  toggleCreatedIngredients: false,
   toogleCreatedIngredients1: null,
 
 };
@@ -86,6 +88,14 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         ingredients: {
           ...state.ingredients,
+          [action.field]: action.value,
+        },
+      };
+    case INGREDIENT_NAME_ACTION:
+      return {
+        ...state,
+        ingredientAdd: {
+          ...state.ingredientAdd,
           [action.field]: action.value,
         },
       };
@@ -188,7 +198,7 @@ const reducer = (state = initialState, action = {}) => {
     case TOOGLE_CREATED_INGREDIENTS:
       return {
         ...state,
-        toogleCreatedIngredients: !state.toogleCreatedIngredients,
+        toggleCreatedIngredients: !state.toggleCreatedIngredients,
       };
     case TOOGLE_CREATED_INGREDIENTS1:
       return {

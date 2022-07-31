@@ -1,17 +1,17 @@
 import PropTypes from 'prop-types';
 
-function option({ value }) {
+function Option({ value }) {
   return (
     <>
-    {
-      listIngredients.map((item) => (
-       <option
-         value={value}
-         >
-        {item.name}
-      </option>
-     )) }
-    </>
+      {
+        listIngredients.map((item) => (
+          <option
+            value={value}
+            >
+          {item.name}
+        </option>
+        )) }
+      </>
 
 
   );

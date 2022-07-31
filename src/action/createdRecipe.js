@@ -16,6 +16,15 @@ export function ingredientsAction(value, field) {
     field: field,
   };
 }
+export const INGREDIENT_NAME_ACTION = 'INGREDIENT_NAME_ACTION';
+
+export function ingredientNameAction(value, field) {
+  return {
+    type: INGREDIENT_NAME_ACTION,
+    value: value,
+    field: field,
+  };
+}
 export const TYPE_ACTION = 'TYPE_ACTION';
 
 export function typeAction(value, field) {

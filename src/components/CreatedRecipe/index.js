@@ -1,8 +1,9 @@
 import { element } from 'prop-types';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fileAction, difficultyAction, durationAction, titleAction, typeAction, etapeAction, postCreated, captionAction, toogleSteps, toogleStep9, toogleStep8, toogleStep7, toogleStep6, toogleStep5, toogleStep4, toogleSteps3, toogleSteps2, globalIngredients, ingredientAction, unitAction, quantityAction, fetchAction, toggleCreatedIngredients, toogleCreatedRecipe, toogleCreatedIngredients1, } from '../../action/createdRecipe';
+import { fileAction, difficultyAction, durationAction, titleAction, typeAction, etapeAction, postCreated, captionAction, toogleSteps, toogleStep9, toogleStep8, toogleStep7, toogleStep6, toogleStep5, toogleStep4, toogleSteps3, toogleSteps2, globalIngredients, ingredientAction, unitAction, quantityAction, fetchAction, toggleCreatedIngredients, toogleCreatedRecipe, toogleCreatedIngredients1, ingredientNameAction, } from '../../action/createdRecipe';
 import Etape from './Field/etapes';
+import IngredientCreated from './IngredientCreated';
 import Ingredient from './Ingredient';
 import IngredientList from './IngredientList';
 import Quantity from './Quantity';
@@ -27,7 +28,7 @@ function CreatedRecipe() {
   const valueEtape7 = useSelector((state) => state.createdRecipe.steps.etape7);
   const valueEtape8 = useSelector((state) => state.createdRecipe.steps.etape8);
   const valueEtape9 = useSelector((state) => state.createdRecipe.steps.etape9);
-  // const toogle = useSelector((state) => state.createdRecipe.toogle);
+  const toogleCreatedIngredient = useSelector((state) => state.createdRecipe.toggleCreatedIngredients);
   const toogle2 = useSelector((state) => state.createdRecipe.toogle2);
 
   const toogle3 = useSelector((state) => state.createdRecipe.toogle3);
@@ -39,9 +40,7 @@ function CreatedRecipe() {
   const toogle9 = useSelector((state) => state.createdRecipe.toogle9);
 
   const listIngredientsFull = useSelector((state) => state.createdRecipe.listIngredients);
-  const clickCount = useSelector((state) => state.createdRecipe.toogleCreatedIngredients1);
 
-  const listIngredients = listIngredientsFull.slice(0, `${clickCount}`);
 
   const handleChangeTitle = ((evt) => {
     dispatch(titleAction(evt.target.value, 'title'));
@@ -173,14 +172,20 @@ function CreatedRecipe() {
               <Ingredient onChange={(evt) => dispatch(ingredientAction(evt.target.value, 'ingredient'))} />
               <Unit onChange={(evt) => dispatch(unitAction(evt.target.value, 'unit'))} />
               <Quantity onChange={(evt) => dispatch(quantityAction(evt.target.value, 'quantity'))} />
-
               <IngredientList />
-              <span onClick={() => dispatch(toogleCreatedIngredients1())}>
-                Ajouter un ingredient
-              </span>
-            </div>
-            
+              <i className="icon-add" onClick={() => dispatch(toogleCreatedIngredients1())} />
+              <div className="ingredient-created">
+              </div>
 
+                {(toogleCreatedIngredient) ? (
+                                <IngredientCreated
+                                onChange={(evt) => dispatch(ingredientNameAction(evt.target.value, 'name'))}
+                              />
+                ) : (<span onClick={() => dispatch(toggleCreatedIngredients())}>
+                    Ajouter un ingredient
+                                                   </span>)
+                 }
+            </div>
           </div>
 
         </div>

@@ -19,7 +19,6 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
         ingredient,
       } = state.createdRecipe.recipeIngredients;
 
-      
       const {
         steps,
       } = state.createdRecipe;
