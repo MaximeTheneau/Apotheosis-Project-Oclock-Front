@@ -109,7 +109,7 @@ function CreatedRecipe() {
             </label>
           </div>
           <div className="form-radio-element">
-            <label htmlFor="radio-type-1">
+            <label htmlFor="radio-type-2">
               <input
                 name="type"
                 type="radio"
