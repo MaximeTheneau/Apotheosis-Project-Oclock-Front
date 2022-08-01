@@ -1,7 +1,14 @@
+import { element } from 'prop-types';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fileAction, difficultyAction, durationAction, titleAction, typeAction, ingredientAction, unitAction, quantityAction, etapeAction, postCreated, captionAction, toogleSteps, toogleStep9, toogleStep8, toogleStep7, toogleStep6, toogleStep5, toogleStep4, toogleSteps3, toogleSteps2 } from '../../action/createdRecipe';
+import { fileAction, difficultyAction, durationAction, titleAction, typeAction, etapeAction, postCreated, captionAction, toogleSteps, toogleStep9, toogleStep8, toogleStep7, toogleStep6, toogleStep5, toogleStep4, toogleSteps3, toogleSteps2, globalIngredients, ingredientAction, unitAction, quantityAction, fetchAction, toggleCreatedIngredients, toogleCreatedRecipe, toogleCreatedIngredients1, ingredientNameAction, } from '../../action/createdRecipe';
 import Etape from './Field/etapes';
+import IngredientCreated from './IngredientCreated';
+import Ingredient from './Ingredient';
+import IngredientList from './IngredientList';
+import Quantity from './Quantity';
 import './styles.scss';
+import Unit from './Unit';
 
 function CreatedRecipe() {
   const dispatch = useDispatch();
@@ -11,9 +18,7 @@ function CreatedRecipe() {
   const valueCaption = useSelector((state) => state.createdRecipe.captionAction);
   const valueDifficulty = useSelector((state) => state.createdRecipe.difficulty);
   const valueTime = useSelector((state) => state.createdRecipe.duration);
-  const valueIngredient = useSelector((state) => state.createdRecipe.ingredient);
-  const valueUnit = useSelector((state) => state.createdRecipe.recipeIngredients.unit);
-  const valueQuantity = useSelector((state) => state.createdRecipe.recipeIngredients.quantity);
+
   const valueEtape = useSelector((state) => state.createdRecipe.steps.etape1);
   const valueEtape2 = useSelector((state) => state.createdRecipe.steps.etape2);
   const valueEtape3 = useSelector((state) => state.createdRecipe.steps.etape3);
@@ -23,10 +28,7 @@ function CreatedRecipe() {
   const valueEtape7 = useSelector((state) => state.createdRecipe.steps.etape7);
   const valueEtape8 = useSelector((state) => state.createdRecipe.steps.etape8);
   const valueEtape9 = useSelector((state) => state.createdRecipe.steps.etape9);
-
-  const valueFile = useSelector((state) => state.createdRecipe.picture);
-
-  const toogle = useSelector((state) => state.createdRecipe.toogle);
+  const toogleCreatedIngredient = useSelector((state) => state.createdRecipe.toggleCreatedIngredients);
   const toogle2 = useSelector((state) => state.createdRecipe.toogle2);
 
   const toogle3 = useSelector((state) => state.createdRecipe.toogle3);
@@ -37,11 +39,13 @@ function CreatedRecipe() {
   const toogle8 = useSelector((state) => state.createdRecipe.toogle8);
   const toogle9 = useSelector((state) => state.createdRecipe.toogle9);
 
+  const listIngredientsFull = useSelector((state) => state.createdRecipe.listIngredients);
+
+
   const handleChangeTitle = ((evt) => {
     dispatch(titleAction(evt.target.value, 'title'));
   });
   const handleChangeType = ((evt) => {
-    console.log(evt.target.value);
     dispatch(typeAction(evt.target.value, 'category'));
   });
   const handleChangeDifficulty = ((evt) => {
@@ -59,6 +63,12 @@ function CreatedRecipe() {
     dispatch(postCreated());
     // dispatch(durationAction(evt.target.value, 'duration'));
   });
+  useEffect(
+    () => {
+      dispatch(fetchAction());
+    },
+    [],
+  );
   return (
     <div className="createdRecipe">
       <h1>Créer Une recette</h1>
@@ -75,67 +85,107 @@ function CreatedRecipe() {
         <div>
           <span className="label-title">Caption</span>
           <textarea
+            id="caption"
             placeholder="Caption"
-            rows="1"
+            rows="3"
             onChange={(evt) => dispatch(captionAction(evt.target.value, 'caption'))}
             value={valueCaption}
           />
         </div>
+        <span className="label-title">Type</span>
         <div className="form-radio">
-          <span className="label-title">Type</span>
-          <input
-            name="type"
-            type="radio"
-            value={1}
-            checked={valueType}
-            onChange={handleChangeType}
-          />
-          <i className="icon-drink" />
-          <input
-            name="type"
-            type="radio"
-            value={2}
-            checked={valueType === 2}
-            onChange={handleChangeType}
-          />
-          <i className="icon-entrance" />
-          <input
-            name="type"
-            type="radio"
-            value="3"
-            checked={valueType === '3'}
-            onChange={handleChangeType}
-            required
-          />
-          <i className="icon-dish" />
-          <input
-            name="type"
-            type="radio"
-            value="4"
-            checked={valueType === '4'}
-            onChange={handleChangeType}
-          /><i className="icon-dish" />
+          <div className="form-radio-element" onChange={handleChangeType} >
+            <label htmlFor="radio-type-1">
+              <input
+                name="type"
+                type="radio"
+                value={1}
+                checked={valueType === '1'}
+                id="radio-type-1"
+                onChange={handleChangeType}
+                required
+              />
+              <i className="icon-drink" id="radio-type-1" />
+            </label>
+          </div>
+          <div className="form-radio-element">
+            <label htmlFor="radio-type-1">
+              <input
+                name="type"
+                type="radio"
+                value={2}
+                checked={valueType === '2'}
+                id="radio-type-2"
+                onChange={handleChangeType}
+              />
+              <i className="icon-entrance" id="radio-type-2" />
+            </label>
+          </div>
+          <div className="form-radio-element">
+            <label htmlFor="radio-type-3">
+              <input
+                id="radio-type-3"
+                name="type"
+                type="radio"
+                value="3"
+                checked={valueType === '3'}
+                onChange={handleChangeType}
+              />
+              <i className="icon-dish" id="radio-type-3" />
+            </label>
+          </div>
+          <div className="form-radio-element" >
+            <label htmlFor="radio-type-4">
+              <input
+                id="radio-type-4"
+                name="type"
+                type="radio"
+                value="4"
+                checked={valueType === '4'}
+                onChange={handleChangeType}
+              /><i className="icon-dish" id="radio-type-4" />
+            </label>
+          </div>
         </div>
-        <div className="form-radio" >
-          <span className="label-title">Difficulty</span>
-          <input
-            type="radio"
-            value="1"
-            checked={valueDifficulty === '1'}
-            onChange={handleChangeDifficulty}
-          /> <i className="icon-kitchen-hat" />
-          <input
-            type="radio"
-            value="2"
-            checked={valueDifficulty === '2'}
-            onChange={handleChangeDifficulty}
-          /> <i className="icon-kitchen-hat" /> <i className="icon-kitchen-hat " />
-          <input
-            type="radio"
-            value="3"
-            checked={valueDifficulty === '3'}
-            onChange={handleChangeDifficulty}
-          /> <i className="icon-difficulty-1" /> <i className="icon-difficulty-2" /> <i className="icon-diff" />
+        <span className="label-title">Difficulty</span>
+        <div className="form-radio">
+          <div className="form-radio-element" onChange={handleChangeDifficulty}>
+            <label htmlFor="radio-dif-1">
+              <input
+                id="radio-dif-1"
+                type="radio"
+                value="1"
+                checked={valueDifficulty === '1'}
+                onChange={handleChangeDifficulty}
+                required
+              />
+              <i className="icon-kitchen-hat" id="radio-dif-1"/>
+            </label>
+          </div>
+          <div className="form-radio-element">
+            <label htmlFor="radio-dif-2">
+              <input
+                id="radio-dif-2"
+                type="radio"
+                value="2"
+                checked={valueDifficulty === '2'}
+                onChange={handleChangeDifficulty}
+              /> 
+              <i className="icon-kitchen-hat" id="radio-dif-2" /> <i className="icon-kitchen-hat " />
+            </label>
+          </div>
+          <div className="form-radio-element" htmlFor="radio1">
+            <label htmlFor="radio-dif-3" required>
+              <input
+                id="radio-dif-3"
+                type="radio"
+                value="3"
+                checked={valueDifficulty === '3'}
+                onChange={handleChangeDifficulty}
+              />
+              <i className="icon-kitchen-hat" label="radio" id="radio-dif-3" /> <i className="icon-kitchen-hat" /> <i className="icon-kitchen-hat" />
+            </label>
+          </div>
         </div>
         <div>
           <span className="label-title">Temps</span>
@@ -158,39 +208,33 @@ function CreatedRecipe() {
         <div>
           <span className="label-title">Ingredient pour 4 personnes.</span>
           <div className="ingredients">
-            <div className="ingredients-add">
-              <input
-                className="ingredients-type"
-                type="number"
-                onChange={(evt) => dispatch(quantityAction(evt.target.value, 'quantity'))}
-                value={valueQuantity}
-                placeholder="1"
-              />
-              <input
-                className="ingredients-type"
-                type="text"
-                onChange={(evt) => dispatch(unitAction(evt.target.value, 'unit'))}
-                value={valueUnit}
-                placeholder="cl"
-              />
-              <input
-                className="ingredients-type"
-                type="text"
-                onChange={(evt) => dispatch(ingredientAction(evt.target.value, 'ingredient'))}
-                value={valueIngredient}
-                placeholder="Lait"
-              />
-
-              <i className="icon-add" />
+            <div className="ingredient">
+              <Ingredient onChange={(evt) => dispatch(ingredientAction(evt.target.value, 'ingredient'))} />
+              <Unit onChange={(evt) => dispatch(unitAction(evt.target.value, 'unit'))} />
+              <Quantity onChange={(evt) => dispatch(quantityAction(evt.target.value, 'quantity'))} />
+              <IngredientList />
+              <i className="icon-add" onClick={() => dispatch(toogleCreatedIngredients1())} />
+            </div>
+            <div className="ingredient-created">
+              {(toogleCreatedIngredient) ? (
+                <IngredientCreated
+                  onChange={(evt) => dispatch(ingredientNameAction(evt.target.value, 'name'))}
+                />
+              ) : (
+                <span onClick={() => dispatch(toggleCreatedIngredients())}>
+                  Ajouter un ingredient
+                </span>
+              )}
             </div>
           </div>
+
         </div>
         <div>
           <span className="label-title">Etapes</span>
           <div className="steps">
             <div className="step-add">
+              <span className="step-title">Étape 1</span>
               <div className="step">
-                <span className="step-title">Étape 1</span>
                 <Etape
                   onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape1'))}
                   value={valueEtape}
@@ -198,84 +242,100 @@ function CreatedRecipe() {
                 {(toogle2) ? '' : (<i className="icon-add" onClick={() => dispatch(toogleSteps())} />) }
               </div>
               {(toogle2) ? (
-                <div className="step">
+                <>
                   <span className="step-title">Étape 2</span>
-                  <Etape
-                    onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape2'))}
-                    value={valueEtape2}
-                  />
-                  {(toogle3) ? '' : (<i className="icon-add" onClick={() => dispatch(toogleSteps2())} />) }
-                </div>
+                  <div className="step">
+                    <Etape
+                      onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape2'))}
+                      value={valueEtape2}
+                    />
+                    {(toogle3) ? '' : (<i className="icon-add" onClick={() => dispatch(toogleSteps2())} />) }
+                  </div>
+                </>
               ) : '' }
               {(toogle3) ? (
-                <div className="step">
+                <>
                   <span className="step-title">Étape 3</span>
-                  <Etape
-                    onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape3'))}
-                    value={valueEtape3}
-                  />
-                  {(toogle4) ? '' : (<i className="icon-add" onClick={() => dispatch(toogleSteps3())} />)}
-                </div>
+                  <div className="step">
+                    <Etape
+                      onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape3'))}
+                      value={valueEtape3}
+                    />
+                    {(toogle4) ? '' : (<i className="icon-add" onClick={() => dispatch(toogleSteps3())} />)}
+                  </div>
+                </>
               ) : ''}
               {(toogle4) ? (
-                <div className="step">
+                <>
                   <span className="step-title">Étape 4</span>
-                  <Etape
-                    onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape4'))}
-                    value={valueEtape4}
-                  />
-                  {(toogle5) ? '' : (<i className="icon-add" onClick={() => dispatch(toogleStep4())} />) }
-                </div>
+                  <div className="step">
+                    <Etape
+                      onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape4'))}
+                      value={valueEtape4}
+                    />
+                    {(toogle5) ? '' : (<i className="icon-add" onClick={() => dispatch(toogleStep4())} />) }
+                  </div>
+                </>
               ) : ''}
               {(toogle5) ? (
-                <div className="step">
+                <>
                   <span className="step-title">Étape 5</span>
-                  <Etape
-                    onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape5'))}
-                    value={valueEtape5}
-                  />
-                  {(toogle6) ? '' : (<i className="icon-add" onClick={() => dispatch(toogleStep5())} />)}
-                </div>
+                  <div className="step">
+                    <Etape
+                      onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape5'))}
+                      value={valueEtape5}
+                    />
+                    {(toogle6) ? '' : (<i className="icon-add" onClick={() => dispatch(toogleStep5())} />)}
+                  </div>
+                </>
               ) : ''}
               {(toogle6) ? (
-                <div className="step">
+                <>
                   <span className="step-title">Étape 6</span>
-                  <Etape
-                    onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape6'))}
-                    value={valueEtape6}
-                  />
-                  {(toogle7) ? '' : (<i className="icon-add" onClick={() => dispatch(toogleStep6())} />) }
-                </div>
+                  <div className="step">
+                    <Etape
+                      onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape6'))}
+                      value={valueEtape6}
+                    />
+                    {(toogle7) ? '' : (<i className="icon-add" onClick={() => dispatch(toogleStep6())} />) }
+                  </div>
+                </>
               ) : ''}
               {(toogle7) ? (
-                <div className="step">
+                <>
                   <span className="step-title">Étape 7</span>
-                  <Etape
-                    onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape7'))}
-                    value={valueEtape7}
-                  />
-                  {(toogle8) ? '' : (<i className="icon-add" onClick={() => dispatch(toogleStep7())} />) }
-                </div>
+                  <div className="step">
+                    <Etape
+                      onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape7'))}
+                      value={valueEtape7}
+                    />
+                    {(toogle8) ? '' : (<i className="icon-add" onClick={() => dispatch(toogleStep7())} />) }
+                  </div>
+                </>
               ) : ''}
               {(toogle8) ? (
-                <div className="step">
+                <>
                   <span className="step-title">Étape 8</span>
-                  <Etape
-                    onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape8'))}
-                    value={valueEtape8}
-                  />
-                  {(toogle9) ? '' : (<i className="icon-add" onClick={() => dispatch(toogleStep8())} />)}
-                </div>
+                  <div className="step">
+                    <Etape
+                      onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape8'))}
+                      value={valueEtape8}
+                    />
+                    {(toogle9) ? '' : (<i className="icon-add" onClick={() => dispatch(toogleStep8())} />)}
+                  </div>
+                </>
               ) : ''}
               {(toogle9) ? (
-                <div className="step">
+                <>
                   <span className="step-title">Étape 9</span>
-                  <Etape
-                    onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape9'))}
-                    value={valueEtape9}
-                  />
-                  {(toogle8) ? (<i className="icon-add" onClick={() => dispatch(toogleStep9())} />) : '' }
-                </div>
+                  <div className="step">
+                    <Etape
+                      onChange={(evt) => dispatch(etapeAction(evt.target.value, 'etape9'))}
+                      value={valueEtape9}
+                    />
+                    {(toogle8) ? (<i className="icon-add" onClick={() => dispatch(toogleStep9())} />) : '' }
+                  </div>
+                </>
               ) : '' }
 
             </div>

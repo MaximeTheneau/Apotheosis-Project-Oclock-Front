@@ -27,7 +27,7 @@ h2{
   }
   
 }
-input[type="text"], select {
+input[type="text"], select, input.ingredients-type, .createdRecipe input[type=number] {
   width: 90%;
   border-radius: vars.$raduis-img;
   border: 0.01rem solid vars.$grey-omiam;
@@ -41,4 +41,12 @@ input[type="file"] {
 select{
   border: none;
   border: 0.01rem solid vars.$grey-omiam;
+}
+::placeholder{
+  font-family: 'font-main';
+  font-size: 1rem;
+  padding: 0.1rem 0;
+}
+.createdRecipe>form {
+  width: 80%;
 }

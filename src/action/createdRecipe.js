@@ -16,6 +16,15 @@ export function ingredientsAction(value, field) {
     field: field,
   };
 }
+export const INGREDIENT_NAME_ACTION = 'INGREDIENT_NAME_ACTION';
+
+export function ingredientNameAction(value, field) {
+  return {
+    type: INGREDIENT_NAME_ACTION,
+    value: value,
+    field: field,
+  };
+}
 export const TYPE_ACTION = 'TYPE_ACTION';
 
 export function typeAction(value, field) {
@@ -178,6 +187,13 @@ export function toogleStep9(value, field) {
     field: field,
   };
 }
+export const TOOGLE_INGREDIENTS = 'TOOGLE_INGREDIENTS';
+
+export function toogleIngredients() {
+  return {
+    type: TOOGLE_INGREDIENTS,
+  };
+}
 export const FILE_ACTION = 'FILE_ACTION';
 
 export function fileAction(value, field) {
@@ -185,5 +201,52 @@ export function fileAction(value, field) {
     type: FILE_ACTION,
     value: value,
     field: field,
+  };
+}
+
+export const FETCH_ACTION = 'FETCH_ACTION';
+
+export function fetchAction() {
+  return {
+    type: FETCH_ACTION,
+  };
+}
+export const SAVE_FETCH_INGREDIENTS = 'SAVE_FETCH_INGREDIENTS';
+
+export function saveFetchIngredients(listIngredientsFetch) {
+  return {
+    type: SAVE_FETCH_INGREDIENTS,
+    listIngredients: listIngredientsFetch,
+  };
+}
+export const TOOGLE_CREATED_RECIPE = 'TOOGLE_CREATED_RECIPE';
+
+export function toogleCreatedRecipe() {
+  return {
+    type: TOOGLE_CREATED_RECIPE,
+  };
+}
+export const TOOGLE_CREATED_INGREDIENTS = 'TOOGLE_CREATED_INGREDIENTS';
+
+export function toggleCreatedIngredients() {
+  return {
+    type: TOOGLE_CREATED_INGREDIENTS,
+  };
+}
+export const TOOGLE_CREATED_INGREDIENTS1 = 'TOOGLE_CREATED_INGREDIENTS1';
+
+export function toogleCreatedIngredients1(toogleCreatedAction) {
+  return {
+    type: TOOGLE_CREATED_INGREDIENTS1,
+    toogleCreatedIngredients1: toogleCreatedAction,
+  };
+}
+export const GLOBAL_INGREDIENT = 'GLOBAL_INGREDIENT';
+
+export function globalIngredients(ingredient, unit) {
+  return {
+    type: GLOBAL_INGREDIENT,
+    ingredient: ingredient,
+    unit: unit,
   };
 }

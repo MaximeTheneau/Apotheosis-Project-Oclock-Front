@@ -4,7 +4,7 @@ function Etape({ onChange }) {
   return (
     <textarea
       placeholder="Votre étape"
-      rows="1"
+      rows="3"
       onChange={onChange}
     />
   );

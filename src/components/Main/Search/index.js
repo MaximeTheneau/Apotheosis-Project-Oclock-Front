@@ -1,10 +1,23 @@
 import { Link } from 'react-router-dom';
 import './styles.scss';
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Recipes from '../../../data/recipes';
 import SearchForm from './searchForm';
+import { fetchRecipes } from '../../../action/homePage';
+import Spinner from '../../Spinner';
 
 function Search() {
+  const dispatch = useDispatch();
+  useEffect(
+    () => {
+      // On veut recup la liste des recette depuis l'API
+      // Pour ça, on va dispatcher une action (émettre l'intention de charger les recettes)
+      dispatch(fetchRecipes());
+    },
+    [],
+  );
+  const toogleSpinner = useSelector((state) => state.homePage.toggleSpinner);
   const valueSearch = useSelector((state) => state.recipes.form.search);
   const recipe = useSelector((state) => state);
   // console.log(recipe);
@@ -21,34 +34,34 @@ function Search() {
     <>
       {/* Title Page */}
       <Link to="/"><h1 className="title-page logo">Recherche</h1></Link>
-
       <Link to="/recettes/recherche"><p>Recherche</p></Link>
-
-
       <SearchForm />
       {/* Cards Search */}
       <div className="cards-type">
         <h2 className="cards-recipe">Ma Recherche</h2>
-        <div className="cards-list-type">
-          {/* Card */}
-          { recipesFilter.map((item) => (
-            <div className="card">
-              <h2 className="card-recipe">{item.title}</h2>
-              <img
-                src={item.picture}
-                alt="Name"
-                className="card-img"
-              />
-              <div className="card-container">
-                <ul className="card-container-list">
-                  <li><img className="card-container-list-img-user" src="https://image.shutterstock.com/image-photo/carer-pushing-senior-woman-wheelchair-260nw-1148689052.jpg" alt="zz" /></li>
-                  <li><i className="icon-dish" /></li>
-                  <li><span>15<i className="icon-miam" /></span></li>
-                </ul>
+        { (toogleSpinner) && <Spinner />}
+        { (!toogleSpinner) && (
+          <div className="cards-list-type">
+            {/* Card */}
+            { recipesFilter.map((item) => (
+              <div className="card">
+                <h2 className="card-recipe">{item.title}</h2>
+                <img
+                  src={item.picture}
+                  alt="Name"
+                  className="card-img"
+                />
+                <div className="card-container">
+                  <ul className="card-container-list">
+                    <li><img className="card-container-list-img-user" src="https://image.shutterstock.com/image-photo/carer-pushing-senior-woman-wheelchair-260nw-1148689052.jpg" alt="zz" /></li>
+                    <li><i className="icon-dish" /></li>
+                    <li><span>15<i className="icon-miam" /></span></li>
+                  </ul>
+                </div>
               </div>
-            </div>
-          )) }
-        </div>
+            )) }
+          </div>
+        )}
       </div>
     </>
   );
