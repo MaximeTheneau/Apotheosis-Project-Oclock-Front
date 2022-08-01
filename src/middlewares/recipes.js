@@ -12,7 +12,6 @@ const userMiddleware = (store) => (next) => (action) => {
       axios.get('http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes')
         .then((response) => {
           console.log(response.data);
-
           return next(action);
         })
         .catch((error) => {

@@ -12,8 +12,6 @@ function Home() {
   const dispatch = useDispatch();
   useEffect(
     () => {
-      // On veut recup la liste des recette depuis l'API
-      // Pour ça, on va dispatcher une action (émettre l'intention de charger les recettes)
       dispatch(fetchRecipes());
     },
     [],

@@ -14,7 +14,7 @@ export const SAVE_RECIPES = 'SAVE_RECIPES';
 export function saveRecipes(recipes) {
   return {
     type: SAVE_RECIPES,
-    list: recipes,
+    listHome: recipes,
   };
 }
 

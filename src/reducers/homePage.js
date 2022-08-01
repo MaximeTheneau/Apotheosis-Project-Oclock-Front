@@ -1,7 +1,12 @@
-import { SET_SETTINGS_FIELD, TOGGLE_SPINNER, VALUE_TOOGLE } from '../action/homePage';
+import {
+  SAVE_RECIPES,
+  SET_SETTINGS_FIELD,
+  TOGGLE_SPINNER,
+  VALUE_TOOGLE,
+} from '../action/homePage';
 
 export const initialState = {
-  list: [],
+  listHome: [],
   form: {
     search: '',
   },
@@ -11,6 +16,11 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case SAVE_RECIPES:
+      return {
+        ...state,
+        listHome: action.listHome,
+      };
     case SET_SETTINGS_FIELD:
       return {
         ...state,
