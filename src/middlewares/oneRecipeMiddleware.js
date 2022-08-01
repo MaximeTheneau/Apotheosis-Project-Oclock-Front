@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { FETCH_RECIPE, saveRecipe } from '../action/oneRecipe';
+import {
+  FETCH_RECIPE,
+  saveRecipe,
+  saveRecipeIngredients,
+  saveRecipeSteps,
+} from '../action/oneRecipe';
 
 const onRecipeMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -9,14 +14,25 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
           (response) => {
             console.log(response);
             let result = null;
+            let resultSteps = null;
             if (Array.isArray(response.data)) {
               result = response.data;
             }
             else {
               result = [response.data];
             }
+            if (Array.isArray(response.data.steps)) {
+              resultSteps = response.data.steps;
+            }
+            else {
+              resultSteps = [response.data.steps];
+            }
             console.log(result);
+            console.log(response.data.recipeIngredients);
+            console.log(resultSteps);
             store.dispatch(saveRecipe(result));
+            store.dispatch(saveRecipeIngredients(response.data.recipeIngredients));
+            store.dispatch(saveRecipeSteps(resultSteps));
           },
         )
         .catch(

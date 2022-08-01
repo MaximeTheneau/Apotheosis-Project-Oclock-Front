@@ -5,8 +5,10 @@ import Comments from './Comments';
 import './styles.scss';
 
 function Recipe() {
-  const oneRecipe = useSelector((state) => state.oneRecipe.list);
   const dispatch = useDispatch();
+  const oneRecipe = useSelector((state) => state.oneRecipe.list);
+  const ingredients = useSelector((state) => state.oneRecipe.ingredients);
+  const listSteps = useSelector((state) => state.oneRecipe.steps);
   useEffect(
     () => {
       dispatch(fetchRecipe());
@@ -37,12 +39,28 @@ function Recipe() {
                 <li><p className="one-recipe-caption">{item.caption}</p>
                 </li>
               </ul>
-              <div className="one-recipe-steps">
-                <ul className="one-recipe-steps-ul">
-                  <li><h2 className="one-recipe-steps-title">Etape 1</h2></li>
-                  <li><p className="one-recipe-steps-etape">{item.steps.etape1}</p></li>
-                </ul>
-              </div>
+            </div>
+            <div className="one-recipe-ingredient">
+              <ul className="one-recipe-ingredient-list">
+                <li><h2 className="one-recipe-ingredient-title">Ingrédients</h2></li>
+                {ingredients.map((element) => (
+                  <div>
+                    <li className="ingredient" key={element.id}>{element.quantity} {element.unit} {element.ingredient.name}</li>
+                  </div>
+                ))}
+              </ul>
+            </div>
+            <div className="one-recipe-steps">
+              <ul className="one-recipe-steps-ul">
+                {console.log(listSteps)}
+                {Object.keys(listSteps[0]).map((nom, numberInt) => console.log('nom =>', nom, 'number =>', numberInt))}
+                {Object.keys(listSteps[0]).map((nom, numberInt) => (
+                  <li>
+                    <h2 className="one-recipe-steps-title">Etape {numberInt + 1}</h2>
+                    <p className="one-recipe-steps-etape">{listSteps[0][nom]}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
           <Comments />
