@@ -143,7 +143,7 @@ function CreatedRecipe() {
                 value="4"
                 checked={valueType === '4'}
                 onChange={handleChangeType}
-              /><i className="icon-dish" id="radio-type-4" />
+              /><i className="icon-cakes" id="radio-type-4" />
             </label>
           </div>
         </div>
