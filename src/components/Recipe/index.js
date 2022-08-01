@@ -62,11 +62,12 @@ function Recipe() {
             </div>
             <div className="one-recipe-steps">
               <ul className="one-recipe-steps-ul">
-                
-                <li>
-                <h2 className="one-recipe-steps-title">Etape 1</h2>
-                <p className="one-recipe-steps-etape">{item.etape1}</p>
-                </li>
+                {listSteps.map((element) => (
+                  <li>
+                    <h2 className="one-recipe-steps-title">Etape 1</h2>
+                    <p className="one-recipe-steps-etape">{element.etape1}</p>
+                  </li>
+                ))}
                 <li>
                   <h2 className="one-recipe-steps-title">Etape 2</h2>
                   <p className="one-recipe-steps-etape">{item.etape2}</p>
