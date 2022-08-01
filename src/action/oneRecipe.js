@@ -31,21 +31,3 @@ export function saveRecipeSteps(oneRecipeSteps) {
     list: oneRecipeSteps,
   };
 }
-
-export const VALUE_FILTER_NULL = 'VALUE_FILTER_NULL';
-
-export function valueFilterNull() {
-  return {
-    type: VALUE_FILTER_NULL,
-  };
-}
-
-export const TEST_TONY = 'TEST_TONY';
-
-export function testTony(key, value) {
-  return {
-    type: TEST_TONY,
-    key: key,
-    value: value,
-  };
-}
