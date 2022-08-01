@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_RECIPES, saveRecipes, } from '../action/homePage';
+import { FETCH_RECIPES, saveRecipesLast, saveRecipesMiams, saveRecipesRandom } from '../action/homePage';
 
 // Lorsqu'on met en place un middleware, il ne faut pas oublier de le brancher au store !
 const homePage = (store) => (next) => (action) => {
@@ -8,13 +8,9 @@ const homePage = (store) => (next) => (action) => {
       axios.get('http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/home')
         .then(
           (response) => {
-            console.log(response);
-            store.dispatch(saveRecipes(response.data));
-          },
-        )
-        .catch(
-          (error) => {
-            console.log(error);
+            // console.log(response.data.miamsRecipes);
+            store.dispatch(saveRecipesLast([response.data.lastRecipes]));
+            // console.log(result);
           },
         );
       return next(action);

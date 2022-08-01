@@ -6,7 +6,7 @@ function Categories() {
   return (
     <>
       {/* Title Page */}
-
+      
       <Link to="/">
         <h1 className="title-page logo">Entrée</h1>
       </Link>

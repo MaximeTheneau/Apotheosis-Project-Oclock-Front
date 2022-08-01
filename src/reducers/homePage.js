@@ -1,7 +1,10 @@
-import { SAVE_RECIPES, SET_SETTINGS_FIELD, TOGGLE_SPINNER, VALUE_TOOGLE } from '../action/homePage';
+import { SAVE_RECIPES_LAST, SAVE_RECIPES_MIAMS, SAVE_RECIPES_RANDOM, SET_SETTINGS_FIELD, TOGGLE_SPINNER, VALUE_TOOGLE } from '../action/homePage';
 
 export const initialState = {
-  listHome: [],
+  listHomeLast: [],
+  listHomeMiams: [],
+  listHomeRandom: [],
+  recipes: [],
   form: {
     search: '',
   },
@@ -11,10 +14,20 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case SAVE_RECIPES:
+    case SAVE_RECIPES_LAST:
       return {
         ...state,
-        listHome: action.listHome,
+        listHomeLast: action.listHomeLast,
+      };
+    case SAVE_RECIPES_MIAMS:
+      return {
+        ...state,
+        listHomeMiams: action.listHomeMiams,
+      };
+    case SAVE_RECIPES_RANDOM:
+      return {
+        ...state,
+        listHomeRandom: action.listHomeRandom,
       };
     case SET_SETTINGS_FIELD:
       return {

@@ -5,6 +5,7 @@ export default {
         "id": 2,
         "title": "Omelette nature",
         "picture": "",
+        "slug": "Pate-a-crepes",
         "nbMiams": 14,
         "category": {
           "id": 2,

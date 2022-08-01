@@ -1,12 +1,13 @@
 // Action Type => On l'utilise dans l'action creator ET dans le reducer
-export const FETCH_RECIPES = 'FETCH_RECIPES';
+export const FETCH_RECIPES_FULL = 'FETCH_RECIPES_FULL';
 
 // Action creator => On l'utilise au moment du dispatch()
-export function fetchRecipes() {
+export function fetchRecipesFull() {
   return {
-    type: FETCH_RECIPES,
+    type: FETCH_RECIPES_FULL,
   };
 }
+
 
 // Action Type => On l'utilise dans l'action creator ET dans le reducer
 export const SAVE_RECIPES = 'SAVE_RECIPES';

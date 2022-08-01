@@ -69,7 +69,7 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
         .then(
           (response) => {
             console.log(response);
-            store.dispatch(saveFetchIngredients(response.data));
+            store.dispatch(saveFetchIngredients([response.data]));
           },
         )
         .catch(

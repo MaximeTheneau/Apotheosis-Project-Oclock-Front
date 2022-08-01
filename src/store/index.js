@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import reducer from 'src/reducers';
 import myAccountRecipes from '../middlewares/myAccountRecipes';
-import recipe from '../middlewares/recipes';
+import recipes from '../middlewares/recipes';
 import userMiddleware from '../middlewares/userMiddleware';
 import createdRecipeMiddleware from '../middlewares/createdRecipeMiddleware';
 import oneRecipeMiddleware from '../middlewares/oneRecipeMiddleware';
@@ -12,7 +12,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const enhancers = composeEnhancers(
 
   applyMiddleware(
-    recipe,
+    recipes,
     userMiddleware,
     createdRecipeMiddleware,
     myAccountRecipes,
