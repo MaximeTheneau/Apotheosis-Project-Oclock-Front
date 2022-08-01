@@ -100,8 +100,7 @@ const reducer = (state = initialState, action = {}) => {
         },
       };
     case GLOBAL_INGREDIENT:
-
-    return {
+      return {
         ...state,
         recipeIngredients: {
           ...state.recipeIngredients,
@@ -111,22 +110,16 @@ const reducer = (state = initialState, action = {}) => {
         },
       };
     case UNIT_ACTION:
-      const newArray = { [action.field]: action.value};
-      console.log(newArray);
       return {
         ...state,
-        recipeIngredients: [...state.recipeIngredients, newArray],
         unit: {
           ...state.unit,
           [action.field]: action.value,
         },
       };
     case QUANTITY_ACTION:
-      const newArray1 = { [action.field]: action.value};
-      console.log(newArray);
       return {
         ...state,
-        recipeIngredients: [...state.recipeIngredients, newArray1],
         quantity: {
           ...state.quantity,
           [action.field]: action.value,
