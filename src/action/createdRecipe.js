@@ -250,3 +250,22 @@ export function globalIngredients(ingredient, unit) {
     unit: unit,
   };
 }
+
+export const UNIT_ADD_ACTION = 'UNIT_ADD_ACTION';
+
+export function unitAddAction(value, field) {
+  return {
+    type: UNIT_ADD_ACTION,
+    value: value,
+    field: field,
+  };
+}
+export const QUANTITIES_ADD_ACTION = 'QUANTITIES_ADD_ACTION';
+
+export function quantitiesAddAction(value, field) {
+  return {
+    type: QUANTITIES_ADD_ACTION,
+    value: value,
+    field: field,
+  };
+}

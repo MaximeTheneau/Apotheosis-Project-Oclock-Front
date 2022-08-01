@@ -15,8 +15,8 @@ function IngredientList() {
       { listIngredients.map((item) => (
         <div className="ingredient">
           <Ingredient onChange={(evt) => dispatch(ingredientAction(evt.target.value, `ingredient${item.id}`))} />
-          <Unit onChange={(evt) => dispatch(unitAction(evt.target.value, `unit${item.id}`))} />
-          <Quantity onChange={(evt) => dispatch(quantityAction(evt.target.value, `quantity${item.id}`))} />
+          <Unit onChange={(evt) => dispatch(quantityAction(evt.target.value, `quantity${item.id}`))} />
+          <Quantity onChange={(evt) => dispatch(unitAction(evt.target.value, `unit${item.id}`))} />
         </div>
       ))}
     </>

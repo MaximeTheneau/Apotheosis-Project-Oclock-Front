@@ -8,6 +8,7 @@ import {
   GLOBAL_INGREDIENT,
   INGREDIENT_ACTION,
   INGREDIENT_NAME_ACTION,
+  QUANTITIES_ADD_ACTION,
   QUANTITY_ACTION, SAVE_FETCH_INGREDIENTS, TITLE_ACTION,
   TOOGLE_CREATED_INGREDIENTS,
   TOOGLE_CREATED_INGREDIENTS1,
@@ -23,6 +24,7 @@ import {
   TOOGLE_STEPS9,
   TYPE_ACTION,
   UNIT_ACTION,
+  UNIT_ADD_ACTION,
 } from '../action/createdRecipe';
 
 export const initialState = {
@@ -30,10 +32,10 @@ export const initialState = {
   title: '',
   caption: '',
   steps: [],
-  unit: [],
-  quantity: [],
+  units: [],
+  quantities: [],
   ingredients: [],
-  ingredientAdd: [],
+  ingredientsAdd: [],
   duration: null,
   difficulty: null,
   category: '',
@@ -78,10 +80,7 @@ const reducer = (state = initialState, action = {}) => {
     case DURATION_ACTION:
       return {
         ...state,
-        recipeIngredients: {
-          ...state.recipeIngredients,
-          [action.field]: action.value,
-        },
+        [action.field]: action.value,
       };
     case INGREDIENT_ACTION:
       return {
@@ -94,8 +93,24 @@ const reducer = (state = initialState, action = {}) => {
     case INGREDIENT_NAME_ACTION:
       return {
         ...state,
-        ingredientAdd: {
-          ...state.ingredientAdd,
+        ingredientsAdd: {
+          ...state.ingredientsAdd,
+          [action.field]: action.value,
+        },
+      };
+    case UNIT_ADD_ACTION:
+      return {
+        ...state,
+        ingredientsAdd: {
+          ...state.ingredientsAdd,
+          [action.field]: action.value,
+        },
+      }; 
+    case QUANTITIES_ADD_ACTION:
+      return {
+        ...state,
+        ingredientsAdd: {
+          ...state.ingredientsAdd,
           [action.field]: action.value,
         },
       };
@@ -112,16 +127,16 @@ const reducer = (state = initialState, action = {}) => {
     case UNIT_ACTION:
       return {
         ...state,
-        unit: {
-          ...state.unit,
+        units: {
+          ...state.units,
           [action.field]: action.value,
         },
       };
     case QUANTITY_ACTION:
       return {
         ...state,
-        quantity: {
-          ...state.quantity,
+        quantities: {
+          ...state.quantities,
           [action.field]: action.value,
         },
       };

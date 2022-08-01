@@ -4,7 +4,7 @@ import { FETCH_RECIPES_MY_ACCOUNT, saveRecipesMyAccount } from '../action/myAcco
 const myAccountRecipes = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_RECIPES_MY_ACCOUNT: {
-      axios.get('http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes/user/1')
+      axios.get('http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes/user/8')
         .then(
           (response) => {
             console.log(response);

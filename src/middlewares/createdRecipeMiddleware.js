@@ -4,6 +4,7 @@ import { FETCH_ACTION, POST_CREACTED, saveFetchIngredients } from '../action/cre
 const createdRecipeMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case POST_CREACTED: {
+      console.log(POST_CREACTED);
       const state = store.getState();
       const {
         title,
@@ -13,17 +14,15 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
         duration,
       } = state.createdRecipe;
 
-      const {
-        unit,
-        quantity,
-        ingredient,
-      } = state.createdRecipe.recipeIngredients;
+      const { ingredientsAdd } = state.createdRecipe;
 
       const {
         steps,
+        ingredients,
+        units,
+        quantities,
       } = state.createdRecipe;
       const { token } = state.user.settingsLogIn;
-
       const formData = new FormData();
       formData.append('json', JSON.stringify({
         title: title,
@@ -31,15 +30,16 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
         duration: parseInt(duration, 10),
         difficulty: parseInt(difficulty, 10),
         category: parseInt(category, 10),
-        recipeIngredients: [
-          {
-            ingredient: parseInt(ingredient, 10),
-            unit: unit,
-            quantity: parseInt(quantity, 10),
-          }],
         steps: steps,
       }));
-
+      formData.append('ingredients', JSON.stringify({
+        quantities: quantities,
+        units: units,
+        ingredients: ingredients,
+      }));
+      formData.append('ingredientsAdd', JSON.stringify({
+        ingredientsAdd : ingredientsAdd,
+      }));
       formData.append('picture', document.getElementById('fileUpload').files[0]);
       axios({
         method: 'post',
@@ -48,9 +48,9 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}`,
-        },      
+        },
       }).then((response) => {
-        console.log(response.data);
+          console.log(response.data);
         // const { data: user } = response;
         // j'enregistre mon token sur l'instance d'axios
         // axiosInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -73,7 +73,7 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
         )
         .catch(
           (error) => {
-            console.log(error.data);
+            console.log(error);
           },
         );
       return next(action);
