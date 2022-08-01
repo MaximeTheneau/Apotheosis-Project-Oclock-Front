@@ -1,7 +1,8 @@
-import { SAVE_RECIPE } from '../action/oneRecipe';
+import { SAVE_RECIPE, SAVE_RECIPE_INGREDIENTS } from '../action/oneRecipe';
 
 export const initialState = {
   list: [],
+  ingredients: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -10,6 +11,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         list: action.list,
+      };
+    case SAVE_RECIPE_INGREDIENTS:
+      return {
+        ...state,
+        ingredients: action.list,
       };
     default:
       return state;

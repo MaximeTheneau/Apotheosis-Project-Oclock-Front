@@ -14,3 +14,12 @@ export function saveRecipe(oneRecipe) {
     list: oneRecipe,
   };
 }
+
+export const SAVE_RECIPE_INGREDIENTS = 'SAVE_RECIPE_INGREDIENTS';
+
+export function saveRecipeIngredients(oneRecipeIngredients) {
+  return {
+    type: SAVE_RECIPE_INGREDIENTS,
+    list: oneRecipeIngredients,
+  };
+}

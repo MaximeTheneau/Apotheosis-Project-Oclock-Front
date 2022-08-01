@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_RECIPE, saveRecipe } from '../action/oneRecipe';
+import { FETCH_RECIPE, saveRecipe, saveRecipeIngredients } from '../action/oneRecipe';
 
 const onRecipeMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -16,7 +16,9 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
               result = [response.data];
             }
             console.log(result);
+            console.log(response.data.recipeIngredients);
             store.dispatch(saveRecipe(result));
+            store.dispatch(saveRecipeIngredients(response.data.recipeIngredients));
           },
         )
         .catch(
