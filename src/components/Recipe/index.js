@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchRecipe, valueFilterNull } from '../../action/oneRecipe';
+import { fetchRecipe } from '../../action/oneRecipe';
 import Comments from './Comments';
 import './styles.scss';
 
@@ -9,16 +9,6 @@ function Recipe() {
   const oneRecipe = useSelector((state) => state.oneRecipe.list);
   const ingredients = useSelector((state) => state.oneRecipe.ingredients);
   const listSteps = useSelector((state) => state.oneRecipe.steps);
-  
-  /* const filterStep = listSteps.map((item) => {
-    console.log(item.etapes1);
-    const step2 = item.etapes2;
-    const step3 = item.etapes3;
-    const nullFilter = '';
-    const filterStepNull = step2.includes(nullFilter);
-    return dispatch(valueFilterNull(filterStepNull));
-    } ) */
-
   useEffect(
     () => {
       dispatch(fetchRecipe());
@@ -62,21 +52,14 @@ function Recipe() {
             </div>
             <div className="one-recipe-steps">
               <ul className="one-recipe-steps-ul">
-                {listSteps.map((element) => (
+                {console.log(listSteps)}
+                {Object.keys(listSteps[0]).map((nom, numberInt) => console.log('nom =>', nom, 'number =>', numberInt))}
+                {Object.keys(listSteps[0]).map((nom, numberInt) => (
                   <li>
-                    <h2 className="one-recipe-steps-title">Etape 1</h2>
-                    <p className="one-recipe-steps-etape">{element.etape1}</p>
+                    <h2 className="one-recipe-steps-title">Etape {numberInt + 1}</h2>
+                    <p className="one-recipe-steps-etape">{listSteps[0][nom]}</p>
                   </li>
                 ))}
-                <li>
-                  <h2 className="one-recipe-steps-title">Etape 2</h2>
-                  <p className="one-recipe-steps-etape">{item.etape2}</p>
-                </li>
-                <li><p className="one-recipe-steps-etape">{item.steps.etape3}</p></li>
-                <li><p className="one-recipe-steps-etape">{item.steps.etape4}</p></li>
-                <li><p className="one-recipe-steps-etape">{item.steps.etape5}</p></li>
-                <li><p className="one-recipe-steps-etape">{item.steps.etape6}</p></li>
-                <li><p className="one-recipe-steps-etape">{item.steps.etape7}</p></li>
               </ul>
             </div>
           </div>

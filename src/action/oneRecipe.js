@@ -39,3 +39,13 @@ export function valueFilterNull() {
     type: VALUE_FILTER_NULL,
   };
 }
+
+export const TEST_TONY = 'TEST_TONY';
+
+export function testTony(key, value) {
+  return {
+    type: TEST_TONY,
+    key: key,
+    value: value,
+  };
+}
