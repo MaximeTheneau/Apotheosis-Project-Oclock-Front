@@ -37,7 +37,7 @@ function SearchForm() {
             className="field-input"
             placeholder="Rechercher"
           />
-          <Link to="/recettes/recherche">
+          <Link to="/recherche">
             <button className="search-button" type="submit">
               <i className="icon-search" />
             </button>

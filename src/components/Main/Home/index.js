@@ -69,7 +69,6 @@ function Home() {
             <div className="cards-type">
               <h2 className="cards-recipe">Ma Recherche</h2>
               <div className="cards-list-type">
-
                 {/* Card */}
                 { recipesSlice.map((item) => (
                   <Link to={`/recette/${item.slug}`}>
@@ -109,7 +108,7 @@ function Home() {
                   <div className="card">
                     <h2 className="card-recipe">dffddf</h2>
                     <img
-                      src={item}
+                      src={item.capture}
                       alt="Name"
                       className="card-img"
                     />
