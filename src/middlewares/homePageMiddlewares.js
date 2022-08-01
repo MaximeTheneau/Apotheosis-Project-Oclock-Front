@@ -9,7 +9,15 @@ const homePage = (store) => (next) => (action) => {
         .then(
           (response) => {
             console.log(response);
-            store.dispatch(saveRecipes(response.data));
+            let result = null;
+            if (Array.isArray(response.data.miamsRecipes)) {
+              result = response.data.miamsRecipes;
+            }
+            else {
+              result = [response.data.miamsRecipes];
+            }
+            console.log(result);
+            store.dispatch(saveRecipes(result));
           },
         )
         .catch(
