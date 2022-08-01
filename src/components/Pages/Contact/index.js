@@ -26,12 +26,17 @@ function Contact() {
   const handleChangeMessage = ((event) => {
     dispatch(messageAction(event.target.value, 'message'));
   });
+  const handleSubmit = ((event) => {
+    event.preventDefault();
+    console.log(event);
+    dispatch(postMessage());
+  });
   return (
     <div className="contact">
       <h1>Contactez-nous</h1>
       <p>Une remarque ? Une suggestion ? N'hesitez-pas à nous écrire.</p>
 
-      <form className="form-general">
+      <form className="form-general" onSubmit={handleSubmit}>
 
         <div className="label">
           <input
@@ -70,9 +75,9 @@ function Contact() {
             onChange={handleChangeMessage}
           />
         </div>
-        <div className="send-button">
+        <button className="send-button" type="submit">
           <i className="icon-oven" />
-        </div>
+        </button>
       </form>
     </div>
   );

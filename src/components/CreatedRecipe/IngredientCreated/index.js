@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import {  useSelector } from 'react-redux';
 
 function IngredientCreated({ onChange }) {
-  const valueIngredient = useSelector((state) => state.createdRecipe.ingredientAdd.name);
+  const valueIngredient = useSelector((state) => state.createdRecipe.ingredientsAdd.nameAdd0);
 
   return (
     <input

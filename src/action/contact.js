@@ -37,3 +37,11 @@ export function messageAction(value, field) {
     field: field,
   };
 }
+
+export const POST_MESSAGE = 'POST_MESSAGE';
+
+export function postMessage() {
+  return {
+    type: POST_MESSAGE,
+  };
+}
