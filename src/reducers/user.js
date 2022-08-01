@@ -1,6 +1,7 @@
 import {
   OPEN_LOGIN, OPEN_REGISTRATION, SET_LOGIN_CREDENTIALS, SET_REGISTRATION_CREDENTIALS,
-  LOGOUT, SAVE_USER, AUTH_ERROR, KEEP_LOGIN, RESET_REGISTRATION_FORM, TOGGLE_DROPDOWN_MENU,
+  LOGOUT, SAVE_USER, AUTH_ERROR, KEEP_LOGIN, RESET_REGISTRATION_FORM, TOGGLE_DROPDOWN_MENU, 
+  SET_FOCUS,
 } from '../action/user';
 
 export const initialState = {
@@ -12,12 +13,14 @@ export const initialState = {
     confirmedPassword: '',
     avatar: '',
     signinError: {
-      validPassword: false,
-      errorMessagePassword: '',
-      validEmail: false,
-      errorMessageEmail: '',
-      validMatch: false,
-      errorMessagematchPassword: '',
+      pseudo: false,
+      emailfocused: false,
+      passwordfocused: false,
+      matchpasswordfocused: false,
+      errormessagePseudo: 'Pseudo invalide. Doit contenir 2 charactères au minimum.',
+      errormessageEmail: 'Adresse email incorrecte, veuillez respecter le format: johnDoe@gmail.com.',
+      errormessagePassword: 'Mot de passe invalide. Doit contenir entre 8 et 20 caractères et inclure au minimum: 1 lettre, 1 chiffre et 1 caractère spécial',
+      errormessagePasswordMatch: 'Le mot de passe ne correspond pas',
     },
   },
   settingsLogIn: {
@@ -144,6 +147,18 @@ const reducer = (state = initialState, action = {}) => {
         userProfile: {
           ...state.userProfile,
           isListOpen: !state.userProfile.isListOpen,
+        },
+      };
+
+    case SET_FOCUS:
+      return {
+        ...state,
+        settingsRegister: {
+          ...state.settingsRegister,
+          signinError: {
+            ...state.signinError,
+            [action.field]: action.value,
+          },
         },
       };
 

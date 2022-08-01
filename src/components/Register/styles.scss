@@ -36,6 +36,12 @@
     }
   }
 
+  &-error {
+    color: vars.$orange-omiam;
+    font-size: 0.7rem;
+    padding-top: 0.5rem;
+  }
+
   &-submit {
     margin-top: 2rem;
     font-family: 'font-title';
