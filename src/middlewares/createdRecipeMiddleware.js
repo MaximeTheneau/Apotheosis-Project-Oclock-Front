@@ -4,7 +4,7 @@ import { FETCH_ACTION, POST_CREACTED, saveFetchIngredients } from '../action/cre
 const createdRecipeMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case POST_CREACTED: {
-      console.log(POST_CREACTED);
+      // console.log(POST_CREACTED);
       const state = store.getState();
       const {
         title,
@@ -50,11 +50,12 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
           Authorization: `Bearer ${token}`,
         },
       }).then((response) => {
-          console.log(response.data);
+        console.log(response.data);
+        
         // const { data: user } = response;
         // j'enregistre mon token sur l'instance d'axios
         // axiosInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
-        return next(action);
+        return next(action), window.location = '/mon-compte/mes-recettes';
       })
         .catch((error) => {
           console.log(error);
