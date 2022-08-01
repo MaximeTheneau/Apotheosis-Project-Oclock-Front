@@ -23,3 +23,19 @@ export function saveRecipeIngredients(oneRecipeIngredients) {
     list: oneRecipeIngredients,
   };
 }
+export const SAVE_RECIPE_STEPS = 'SAVE_RECIPE_STEPS';
+
+export function saveRecipeSteps(oneRecipeSteps) {
+  return {
+    type: SAVE_RECIPE_STEPS,
+    list: oneRecipeSteps,
+  };
+}
+
+export const VALUE_FILTER_NULL = 'VALUE_FILTER_NULL';
+
+export function valueFilterNull() {
+  return {
+    type: VALUE_FILTER_NULL,
+  };
+}

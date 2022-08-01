@@ -1,8 +1,15 @@
-import { SAVE_RECIPE, SAVE_RECIPE_INGREDIENTS } from '../action/oneRecipe';
+import {
+  SAVE_RECIPE,
+  SAVE_RECIPE_INGREDIENTS,
+  VALUE_FILTER_NULL,
+  SAVE_RECIPE_STEPS,
+} from '../action/oneRecipe';
 
 export const initialState = {
   list: [],
   ingredients: [],
+  steps: [],
+  valueFilterNull: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -16,6 +23,16 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         ingredients: action.list,
+      };
+    case SAVE_RECIPE_STEPS:
+      return {
+        ...state,
+        steps: action.list,
+      };
+    case VALUE_FILTER_NULL:
+      return {
+        ...state,
+        valueFilterNull: !state.valueFilterNull,
       };
     default:
       return state;
