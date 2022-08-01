@@ -28,6 +28,7 @@ function Register() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    dispatch(isValidEmail(email));
     dispatch(register());
   };
 

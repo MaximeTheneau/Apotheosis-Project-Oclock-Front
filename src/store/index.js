@@ -4,12 +4,19 @@ import myAccountRecipes from '../middlewares/myAccountRecipes';
 import recipe from '../middlewares/recipes';
 import userMiddleware from '../middlewares/userMiddleware';
 import createdRecipeMiddleware from '../middlewares/createdRecipeMiddleware';
+import oneRecipeMiddleware from '../middlewares/oneRecipeMiddleware';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const enhancers = composeEnhancers(
 
-  applyMiddleware(recipe, userMiddleware, createdRecipeMiddleware, myAccountRecipes),
+  applyMiddleware(
+    recipe,
+    userMiddleware,
+    createdRecipeMiddleware,
+    myAccountRecipes,
+    oneRecipeMiddleware,
+  ),
 
 );
 

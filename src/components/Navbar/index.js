@@ -57,7 +57,7 @@ function Navbar() {
         <div className="desktop-connexion">
           {logs
             ? (
-              <Link to="/profil"><i className="icon-cook" />
+              <Link to="/mon-compte"><i className="icon-cook icon-cook-menu" />
               </Link>
             )
             : (
@@ -74,7 +74,7 @@ function Navbar() {
         <div className="icon">
           {logs
             ? (
-              <Link to="/profil"><i className="icon-cook" />
+              <Link to="/mon-compte"><i className="icon-cook icon-cook-menu" />
               </Link>
             )
             : (

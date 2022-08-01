@@ -108,11 +108,15 @@ export function register() {
 
 export const KEEP_LOGIN = 'KEEP_LOGIN';
 
-export function keepLogin(token, logs) {
+export function keepLogin(token, logs, avatar, userid, role, pseudo) {
   return {
     type: KEEP_LOGIN,
     token,
     logs,
+    avatar,
+    userid,
+    role,
+    pseudo,
   };
 }
 
@@ -121,5 +125,13 @@ export const RESET_REGISTRATION_FORM = 'RESET_REGISTRATION_FORM';
 export function resetRegistrationForm() {
   return {
     type: RESET_REGISTRATION_FORM,
+  };
+}
+
+export const TOGGLE_DROPDOWN_MENU = 'TOGGLE_DROPDOWN_MENU';
+
+export function toggleDropdownMenu() {
+  return {
+    type: TOGGLE_DROPDOWN_MENU,
   };
 }

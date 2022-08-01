@@ -15,6 +15,7 @@ import Privacy from '../Pages/Privacy';
 import Contact from '../Pages/Contact';
 import UserProfile from '../UserProfile';
 import MyRecipes from '../UserProfile/MyRecipes';
+import Recipe from '../Recipe';
 import MyMiams from '../UserProfile/MyMiams';
 import MyChiefs from '../UserProfile/MyChiefs';
 import Error from '../Error';
@@ -26,10 +27,15 @@ import './styles.scss';
 function Omiam() {
   const loggedIn = localStorage.getItem('logs');
   const token = localStorage.getItem('token');
+  const avatar = localStorage.getItem('avatar');
+  const userid = localStorage.getItem('userid');
+  const role = localStorage.getItem('role');
+  const pseudo = localStorage.getItem('pseudo');
+
   const dispatch = useDispatch();
   useEffect(
     () => {
-      dispatch(keepLogin(token, loggedIn));
+      dispatch(keepLogin(token, loggedIn, avatar, userid, role, pseudo));
     },
     [],
   );
@@ -40,8 +46,8 @@ function Omiam() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/recettes/entre" element={<Categories />} />
           <Route path="/recettes/recherche" element={<Search />} />
+          <Route path="/recette" element={<Recipe />} />
           <Route path="/qui-sommes-nous" element={<Aboutus />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/mention-legales" element={<Privacy />} />
