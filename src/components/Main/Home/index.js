@@ -18,9 +18,9 @@ function Home() {
   const recipesFullApi = useSelector((state) => state.recipes.list);
 
 
-  const recipesApi = useSelector((state) => state.homePage.listHomeLast);
+  // const recipesApi = useSelector((state) => state.homePage.listHomeLast);
 
-  console.log(Object.keys(recipesApi[0]));
+  // console.log(Object.keys(recipesApi[0]));
   // console.log(nMap(recipesApi));
   useEffect(
     () => {
