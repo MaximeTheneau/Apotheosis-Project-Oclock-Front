@@ -7,8 +7,10 @@ import user from './user';
 import recipes from './recipes';
 import myAccountRecipes from './myAccountRecipes';
 import oneRecipe from './oneRecipe';
+import nbMiams from './nbMiams';
 
 const rootReducer = combineReducers({
+  nbMiams: nbMiams,
   homePage: homePage,
   header: header,
   contact: contact,

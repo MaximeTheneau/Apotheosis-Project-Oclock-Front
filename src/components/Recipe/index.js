@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { nbMiams, nbMiamsCount} from '../../action/nbMiams';
 import { fetchRecipe } from '../../action/oneRecipe';
 import Comments from './Comments';
 import './styles.scss';
@@ -9,12 +10,23 @@ function Recipe() {
   const oneRecipe = useSelector((state) => state.oneRecipe.list);
   const ingredients = useSelector((state) => state.oneRecipe.ingredients);
   const listSteps = useSelector((state) => state.oneRecipe.steps);
+
+  console.log(nbMiamsCount[0]);
   useEffect(
     () => {
       dispatch(fetchRecipe());
     },
     [],
   );
+  const handleClick = () => {
+    dispatch(nbMiamsCount());
+    dispatch(nbMiams());
+  };
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    // dispatch(nbMiams());
+  };
+
   return (
     <div className="one-recipe">
       {oneRecipe.map((item) => (
@@ -23,7 +35,16 @@ function Recipe() {
             <div className="one-recipe-header">
               <h1 className="one-recipe-title">{item.title}</h1>
               <i className={item.category.iconName} />
-              <span>{item.nbMiams}</span><i className="icon-miam" />
+              <form onSubmit={handleSubmit}>
+                <button
+                  onClick={handleClick}
+                  type="submit"
+                >
+                  {item.nbMiams}
+                  <i className="icon-miam" />
+                </button>
+              </form>
+
             </div>
             <div className="one-recipe-img">
               <img

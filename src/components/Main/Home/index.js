@@ -17,7 +17,6 @@ function Home() {
 
   const recipesFullApi = useSelector((state) => state.recipes.list);
 
-
   // const recipesApi = useSelector((state) => state.homePage.listHomeLast);
 
   // console.log(Object.keys(recipesApi[0]));
@@ -44,7 +43,6 @@ function Home() {
   });
   // const recipesSliceEffect = () => recipesFilter.slice(0, 6);
   const recipesSlice = recipesFilter.slice(0, 6);
-
 
   return (
     <>

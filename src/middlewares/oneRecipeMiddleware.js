@@ -1,11 +1,11 @@
 import axios from 'axios';
+import { saveRecipeNbMiams } from '../action/nbMiams';
 import {
   FETCH_RECIPE,
   saveRecipe,
   saveRecipeIngredients,
   saveRecipeSteps,
 } from '../action/oneRecipe';
-
 const onRecipeMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_RECIPE: {
@@ -32,6 +32,7 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
             console.log(resultSteps);
             store.dispatch(saveRecipe(result));
             store.dispatch(saveRecipeIngredients(response.data.recipeIngredients));
+            store.dispatch(saveRecipeNbMiams(response.nbMiams));
             store.dispatch(saveRecipeSteps(resultSteps));
           },
         )
