@@ -126,7 +126,7 @@ function Navbar() {
             )
             : (
               <div className="icon-flex">
-                <Link to="/mon-compte">
+                <Link to="/connexion">
                   <i className="icon-lock" />
                 </Link>
                 <i className="icon-bars" onClick={() => handleClick()} />
