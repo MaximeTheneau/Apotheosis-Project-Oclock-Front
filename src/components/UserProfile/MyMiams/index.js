@@ -1,11 +1,11 @@
-import HeaderMyAccount from '../HeaderMyCompte';
 import data from '../../../data/recipesHome';
+import Buttonnavbar from '../Buttonnavbar';
 import './styles.scss';
 
 function MyMiams() {
   return (
     <>
-      <HeaderMyAccount />
+      <Buttonnavbar />
       <div className="my-miams">
         <h1 className="my-miams-title">Carnet de Miam's</h1>
         <div className="my-miams-cards">
