@@ -20,7 +20,6 @@ function Home() {
   const toogleValue = useSelector((state) => state.homePage.addCards);
   const toogleSpinner = useSelector((state) => state.homePage.toggleSpinner);
   const miamsRecipes = useSelector((state) => state.homePage.listHome);
-  console.log(miamsRecipes);
 
   const valueSearchFilterMaj = valueSearch.toLocaleLowerCase();
   const valueSearchFilter = valueSearchFilterMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
