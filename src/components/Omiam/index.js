@@ -24,7 +24,7 @@ import RandomRecipes from '../RandomRecipes';
 import Error from '../Error';
 import UserProfileHeader from '../UserProfile';
 import Layoutconnecte from './Layoutconnecte';
-import { keepLogin } from '../../action/user';
+import { keepLogin, toggleBackoffice } from '../../action/user';
 
 import './styles.scss';
 
@@ -41,6 +41,9 @@ function Omiam() {
   useEffect(
     () => {
       dispatch(keepLogin(token, loggedIn, avatar, userid, role, pseudo));
+      if (role === 'ROLE_ADMIN' || role === 'ROLE_MANAGER') {
+        dispatch(toggleBackoffice());
+      }
     },
     [],
   );

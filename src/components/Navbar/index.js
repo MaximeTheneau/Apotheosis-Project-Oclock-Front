@@ -1,9 +1,10 @@
 import './styles.scss';
+import { MdOutlineArrowDropDown, MdOutlineArrowRight } from 'react-icons/md';
 import { Link, NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { MdOutlineArrowDropDown } from 'react-icons/md';
 import Logo from '../Logo';
 import { showSidebar } from '../../action/header';
+import { logout, toggleDropdownMenu } from '../../action/user';
 
 function Navbar() {
   const dispatch = useDispatch();
@@ -12,6 +13,14 @@ function Navbar() {
   };
 
   const { logs, pseudo, avatar } = useSelector((state) => state.user.settingsLogIn);
+  const { isListOpen } = useSelector((state) => state.user.userProfile);
+  const { backofficeRights } = useSelector((state) => state.user);
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+  const handleClickMenu = () => {
+    dispatch(toggleDropdownMenu());
+  };
 
   return (
     <div className="navbar">
@@ -60,7 +69,7 @@ function Navbar() {
             ? (
               <Link to="/mon-compte" className="user-info">
                 <img src={avatar} alt="user profile" className="user-info-avatar" />
-                <span className="user-info-pseudo">{pseudo} <MdOutlineArrowDropDown className="user-info-icon" /></span>
+                <span className="user-info-pseudo">{pseudo} </span>
               </Link>
             )
             : (
@@ -77,14 +86,52 @@ function Navbar() {
         <div className="icon">
           {logs
             ? (
-              <Link to="/mon-compte"><i className="icon-cook icon-cook-menu" />
-              </Link>
+              <div className="icon-flex">
+                <div>
+                  <Link to="/mon-compte" className="user-info">
+                    <img src={avatar} alt="user profile" className="user-info-avatar" />
+                    <span className="user-info-pseudo" onClick={handleClickMenu}>{pseudo}
+                      {
+                      isListOpen
+                        ? <MdOutlineArrowDropDown />
+                        : <MdOutlineArrowRight />
+                      }
+                    </span>
+                  </Link>
+                  {
+                isListOpen && (
+                  <ul className="dropdown-list">
+                    {
+                      backofficeRights
+                      && (
+                      <Link
+                        to="/backoffice"
+                        className="dropdown-list-link"
+                      >Backoffice
+                      </Link>
+                      )
+                      }
+                    <Link
+                      to="/connexion"
+                      onClick={handleLogout}
+                      className="dropdown-list-link"
+                    >Déconnexion
+                    </Link>
+                  </ul>
+                )
+                }
+                </div>
+                <i className="icon-bars" onClick={() => handleClick()} />
+              </div>
             )
             : (
-              <Link to="/connexion"><i className="icon-lock" />
-              </Link>
+              <div className="icon-flex">
+                <Link to="/mon-compte">
+                  <i className="icon-lock" />
+                </Link>
+                <i className="icon-bars" onClick={() => handleClick()} />
+              </div>
             )}
-          <i className="icon-bars" onClick={() => handleClick()} />
         </div>
       </div>
     </div>

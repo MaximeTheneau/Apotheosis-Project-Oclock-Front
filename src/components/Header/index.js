@@ -10,7 +10,7 @@ function Header() {
 
   return (
     <header>
-      {logs && <Connexion />}
+      {logs && <Connexion className="header-disconnection" />}
       <Navbar />
       <Sidebar />
       {logs && (
