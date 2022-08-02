@@ -9,7 +9,7 @@ const homePage = (store) => (next) => (action) => {
         .then(
           (response) => {
             // console.log(response.data.miamsRecipes);
-            store.dispatch(saveRecipesLast([response.data.lastRecipes]));
+            store.dispatch(saveRecipesLast([response.data]));
             // console.log(result);
           },
         );

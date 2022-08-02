@@ -1,63 +1,67 @@
 
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { fetchRecipesFull } from '../../../action/recipes';
+import Spinner from '../../Spinner';
+import SearchForm from '../Search/searchForm';
 import './styles.scss';
 
 function Categories() {
+  const dispatch = useDispatch();
+  useEffect(
+    () => {
+      // On veut recup la liste des recette depuis l'API
+      // Pour ça, on va dispatcher une action (émettre l'intention de charger les recettes)
+      dispatch(fetchRecipesFull());
+    },
+    [],
+  );
+  const toogleSpinner = useSelector((state) => state.homePage.toggleSpinner);
+  const valueSearch = useSelector((state) => state.homePage.form.search);
+  const recipesFullApi = useSelector((state) => state.recipes.list);
+  // console.log(recipe);
+  const valueSearchFilterMaj = valueSearch.toLocaleLowerCase();
+  const valueSearchFilter = valueSearchFilterMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
+
+  const recipesFilter = recipesFullApi.filter((item) => {
+    const filterNameSearchMaj = item.title.toLocaleLowerCase();
+    const filterNameSearch = filterNameSearchMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
+    return (filterNameSearch.includes(valueSearchFilter));
+  });
+
   return (
     <>
+      <h1 className="title-page logo">Categories</h1>
+      <SearchForm />
       {/* Title Page */}
-      
-      <Link to="/">
-        <h1 className="title-page logo">Entrée</h1>
-      </Link>
-      {/* Search */}
-      <div className="search">
-        <div className="search-form">
-          <form>
-            <input className="search-input" type="text" placeholder="Rechercher" />
-            <button className="search-button" type="submit">
-              <i className="icon-search" />
-            </button>
-          </form>
-        </div>
-        {/* List Catégories */}
-        <div className="list">
-          <ul className="list-categories">
-            <li className="list-categories-icon"><i className="icon-drink" /><Link to="/e" /></li>
-            <li className="list-categories-icon"><i className="icon-radish" /></li>
-            <li className="list-categories-icon"><i className="icon-dish" /></li>
-            <li className="list-categories-icon"><i className="icon-cakes" /></li>
-          </ul>
-        </div>
-      </div>
+      { recipesFilter.map((item) => (
+        <>
+          {/* Cards Search */}
+            { (!toogleSpinner) && <Spinner />}
+            { toogleSpinner && (
+              <div className="cards-list-type">
+                {/* Card */}
+                  <div className="card">
+                    <h2 className="card-recipe">{item.title}</h2>
+                    <img
+                      src={item.picture}
+                      alt="Name"
+                      className="card-img"
+                    />
+                    <div className="card-container">
+                      <ul className="card-container-list">
+                        <li><img className="card-container-list-img-user" src="https://image.shutterstock.com/image-photo/carer-pushing-senior-woman-wheelchair-260nw-1148689052.jpg" alt="zz" /></li>
+                        <li><i className="icon-dish" /></li>
+                        <li><span>15<i className="icon-miam" /></span></li>
+                      </ul>
+                    </div>
+                  </div>
+              </div>
+)}
 
-      <div className="cards-type">
-        {/* Cards */}
-        <h2 className="cards-recipe">Ma Recherche</h2>
-        <div className="cards-list-type">
-          {/* Card */}
-          <div className="card card-type">
-            <h2 className="card-recipe">Pizza </h2>
-            <img
-              src="https://i-reg.unimedias.fr/sites/art-de-vivre/files/styles/recipe/public/Import/R88-riz-noir-fleur-oranger_dr.jpg?auto=compress%2Cformat&crop=faces%2Cedges&cs=srgb&fit=crop&h=500&w=393"
-              alt="Name" 
-              className="card-type-img card-img"
-            />
-            <div className="card-container">
-              <ul className="card-container-list">
-                <li><img className="card-container-list-img-user" src="https://image.shutterstock.com/image-photo/carer-pushing-senior-woman-wheelchair-260nw-1148689052.jpg" alt="zz" /></li>
-                <li><i className="icon-dish" /></li>
-                <li>
-                  <span>15
-                    <i className="icon-miam" />
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
+        </>
+      ))}
     </>
   );
 }

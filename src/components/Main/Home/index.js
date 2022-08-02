@@ -10,7 +10,6 @@ import recipes from '../../../data/recipes';
 import SearchForm from '../Search/searchForm';
 import Spinner from '../../Spinner';
 
-
 function Home() {
   const dispatch = useDispatch();
   const valueSearch = useSelector((state) => state.homePage.form.search);
@@ -19,9 +18,9 @@ function Home() {
   const recipesFullApi = useSelector((state) => state.recipes.list);
 
 
-  // const recipesApi = useSelector((state) => state.homePage.listHomeLast.miamsRecipes);
+  const recipesApi = useSelector((state) => state.homePage.listHomeLast);
 
-  console.log(recipesFullApi);
+  console.log(Object.keys(recipesApi[0]));
   // console.log(nMap(recipesApi));
   useEffect(
     () => {
@@ -30,7 +29,7 @@ function Home() {
     },
     [],
   );
-    // const tab = miamsRecipes.map((item) => console.log(item[*].id));
+  // const tab = miamsRecipes.map((item) => console.log(item[*].id));
 
   const toogleSpinner = useSelector((state) => state.homePage.toggleSpinner);
   // console.log(toogleSpinner);
@@ -50,19 +49,14 @@ function Home() {
   return (
     <>
       {/* Title Page */}
-      <Link to="/">
-        <h1 className="title-page logo">
-          <i className="icon-miam logo" />'miam
-          <span className="logo-slogan"> Une histoire de miam's</span>
-        </h1>
-      </Link>
-      <Link to="/Creer/Recette"><p>Creer Recette</p></Link>
-
+          <h1 className="title-page logo">
+            <i className="icon-miam logo" />'miam
+            <span className="logo-slogan"> Une histoire de miam's</span>
+          </h1>
 
       <SearchForm />
 
       { !toogleSpinner && <Spinner />}
-
         <div className="cards-home">
           {/* Cards Search */}
           { toogleValue ? (
