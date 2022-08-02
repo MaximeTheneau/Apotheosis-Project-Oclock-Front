@@ -5,7 +5,7 @@ import './styles.scss';
 function MyChiefs() {
   return (
     <>
-    <Buttonnavbar />
+      <Buttonnavbar />
       <div className="my-chiefs">
         <h1 className="my-chiefs-title">Mes Chefs</h1>
         {/* <h2>Page en cours de construction</h2> */}
