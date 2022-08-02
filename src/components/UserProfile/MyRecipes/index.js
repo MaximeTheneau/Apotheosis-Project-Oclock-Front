@@ -16,7 +16,7 @@ function MyRecipes() {
   );
   return (
     <>
-      <Buttonnavbar /> *
+      <Buttonnavbar />
       <div className="my-recipes">
         <h1 className="my-recipes-title">Mes Recettes</h1>
         <div className="my-recipes-cards">
