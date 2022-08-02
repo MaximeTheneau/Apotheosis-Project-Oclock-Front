@@ -1,17 +1,19 @@
-.textPrivacy {
-text-align: center;
-margin-left: 20em;
-margin-right: 20em;
-}
+@use './src/styles/vars';
 
-.title {
-  
+.titleh2 {
   line-height: 3 ;
   font-size: 30px;;
 }
 
 .titleh1 {
 line-height: 3;
+}
+
+.textPrivacy {
+// justify-content: center;
+max-width: 90%;
+// margin-left: 20em;
+// margin-right: 20em;
 }
 
 .bold {
