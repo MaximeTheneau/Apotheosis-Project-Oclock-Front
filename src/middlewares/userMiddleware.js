@@ -55,7 +55,7 @@ const userMiddleware = (store) => (next) => (action) => {
 
           // Redirect of the user towards to home page
           //store.dispatch(redirect('/'));
-          //window.location = '/';
+          window.location = '/';
 
           return next(action);
         })
