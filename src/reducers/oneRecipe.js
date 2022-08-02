@@ -3,6 +3,7 @@ import {
   SAVE_RECIPE_INGREDIENTS,
   SAVE_RECIPE_STEPS,
   SAVE_COMMENTS,
+  COMMENT_ACTION,
 } from '../action/oneRecipe';
 
 export const initialState = {
@@ -10,6 +11,7 @@ export const initialState = {
   ingredients: [],
   steps: [],
   comments: [],
+  comment: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -33,6 +35,14 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         comments: action.list,
+      };
+    case COMMENT_ACTION:
+      return {
+        ...state,
+        comment: {
+          ...state.settings,
+          [action.field]: action.value,
+        },
       };
     default:
       return state;
