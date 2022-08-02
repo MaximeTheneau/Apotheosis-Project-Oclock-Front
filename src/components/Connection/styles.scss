@@ -9,15 +9,21 @@
   background-color: vars.$blue-omiam;
   
   
-    &-button, &-register{
-      border:none;
-      background-color: vars.$blue-omiam;
-      font-size: 0.6rem;
-      color: white;
-      font-weight: bold;
-  
-      &:hover {
-        text-decoration: underline;
-      }
+  &-button {
+    font-family: 'font-title';
+    cursor: pointer;
+    font-size: 1.5rem;
+    border: 0;
+    padding: 0rem 1rem;
+    line-height: 1.3;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px vars.$grey-omiam;
+    border-radius: 10px;
+    background-color: vars.$grey-omiam;
+
+    &:hover {
+      transform: scale(1.1);
+    }
     }
   }

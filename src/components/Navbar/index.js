@@ -1,6 +1,7 @@
 import './styles.scss';
 import { Link, NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { MdOutlineArrowDropDown } from 'react-icons/md';
 import Logo from '../Logo';
 import { showSidebar } from '../../action/header';
 
@@ -10,7 +11,7 @@ function Navbar() {
     dispatch(showSidebar());
   };
 
-  const { logs } = useSelector((state) => state.user.settingsLogIn);
+  const { logs, pseudo, avatar } = useSelector((state) => state.user.settingsLogIn);
 
   return (
     <div className="navbar">
@@ -57,7 +58,9 @@ function Navbar() {
         <div className="desktop-connexion">
           {logs
             ? (
-              <Link to="/mon-compte"><i className="icon-cook icon-cook-menu" />
+              <Link to="/mon-compte" className="user-info">
+                <img src={avatar} alt="user profile" className="user-info-avatar" />
+                <span className="user-info-pseudo">{pseudo} <MdOutlineArrowDropDown className="user-info-icon" /></span>
               </Link>
             )
             : (

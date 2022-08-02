@@ -18,10 +18,13 @@ function Connexion() {
   };
   return (
     <div className="connection">
-      <button className="connection-register" type="submit">S'inscrire
-      </button>
-      <span>-</span>
-      <button className="connection-button" type="submit">Connexion <i className="icon-lock" />
+      <button
+        type="button"
+        className="connection-button"
+      >
+        <Link to="/connexion" className="connection-links">
+          Déconnexion
+        </Link>
       </button>
       <div className="dropdown-list">
         <div onClick={handleClickMenu}>

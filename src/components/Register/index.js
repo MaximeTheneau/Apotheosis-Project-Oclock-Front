@@ -31,7 +31,7 @@ function Register() {
   };
 
   const handleFocusPseudo = (event) => {
-    dispatch(setFocus(event.currentTarget.name, true));
+    dispatch(setFocus(event.currentTarget.name));
   };
 
   const handleFocusEmail = () => {
@@ -67,20 +67,20 @@ function Register() {
           className="registration-label"
         >
           Pseudo *
+          <input
+            placeholder="Chef O'miam"
+            type="pseudo"
+            id="pseudo"
+            value={pseudo}
+            required
+            className="registration-input"
+            size="28"
+            onChange={handlePseudoChange}
+            name="pseudo"
+            pattern="^[A-Za-z0-9]{3,16}$"
+            onFocus={handleFocusPseudo}
+          />
         </label>
-        <input
-          placeholder="Chef O'miam"
-          type="pseudo"
-          id="pseudo"
-          value={pseudo}
-          required
-          className="registration-input"
-          size="28"
-          onChange={handlePseudoChange}
-          name="pseudo"
-          pattern="^[A-Za-z0-9]{3,16}$"
-          onFocus={handleFocusPseudo}
-        />
         {pseudofocused
         && <span className="registration-error">{errormessagePseudo}</span>}
       </div>
