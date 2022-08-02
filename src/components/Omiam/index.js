@@ -17,6 +17,8 @@ import MyRecipes from '../UserProfile/MyRecipes';
 import Recipe from '../Recipe';
 import MyMiams from '../UserProfile/MyMiams';
 import MyChiefs from '../UserProfile/MyChiefs';
+import MiamsRecipes from '../MiamsRecipes';
+import LastRecipes from '../LastRecipes';
 import Error from '../Error';
 import UserProfileHeader from '../UserProfile';
 import Layoutvisiteur from '../LayoutVisiteur';
@@ -52,6 +54,8 @@ function Omiam() {
           <Route path="/recette/:slug" element={<Recipe />} />
           <Route path="/qui-sommes-nous" element={<Aboutus />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/miam" element={<MiamsRecipes />} />
+          <Route path="/dernieres-recettes" element={<LastRecipes />} />
           <Route path="/mention-legales" element={<Privacy />} />
           <Route path="/conditions-generales-utilisation" element={<Tscs />} />
           <Route path="/connexion" element={<Connectionform />} />
