@@ -1,7 +1,7 @@
 import {
   OPEN_LOGIN, OPEN_REGISTRATION, SET_LOGIN_CREDENTIALS, SET_REGISTRATION_CREDENTIALS,
   LOGOUT, SAVE_USER, AUTH_ERROR, KEEP_LOGIN, RESET_REGISTRATION_FORM, TOGGLE_DROPDOWN_MENU, 
-  SET_FOCUS,
+  SET_FOCUS, TOGGLE_BACKOFFICE, 
 } from '../action/user';
 
 export const initialState = {
@@ -35,10 +35,7 @@ export const initialState = {
   },
   isLoginOpen: true,
   isRegistrationOpen: false,
-  auth: {
-    error: false,
-    errorMessage: '',
-  },
+  backofficeRights: false,
   userProfile: {
     isListOpen: false,
   },
@@ -81,6 +78,7 @@ const reducer = (state = initialState, action = {}) => {
     case LOGOUT:
       return {
         ...state,
+        backofficeRights: false,
         settingsLogIn: {
           ...state.settingsLogIn,
           logs: false,
@@ -160,6 +158,12 @@ const reducer = (state = initialState, action = {}) => {
             [action.field]: action.value,
           },
         },
+      };
+
+    case TOGGLE_BACKOFFICE:
+      return {
+        ...state,
+        backofficeRights: !state.backofficeRights,
       };
 
     default:

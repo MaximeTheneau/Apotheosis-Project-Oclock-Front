@@ -7,6 +7,7 @@ import {
   authError,
   REGISTER,
   resetRegistrationForm,
+  toggleBackoffice
 } from '../action/user';
 
 const axiosInstance = axios.create({
@@ -28,7 +29,7 @@ const userMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response);
+          //console.log(response);
           // on extrait la propriété data de la reponse
           // que l'on stocke dans une vaiable user
           const { data: user } = response;
@@ -47,12 +48,13 @@ const userMiddleware = (store) => (next) => (action) => {
           localStorage.setItem('logs', true);
           localStorage.setItem('pseudo', user.pseudo);
 
+          if (user.role === 'ROLE_ADMIN' || user.role === 'ROLE_MANAGER') {
+            store.dispatch(toggleBackoffice());
+          }
+
           // Redirect of the user towards to home page
           //store.dispatch(redirect('/'));
-          window.location = '/';
-
-          // On mémorise l'utilisateur dans le state
-          store.dispatch(saveUser(user));
+          //window.location = '/';
 
           return next(action);
         })

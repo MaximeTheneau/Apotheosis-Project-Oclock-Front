@@ -144,3 +144,11 @@ export function setFocus(field) {
     field: field,
   };
 }
+
+export const TOGGLE_BACKOFFICE = 'TOGGLE_BACKOFFICE';
+
+export function toggleBackoffice() {
+  return {
+    type: TOGGLE_BACKOFFICE,
+  };
+}
