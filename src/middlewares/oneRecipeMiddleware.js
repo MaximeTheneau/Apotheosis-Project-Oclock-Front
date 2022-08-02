@@ -4,6 +4,7 @@ import {
   saveRecipe,
   saveRecipeIngredients,
   saveRecipeSteps,
+  saveComments,
 } from '../action/oneRecipe';
 
 const onRecipeMiddleware = (store) => (next) => (action) => {
@@ -30,9 +31,11 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
             console.log(result);
             console.log(response.data.recipeIngredients);
             console.log(resultSteps);
+            console.log(response.data.comments);
             store.dispatch(saveRecipe(result));
             store.dispatch(saveRecipeIngredients(response.data.recipeIngredients));
             store.dispatch(saveRecipeSteps(resultSteps));
+            store.dispatch(saveComments(response.data.comments));
           },
         )
         .catch(

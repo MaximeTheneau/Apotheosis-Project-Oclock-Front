@@ -23,11 +23,39 @@ export function saveRecipeIngredients(oneRecipeIngredients) {
     list: oneRecipeIngredients,
   };
 }
+
 export const SAVE_RECIPE_STEPS = 'SAVE_RECIPE_STEPS';
 
 export function saveRecipeSteps(oneRecipeSteps) {
   return {
     type: SAVE_RECIPE_STEPS,
     list: oneRecipeSteps,
+  };
+}
+
+export const SAVE_COMMENTS = 'SAVE_COMMENTS';
+
+export function saveComments(comments) {
+  return {
+    type: SAVE_COMMENTS,
+    list: comments,
+  };
+}
+
+export const COMMENT_ACTION = 'COMMENT_ACTION';
+
+export function commentAction(value, field) {
+  return {
+    type: COMMENT_ACTION,
+    value: value,
+    field: field,
+  };
+}
+
+export const COMMENT_CREACTED = 'COMMENT_CREACTED';
+
+export function commentCreated() {
+  return {
+    type: COMMENT_CREACTED,
   };
 }

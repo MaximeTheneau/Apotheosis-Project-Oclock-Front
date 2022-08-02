@@ -53,7 +53,7 @@ function Omiam() {
           <Route path="/" element={<Home />} />
           <Route path="/recettes/:slug" element={<Categories />} />
           <Route path="/recherche" element={<Search />} />
-          <Route path="/recette/:slug" element={<Recipe />} />
+          <Route path="/recette" element={<Recipe />} />
           <Route path="/qui-sommes-nous" element={<Aboutus />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/miam" element={<MiamsRecipes />} />
