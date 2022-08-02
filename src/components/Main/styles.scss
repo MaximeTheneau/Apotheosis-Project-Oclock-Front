@@ -35,10 +35,11 @@ h2.cards-recipe {
 .card{
     width: 90%;
     margin: 1rem;
-    border: 0.2rem solid vars.$orange-omiam;
+    border: 0.1rem solid vars.$grey-omiam;
     border-radius: vars.$raduis-img;
     z-index: 1;
     position: relative;
+    background: linear-gradient(0deg, vars.$white 2%, vars.$blue-omiam 20%);
     &-recipe{
       position: absolute;
       top: 1rem;
