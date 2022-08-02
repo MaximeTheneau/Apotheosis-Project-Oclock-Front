@@ -135,3 +135,12 @@ export function toggleDropdownMenu() {
     type: TOGGLE_DROPDOWN_MENU,
   };
 }
+
+export const SET_FOCUS = 'SET_FOCUS';
+
+export function setFocus(field) {
+  return {
+    type: SET_FOCUS,
+    field: field,
+  };
+}

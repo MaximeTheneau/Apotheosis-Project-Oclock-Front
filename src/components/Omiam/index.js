@@ -13,12 +13,13 @@ import Aboutus from '../Pages/Aboutus';
 import Tscs from '../Pages/Tscs';
 import Privacy from '../Pages/Privacy';
 import Contact from '../Pages/Contact';
-import UserProfile from '../UserProfile';
 import MyRecipes from '../UserProfile/MyRecipes';
 import Recipe from '../Recipe';
 import MyMiams from '../UserProfile/MyMiams';
 import MyChiefs from '../UserProfile/MyChiefs';
 import Error from '../Error';
+import UserProfileHeader from '../UserProfile';
+import Layoutvisiteur from '../LayoutVisiteur';
 import { keepLogin } from '../../action/user';
 
 import './styles.scss';
@@ -54,8 +55,8 @@ function Omiam() {
           <Route path="/mention-legales" element={<Privacy />} />
           <Route path="/conditions-generales-utilisation" element={<Tscs />} />
           <Route path="/connexion" element={<Connectionform />} />
-          <Route path="/mon-compte" element={<UserProfile />} />
-          <Route path="/mon-compte/mes-recettes" element={<MyRecipes />} />
+          <Route path="/mon-compte" element={<UserProfileHeader />} />
+          <Route path="/mon-compte/mes-recettes" element={<><UserProfileHeader /> <MyRecipes /> </>} />
           <Route path="/mon-compte/mes-miams" element={<MyMiams />} />
           <Route path="/mon-compte/mes-chefs" element={<MyChiefs />} />
           <Route path="/Creer/Recette" element={<CreatedRecipe />} />
