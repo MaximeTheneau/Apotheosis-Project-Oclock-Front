@@ -14,7 +14,7 @@ export const SAVE_RECIPES_LAST = 'SAVE_RECIPES_LAST';
 export function saveRecipesLast(recipes) {
   return {
     type: SAVE_RECIPES_LAST,
-    listHomeLast: recipes,
+    list: recipes,
   };
 }
 export const SAVE_RECIPES_MIAMS = 'SAVE_RECIPES_MIAMS';
@@ -22,7 +22,7 @@ export const SAVE_RECIPES_MIAMS = 'SAVE_RECIPES_MIAMS';
 export function saveRecipesMiams(recipes) {
   return {
     type: SAVE_RECIPES_MIAMS,
-    listHomeMiams: recipes,
+    list: recipes,
   };
 }
 export const SAVE_RECIPES_RANDOM = 'SAVE_RECIPES_RANDOM';
@@ -30,7 +30,7 @@ export const SAVE_RECIPES_RANDOM = 'SAVE_RECIPES_RANDOM';
 export function saveRecipesRandom(recipes) {
   return {
     type: SAVE_RECIPES_RANDOM,
-    listHomeRandom: recipes,
+    list: recipes,
   };
 }
 

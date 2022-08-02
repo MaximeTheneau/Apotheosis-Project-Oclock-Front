@@ -8,9 +8,9 @@ const homePage = (store) => (next) => (action) => {
       axios.get('http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/home')
         .then(
           (response) => {
-            // console.log(response.data.miamsRecipes);
-            store.dispatch(saveRecipesLast([response.data]));
-            // console.log(result);
+            console.log(response);
+            console.log(response.data.lastRecipes);
+            store.dispatch(saveRecipesLast(response.data.lastRecipes));
           },
         );
       return next(action);

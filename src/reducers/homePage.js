@@ -1,4 +1,11 @@
-import { SAVE_RECIPES_LAST, SAVE_RECIPES_MIAMS, SAVE_RECIPES_RANDOM, SET_SETTINGS_FIELD, TOGGLE_SPINNER, VALUE_TOOGLE } from '../action/homePage';
+import {
+  SAVE_RECIPES_LAST,
+  SAVE_RECIPES_MIAMS,
+  SAVE_RECIPES_RANDOM,
+  SET_SETTINGS_FIELD,
+  TOGGLE_SPINNER,
+  VALUE_TOOGLE,
+} from '../action/homePage';
 
 export const initialState = {
   listHomeLast: [],
@@ -17,17 +24,17 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_RECIPES_LAST:
       return {
         ...state,
-        listHomeLast: action.listHomeLast,
+        listHomeLast: action.list,
       };
     case SAVE_RECIPES_MIAMS:
       return {
         ...state,
-        listHomeMiams: action.listHomeMiams,
+        listHomeMiams: action.list,
       };
     case SAVE_RECIPES_RANDOM:
       return {
         ...state,
-        listHomeRandom: action.listHomeRandom,
+        listHomeRandom: action.list,
       };
     case SET_SETTINGS_FIELD:
       return {
