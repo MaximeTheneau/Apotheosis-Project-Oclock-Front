@@ -8,7 +8,7 @@ import Connectionform from '../Connectionform';
 import CreatedRecipe from '../CreatedRecipe';
 import Categories from '../Main/Categories';
 import Home from '../Main/Home';
-import Search from '../Main/Search';
+import Search from '../Main/Search/index';
 import Aboutus from '../Pages/Aboutus';
 import Tscs from '../Pages/Tscs';
 import Privacy from '../Pages/Privacy';
@@ -47,8 +47,8 @@ function Omiam() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/recettes/:slug" element={<Categories />} />
-          <Route path="/recette/recherche" element={<Search />} />
-          <Route path="/recette" element={<Recipe />} />
+          <Route path="/recherche" element={<Search />} />
+          <Route path="/recette/:slug" element={<Recipe />} />
           <Route path="/qui-sommes-nous" element={<Aboutus />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/mention-legales" element={<Privacy />} />

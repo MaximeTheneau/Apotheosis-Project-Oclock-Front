@@ -5,6 +5,7 @@ export default[
     "title": "oeuf",
     "picture": "https://img-3.journaldesfemmes.fr/_w4wbI9RdtnuAO4Uffa6Ior5K20=/1500x/smart/0908e694506e4fe989cf158fde4fb524/ccmcms-jdf/26978903.jpg",
     "nbMiams": 9,
+    "slug": "Pate-a-crepes",
     "category": {
       "id": 4,
       "name": "Dessert"

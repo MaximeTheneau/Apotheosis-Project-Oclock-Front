@@ -8,13 +8,29 @@ export function fetchRecipes() {
 }
 
 // Action Type => On l'utilise dans l'action creator ET dans le reducer
-export const SAVE_RECIPES = 'SAVE_RECIPES';
+export const SAVE_RECIPES_LAST = 'SAVE_RECIPES_LAST';
 
 // Action creator => On l'utilise au moment du dispatch()
-export function saveRecipes(recipes) {
+export function saveRecipesLast(recipes) {
   return {
-    type: SAVE_RECIPES,
-    list: recipes,
+    type: SAVE_RECIPES_LAST,
+    listHomeLast: recipes,
+  };
+}
+export const SAVE_RECIPES_MIAMS = 'SAVE_RECIPES_MIAMS';
+
+export function saveRecipesMiams(recipes) {
+  return {
+    type: SAVE_RECIPES_MIAMS,
+    listHomeMiams: recipes,
+  };
+}
+export const SAVE_RECIPES_RANDOM = 'SAVE_RECIPES_RANDOM';
+
+export function saveRecipesRandom(recipes) {
+  return {
+    type: SAVE_RECIPES_RANDOM,
+    listHomeRandom: recipes,
   };
 }
 

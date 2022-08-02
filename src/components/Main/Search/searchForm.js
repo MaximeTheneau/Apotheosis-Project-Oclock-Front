@@ -37,7 +37,7 @@ function SearchForm() {
             className="field-input"
             placeholder="Rechercher"
           />
-          <Link to="/recettes/recherche">
+          <Link to="/recherche">
             <button className="search-button" type="submit">
               <i className="icon-search" />
             </button>
@@ -47,12 +47,21 @@ function SearchForm() {
       {/* List Catégories */}
       <div className="list">
         <ul className="list-categories">
-          <li className="list-categories-icon"><Link to="/e"><i className="icon-drink" /></Link></li>
-          <li className="list-categories-icon"><i className="icon-radish" /></li>
-          <li className="list-categories-icon"><i className="icon-dish" /></li>
-          <li className="list-categories-icon"><i className="icon-cakes" /></li>
+          <Link to="/recettes/apero">
+            <li className="list-categories-icon"><i className="icon-drink" /></li>
+          </Link>
+          <Link to="/recettes/entree">
+            <li className="list-categories-icon"><i className="icon-radish" /></li> 
+          </Link>
+          <Link to="/recettes/plat">
+            <li className="list-categories-icon"><i className="icon-dish" /></li>
+          </Link>
+          <Link to="/recettes/dessert">
+            <li className="list-categories-icon"><i className="icon-cakes" /></li>
+          </Link>
         </ul>
       </div>
+      
     </div>
 
   );
