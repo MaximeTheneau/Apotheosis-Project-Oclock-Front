@@ -31,3 +31,11 @@ export function saveRecipeSteps(oneRecipeSteps) {
     list: oneRecipeSteps,
   };
 }
+export const SAVE_COMMENTS = 'SAVE_COMMENTS';
+
+export function saveComments(comments) {
+  return {
+    type: SAVE_COMMENTS,
+    list: comments,
+  };
+}
