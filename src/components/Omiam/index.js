@@ -19,7 +19,7 @@ import MyMiams from '../UserProfile/MyMiams';
 import MyChiefs from '../UserProfile/MyChiefs';
 import Error from '../Error';
 import UserProfileHeader from '../UserProfile';
-import Layoutvisiteur from '../LayoutVisiteur';
+import Layoutconnecte from './Layoutconnecte';
 import { keepLogin } from '../../action/user';
 
 import './styles.scss';
@@ -54,16 +54,15 @@ function Omiam() {
           <Route path="/mention-legales" element={<Privacy />} />
           <Route path="/conditions-generales-utilisation" element={<Tscs />} />
           <Route path="/connexion" element={<Connectionform />} />
+          <Route path="*" element={<Error />} />
           <Route path="/mon-compte" element={<UserProfileHeader />} />
-          <Route path="/mon-compte/mes-recettes" element={<><UserProfileHeader /> <MyRecipes /> </>} />
+          <Route path="/mon-compte/mes-recettes" element={<MyRecipes />} />
           <Route path="/mon-compte/mes-miams" element={<MyMiams />} />
           <Route path="/mon-compte/mes-chefs" element={<MyChiefs />} />
           <Route path="/Creer/Recette" element={<CreatedRecipe />} />
-          <Route path="*" element={<Error />} />
           {/*
-            <Route path="/mon-compte/ajouter-une-recette" element={< />} />
-            <Route path="/inscription" element={< />} />
-          */}
+          <Route path="/mon-compte/ajouter-une-recette" element={< />} />
+          <Route path="/inscription" element={< />} /> */}
         </Routes>
       </main>
       <Footer />
