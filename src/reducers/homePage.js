@@ -5,7 +5,7 @@ import {
   SET_SETTINGS_FIELD,
   TOGGLE_SPINNER,
   VALUE_TOOGLE,
-  SAVE_CATEGORY_ID
+  SAVE_CATEGORY_ID,
 } from '../action/homePage';
 
 export const initialState = {
@@ -18,7 +18,8 @@ export const initialState = {
   },
   addCards: false,
   toggleSpinner: true,
-  category_id: null,
+  categoryId: null,
+  categoryRecipes: [],
 };
 
 const reducer = (state = initialState, action = {}) => {

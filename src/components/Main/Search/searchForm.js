@@ -35,7 +35,7 @@ function SearchForm() {
             onBlur={handleBlur}
             onChange={handleChange}
             type="text"
-            className="field-input"
+            className="search-field-input"
             placeholder="Rechercher"
           />
           <Link to="/recherche">
