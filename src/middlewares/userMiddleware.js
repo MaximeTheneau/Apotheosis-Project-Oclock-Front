@@ -7,7 +7,8 @@ import {
   authError,
   REGISTER,
   resetRegistrationForm,
-  toggleBackoffice
+  toggleBackoffice,
+  resetLoginCredentials,
 } from '../action/user';
 
 const axiosInstance = axios.create({
@@ -54,7 +55,7 @@ const userMiddleware = (store) => (next) => (action) => {
 
           // Redirect of the user towards to home page
           //store.dispatch(redirect('/'));
-          //window.location = '/';
+          window.location = '/';
 
           return next(action);
         })
@@ -62,6 +63,7 @@ const userMiddleware = (store) => (next) => (action) => {
           console.log(error);
 
           store.dispatch(authError('Email ou mot de passe incorrect'));
+          store.dispatch(resetLoginCredentials());
 
           return next(action);
         });

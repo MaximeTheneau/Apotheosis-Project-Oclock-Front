@@ -152,3 +152,12 @@ export function toggleBackoffice() {
     type: TOGGLE_BACKOFFICE,
   };
 }
+
+export const RESET_LOGIN_CREDENTIALS = 'RESET_LOGIN_CREDENTIALS';
+
+// Action creator => On l'utilise au moment du dispatch()
+export function resetLoginCredentials() {
+  return {
+    type: RESET_LOGIN_CREDENTIALS,
+  };
+}

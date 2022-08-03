@@ -19,9 +19,9 @@ function Connexion() {
           type="button"
           className="backoffice-button"
         >
-          <Link to="/connexion" className="disconnection-links">
+          <a href="http://adrienpinilla-server.eddi.cloud/omiam/current/public/login" className="disconnection-links">
             Backoffice
-          </Link>
+          </a>
         </button>
         )
       }

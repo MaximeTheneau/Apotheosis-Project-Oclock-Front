@@ -1,7 +1,7 @@
 import {
   OPEN_LOGIN, OPEN_REGISTRATION, SET_LOGIN_CREDENTIALS, SET_REGISTRATION_CREDENTIALS,
   LOGOUT, SAVE_USER, AUTH_ERROR, KEEP_LOGIN, RESET_REGISTRATION_FORM, TOGGLE_DROPDOWN_MENU, 
-  SET_FOCUS, TOGGLE_BACKOFFICE, 
+  SET_FOCUS, TOGGLE_BACKOFFICE, RESET_LOGIN_CREDENTIALS,
 } from '../action/user';
 
 export const initialState = {
@@ -164,6 +164,16 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         backofficeRights: !state.backofficeRights,
+      };
+
+    case RESET_LOGIN_CREDENTIALS:
+      return {
+        ...state,
+        settingsLogIn: {
+          ...state.settingsLogIn,
+          email: '',
+          password: '',
+        },
       };
 
     default:
