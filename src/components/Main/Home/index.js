@@ -91,7 +91,7 @@ function Home() {
 
             {/* Card */}
             { miamsRecipes.map((item) => (
-              <Link to={`/recette/${item.slug}`}>
+              <Link to={`/recette/${item.id}/${item.slug}`}>
                 <div className="card">
                   <h2 className="card-recipe">{item.title}</h2>
                   <img
@@ -153,7 +153,7 @@ function Home() {
 
             {/* Card  */}
             { randomRecipes.map((item) => (
-              <Link to={`/recette/${item.slug}`}>
+              <Link to={`/recette/${item.id}/${item.slug}`}>
                 <div className="card">
                   <h2 className="card-recipe">{item.title}</h2>
                   <img

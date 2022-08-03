@@ -17,7 +17,7 @@ export const initialState = {
   form: {
     search: '',
   },
-  addCards: true,
+  addCards: false,
   toggleSpinner: true,
   categoryId: null,
   categoryRecipes: [],
