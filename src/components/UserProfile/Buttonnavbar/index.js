@@ -6,16 +6,7 @@ import { fetchRecipesMyAccount, saveUserID } from '../../../action/myAccountReci
 import './styles.scss';
 
 function Buttonnavbar() {
-  const dispatch = useDispatch();
-
-  const { id } = useParams();
-  dispatch(saveUserID(id));
-  useEffect(
-    () => {
-      dispatch(fetchRecipesMyAccount());
-    },
-    [],
-  );
+  
   return (
     <div className="profile">
       <nav className="profile-list">
@@ -29,7 +20,7 @@ function Buttonnavbar() {
           <h2 className="profile-title">Mes recettes</h2>
         </NavLink>
         <NavLink
-          to="/mon-compte/mes-miams"
+          to="/mon-compte/mes-miams/:id"
           className={
             ({ isActive }) => (isActive ? 'profile-items--active' : 'profile-items')
              }

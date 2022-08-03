@@ -3,6 +3,7 @@ import { SAVE_RECIPES_MY_ACCOUNT, SAVE_FAVORITES_MIAMS, SAVE_USER_ID } from '../
 export const initialState = {
   list: [],
   miams: [],
+  userid: null,
 };
 
 const reducer = (state = initialState, action = {}) => {

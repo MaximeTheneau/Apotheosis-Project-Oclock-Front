@@ -34,9 +34,9 @@ export function saveFavoritesMiams(miams) {
 
 export const SAVE_USER_ID = 'SAVE_USER_ID';
 
-export function saveUserID(userid) {
+export function saveUserID(value) {
   return {
     type: SAVE_USER_ID,
-    list: userid,
+    list: value,
   };
 }
