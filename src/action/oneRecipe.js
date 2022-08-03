@@ -84,3 +84,11 @@ export function saveRecipeUsersId(oneRecipeUsers) {
     usersId: oneRecipeUsers,
   };
 }
+export const SET_IS_MIAMS = 'SET_IS_MIAMS';
+
+export function setIsMiam(value) {
+  return {
+    type: SET_IS_MIAMS,
+    setIsMiam: value,
+  };
+}

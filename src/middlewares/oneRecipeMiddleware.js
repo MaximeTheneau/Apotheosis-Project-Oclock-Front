@@ -18,14 +18,17 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
 
   const { idSlug } = state.oneRecipe;
   const { token } = state.user.settingsLogIn;
-  console.log(token);
 
   // C'est un test mais on ne pourrait pas faire comme ça?
+  // const usersId = state.oneRecipe.usersId;
+  
+  // const userid = state.user.settingsLogIn.userid;
+  // const userid = state.user.settingsLogIn.userid;
+ 
+  // console.log(userid);
+  // console.log(usersId);
 
-  // const { userIdConnected } = state.user.settingsLogIn.userid;
-  // const { usersIdMiamed } = state.oneRecipe.usersId;
-
-  // const { isMiam } = usersIdMiamed.includes(userIdConnected);
+  // console.log(isMiam);
 
   // console.log(isMiam);
   // console.log(idSlug);
@@ -69,15 +72,11 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
       return next(action);
     }
     case SUBMIT_USERS_ID_MIAMS: {
-      // const { isMiam } = state.oneRecipe;
-       axios.post(
+      // const { setIsMiam } = state.oneRecipe;
+      const headers = { Authorization: `Bearer ${token}` };
+       axios.get(
         `http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes/${idSlug}/miams`,
-        {
-          miam: true,
-        },
-        {
-          Authorization: `Bearer ${token}`,
-        },
+        { headers },
         )
         .then((response) => {
           console.log(response);

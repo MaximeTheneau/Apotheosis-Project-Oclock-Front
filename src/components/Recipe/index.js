@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { fetchRecipe, idSlugRecipe, submitUsersIdMiams } from '../../action/oneRecipe';
+import { fetchRecipe, idSlugRecipe, setIsMiam, submitUsersIdMiams, SUBMIT_USERS_ID_MIAMS } from '../../action/oneRecipe';
 import Comments from './Comments';
 import './styles.scss';
 
@@ -21,15 +21,15 @@ function Recipe() {
   useEffect(
     () => {
       dispatch(fetchRecipe());
-      submitUsersIdMiams();
     },
     [],
   );
   // console.log(usersIdMiamed);
   const handleSubmit = (evt) => {
-    evt.preventDefault();
-    const isMiam = usersIdMiamed.includes(userIdConnected);
-    dispatch( submitUsersIdMiams());
+    
+    // const isMiam = usersIdMiamed.includes(userIdConnected);
+    dispatch(submitUsersIdMiams(evt));
+    // evt.preventDefault();
   };
   return (
     <div className="one-recipe">
@@ -39,6 +39,7 @@ function Recipe() {
             <div className="one-recipe-header">
               <h1 className="one-recipe-title">{item.title}</h1>
               <form onSubmit={handleSubmit}>
+                <p>{item.nbMiams}</p>
                 <button type="submit" className={item.category.iconName} />
               </form>
             </div>

@@ -7,6 +7,7 @@ import {
   ID_SLUG_RECIPE,
   SAVE_RECIPE_USERSID,
   SUBMIT_USERS_ID_MIAMS,
+  SET_IS_MIAMS,
 } from '../action/oneRecipe';
 
 export const initialState = {
@@ -15,6 +16,7 @@ export const initialState = {
   steps: [],
   comments: [],
   comment: '',
+  setIsMiam: null,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -61,6 +63,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isMiam: action.isMiam,
+      };
+    case SET_IS_MIAMS:
+      return {
+        ...state,
+        setIsMiam: action.setIsMiam,
       };
     default:
       return state;
