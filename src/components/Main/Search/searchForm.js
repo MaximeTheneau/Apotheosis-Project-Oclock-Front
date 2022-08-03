@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './styles.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSettingsField, submitValue, valueToogle } from '../../../action/homePage';
+import { setSettingsField, submitValue, valueToogle, saveCategoryId } from '../../../action/homePage';
 
 function SearchForm() {
   const dispatch = useDispatch();
@@ -24,9 +24,10 @@ function SearchForm() {
     evt.preventDefault();
     dispatch(submitValue());
   };
+
   return (
     <div className="search">
-      <div className="search-form" >
+      <div className="search-form">
         <form onSubmit={handleSubmit}>
           <input
             value={valueSearch}
@@ -47,21 +48,20 @@ function SearchForm() {
       {/* List Catégories */}
       <div className="list">
         <ul className="list-categories">
-          <Link to="/recettes/apero">
+          <Link to="/recettes/1/apero/search">
             <li className="list-categories-icon"><i className="icon-drink" /></li>
           </Link>
-          <Link to="/recettes/entree">
-            <li className="list-categories-icon"><i className="icon-radish" /></li> 
+          <Link to="/recettes/2/entree/search">
+            <li className="list-categories-icon"><i className="icon-radish" /></li>
           </Link>
-          <Link to="/recettes/plat">
+          <Link to="/recettes/3/plat/search">
             <li className="list-categories-icon"><i className="icon-dish" /></li>
           </Link>
-          <Link to="/recettes/dessert">
+          <Link to="/recettes/4/dessert/search">
             <li className="list-categories-icon"><i className="icon-cakes" /></li>
           </Link>
         </ul>
       </div>
-      
     </div>
 
   );

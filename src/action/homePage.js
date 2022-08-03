@@ -74,3 +74,12 @@ export function toggleSpinner(value, field) {
     field: field,
   };
 }
+
+export const SAVE_CATEGORY_ID = 'SAVE_CATEGORY_ID';
+
+export function saveCategoryId(value) {
+  return {
+    type: SAVE_CATEGORY_ID,
+    value,
+  };
+}

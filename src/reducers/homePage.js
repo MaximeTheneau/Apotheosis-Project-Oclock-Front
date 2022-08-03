@@ -5,6 +5,7 @@ import {
   SET_SETTINGS_FIELD,
   TOGGLE_SPINNER,
   VALUE_TOOGLE,
+  SAVE_CATEGORY_ID
 } from '../action/homePage';
 
 export const initialState = {
@@ -17,6 +18,7 @@ export const initialState = {
   },
   addCards: false,
   toggleSpinner: true,
+  category_id: null,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -53,6 +55,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         toggleSpinner: !state.toggleSpinner,
+      };
+    case SAVE_CATEGORY_ID:
+      return {
+        ...state,
+        category_id: action.value,
       };
 
     default:
