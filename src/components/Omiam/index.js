@@ -56,8 +56,8 @@ function Omiam() {
           <Route path="/" element={<Home />} />
           <Route path="/recettes/:slug" element={<Categories />} />
           <Route path="/recherche" element={<Search />} />
-          <Route path="/recette" element={<Recipe />} />
-          <Route path="/qui-sommes-nous" element={<Aboutus />} />
+          <Route path="/recette/:id/:slug" element={<Recipe />} />
+          <Route path="/qui-sommes-nous/" element={<Aboutus />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/miam" element={<MiamsRecipes />} />
           <Route path="/chefs" element={<ChiefsSpotlight />} />
@@ -67,6 +67,7 @@ function Omiam() {
           <Route path="/conditions-generales-utilisation" element={<Tscs />} />
           <Route path="/connexion" element={<Connectionform />} />
           <Route path="*" element={<Error />} />
+          
           <Route path="/mon-compte" element={<UserProfileHeader />} />
           <Route path="/mon-compte/mes-recettes" element={<MyRecipes />} />
           <Route path="/mon-compte/mes-miams" element={<MyMiams />} />

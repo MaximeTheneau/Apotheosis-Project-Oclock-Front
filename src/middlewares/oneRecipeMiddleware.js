@@ -1,4 +1,6 @@
 import axios from 'axios';
+// import { useSelector } from 'react-redux';
+// import { useParams } from 'react-router-dom';
 import {
   FETCH_RECIPE,
   saveRecipe,
@@ -6,11 +8,17 @@ import {
   saveRecipeSteps,
   saveComments,
 } from '../action/oneRecipe';
+//  const { id, slug } = useParams();
 
+//  console.log(id);
 const onRecipeMiddleware = (store) => (next) => (action) => {
+  const state = store.getState();
+  const { idSlug } = state.oneRecipe;
+
+  console.log(idSlug);
   switch (action.type) {
     case FETCH_RECIPE: {
-      axios.get('http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes/1')
+      axios.get(`http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes/${idSlug}`)
         .then(
           (response) => {
             console.log(response);

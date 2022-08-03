@@ -59,3 +59,11 @@ export function commentCreated() {
     type: COMMENT_CREACTED,
   };
 }
+export const ID_SLUG_RECIPE = 'ID_SLUG_RECIPE';
+
+export function idSlugRecipe(value) {
+  return {
+    type: ID_SLUG_RECIPE,
+    idSlug: value,
+  };
+}

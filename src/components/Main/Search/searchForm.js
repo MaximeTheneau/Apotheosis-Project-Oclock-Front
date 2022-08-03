@@ -30,8 +30,8 @@ function SearchForm() {
         <form onSubmit={handleSubmit}>
           <input
             value={valueSearch}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            onClick={handleFocus}
+            // onBlur={handleBlur}
             onChange={handleChange}
             type="text"
             className="field-input"

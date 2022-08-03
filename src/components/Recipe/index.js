@@ -1,11 +1,18 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchRecipe } from '../../action/oneRecipe';
+import { useParams } from 'react-router';
+import { fetchRecipe, idSlugRecipe } from '../../action/oneRecipe';
+import { findRecipe } from '../../selectors/recipes';
 import Comments from './Comments';
 import './styles.scss';
 
 function Recipe() {
   const dispatch = useDispatch();
+
+  const { id, slug } = useParams();
+  console.log(id);
+  const recipeId = dispatch(idSlugRecipe(id));
+  // const oneRecipe = useSelector((state) => findRecipe(state.oneRecipe.list, id));
   const oneRecipe = useSelector((state) => state.oneRecipe.list);
   const ingredients = useSelector((state) => state.oneRecipe.ingredients);
   const listSteps = useSelector((state) => state.oneRecipe.steps);

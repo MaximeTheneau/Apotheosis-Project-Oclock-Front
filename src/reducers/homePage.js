@@ -6,6 +6,7 @@ import {
   TOGGLE_SPINNER,
   VALUE_TOOGLE,
 } from '../action/homePage';
+import { ID_SLUG_RECIPE } from '../action/oneRecipe';
 
 export const initialState = {
   listHomeLast: [],
@@ -15,8 +16,9 @@ export const initialState = {
   form: {
     search: '',
   },
-  addCards: false,
+  addCards: true,
   toggleSpinner: true,
+  idSlug: null,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -31,6 +33,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         listHomeMiams: action.list,
       };
+
     case SAVE_RECIPES_RANDOM:
       return {
         ...state,
