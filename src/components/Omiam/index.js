@@ -1,6 +1,6 @@
-import { Route, Routes } from 'react-router';
+import { Route, Routes, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Header from '../Header';
 import Main from '../Main';
 import Footer from '../Footer';
@@ -48,7 +48,7 @@ function Omiam() {
           <Route path="/" element={<Home />} />
           <Route path="/recettes/:slug" element={<Categories />} />
           <Route path="/recherche" element={<Search />} />
-          <Route path="/recette/:slug" element={<Recipe />} />
+          <Route path="/recette/id" element={<Recipe />} />
           <Route path="/qui-sommes-nous" element={<Aboutus />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/mention-legales" element={<Privacy />} />

@@ -3,6 +3,7 @@ import { NB_MIAMS, NB_MIAMS_COUNT, SAVE_RECIPE_NBMIAMS } from '../action/nbMiams
 export const initialState = {
   nbMiamsCount: null,
   nbMiamsTrue: false,
+  userId:[],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -15,13 +16,9 @@ const reducer = (state = initialState, action = {}) => {
     case NB_MIAMS_COUNT:
       return {
         ...state,
-        nbMiamsCount: state.nbMiams,
+        nbMiamsCount: !state.nbMiams + 1,
       };
-    case SAVE_RECIPE_NBMIAMS:
-      return {
-        ...state,
-        nbMiams: action.nbMiams,
-      };
+
     default:
       return state;
   }

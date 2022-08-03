@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './styles.scss';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import Recipes from '../../../data/recipes';
+import Recipes from '../../../data/recipes';
+import { findRecipe } from 'src/selectors/recipes';
 import SearchForm from './searchForm';
 import Spinner from '../../Spinner';
 import { fetchRecipesFull } from '../../../action/recipes';
@@ -17,18 +18,21 @@ function Search() {
     },
     [],
   );
-  const toogleSpinner = useSelector((state) => state.homePage.toggleSpinner);
-  const valueSearch = useSelector((state) => state.homePage.form.search);
+   const toogleSpinner = useSelector((state) => state.homePage.toggleSpinner);
+  // const valueSearch = useSelector((state) => state.homePage.form.search);
   const recipesFullApi = useSelector((state) => state.recipes.list);
-  // console.log(recipe);
-  const valueSearchFilterMaj = valueSearch.toLocaleLowerCase();
-  const valueSearchFilter = valueSearchFilterMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
 
-  const recipesFilter = recipesFullApi.filter((item) => {
-    const filterNameSearchMaj = item.title.toLocaleLowerCase();
-    const filterNameSearch = filterNameSearchMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
-    return (filterNameSearch.includes(valueSearchFilter));
-  });
+    // usParams nous renvoie un objet contenuant les params d'URL
+    // On utilise le destructuring pour extraire le param slug
+
+  // console.log(recipe);
+  // const valueSearchFilterMaj = valueSearch.toLocaleLowerCase();
+  // const valueSearchFilter = valueSearchFilterMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
+
+  // const recipesFilter = Recipes.filter((item) => {
+//    const filterNameSearchMaj = item.title.toLocaleLowerCase();
+ /// return (filterNameSearch.includes(valueSearchFilter));
+  //});
 
   return (
     <>
@@ -39,12 +43,13 @@ function Search() {
       {/* Cards Search */}
       <div className="cards-type">
         <h2 className="cards-recipe">Ma Recherche</h2>
-        { (!toogleSpinner) && <Spinner />}
+        { (toogleSpinner) && <Spinner />}
         { (toogleSpinner) && (
           <div className="cards-list-type">
             {/* Card */}
-            { recipesFilter.map((item) => (
-              <div className="card">
+            { recipesFullApi.map((item) => (
+              <Link to={`/recette/${item.slug}`}>
+                <div className="card">
                 <h2 className="card-recipe">{item.title}</h2>
                 <img
                   src={item.picture}
@@ -59,6 +64,9 @@ function Search() {
                   </ul>
                 </div>
               </div>
+  </Link>
+              
+
             )) }
           </div>
         )}

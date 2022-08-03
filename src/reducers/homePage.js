@@ -8,7 +8,7 @@ export const initialState = {
   form: {
     search: '',
   },
-  addCards: false,
+  addCards: true,
   toggleSpinner: true,
 };
 
@@ -40,7 +40,7 @@ const reducer = (state = initialState, action = {}) => {
     case VALUE_TOOGLE:
       return {
         ...state,
-        addCards: !state.addCards,
+        addCards: state.addCards,
       };
     case TOGGLE_SPINNER:
       return {
