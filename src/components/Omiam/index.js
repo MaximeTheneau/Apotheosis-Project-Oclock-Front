@@ -23,6 +23,7 @@ import ChiefsSpotlight from '../ChiefsSpotlight';
 import RandomRecipes from '../RandomRecipes';
 import Error from '../Error';
 import UserProfileHeader from '../UserProfile';
+import SearchForm from '../Main/Search/searchForm';
 import { keepLogin, toggleBackoffice } from '../../action/user';
 
 import './styles.scss';
@@ -53,7 +54,7 @@ function Omiam() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/recettes/:id/:slug/search" element={<Categories />} />
+          <Route path="/recettes/:id/:slug/search" element={<> <SearchForm /> <Categories /></>} />
           <Route path="/recherche" element={<Search />} />
           <Route path="/recette/:id/:slug" element={<Recipe />} />
           <Route path="/qui-sommes-nous/" element={<Aboutus />} />

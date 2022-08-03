@@ -1,11 +1,8 @@
 import { useEffect } from 'react';
-import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchRecipesFull } from '../../../action/recipes';
 import Spinner from '../../Spinner';
-import SearchForm from '../Search/searchForm';
 import './styles.scss';
-import { fetchRecipesCategory, saveCategoryId } from '../../../action/homePage';
 
 function Categories() {
   const dispatch = useDispatch();
@@ -20,25 +17,24 @@ function Categories() {
   const toogleSpinner = useSelector((state) => state.homePage.toggleSpinner);
   const valueSearch = useSelector((state) => state.homePage.form.search);
   const recipesFullApi = useSelector((state) => state.recipes.list);
+  const recipesCategory = useSelector((state) => state.homePage.categoryRecipes);
+
   // console.log(recipe);
   const valueSearchFilterMaj = valueSearch.toLocaleLowerCase();
   const valueSearchFilter = valueSearchFilterMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
 
-  const recipesFilter = recipesFullApi.filter((item) => {
+  const recipesFilter = recipesCategory.filter((item) => {
     const filterNameSearchMaj = item.title.toLocaleLowerCase();
     const filterNameSearch = filterNameSearchMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
     return (filterNameSearch.includes(valueSearchFilter));
   });
 
-  const { id } = useParams();
-  dispatch(saveCategoryId(id));
-  // const { categoryId } = useSelector((state) => state.homePage);
-
   return (
     <>
+      {/*
       <h1 className="title-page logo">Catégories</h1>
       <SearchForm />
-      {/* Title Page */}
+       Title Page */}
       { recipesFilter.map((item) => (
         <>
           {/* Cards Search */}

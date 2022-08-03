@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router';
 import './styles.scss';
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import {
-  setSettingsField, submitValue, valueToogle, fetchRecipesCategory, saveCategoryId,
+  setSettingsField, submitValue, valueToogle, saveCategoryId, fetchRecipesCategory,
 } from '../../../action/homePage';
 
 function SearchForm() {
@@ -27,6 +29,13 @@ function SearchForm() {
     evt.preventDefault();
     dispatch(submitValue());
   };
+
+  const { id, slug } = useParams();
+  dispatch(saveCategoryId(id));
+  console.log(id);
+  useEffect(() => {
+    dispatch(fetchRecipesCategory(id));
+  }, [id]);
 
   return (
     <div className="search">
