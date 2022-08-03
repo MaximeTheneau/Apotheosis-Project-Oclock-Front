@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
-import {  useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 function Ingredient({ onChange }) {
-  const listIngredients = useSelector((state) => state.createdRecipe.listIngredients);
+  const listIngredients = useSelector((state) => state.createdRecipe.listIngredients); 
+  console.log(listIngredients);
 
   return (
     <select onChange={onChange}>

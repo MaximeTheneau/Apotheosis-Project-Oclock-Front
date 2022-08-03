@@ -1,20 +1,36 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchRecipe } from '../../action/oneRecipe';
+import { useParams } from 'react-router';
+import { fetchRecipe, idSlugRecipe, setIsMiam, submitUsersIdMiams, SUBMIT_USERS_ID_MIAMS } from '../../action/oneRecipe';
 import Comments from './Comments';
 import './styles.scss';
 
 function Recipe() {
   const dispatch = useDispatch();
+
+  const { id } = useParams();
+
+  dispatch(idSlugRecipe(id));
+  // const userIdConnected = useSelector((state) => state.user.settingsLogIn.userid);
+  const usersIdMiamed = useSelector((state) => state.oneRecipe.usersId);
+  // console.log(usersIdMiamed);
   const oneRecipe = useSelector((state) => state.oneRecipe.list);
   const ingredients = useSelector((state) => state.oneRecipe.ingredients);
   const listSteps = useSelector((state) => state.oneRecipe.steps);
+  const userIdConnected = useSelector((state) => state.user.settingsLogIn.userid);
   useEffect(
     () => {
       dispatch(fetchRecipe());
     },
     [],
   );
+  // console.log(usersIdMiamed);
+  const handleSubmit = (evt) => {
+    
+    // const isMiam = usersIdMiamed.includes(userIdConnected);
+    dispatch(submitUsersIdMiams(evt));
+    // evt.preventDefault();
+  };
   return (
     <div className="one-recipe">
       {oneRecipe.map((item) => (
@@ -22,8 +38,10 @@ function Recipe() {
           <div>
             <div className="one-recipe-header">
               <h1 className="one-recipe-title">{item.title}</h1>
-              <i className={item.category.iconName} />
-              <span>{item.nbMiams}</span><i className="icon-miam" />
+              <form onSubmit={handleSubmit}>
+                <p>{item.nbMiams}</p>
+                <button type="submit" className={item.category.iconName} />
+              </form>
             </div>
             <div className="one-recipe-img">
               <img

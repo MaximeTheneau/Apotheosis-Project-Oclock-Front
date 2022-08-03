@@ -2,7 +2,6 @@ import { Route, Routes } from 'react-router';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Header from '../Header';
-import Main from '../Main';
 import Footer from '../Footer';
 import Connectionform from '../Connectionform';
 import CreatedRecipe from '../CreatedRecipe';
@@ -23,7 +22,6 @@ import ChiefsSpotlight from '../ChiefsSpotlight';
 import RandomRecipes from '../RandomRecipes';
 import Error from '../Error';
 import UserProfileHeader from '../UserProfile';
-import Layoutconnecte from './Layoutconnecte';
 import { keepLogin, toggleBackoffice } from '../../action/user';
 
 import './styles.scss';
@@ -56,8 +54,8 @@ function Omiam() {
           <Route path="/" element={<Home />} />
           <Route path="/recettes/:slug" element={<Categories />} />
           <Route path="/recherche" element={<Search />} />
-          <Route path="/recette" element={<Recipe />} />
-          <Route path="/qui-sommes-nous" element={<Aboutus />} />
+          <Route path="/recette/:id/:slug" element={<Recipe />} />
+          <Route path="/qui-sommes-nous/" element={<Aboutus />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/miam" element={<MiamsRecipes />} />
           <Route path="/chefs" element={<ChiefsSpotlight />} />
