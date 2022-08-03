@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchFavorites } from '../../../action/myAccountRecipes';
+import { fetchFavoritesMiams } from '../../../action/myAccountRecipes';
 import Buttonnavbar from '../Buttonnavbar';
 import './styles.scss';
 
@@ -9,7 +9,7 @@ function MyMiams() {
   const dispatch = useDispatch();
   useEffect(
     () => {
-      dispatch(fetchFavorites());
+      dispatch(fetchFavoritesMiams());
     },
     [],
   );

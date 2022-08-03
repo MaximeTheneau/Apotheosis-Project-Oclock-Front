@@ -15,19 +15,28 @@ export function saveRecipesMyAccount(myAccountRecipes) {
   };
 }
 
-export const FETCH_FAVORITES = 'FETCH_FAVORITES';
+export const FETCH_FAVORITES_MIAMS = 'FETCH_FAVORITES_MIAMS';
 
-export function fetchFavorites() {
+export function fetchFavoritesMiams() {
   return {
-    type: FETCH_FAVORITES,
+    type: FETCH_FAVORITES_MIAMS,
   };
 }
 
-export const SAVE_FAVORITES = 'SAVE_FAVORITES';
+export const SAVE_FAVORITES_MIAMS = 'SAVE_FAVORITES_MIAMS';
 
-export function saveFavorites(favorites) {
+export function saveFavoritesMiams(favorites) {
   return {
-    type: SAVE_FAVORITES,
+    type: SAVE_FAVORITES_MIAMS,
     favorites,
+  };
+}
+
+export const SAVE_USER_ID = 'SAVE_USER_ID';
+
+export function saveUserID(userid) {
+  return {
+    type: SAVE_USER_ID,
+    userid,
   };
 }

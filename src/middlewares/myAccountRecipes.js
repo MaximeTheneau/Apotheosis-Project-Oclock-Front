@@ -2,9 +2,8 @@ import axios from 'axios';
 import {
   FETCH_RECIPES_MY_ACCOUNT,
   saveRecipesMyAccount,
-  FETCH_FAVORITES,
-  fetchFavorites,
-  saveFavorites,
+  FETCH_FAVORITES_MIAMS,
+  saveFavoritesMiams,
 } from '../action/myAccountRecipes';
 
 const axiosInstance = axios.create({
@@ -14,7 +13,8 @@ const axiosInstance = axios.create({
 const myAccountRecipes = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_RECIPES_MY_ACCOUNT: {
-      const userid = (state) => state.user.settingsLogIn.userid;
+      const state = store.getState();
+      const { userid } = (state) => state.user.settingsLogIn.userid;
       axiosInstance.get(
         `recipes/user/${userid}`,
       )
@@ -31,15 +31,16 @@ const myAccountRecipes = (store) => (next) => (action) => {
         );
       return next(action);
     }
-    case FETCH_FAVORITES: {
-      const userid = (state) => state.user.settingsLogIn.userid;
+    case FETCH_FAVORITES_MIAMS: {
+      const state = store.getState();
+      const { userid } = (state) => state.user.settingsLogIn.userid;
       console.log(axiosInstance);
       axiosInstance.get(
         `users/${userid}/miams`,
       )
         .then((response) => {
           console.log(response);
-          store.dispatch(saveFavorites(response.data));
+          store.dispatch(saveFavoritesMiams(response.data));
           console.log(response.data);
           return next(action);
         })
