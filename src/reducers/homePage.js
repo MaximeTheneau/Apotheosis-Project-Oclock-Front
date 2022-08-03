@@ -17,10 +17,11 @@ export const initialState = {
   form: {
     search: '',
   },
-  addCards: false,
+  addCards: true,
   toggleSpinner: true,
   categoryId: null,
   categoryRecipes: [],
+  idSlug: null,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -35,6 +36,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         listHomeMiams: action.list,
       };
+
     case SAVE_RECIPES_RANDOM:
       return {
         ...state,

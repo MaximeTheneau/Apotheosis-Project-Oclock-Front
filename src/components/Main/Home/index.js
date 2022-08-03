@@ -3,22 +3,23 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchRecipes } from '../../../action/homePage';
 
-import recipes from '../../../data/recipes';
+// import recipes from '../../../data/recipes';
 import SearchForm from '../Search/searchForm';
 import Spinner from '../../Spinner';
 import './styles.scss';
+import { fetchRecipesFull } from '../../../action/recipes';
 
 function Home() {
   const dispatch = useDispatch();
   const valueSearch = useSelector((state) => state.homePage.form.search);
   const toogleValue = useSelector((state) => state.homePage.addCards);
-
+  const recipesFullApi = useSelector((state) => state.recipes.list);
   const lastRecipes = useSelector((state) => state.homePage.listHomeLast);
   const miamsRecipes = useSelector((state) => state.homePage.listHomeMiams);
   const randomRecipes = useSelector((state) => state.homePage.listHomeRandom);
-
   useEffect(
     () => {
+      dispatch(fetchRecipesFull());
       dispatch(fetchRecipes());
     },
     [],
@@ -31,14 +32,14 @@ function Home() {
   const valueSearchFilterMaj = valueSearch.toLocaleLowerCase();
   const valueSearchFilter = valueSearchFilterMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
 
-  const recipesFilter = recipes.filter((item) => {
+  const recipesFilter = recipesFullApi.filter((item) => {
     const filterNameSearchMaj = item.title.toLocaleLowerCase();
     const filterNameSearch = filterNameSearchMaj.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s])/g, '');
     return (filterNameSearch.includes(valueSearchFilter));
   });
   // const recipesSliceEffect = () => recipesFilter.slice(0, 6);
   const recipesSlice = recipesFilter.slice(0, 6);
-
+  console.log(recipesSlice);
   return (
     <>
       {/* Title Page */}
@@ -57,7 +58,7 @@ function Home() {
             <div className="cards-list-type">
               {/* Card */}
               { recipesSlice.map((item) => (
-                <Link to={`/recette/${item.slug}`}>
+                <Link to={`/recette/${item.id}/${item.slug}`}>
                   <div className="card">
                     <h2 className="card-recipe">{item.title}</h2>
                     <img
@@ -121,7 +122,7 @@ function Home() {
 
             {/* Card  */}
             { lastRecipes.map((item) => (
-              <Link to={`/recette/${item.slug}`}>
+              <Link to={`/recette/${item.id}/${item.slug}`}>
                 <div className="card">
                   <h2 className="card-recipe">{item.title}</h2>
                   <img

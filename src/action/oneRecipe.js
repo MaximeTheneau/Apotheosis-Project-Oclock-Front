@@ -59,3 +59,36 @@ export function commentCreated() {
     type: COMMENT_CREACTED,
   };
 }
+export const ID_SLUG_RECIPE = 'ID_SLUG_RECIPE';
+
+export function idSlugRecipe(value) {
+  return {
+    type: ID_SLUG_RECIPE,
+    idSlug: value,
+  };
+}
+export const SUBMIT_USERS_ID_MIAMS = 'SUBMIT_USERS_ID_MIAMS';
+
+export function submitUsersIdMiams(valueMiam) {
+  return {
+    type: SUBMIT_USERS_ID_MIAMS,
+    isMiam: valueMiam,
+  };
+}
+
+export const SAVE_RECIPE_USERSID = 'SAVE_RECIPE_USERSID';
+
+export function saveRecipeUsersId(oneRecipeUsers) {
+  return {
+    type: SAVE_RECIPE_USERSID,
+    usersId: oneRecipeUsers,
+  };
+}
+export const SET_IS_MIAMS = 'SET_IS_MIAMS';
+
+export function setIsMiam(value) {
+  return {
+    type: SET_IS_MIAMS,
+    setIsMiam: value,
+  };
+}
