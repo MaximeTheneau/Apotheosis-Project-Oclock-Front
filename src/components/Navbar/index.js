@@ -104,11 +104,11 @@ function Navbar() {
                     {
                       backofficeRights
                       && (
-                      <Link
-                        to="/backoffice"
+                      <a
+                        href=" http://adrienpinilla-server.eddi.cloud/omiam/current/public/login"
                         className="dropdown-list-link"
                       >Backoffice
-                      </Link>
+                      </a>
                       )
                       }
                     <Link
