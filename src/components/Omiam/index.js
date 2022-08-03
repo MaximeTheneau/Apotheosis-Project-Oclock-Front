@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Header from '../Header';
 import Footer from '../Footer';
+import Main from '../Main';
 import Connectionform from '../Connectionform';
 import CreatedRecipe from '../CreatedRecipe';
 import Categories from '../Main/Categories';
