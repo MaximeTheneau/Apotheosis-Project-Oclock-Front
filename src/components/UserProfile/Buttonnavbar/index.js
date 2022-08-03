@@ -1,7 +1,21 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { useParams } from 'react-router';
+import { fetchRecipesMyAccount, saveUserID } from '../../../action/myAccountRecipes';
 import './styles.scss';
 
 function Buttonnavbar() {
+  const dispatch = useDispatch();
+
+  const { id } = useParams();
+  dispatch(saveUserID(id));
+  useEffect(
+    () => {
+      dispatch(fetchRecipesMyAccount());
+    },
+    [],
+  );
   return (
     <div className="profile">
       <nav className="profile-list">
