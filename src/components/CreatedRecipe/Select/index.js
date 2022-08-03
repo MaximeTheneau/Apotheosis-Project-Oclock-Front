@@ -5,13 +5,11 @@ function Option({ value }) {
     <>
       {
         listIngredients.map((item) => (
-          <option
-            value={value}
-            >
-          {item.name}
-        </option>
-        )) }
-      </>
+          <option value={value}>
+            {item.name}
+          </option>
+        ))}
+    </>
 
 
   );
