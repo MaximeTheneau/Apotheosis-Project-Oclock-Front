@@ -52,7 +52,7 @@ function Omiam() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/recettes/:slug" element={<Categories />} />
+          <Route path="/recettes/:id/:slug/search" element={<Categories />} />
           <Route path="/recherche" element={<Search />} />
           <Route path="/recette/:id/:slug" element={<Recipe />} />
           <Route path="/qui-sommes-nous/" element={<Aboutus />} />
