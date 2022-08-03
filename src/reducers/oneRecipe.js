@@ -5,6 +5,8 @@ import {
   SAVE_COMMENTS,
   COMMENT_ACTION,
   ID_SLUG_RECIPE,
+  SAVE_RECIPE_USERSID,
+  SUBMIT_USERS_ID_MIAMS,
 } from '../action/oneRecipe';
 
 export const initialState = {
@@ -49,6 +51,16 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         idSlug: action.idSlug,
+      };
+    case SAVE_RECIPE_USERSID:
+      return {
+        ...state,
+        usersId: action.usersId,
+      };
+    case SUBMIT_USERS_ID_MIAMS:
+      return {
+        ...state,
+        isMiam: action.isMiam,
       };
     default:
       return state;

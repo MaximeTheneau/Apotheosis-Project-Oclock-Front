@@ -6,7 +6,6 @@ import {
   TOGGLE_SPINNER,
   VALUE_TOOGLE,
 } from '../action/homePage';
-import { ID_SLUG_RECIPE } from '../action/oneRecipe';
 
 export const initialState = {
   listHomeLast: [],

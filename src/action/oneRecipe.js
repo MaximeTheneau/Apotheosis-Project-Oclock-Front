@@ -67,3 +67,20 @@ export function idSlugRecipe(value) {
     idSlug: value,
   };
 }
+export const SUBMIT_USERS_ID_MIAMS = 'SUBMIT_USERS_ID_MIAMS';
+
+export function submitUsersIdMiams(valueMiam) {
+  return {
+    type: SUBMIT_USERS_ID_MIAMS,
+    isMiam: valueMiam,
+  };
+}
+
+export const SAVE_RECIPE_USERSID = 'SAVE_RECIPE_USERSID';
+
+export function saveRecipeUsersId(oneRecipeUsers) {
+  return {
+    type: SAVE_RECIPE_USERSID,
+    usersId: oneRecipeUsers,
+  };
+}

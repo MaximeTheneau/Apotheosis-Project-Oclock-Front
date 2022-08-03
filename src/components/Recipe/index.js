@@ -1,27 +1,36 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { fetchRecipe, idSlugRecipe } from '../../action/oneRecipe';
-import { findRecipe } from '../../selectors/recipes';
+import { fetchRecipe, idSlugRecipe, submitUsersIdMiams } from '../../action/oneRecipe';
 import Comments from './Comments';
 import './styles.scss';
 
 function Recipe() {
   const dispatch = useDispatch();
 
-  const { id, slug } = useParams();
-  console.log(id);
-  const recipeId = dispatch(idSlugRecipe(id));
-  // const oneRecipe = useSelector((state) => findRecipe(state.oneRecipe.list, id));
+  const { id } = useParams();
+
+  dispatch(idSlugRecipe(id));
+  // const userIdConnected = useSelector((state) => state.user.settingsLogIn.userid);
+  const usersIdMiamed = useSelector((state) => state.oneRecipe.usersId);
+  // console.log(usersIdMiamed);
   const oneRecipe = useSelector((state) => state.oneRecipe.list);
   const ingredients = useSelector((state) => state.oneRecipe.ingredients);
   const listSteps = useSelector((state) => state.oneRecipe.steps);
+  const userIdConnected = useSelector((state) => state.user.settingsLogIn.userid);
   useEffect(
     () => {
       dispatch(fetchRecipe());
+      submitUsersIdMiams();
     },
     [],
   );
+  // console.log(usersIdMiamed);
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    const isMiam = usersIdMiamed.includes(userIdConnected);
+    dispatch( submitUsersIdMiams());
+  };
   return (
     <div className="one-recipe">
       {oneRecipe.map((item) => (
@@ -29,8 +38,9 @@ function Recipe() {
           <div>
             <div className="one-recipe-header">
               <h1 className="one-recipe-title">{item.title}</h1>
-              <i className={item.category.iconName} />
-              <span>{item.nbMiams}</span><i className="icon-miam" />
+              <form onSubmit={handleSubmit}>
+                <button type="submit" className={item.category.iconName} />
+              </form>
             </div>
             <div className="one-recipe-img">
               <img
