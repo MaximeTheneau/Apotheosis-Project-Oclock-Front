@@ -5,7 +5,7 @@ import { fetchRecipesFull } from '../../../action/recipes';
 import Spinner from '../../Spinner';
 import SearchForm from '../Search/searchForm';
 import './styles.scss';
-import { saveCategoryId } from '../../../action/homePage';
+import { fetchRecipesCategory, saveCategoryId } from '../../../action/homePage';
 
 function Categories() {
   const dispatch = useDispatch();
@@ -30,9 +30,9 @@ function Categories() {
     return (filterNameSearch.includes(valueSearchFilter));
   });
 
-  const { slug, id } = useParams();
-  console.log(id);
+  const { id } = useParams();
   dispatch(saveCategoryId(id));
+  // const { categoryId } = useSelector((state) => state.homePage);
 
   return (
     <>

@@ -2,9 +2,11 @@ import axios from 'axios';
 import {
   FETCH_RECIPES,
   FETCH_RECIPES_CATEGORY,
+  SAVE_CATEGORY_ID,
   saveRecipesLast,
   saveRecipesMiams,
   saveRecipesRandom,
+  saveRecipesCategory,
 } from '../action/homePage';
 
 // Lorsqu'on met en place un middleware, il ne faut pas oublier de le brancher au store !
@@ -23,17 +25,16 @@ const homePage = (store) => (next) => (action) => {
         );
       return next(action);
     }
-    case FETCH_RECIPES_CATEGORY: {
+    case SAVE_CATEGORY_ID: {
       const state = store.getState();
       const { categoryId } = state.homePage;
       console.log(categoryId);
-      axios.get(`http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes/categories/${categoryId}/search`, {
-        query: '',
-      })
+      axios.get(`http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes/categories/${categoryId}/search?query=`)
         .then(
           (response) => {
             console.log(response);
             console.log(response.data);
+            store.dispatch(saveRecipesCategory(response.data));
           },
         );
       return next(action);

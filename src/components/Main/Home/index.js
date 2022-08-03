@@ -42,9 +42,8 @@ function Home() {
   return (
     <>
       {/* Title Page */}
-      <h1 className="title-page logo">
-        <i className="icon-miam logo" />'miam
-        <span className="logo-slogan"> Une histoire de miam's</span>
+      <h1 className="title-home">
+        <i className="icon-miam title-home-logo" />'miam
       </h1>
 
       <SearchForm />

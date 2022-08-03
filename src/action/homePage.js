@@ -15,6 +15,15 @@ export function fetchRecipesCategory() {
   };
 }
 
+export const SAVE_RECIPES_CATEGORY = 'SAVE_RECIPES_CATEGORY';
+// Action creator => On l'utilise au moment du dispatch()
+export function saveRecipesCategory(recipes) {
+  return {
+    type: SAVE_RECIPES_CATEGORY,
+    recipes: recipes,
+  };
+}
+
 // Action Type => On l'utilise dans l'action creator ET dans le reducer
 export const SAVE_RECIPES_LAST = 'SAVE_RECIPES_LAST';
 
@@ -88,6 +97,6 @@ export const SAVE_CATEGORY_ID = 'SAVE_CATEGORY_ID';
 export function saveCategoryId(value) {
   return {
     type: SAVE_CATEGORY_ID,
-    value,
+    categoryId: value,
   };
 }
