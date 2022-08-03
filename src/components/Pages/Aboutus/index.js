@@ -2,7 +2,7 @@ import './styles.scss';
 
 function Aboutus() {
   return (
-    <div className="cards">
+    <div className="aboutus-cards">
       <div className="cardsAboutUs">
         <img src="geek.png" alt="Avatar" />
         <p>Loïc Maurin<br />

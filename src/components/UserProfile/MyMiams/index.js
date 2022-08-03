@@ -1,8 +1,18 @@
-import data from '../../../data/recipesHome';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchFavorites } from '../../../action/myAccountRecipes';
 import Buttonnavbar from '../Buttonnavbar';
 import './styles.scss';
 
 function MyMiams() {
+  // const miamsMyAccount = useSelector((state) => state.myAccountRecipes.favorites);
+  const dispatch = useDispatch();
+  useEffect(
+    () => {
+      dispatch(fetchFavorites());
+    },
+    [],
+  );
   return (
     <>
       <Buttonnavbar />
@@ -10,17 +20,17 @@ function MyMiams() {
         <h1 className="my-miams-title">Carnet de Miam's</h1>
         <div className="my-miams-cards">
           <div className="my-miams-card">
-            { data.miamsRecipes.map((item) => (
+            
               <div className="my-miams-card-img">
                 <img
-                  src={item.picture}
+                  src=""
                   alt="Name"
                   className="my-miams-img"
                 />
                 <div className="my-miams-card-block">
                   <ul className="my-miams-card-ul">
                     <div className="my-miams-display">
-                      <li><h2 className="my-miams-card-title">{item.title}</h2></li>
+                      <li><h2 className="my-miams-card-title">Titre</h2></li>
                       <li><i className="icon-dish" /></li>
                       <li><i className="icon-kitchen-hat" /></li>
                       <li>
@@ -46,7 +56,7 @@ function MyMiams() {
                   </ul>
                 </div>
               </div>
-            ))}
+          
           </div>
         </div>
       </div>

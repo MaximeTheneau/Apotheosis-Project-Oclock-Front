@@ -1,7 +1,8 @@
-import { SAVE_RECIPES_MY_ACCOUNT } from '../action/myAccountRecipes';
+import { SAVE_RECIPES_MY_ACCOUNT, SAVE_FAVORITES } from '../action/myAccountRecipes';
 
 export const initialState = {
   list: [],
+  favorites: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -10,6 +11,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         list: action.list,
+      };
+    case SAVE_FAVORITES:
+      return {
+        ...state,
+        favorites: action.favorites,
       };
     default:
       return state;

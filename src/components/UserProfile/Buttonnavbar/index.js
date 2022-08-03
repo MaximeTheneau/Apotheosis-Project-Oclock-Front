@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import './styles.scss';
 
 function Buttonnavbar() {
+  const userid = (state) => state.user.settingsLogIn.userid;
   return (
     <div className="profile">
       <nav className="profile-list">
@@ -15,7 +16,7 @@ function Buttonnavbar() {
           <h2 className="profile-title">Mes recettes</h2>
         </NavLink>
         <NavLink
-          to="/mon-compte/mes-miams"
+          to={`/mon-compte/${userid}/miams`}
           className={
             ({ isActive }) => (isActive ? 'profile-items--active' : 'profile-items')
              }

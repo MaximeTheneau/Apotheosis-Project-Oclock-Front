@@ -14,3 +14,20 @@ export function saveRecipesMyAccount(myAccountRecipes) {
     list: myAccountRecipes,
   };
 }
+
+export const FETCH_FAVORITES = 'FETCH_FAVORITES';
+
+export function fetchFavorites() {
+  return {
+    type: FETCH_FAVORITES,
+  };
+}
+
+export const SAVE_FAVORITES = 'SAVE_FAVORITES';
+
+export function saveFavorites(favorites) {
+  return {
+    type: SAVE_FAVORITES,
+    favorites,
+  };
+}
