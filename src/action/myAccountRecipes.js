@@ -25,10 +25,10 @@ export function fetchFavoritesMiams() {
 
 export const SAVE_FAVORITES_MIAMS = 'SAVE_FAVORITES_MIAMS';
 
-export function saveFavoritesMiams(favorites) {
+export function saveFavoritesMiams(miams) {
   return {
     type: SAVE_FAVORITES_MIAMS,
-    favorites,
+    list: miams,
   };
 }
 
@@ -37,6 +37,6 @@ export const SAVE_USER_ID = 'SAVE_USER_ID';
 export function saveUserID(userid) {
   return {
     type: SAVE_USER_ID,
-    userid,
+    list: userid,
   };
 }

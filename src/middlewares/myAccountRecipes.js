@@ -11,17 +11,21 @@ const axiosInstance = axios.create({
 });
 
 const myAccountRecipes = (store) => (next) => (action) => {
+  const state = store.getState();
+  const { idUser } = state.user.settingsLogIn.userid;
+  // const { token } = state.user.settingsLogIn;
+  console.log(idUser);
+
   switch (action.type) {
     case FETCH_RECIPES_MY_ACCOUNT: {
-      const state = store.getState();
-      const { userid } = (state) => state.user.settingsLogIn.userid;
       axiosInstance.get(
-        `recipes/user/${userid}`,
+        `recipes/user/${idUser}`,
       )
         .then(
           (response) => {
-            // console.log(response);
+            console.log(response);
             store.dispatch(saveRecipesMyAccount(response.data));
+            // console.log(response);
           },
         )
         .catch(
@@ -32,11 +36,8 @@ const myAccountRecipes = (store) => (next) => (action) => {
       return next(action);
     }
     case FETCH_FAVORITES_MIAMS: {
-      const state = store.getState();
-      const { userid } = (state) => state.user.settingsLogIn.userid;
-      console.log(axiosInstance);
       axiosInstance.get(
-        `users/${userid}/miams`,
+        `users/${idUser}/miams`,
       )
         .then((response) => {
           console.log(response);

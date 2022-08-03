@@ -68,8 +68,8 @@ function Omiam() {
           <Route path="/connexion" element={<Connectionform />} />
           <Route path="*" element={<Error />} />
           <Route path="/mon-compte" element={<UserProfileHeader />} />
-          <Route path="/mon-compte/mes-recettes" element={<MyRecipes />} />
-          <Route path="/mon-compte/:id/miams" element={<MyMiams />} />
+          <Route path="/mon-compte/mes-recettes/:id" element={<MyRecipes />} />
+          <Route path="/mon-compte/mes-miams" element={<MyMiams />} />
           <Route path="/mon-compte/mes-chefs" element={<MyChiefs />} />
           <Route path="/Creer/Recette" element={<CreatedRecipe />} />
           {/*

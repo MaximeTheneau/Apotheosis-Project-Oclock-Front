@@ -2,8 +2,7 @@ import { SAVE_RECIPES_MY_ACCOUNT, SAVE_FAVORITES_MIAMS, SAVE_USER_ID } from '../
 
 export const initialState = {
   list: [],
-  favorites: [],
-  userid: '',
+  miams: [],,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -16,12 +15,12 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_FAVORITES_MIAMS:
       return {
         ...state,
-        favorites: action.favorites,
+        miams: action.list,
       };
     case SAVE_USER_ID:
       return {
-        ...state.user.settingsLogIn,
-        userid: '',
+        ...state,
+        userid: action.list,
       };
     default:
       return state;
