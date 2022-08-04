@@ -1,12 +1,14 @@
 import './styles.scss';
 import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
-import { setRegistrationcredentials, register, setFocus } from '../../action/user';
+import { setRegistrationcredentials, register, setErrorMessage } from '../../action/user';
 
 function Register() {
   const {
-    pseudo, email, password, confirmedPassword,
+    pseudo, email, password, confirmedPassword, errors,
   } = useSelector((state) => state.user.settingsRegister);
+
   const {
     errormessagePseudo, errormessageEmail,
     errormessagePassword, errormessagePasswordMatch, pseudoUser,
@@ -29,69 +31,39 @@ function Register() {
     dispatch(setRegistrationcredentials(event.currentTarget.value, 'confirmedPassword'));
   };
 
-  const handleValidation = () => {
-    const fields = useSelector((state) => state.user.settingsRegister);
-    const errors = useSelector((state) => state.user.settingsRegister);
-    const formIsValid = useSelector((state) => state.user.settingsRegister);
-
-    //Pseudo
-    if (!fields.pseudo) {
-      formIsValid = false;
-      errors.pseudo = 'Champ Obligatoire';
-    }
-
-    if (typeof fields.pseudo !== 'undefined') {
-      if (!fields.pseudo.match(/^[A-Za-z0-9]{3,16}$/)) {
-        formIsValid = false;
-        errors.pseudo = 'Pseudo invalide. Doit contenir 2 charactères au minimum.';
-      }
-    }
-
-    //Email
-    if (!fields.email) {
-      formIsValid = false;
-      errors.email = 'Champ Obligatoire';
-    }
-
-    if (typeof fields.email !== 'undefined') {
-      if (!fields.email.match(/\S+@\S+\.\S+/)) {
-        formIsValid = false;
-        errors.email = 'Adresse email incorrecte, veuillez respecter le format: johnDoe@gmail.com.';
-      }
-    }
-
-    //Password
-    if (!fields.password) {
-      formIsValid = false;
-      errors.password = 'Champ Obligatoire';
-    }
-
-    if (typeof fields.password !== 'undefined') {
-      if (!fields.password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/)) {
-        formIsValid = false;
-        errors.password = 'Mot de passe invalide. Doit contenir entre 8 et 20 caractères et inclure au minimum: 1 lettre, 1 chiffre et 1 caractère spécial';
-      }
-    }
-
-    //MatchPassword
-    if (!fields.confirmedPassword) {
-      formIsValid = false;
-      errors.confirmedPassword = 'Champ Obligatoire';
-    }
-
-    if (typeof fields.confirmedPassword !== 'undefined') {
-      if (!fields.confirmedPassword !== fields.password) {
-        formIsValid = false;
-        errors.confirmedPassword = 'Mot de passe invalide. Doit contenir entre 8 et 20 caractères et inclure au minimum: 1 lettre, 1 chiffre et 1 caractère spécial';
-      }
-    }
-  };
+  const pseudoRegex = /^[A-Za-z0-9]{3,16}$/;
+  const emailRegex = /\S+@\S+\.\S+/;
+  const passwordRegex = /^[A-Za-z0-9!@#$%]{8,24}$/;
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.target);
     console.log(Object.fromEntries(data.entries()));
-    dispatch(register());
+
+    if (!data.pseudo) {
+      dispatch(setErrorMessage('pseudo', 'Champ obligatoire'));
+    } else if (!pseudoRegex.test(data.pseudo)) {
+      dispatch(setErrorMessage('pseudo', 'Pseudo est incorrect'));
+    }
+    if (!data.email) {
+      dispatch(setErrorMessage('email', 'Champ obligatoire'));
+    } else if (!emailRegex.test(data.email)) {
+      dispatch(setErrorMessage('email', 'Adresse email incorrecte'));
+    }
+    if (!data.password) {
+      dispatch(setErrorMessage('password', 'Champ obligatoire'));
+    } else if (!passwordRegex.test(data.password)) {
+      dispatch(setErrorMessage('password', 'Mot de passe invalide. Doit contenir entre 8 et 20 caractères et inclure au minimum: 1 lettre, 1 chiffre et 1 caractère spécial'));
+    }
+    if (!data.confirmedPassword) {
+      dispatch(setErrorMessage('confirmedPassword', 'Champ obligatoire'));
+    } else if (data.password !== data.confirmedPassword) {
+      dispatch(setErrorMessage('confirmedPassword', 'Le mot de passe ne correspond pas'));
+    }
+    const { formIsValid } = useSelector((state) => state.user.settingsRegister);
+    if (formIsValid) {
+      dispatch(register());
+    }
   };
 
   return (
@@ -117,11 +89,11 @@ function Register() {
             className="registration-input"
             size="28"
             onChange={handlePseudoChange}
-            name="pseudoUser"
-            pattern="^[A-Za-z0-9]{3,16}$"
+            name="pseudo"
+            pattern="/^[A-Za-z0-9]{3,16}$/"
           />
         </label>
-        {pseudoUser
+        {pseudo
         && <span className="registration-error">{errormessagePseudo}</span>}
       </div>
       <div className="registration-field">
@@ -140,6 +112,7 @@ function Register() {
             size="28"
             onChange={handleEmailChange}
             name="email"
+            pattern="/\S+@\S+\.\S+/"
           />
         </label>
 
@@ -161,7 +134,7 @@ function Register() {
             size="28"
             onChange={handlePasswordChange}
             name="password"
-            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,20}$"
+            pattern="/^[A-Za-z0-9!@#$%]{8,24}$/"
           />
         </label>
         <span className="registration-error">{errormessagePassword}</span>
