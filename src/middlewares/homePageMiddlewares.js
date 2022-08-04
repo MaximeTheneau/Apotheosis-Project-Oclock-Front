@@ -2,7 +2,6 @@ import axios from 'axios';
 import {
   FETCH_RECIPES,
   FETCH_RECIPES_CATEGORY,
-  SAVE_CATEGORY_ID,
   saveRecipesLast,
   saveRecipesMiams,
   saveRecipesRandom,

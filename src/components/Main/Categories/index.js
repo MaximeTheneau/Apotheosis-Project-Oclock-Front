@@ -34,28 +34,28 @@ function Categories() {
       <h1 className="title-page logo">Catégories</h1>
       <SearchForm />
        Title Page */}
-      <div className="cards-list">
+      <div className="cards-list-type">
         { recipesFilter.map((item) => (
           <>
             {/* Cards Search */}
             { (!toogleSpinner) && <Spinner />}
             { toogleSpinner && (
-            <div className="cards-list-type">
-              <Link to={`/recette/${item.id}/${item.slug}`}>
-                {/* Card */}
-                <div className="card">
-                  <h2 className="card-recipe">{item.title}</h2>
-                  <img
-                    src={item.picture}
-                    alt="Name"
-                    className="card-img"
-                  />
-                  <div className="card-container">
-                    <ul className="card-container-list">
-                      <li><img className="card-container-list-img-user" src="https://image.shutterstock.com/image-photo/carer-pushing-senior-woman-wheelchair-260nw-1148689052.jpg" alt="zz" /></li>
-                      <li><i className="icon-dish" /></li>
-                      <li><span>15<i className="icon-miam" /></span></li>
-                    </ul>
+            <div>
+            <Link to={`/recette/${item.id}/${item.slug}`}>
+              {/* Card */}
+              <div className="card">
+                <h2 className="card-recipe">{item.title}</h2>
+                <img
+                  src={item.picture}
+                  alt="Name"
+                  className="card-img"
+                />
+                <div className="card-container">
+                  <ul className="card-container-list">
+                    <li><img className="card-container-list-img-user" src="https://image.shutterstock.com/image-photo/carer-pushing-senior-woman-wheelchair-260nw-1148689052.jpg" alt="zz" /></li>
+                    <li><i className="icon-dish" /></li>
+                    <li><span>15<i className="icon-miam" /></span></li>
+                  </ul>
                   </div>
                 </div>
               </Link>

@@ -4,15 +4,13 @@ import './styles.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import {
-  setSettingsField, submitValue, valueToogle, saveCategoryId, fetchRecipesCategory,
+  setSettingsField, submitValue, valueToogle, saveCategoryId, fetchRecipesCategory, 
+  changeCategoryTitle,
 } from '../../../action/homePage';
 
 function SearchForm() {
   const dispatch = useDispatch();
   const valueSearch = useSelector((state) => state.homePage.form.search);
-  // console.log(recipesFilter);
-  console.log('test');
-
   const handleChange = (evt) => {
     dispatch(setSettingsField(evt.target.value, 'search'));
   };
@@ -31,15 +29,30 @@ function SearchForm() {
   };
 
   const { id, slug } = useParams();
+  if (slug === 'entree') {
+    dispatch(changeCategoryTitle('Entrée'));
+  }
+  if (slug === 'apero') {
+    dispatch(changeCategoryTitle('Apéro'));
+  }
+  if (slug === 'plat') {
+    dispatch(changeCategoryTitle('Plat'));
+  }
+  if (slug === 'dessert') {
+    dispatch(changeCategoryTitle('Dessert'));
+  }
+
   dispatch(saveCategoryId(id));
   console.log(id);
   useEffect(() => {
     dispatch(fetchRecipesCategory(id));
   }, [id]);
+  const categoryTitle = useSelector((state) => state.homePage.categoryTitle);
+  console.log(categoryTitle);
 
   return (
     <>
-      <h1>{slug}</h1>
+      <h1>{categoryTitle}</h1>
       <div className="search">
         <div className="search-form">
           <form onSubmit={handleSubmit}>
