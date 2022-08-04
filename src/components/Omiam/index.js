@@ -80,7 +80,7 @@ function Omiam() {
           <Route path="/conditions-generales-utilisation" element={<Tscs />} />
           <Route path="/connexion" element={<Connectionform />} />
           <Route path="*" element={<Error />} />
-          <Route path="/mon-compte" element={<UserProfileHeader />} />
+          <Route path="/mon-compte" element={<MyRecipes />} />
           <Route path="/mon-compte/mes-recettes/" element={<MyRecipes />} />
           <Route path="/mon-compte/mes-miams/" element={<MyMiams />} />
           <Route path="/mon-compte/mes-chefs" element={<MyChiefs />} />
