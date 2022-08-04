@@ -33,9 +33,9 @@ const myAccountRecipes = (store) => (next) => (action) => {
       return next(action);
     }
     case FETCH_FAVORITES_MIAMS: {
-      axios({
+      axiosInstance({
         method: 'get',
-        url: `http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/users/${userid}/miams`,
+        url: `users/${userid}/miams`,
         headers: {
           Authorization: `Bearer ${token}`,
         },
