@@ -1,55 +1,15 @@
 @use '../../../styles/vars';
 
-.aboutuscolumn {
-  float: left;
-  width: 20%;
-  padding: 0 10px;
-  
+.aboutus{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 100%;
 }
 
-.aboutusrow {
-  margin: 2rem;
+// Responsive 720 px
+@media screen and (min-width: 720px){
 }
-
-.aboutuscards {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-  padding: 16px;
-  text-align: center;
-  background-color: #f1f1f1;
-  height:20rem;
-  border: 0.2rem solid orange;
-  border-radius: 0.5rem;
-}
-
-  .aboutusimg {
-    border-radius: 25%;
-    width: 10rem;
-    height: 10rem;
-    margin-right: 10px;
-  }
-
-.aboutustext {
-text-align: center;
-//font-size: .7rem;
-margin-left: 2rem;
-margin-right: 2rem;
-}
-
-.cardsAboutUs-container{
-margin-top: 3rem;
-line-height: 1.2rem;
-font-weight: 600;}
-
-.aboutusrow:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-@media screen and (max-width: 600px) {
-  .aboutuscolumn {
-    width: 90%;
-    display: block;
-    margin-bottom: 20px;
-  }
+// Responsive 1020 px
+@media screen and (min-width: 1020px){
 }

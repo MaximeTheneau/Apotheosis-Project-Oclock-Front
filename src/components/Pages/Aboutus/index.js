@@ -2,61 +2,64 @@ import './styles.scss';
 
 function Aboutus() {
   return (
-    <div className="aboutusrow">
-      <div className="aboutuscolumn">
-        <div className="aboutuscards">
-          <img className="aboutusimg" src="https://www.newsbtc.com/wp-content/uploads/2020/06/mesut-kaya-LcCdl__-kO0-unsplash-scaled.jpg" alt="Avatar" />
-          <div className="cardsAboutUs-container">
-            <p>Loïc MAURIN<br />
+    <div className="aboutus">
+      <div className="card-aboutUs card">
+        <div className="aboutus-cards">
+          <img className="card-img" src="https://images4.alphacoders.com/632/632636.jpg" alt="Avatar" />
+          <div className="card-caption">
+            <h3 className="aboutus-caption-title">Loïc MAURIN</h3>
+            <p>
               Lead Dev Front
             </p>
           </div>
         </div>
       </div>
-      <div className="aboutuscolumn">
-        <div className="aboutuscards">
-          <img className="aboutusimg" src="https://images3.alphacoders.com/812/812062.png" alt="Avatar" />
-          <div className="cardsAboutUs-container">
-            <p>Adrien PINILLA<br />
-              Product Owner<br />
+      <div className="card-aboutUs card">
+        <div className="aboutus-cards">
+          <img className="card-img" src="https://images3.alphacoders.com/812/812062.png" alt="Avatar" />
+          <div className="aboutsus-cards-caption">
+            <h3 className="aboutus-caption-title">Adrien PINILLA</h3>
+            <p>
+              Product Owner
               Dev Back
             </p>
           </div>
         </div>
       </div>
-      <div className="aboutuscolumn">
-        <div className="aboutuscards">
-          <img className="aboutusimg" src="https://images6.alphacoders.com/312/thumb-1920-312773.jpg" alt="Avatar" />
-          <div className="cardsAboutUs-container">
-            <p>Maxime THENEAU<br />
-              Référent Technique Redux<br />
+      <div className="card-aboutUs card">
+        <div className="aboutus-cards">
+          <img className="card-img" src="https://images6.alphacoders.com/312/thumb-1920-312773.jpg" alt="Avatar" />
+          <div className="aboutsus-cards-caption">
+            <h3 className="aboutus-caption-title">Maxime THENEAU</h3>
+            <p className="aboutus-cards-caption">
+              Tech Referent Redux Dev Front
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="card-aboutUs card">
+        <div className="aboutus-cards">
+          <img className="card-img" src="https://images7.alphacoders.com/754/754992.jpg" alt="Avatar" />
+          <div className="aboutsus-cards-caption">
+            <h3 className="aboutus-caption-title">Pauline THOMELIN</h3>
+            <p>
+              Scrum Master - Tech Referent React
               Dev Front
             </p>
           </div>
         </div>
       </div>
-      <div className="aboutuscolumn">
-        <div className="aboutuscards">
-          <img className="aboutusimg" src="https://images7.alphacoders.com/754/754992.jpg" alt="Avatar" />
-          <div className="cardsAboutUs-container">
-            <p>Pauline THOMELIN<br />
-              Scrum Master - Référente Technique React<br />
-              Dev Front
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="aboutuscolumn">
-        <div className="aboutuscards">
-          <img className="aboutusimg" src="https://images5.alphacoders.com/501/501466.jpg" alt="Avatar" />
-          <div className="cardsAboutUs-container">
-            <p>Nathalie TOURNON<br />
-              Lead Dev Back
-            </p>
+      <div className="card-aboutUs card">
+        <div className="aboutus-cards">
+          <img className="card-img" src="https://images5.alphacoders.com/501/501466.jpg" alt="Avatar" />
+          <div className="aboutsus-cards-caption">
+            <h3 className="aboutus-caption-title">Nathalie TOURNON</h3>
+            <p>Lead Dev Back</p>
           </div>
         </div>
       </div>
     </div>
+
   );
 }
 
