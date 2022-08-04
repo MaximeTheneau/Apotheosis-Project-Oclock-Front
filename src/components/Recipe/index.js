@@ -7,8 +7,6 @@ import './styles.scss';
 
 function Recipe() {
   const dispatch = useDispatch();
-  // const commentState = ((state) => state.user.oneRecipe.comment.comment;
-  // console.log(commentState);
   const { id } = useParams();
  
   dispatch(idSlugRecipe(id));
@@ -41,7 +39,7 @@ function Recipe() {
               <h1 className="one-recipe-title">{item.title}</h1>
               <form onSubmit={handleSubmit}>
                 <p>{item.nbMiams}</p>
-                <button type="submit" className={item.category.iconName} />
+                  <button type="submit" className={item.category.iconName} />
               </form>
             </div>
             <div className="one-recipe-img">
