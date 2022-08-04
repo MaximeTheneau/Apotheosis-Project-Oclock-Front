@@ -37,10 +37,19 @@ function Recipe() {
           <div>
             <div className="one-recipe-header">
               <h1 className="one-recipe-title">{item.title}</h1>
-              <form onSubmit={handleSubmit}>
-                <p>{item.nbMiams}</p>
-                  <button type="submit" className={item.category.iconName} />
-              </form>
+              <div className="one-recipe-miams">
+                <div>
+                  <i className={item.category.iconName} />
+                </div>
+                <div>
+                  <form onSubmit={handleSubmit}>
+                    <button type="submit" className="one-recipe-miams-form">
+                      <span className="one-recipe-miams-label">{item.nbMiams}</span>
+                      <i className="icon-miam" />
+                    </button>
+                  </form>
+                </div>
+              </div>
             </div>
             <div className="one-recipe-img">
               <img
@@ -51,19 +60,16 @@ function Recipe() {
             </div>
             <div className="one-recipe-timer">
               <ul className="one-recipe-timer-ul">
-                <li><i className="icon-timer" /><span>{item.duration} min</span></li>
-                <li><i className="icon-kitchen-hat" />{item.difficulty}</li>
-                <li><p className="one-recipe-caption">{item.caption}</p>
-                </li>
+                <li><i className="icon-timer p-1" /><span>{item.duration} min</span></li>
+                <li><i className={`icon-difficulty-${item.difficulty}`} /></li>
               </ul>
+              <p className="one-recipe-caption">{item.caption}</p>
             </div>
             <div className="one-recipe-ingredient">
+              <h2 className="one-recipe-ingredient-title">Ingrédients pour 4 personnes</h2>
               <ul className="one-recipe-ingredient-list">
-                <li><h2 className="one-recipe-ingredient-title">Ingrédients</h2></li>
                 {ingredients.map((element) => (
-                  <div>
-                    <li className="ingredient" key={element.id}>{element.quantity} {element.unit} {element.ingredient.name}</li>
-                  </div>
+                  <li className="ingredient" key={element.id}><p className="ingredient-text">{element.quantity} {element.unit} {element.ingredient.name}</p></li>
                 ))}
               </ul>
             </div>

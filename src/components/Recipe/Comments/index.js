@@ -22,16 +22,17 @@ function Comments() {
   );
   return (
     <div className="one-recipe-comments">
-      <ul className="one-recipe-comments-ul">
-        <li><h2 className="one-recipe-comments-title">Commentaires</h2></li>
-        {comments.map((item) => (
-          <>
-            <li><i className="icon-cook" /></li>
-            <li><span>{item.user.pseudo}</span></li>
-            <li><p>{item.content}</p></li>
-          </>
-        ))}
-      </ul>
+      <h2 className="one-recipe-comments-title">Commentaires</h2>
+      {comments.map((item) => (
+        <>
+          <ul className="one-recipe-comments-ul">
+            <li><img className="one-recipe-img-user" src="http://adrienpinilla-server.eddi.cloud/omiam/sources/images/user/default/user.jpg" alt="-avatar" /></li>
+            <li><p className="one-recipe-comments-speudo">{item.user.pseudo}</p></li>
+
+          </ul>
+          <p className="one-recipe-comments-content">{item.content}</p>
+        </>
+      ))}
       <div className="one-recipe-comment">
         <h2 className="one-recipe-comment-title">Laissez un commentaire</h2>
         <form
