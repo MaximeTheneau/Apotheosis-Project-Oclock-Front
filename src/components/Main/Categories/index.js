@@ -41,7 +41,7 @@ function Categories() {
             {/* Cards Search */}
             { (!toogleSpinner) && <Spinner />}
             { toogleSpinner && (
-            <div >
+            <div>
               {/* Card */}
               <div className="card">
                 <h2 className="card-recipe">{item.title}</h2>
