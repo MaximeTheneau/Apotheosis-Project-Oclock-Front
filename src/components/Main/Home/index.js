@@ -68,10 +68,10 @@ function Home() {
                     />
                     <div className="card-container">
                       <ul className="card-container-list">
-                        <li><img className="card-container-list-img-user" src="https://image.shutterstock.com/image-photo/carer-pushing-senior-woman-wheelchair-260nw-1148689052.jpg" alt="zz" /></li>
-                        <li><i className="icon-dish" /></li>
+                        <li><img className="card-container-list-img-user" src={item.user.avatar} alt={`${item.user.pseudo}-avatar`} /></li>
+                        <li><i className={item.category.iconName} /></li>
                         <li>
-                          <span>15
+                          <span>{item.nbMiams}
                             <i className="icon-miam" />
                           </span>
                         </li>
@@ -101,10 +101,10 @@ function Home() {
                   />
                   <div className="card-container">
                     <ul className="card-container-list">
-                      <li><img className="card-container-list-img-user" src="https://image.shutterstock.com/image-photo/carer-pushing-senior-woman-wheelchair-260nw-1148689052.jpg" alt="zz" /></li>
-                      <li><i className="icon-dish" /></li>
+                      <li><img className="card-container-list-img-user" src={item.user.avatar} alt={`${item.user.pseudo}-avatar`} /></li>
+                      <li><i className={item.category.iconName} /></li>
                       <li>
-                        <span>15
+                        <span>{item.nbMiams}
                           <i className="icon-miam" />
                         </span>
                       </li>
@@ -132,10 +132,10 @@ function Home() {
                   />
                   <div className="card-container">
                     <ul className="card-container-list">
-                      <li><img className="card-container-list-img-user" src="https://image.shutterstock.com/image-photo/carer-pushing-senior-woman-wheelchair-260nw-1148689052.jpg" alt="zz" /></li>
-                      <li><i className="icon-dish" /></li>
+                      <li><img className="card-container-list-img-user" src={item.user.avatar} alt={`${item.user.pseudo}-avatar`} /></li>
+                      <li><i className={item.category.iconName} /></li>
                       <li>
-                        <span>15
+                        <span>{item.nbMiams}
                           <i className="icon-miam" />
                         </span>
                       </li>
@@ -163,10 +163,10 @@ function Home() {
                   />
                   <div className="card-container">
                     <ul className="card-container-list">
-                      <li><img className="card-container-list-img-user" src="https://image.shutterstock.com/image-photo/carer-pushing-senior-woman-wheelchair-260nw-1148689052.jpg" alt="zz" /></li>
-                      <li><i className="icon-dish" /></li>
+                      <li><img className="card-container-list-img-user" src={item.user.avatar} alt={`${item.user.pseudo}-avatar`} /></li>
+                      <li><i className={item.category.iconName} /></li>
                       <li>
-                        <span>15
+                        <span>{item.nbMiams}
                           <i className="icon-miam" />
                         </span>
                       </li>
