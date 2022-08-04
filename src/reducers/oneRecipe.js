@@ -45,7 +45,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         comment: {
-          ...state.settings,
+          ...state.comment,
           [action.field]: action.value,
         },
       };

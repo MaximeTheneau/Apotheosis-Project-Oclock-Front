@@ -1,18 +1,25 @@
+
+@use './src/styles/vars';
 .fs-2{
     font-size: 20rem;
 }
 .one-recipe-img-404{
-    background: #555;
     width: 50%;
     height: 24rem;
 }
 
-.one-recipe{
-
-    display: flex;
+.one-recipe-404{
+    width: 50%;
+    margin: 1rem;
+    border: 0.1rem solid vars.$grey-omiam;
+    border-radius: vars.$raduis-img;
+    position: relative;
+    background: linear-gradient(0deg, vars.$white 2%, vars.$blue-omiam 20%);
+    display: inline flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
+    z-index: -2;
 }
 .icon-stainer{
     position: fixed;
@@ -78,14 +85,6 @@
     moveCup 9s linear infinite,
     spinner 5s linear infinite;
 }
-.icon-glove{
-  position: fixed;
-  top: 19%;
-  font-size: 5em;
-  animation: 
-    moveCup 7s linear infinite,
-    spinner 1s linear infinite;
-}
 .icon-chicken{
   position: fixed;
   top: 60%;
@@ -126,3 +125,4 @@
       transform: rotate(360deg);
     }
   }
+  
