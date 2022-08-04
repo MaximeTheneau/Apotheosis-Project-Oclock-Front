@@ -1,10 +1,5 @@
 @use './src/styles/vars';
 
-.textPrivacy {
-margin-left: 20em;
-margin-right: 20em;
-}
-
 .titleh2 {
   line-height: 3 ;
   font-size: 30px;;
@@ -15,10 +10,8 @@ line-height: 3;
 }
 
 .textPrivacy {
-// justify-content: center;
-//max-width: 90%;
-margin-left: 10rem;
-margin-right: 10rem;
+justify-content: center;
+padding: 5%;
 }
 
 .bold {
