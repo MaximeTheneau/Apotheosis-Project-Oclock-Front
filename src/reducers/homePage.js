@@ -6,6 +6,7 @@ import {
   TOGGLE_SPINNER,
   VALUE_TOOGLE,
   SAVE_CATEGORY_ID,
+  FETCH_RECIPES_CATEGORY,
   SAVE_RECIPES_CATEGORY,
 } from '../action/homePage';
 
@@ -63,7 +64,7 @@ const reducer = (state = initialState, action = {}) => {
     case SAVE_CATEGORY_ID:
       return {
         ...state,
-        categoryId: action.categoryId,
+        categoryId: action.value,
       };
     case SAVE_RECIPES_CATEGORY:
       return {

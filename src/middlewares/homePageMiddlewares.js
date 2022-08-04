@@ -25,14 +25,13 @@ const homePage = (store) => (next) => (action) => {
         );
       return next(action);
     }
-    case SAVE_CATEGORY_ID: {
+    case FETCH_RECIPES_CATEGORY: {
       const state = store.getState();
       const { categoryId } = state.homePage;
       console.log(categoryId);
       axios.get(`http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes/categories/${categoryId}/search?query=`)
         .then(
           (response) => {
-            console.log(response);
             console.log(response.data);
             store.dispatch(saveRecipesCategory(response.data));
           },

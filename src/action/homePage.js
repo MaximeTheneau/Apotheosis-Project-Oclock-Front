@@ -9,9 +9,10 @@ export function fetchRecipes() {
 
 export const FETCH_RECIPES_CATEGORY = 'FETCH_RECIPES_CATEGORY';
 // Action creator => On l'utilise au moment du dispatch()
-export function fetchRecipesCategory() {
+export function fetchRecipesCategory(value) {
   return {
     type: FETCH_RECIPES_CATEGORY,
+    value,
   };
 }
 
@@ -97,6 +98,6 @@ export const SAVE_CATEGORY_ID = 'SAVE_CATEGORY_ID';
 export function saveCategoryId(value) {
   return {
     type: SAVE_CATEGORY_ID,
-    categoryId: value,
+    value,
   };
 }
