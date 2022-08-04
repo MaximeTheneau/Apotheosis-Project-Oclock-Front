@@ -1,31 +1,85 @@
-.my-recipes-title {
-  margin-top: 1rem;
+@use './src/styles/vars';
+
+.my-recipes{
+  margin: 2em;
 }
-// Responsive - 425 px
-@media screen and (max-width: 425px) {
-  .my-recipes-card-img {
-    display: flex;
-  }
-  img.my-recipes-img {
-    width: 8rem;
-    height: 8rem;
-    justify-content: none; 
-  }
-  .my-recipes-responsive {
-   display: none;
+
+.my-recipes-cards{
+  display: flex;
+  flex-direction: column;
+
+  .my-recipes-card{
+
+    margin: 1em;
+    border: 0.1rem solid vars.$grey-omiam;
+    border-radius: vars.$raduis-img;
+    // background: linear-gradient(-90deg, vars.$white 65%, vars.$blue-omiam 80%);
+    padding: 0.5rem;
+
+    a{
+      display: flex;
+
+      .my-recipes-card-img{
+        width: 150px;
+        height: 150px;
+
+        img{
+          min-width: 100%;
+          height: 100%;
+        }
+      }
+
+      .my-recipes-card-block{
+        margin: 0.5em 0 0 0.5em;
+
+      }
+
+      .my-recipes-display{
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+
+        li{
+          align-self: start;
+          margin: 0.5em 0 0.5em 0;
+          color: vars.$grey-omiam;
+
+          i{
+            color: vars.$orange-omiam;
+          }
+        }
+
+        li:first-child {
+          margin: 0 0 0.5em 0;
+        }
+
+        li:last-child {
+          margin: 0.5em 0 0 0;
+        }
+      }
+
+    }
+
+    h2{
+      font-size: 2em;
+    }
+
+    .my-recipes-responsive{
+      display: none;
+    }
   }
 }
-// Responsive + 425 px
-@media screen and (min-width: 426px) {
-  img.my-recipes-img {
-    width: 15rem;
-    height: 15rem; 
+
+@media screen and (min-width: 720px){
+  .my-recipes-responsive{
+    display: block !important;
+    // width: 100%;
+    margin: 0 0 0 2em;
+    // text-align: end;
   }
-  .my-recipes-card-img {
-    display: flex;
-    justify-content: center;
-   }
-   p.my-recipes-card-overview-text {
-    width: 60vh;
-} 
+  .my-recipes-card-block{
+    width: 100%;
+    display: grid;
+    grid: auto-flow 1fr / 20% 80%;
+  }
 }
