@@ -148,7 +148,7 @@ function Home() {
         </div>
         {/* Cards Random */}
         <div className="cards">
-          <h2 className="cards-recipe">Les Recettes aux hasard</h2>
+          <h2 className="cards-recipe">Recettes aléatoires</h2>
           <div className="cards-list">
 
             {/* Card  */}
