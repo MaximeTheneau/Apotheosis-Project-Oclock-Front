@@ -2,12 +2,10 @@ import axios from 'axios';
 import {
   FETCH_RECIPES,
   FETCH_RECIPES_CATEGORY,
-  SAVE_CATEGORY_ID,
   saveRecipesLast,
   saveRecipesMiams,
   saveRecipesRandom,
   saveRecipesCategory,
-  saveOneRecipeCategory,
 } from '../action/homePage';
 
 // Lorsqu'on met en place un middleware, il ne faut pas oublier de le brancher au store !
@@ -35,7 +33,6 @@ const homePage = (store) => (next) => (action) => {
           (response) => {
             console.log(response.data);
             store.dispatch(saveRecipesCategory(response.data));
-            store.dispatch(saveOneRecipeCategory(response.data[0]));
           },
         );
       return next(action);

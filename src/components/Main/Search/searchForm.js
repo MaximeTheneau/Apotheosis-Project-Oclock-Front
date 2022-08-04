@@ -38,8 +38,8 @@ function SearchForm() {
   if (slug === 'plat') {
     dispatch(changeCategoryTitle('Plat'));
   }
-  if (slug === '') {
-    dispatch(changeCategoryTitle('Apéro'));
+  if (slug === 'dessert') {
+    dispatch(changeCategoryTitle('Dessert'));
   }
 
   dispatch(saveCategoryId(id));
