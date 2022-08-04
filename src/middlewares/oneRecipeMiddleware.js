@@ -9,7 +9,6 @@ import {
   saveComments,
   SUBMIT_USERS_ID_MIAMS,
   saveRecipeUsersId,
-  submitUsersIdMiams,
   COMMENT_CREACTED,
 } from '../action/oneRecipe';
 //  const { id, slug } = useParams();
@@ -78,7 +77,7 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
       // const { setIsMiam } = state.oneRecipe;
       const headers = { Authorization: `Bearer ${token}` };
        axios.get(
-        `http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes/${idSlug}}/comments`,
+        `http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes/${idSlug}/miams`,
 
         { headers },
         )
@@ -97,15 +96,19 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
       return next(action);
     }
     case COMMENT_CREACTED: {
-      // const { setIsMiam } = state.oneRecipe;
-      const headers = { Authorization: `Bearer ${token}` };
-       axios.post(
-        `http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes/{recipe_id}/comments`,
+      const { commentValue } = state.oneRecipe.comment;
+      const recipe = state.oneRecipe.list[0];
 
-        )
+      console.log(recipe.slug);
+      const headers = { Authorization: `Bearer ${token}` };
+      axios.post(
+        `http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes/${idSlug}/comments`,
+        { content: commentValue },
+        { headers },
+      )
         .then((response) => {
           console.log(response);
-          
+          window.location = `/recette/${idSlug}/${recipe.slug}`;
           // axios.defaults.headers.common.Authorization = `Bearer ${token}`;
           return next(action);
         })

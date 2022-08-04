@@ -8,7 +8,7 @@ function Comments() {
   const comments = useSelector((state) => state.oneRecipe.comments);
   const valueComment = useSelector((state) => state.comment);
   const handleChangeComment = ((event) => {
-    dispatch(commentAction(event.target.value, 'comment'));
+    dispatch(commentAction(event.target.value, 'commentValue'));
   });
   const handleSubmit = ((event) => {
     event.preventDefault();
@@ -37,7 +37,6 @@ function Comments() {
         <form
           className="one-recipe-form"
           onSubmit={handleSubmit}
-          method="POST"
         >
           <textarea
             className="one-recipe-comment-textarea"
