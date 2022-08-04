@@ -1,20 +1,29 @@
 const EMAIL_REGEX = /\S+@\S+\.\S+/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+const PSEUDO_REGEX = /^[A-Za-z0-9]{3,16}$/;
 
-export function isValidEmail(emailValue) {
-  return EMAIL_REGEX.test(emailValue);
+function isValidPseudo(pseudo) {
+  return PSEUDO_REGEX.test(pseudo);
 }
 
-export function isValidPassword(passwordValue) {
-  return PWD_REGEX.test(passwordValue);
+function isValidEmail(email) {
+  return EMAIL_REGEX.test(email);
 }
 
-export function validMatchPassword(passwordValue, confirmedPasswordValue) {
-  if (passwordValue === confirmedPasswordValue) {
+function isValidPassword(password) {
+  return PWD_REGEX.test(password);
+}
+
+function validMatchPassword(password, confirmedPassword) {
+  if (password === confirmedPassword) {
     return true;
   }
-
   return false;
 }
 
-
+export default attributeValidators = [{
+  pseudo: isValidPseudo(),
+  email: isValidEmail(),
+  password: isValidPassword(),
+  matchPassword: validMatchPassword(),
+}];

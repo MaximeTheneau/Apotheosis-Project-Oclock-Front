@@ -162,3 +162,22 @@ export function resetLoginCredentials() {
     type: RESET_LOGIN_CREDENTIALS,
   };
 }
+
+export const SET_ERROR_MESSAGE = 'SET_ERROR_MESSAGE';
+
+export function setErrorMessage(field, message) {
+  return {
+    type: SET_ERROR_MESSAGE,
+    field,
+    message,
+  };
+}
+
+export const TOGGLE_VALIDATE_FORM = 'TOGGLE_VALIDATE_FORM';
+
+export function toggleValidateForm(value) {
+  return {
+    type: TOGGLE_VALIDATE_FORM,
+    value,
+  };
+}
