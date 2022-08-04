@@ -1,29 +1,135 @@
-.my-miams-title {
-  margin-top: 1rem;
+@use './src/styles/vars';
+
+
+.my-miams{
+  margin: 2em;
 }
-// Responsive - 425 px
-@media screen and (max-width: 425px) {
-  .my-miams-card-img {
-    display: flex;
+
+.my-miams-cards{
+  display: flex;
+  flex-direction: column;
+
+
+  .my-miams-card{
+
+    margin: 1em;
+    border: 0.1rem solid vars.$grey-omiam;
+    border-radius: vars.$raduis-img;
+    // background: linear-gradient(-90deg, vars.$white 65%, vars.$blue-omiam 80%);
+
+    padding: 0.5rem;
+
+    a{
+      display: flex;
+
+      .my-miams-card-img{
+        width: 150px;
+        height: 150px;
+
+        img{
+          min-width: 100%;
+          height: 100%;
+        }
+      }
+
+      .my-miams-card-block{
+        margin: 0.5em 0 0 0.5em;
+
+      }
+
+
+      .my-miams-display{
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+
+        li{
+          align-self: start;
+          margin: 0.5em 0 0.5em 0;
+          color: vars.$grey-omiam;
+
+          i{
+            color: vars.$orange-omiam;
+          }
+        }
+
+        li:first-child {
+          margin: 0 0 0.5em 0;
+        }
+
+        li:last-child {
+          margin: 0.5em 0 0 0;
+        }
+      }
+
+    }
+
+
+
+    h2{
+      font-size: 2em;
+    }
+
+    .my-miams-responsive{
+      display: none;
+    }
   }
-  img.my-miams-img {
-    width: 8rem;
-    justify-content: none; 
-  }
-  .my-miams-responsive {
-    display: none;
-  }
+
 }
-// Responsive + 425 px
-@media screen and (min-width: 426px) {
-  img.my-miams-img {
-    width: 15rem; 
+
+@media screen and (min-width: 720px){
+  .my-miams-responsive{
+    display: block !important;
+    // width: 100%;
+    margin: 0 0 0 2em;
+    // text-align: end;
   }
-  .my-miams-card-img {
-    display: flex;
-    justify-content: center;
-   }
-   p.my-miams-card-overview-text {
-    width: 60vh;
+
+
+  .my-miams-card-block{
+    width: 100%;
+    display: grid;
+    grid: auto-flow 1fr / 20% 80%;
+  }
+
+
+
+
 }
-}
+
+
+
+
+
+
+
+
+// .my-miams-title {
+//   margin-top: 1rem;
+// }
+// // Responsive - 425 px
+// @media screen and (max-width: 425px) {
+//   .my-miams-card-img {
+//     display: flex;
+//   }
+//   img.my-miams-img {
+//     width: 8rem;
+//     justify-content: none; 
+//   }
+//   .my-miams-responsive {
+//     display: none;
+//   }
+// }
+// // Responsive + 425 px
+// @media screen and (min-width: 426px) {
+//   img.my-miams-img {
+//     width: 15rem; 
+//   }
+//   .my-miams-card-img {
+//     display: flex;
+//     justify-content: center;
+//    }
+//    p.my-miams-card-overview-text {
+//     width: 60vh;
+// }
+// }
