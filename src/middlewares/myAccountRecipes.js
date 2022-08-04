@@ -1,14 +1,28 @@
 import axios from 'axios';
-import { FETCH_RECIPES_MY_ACCOUNT, saveRecipesMyAccount } from '../action/myAccountRecipes';
+import {
+  FETCH_RECIPES_MY_ACCOUNT,
+  saveRecipesMyAccount,
+  FETCH_FAVORITES_MIAMS,
+  saveFavoritesMiams,
+} from '../action/myAccountRecipes';
+
+const axiosInstance = axios.create({
+  baseURL: 'http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/',
+});
 
 const myAccountRecipes = (store) => (next) => (action) => {
+  const state = store.getState();
+  const { userid } = state.user.settingsLogIn;
+  const { token } = state.user.settingsLogIn;
   switch (action.type) {
     case FETCH_RECIPES_MY_ACCOUNT: {
-      axios.get('http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes/user/1')
+      axiosInstance.get(
+        `recipes/user/${userid}`,
+      )
         .then(
           (response) => {
-            console.log(response);
             store.dispatch(saveRecipesMyAccount(response.data));
+            console.log(response.data);
           },
         )
         .catch(
@@ -16,6 +30,24 @@ const myAccountRecipes = (store) => (next) => (action) => {
             console.log(error);
           },
         );
+      return next(action);
+    }
+    case FETCH_FAVORITES_MIAMS: {
+      axios({
+        method: 'get',
+        url: `http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/users/${userid}/miams`,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((response) => {
+          console.log(response);
+          store.dispatch(saveFavoritesMiams(response.data));
+          console.log(response.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
       return next(action);
     }
     default:

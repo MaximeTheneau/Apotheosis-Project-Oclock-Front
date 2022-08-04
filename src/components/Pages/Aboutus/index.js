@@ -2,6 +2,12 @@ import './styles.scss';
 
 function Aboutus() {
   return (
+    <div className="aboutus-cards">
+      <div className="cardsAboutUs">
+        <img src="geek.png" alt="Avatar" />
+        <p>Loïc Maurin<br />
+          Dév Front
+        </p>
     <div className="aboutusrow">
       <div className="aboutuscolumn">
         <div className="aboutuscards">
