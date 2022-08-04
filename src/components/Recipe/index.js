@@ -7,9 +7,10 @@ import './styles.scss';
 
 function Recipe() {
   const dispatch = useDispatch();
-
+  // const commentState = ((state) => state.user.oneRecipe.comment.comment;
+  // console.log(commentState);
   const { id } = useParams();
-
+ 
   dispatch(idSlugRecipe(id));
   // const userIdConnected = useSelector((state) => state.user.settingsLogIn.userid);
   const usersIdMiamed = useSelector((state) => state.oneRecipe.usersId);

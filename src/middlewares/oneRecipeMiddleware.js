@@ -10,6 +10,7 @@ import {
   SUBMIT_USERS_ID_MIAMS,
   saveRecipeUsersId,
   submitUsersIdMiams,
+  COMMENT_CREACTED,
 } from '../action/oneRecipe';
 //  const { id, slug } = useParams();
 //  console.log(id);
@@ -18,6 +19,8 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
 
   const { idSlug } = state.oneRecipe;
   const { token } = state.user.settingsLogIn;
+
+
 
   // C'est un test mais on ne pourrait pas faire comme ça?
   // const usersId = state.oneRecipe.usersId;
@@ -75,7 +78,8 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
       // const { setIsMiam } = state.oneRecipe;
       const headers = { Authorization: `Bearer ${token}` };
        axios.get(
-        `http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes/${idSlug}/miams`,
+        `http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes/${idSlug}}/comments`,
+
         { headers },
         )
         .then((response) => {
@@ -92,6 +96,28 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
 
       return next(action);
     }
+    case COMMENT_CREACTED: {
+      // const { setIsMiam } = state.oneRecipe;
+      const headers = { Authorization: `Bearer ${token}` };
+       axios.post(
+        `http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes/{recipe_id}/comments`,
+
+        )
+        .then((response) => {
+          console.log(response);
+          
+          // axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+          return next(action);
+        })
+        .catch((error) => {
+          console.log(error);
+
+          return next(action);
+        });
+
+      return next(action);
+    }
+    
     default:
       return next(action);
   }
