@@ -6,7 +6,7 @@ function Buttonnavbar() {
     <div className="profile">
       <nav className="profile-list">
         <NavLink
-          to="/mon-compte/mes-recettes"
+          to="/mon-compte/mes-recettes/"
           className={
              ({ isActive }) => (isActive ? 'profile-items--active' : 'profile-items')
               }
@@ -15,7 +15,7 @@ function Buttonnavbar() {
           <h2 className="profile-title">Mes recettes</h2>
         </NavLink>
         <NavLink
-          to="/mon-compte/mes-miams"
+          to="/mon-compte/mes-miams/"
           className={
             ({ isActive }) => (isActive ? 'profile-items--active' : 'profile-items')
              }

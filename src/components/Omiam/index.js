@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router';
+import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Header from '../Header';
@@ -38,6 +39,7 @@ function Omiam() {
   const pseudo = localStorage.getItem('pseudo');
 
   const dispatch = useDispatch();
+  const location = useLocation();
   useEffect(
     () => {
       dispatch(keepLogin(token, loggedIn, avatar, userid, role, pseudo));
@@ -46,6 +48,17 @@ function Omiam() {
       }
     },
     [],
+  );
+
+  useEffect(
+    () => {
+      // Ici on remonte le navigateur en haut
+      // https://developer.mozilla.org/fr/docs/Web/API/Element/scrollTo
+      window.scrollTo(0, 0);
+    },
+    // On rajoute une dépendance dans le tableau.
+    // Du coup la callback au dessus se déclenchera à chaque modification de la valeur de location
+    [location],
   );
 
   return (
@@ -68,8 +81,8 @@ function Omiam() {
           <Route path="/connexion" element={<Connectionform />} />
           <Route path="*" element={<Error />} />
           <Route path="/mon-compte" element={<UserProfileHeader />} />
-          <Route path="/mon-compte/mes-recettes" element={<MyRecipes />} />
-          <Route path="/mon-compte/mes-miams" element={<MyMiams />} />
+          <Route path="/mon-compte/mes-recettes/" element={<MyRecipes />} />
+          <Route path="/mon-compte/mes-miams/" element={<MyMiams />} />
           <Route path="/mon-compte/mes-chefs" element={<MyChiefs />} />
           <Route path="/Creer/Recette" element={<CreatedRecipe />} />
           {/*

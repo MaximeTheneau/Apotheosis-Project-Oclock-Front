@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchRecipesFull } from '../../../action/recipes';
@@ -8,8 +9,6 @@ function Categories() {
   const dispatch = useDispatch();
   useEffect(
     () => {
-      // On veut recup la liste des recette depuis l'API
-      // Pour ça, on va dispatcher une action (émettre l'intention de charger les recettes)
       dispatch(fetchRecipesFull());
     },
     [],
@@ -35,13 +34,14 @@ function Categories() {
       <h1 className="title-page logo">Catégories</h1>
       <SearchForm />
        Title Page */}
-      <div className="cards-list">
+      <div className="cards-list-type">
         { recipesFilter.map((item) => (
           <>
             {/* Cards Search */}
             { (!toogleSpinner) && <Spinner />}
             { toogleSpinner && (
-            <div className="cards-list-type">
+            <div>
+            <Link to={`/recette/${item.id}/${item.slug}`}>
               {/* Card */}
               <div className="card">
                 <h2 className="card-recipe">{item.title}</h2>
@@ -56,8 +56,9 @@ function Categories() {
                     <li><i className="icon-dish" /></li>
                     <li><span>15<i className="icon-miam" /></span></li>
                   </ul>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
             )}
           </>

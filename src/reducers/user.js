@@ -12,8 +12,10 @@ export const initialState = {
     password: '',
     confirmedPassword: '',
     avatar: '',
+    errors: {},
+    formIsValid: true,
     signinError: {
-      pseudo: false,
+      pseudoUser: false,
       emailfocused: false,
       passwordfocused: false,
       matchpasswordfocused: false,
@@ -153,10 +155,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         settingsRegister: {
           ...state.settingsRegister,
-          signinError: {
-            ...state.signinError,
-            [action.field]: action.value,
-          },
+          [action.field]: action.value,
         },
       };
 

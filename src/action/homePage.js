@@ -25,6 +25,15 @@ export function saveRecipesCategory(recipes) {
   };
 }
 
+export const SAVE_ONE_RECIPE_CATEGORY = 'SAVE_ONE_RECIPE_CATEGORY';
+// Action creator => On l'utilise au moment du dispatch()
+export function saveOneRecipeCategory(recipe) {
+  return {
+    type: SAVE_ONE_RECIPE_CATEGORY,
+    recipe: recipe,
+  };
+}
+
 // Action Type => On l'utilise dans l'action creator ET dans le reducer
 export const SAVE_RECIPES_LAST = 'SAVE_RECIPES_LAST';
 
@@ -99,5 +108,14 @@ export function saveCategoryId(value) {
   return {
     type: SAVE_CATEGORY_ID,
     value,
+  };
+}
+
+export const CHANGE_CATEGORY_TITLE = 'CHANGE_CATEGORY_TITLE';
+
+export function changeCategoryTitle(value) {
+  return {
+    type: CHANGE_CATEGORY_TITLE,
+    value: value,
   };
 }

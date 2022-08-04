@@ -6,8 +6,8 @@ import {
   TOGGLE_SPINNER,
   VALUE_TOOGLE,
   SAVE_CATEGORY_ID,
-  FETCH_RECIPES_CATEGORY,
   SAVE_RECIPES_CATEGORY,
+  CHANGE_CATEGORY_TITLE,
 } from '../action/homePage';
 
 export const initialState = {
@@ -22,6 +22,7 @@ export const initialState = {
   toggleSpinner: true,
   categoryId: null,
   categoryRecipes: [],
+  categoryTitle: '',
   idSlug: null,
 };
 
@@ -70,6 +71,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         categoryRecipes: action.recipes,
+      };
+
+    case CHANGE_CATEGORY_TITLE:
+      return {
+        ...state,
+        categoryTitle: action.value,
       };
 
     default:
