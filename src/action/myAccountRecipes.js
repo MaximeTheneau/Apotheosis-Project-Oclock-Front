@@ -14,3 +14,20 @@ export function saveRecipesMyAccount(myAccountRecipes) {
     list: myAccountRecipes,
   };
 }
+
+export const FETCH_FAVORITES_MIAMS = 'FETCH_FAVORITES_MIAMS';
+
+export function fetchFavoritesMiams() {
+  return {
+    type: FETCH_FAVORITES_MIAMS,
+  };
+}
+
+export const SAVE_FAVORITES_MIAMS = 'SAVE_FAVORITES_MIAMS';
+
+export function saveFavoritesMiams(miams) {
+  return {
+    type: SAVE_FAVORITES_MIAMS,
+    list: miams,
+  };
+}
