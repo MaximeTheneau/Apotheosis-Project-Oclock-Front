@@ -1,4 +1,4 @@
-import { SAVE_RECIPES_MY_ACCOUNT, SAVE_FAVORITES_MIAMS, SAVE_USER_ID } from '../action/myAccountRecipes';
+import { SAVE_RECIPES_MY_ACCOUNT, SAVE_FAVORITES_MIAMS } from '../action/myAccountRecipes';
 
 export const initialState = {
   list: [],
@@ -16,11 +16,6 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         miams: action.list,
-      };
-    case SAVE_USER_ID:
-      return {
-        ...state,
-        userid: action.list,
       };
     default:
       return state;
