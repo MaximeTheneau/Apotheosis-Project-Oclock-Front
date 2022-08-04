@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchRecipesMyAccount } from '../../../action/myAccountRecipes';
 import { fetchRecipes } from '../../../action/homePage';
 import Buttonnavbar from '../Buttonnavbar';
-
 import './styles.scss';
 
 function MyRecipes() {
