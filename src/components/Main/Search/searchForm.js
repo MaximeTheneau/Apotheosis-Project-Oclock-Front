@@ -38,52 +38,54 @@ function SearchForm() {
   }, [id]);
 
   return (
-    <div className="search">
-      <div className="search-form">
-        <form onSubmit={handleSubmit}>
-          <input
-            value={valueSearch}
-            onClick={handleFocus}
-            // onBlur={handleBlur}
-            onChange={handleChange}
-            type="text"
-            className="search-field-input"
-            placeholder="Rechercher"
-          />
-          <Link to="/recherche">
-            <button className="search-button" type="submit">
-              <i className="icon-search" />
-            </button>
-          </Link>
-        </form>
+    <>
+      <h1>{slug}</h1>
+      <div className="search">
+        <div className="search-form">
+          <form onSubmit={handleSubmit}>
+            <input
+              value={valueSearch}
+              onClick={handleFocus}
+              // onBlur={handleBlur}
+              onChange={handleChange}
+              type="text"
+              className="search-field-input"
+              placeholder="Rechercher"
+            />
+            <Link to="/recherche">
+              <button className="search-button" type="submit">
+                <i className="icon-search" />
+              </button>
+            </Link>
+          </form>
+        </div>
+        {/* List Catégories */}
+        <div className="list">
+          <ul className="list-categories">
+            <Link
+              to="/recettes/1/apero/search"
+            >
+              <li className="list-categories-icon"><i className="icon-drink" /></li>
+            </Link>
+            <Link
+              to="/recettes/2/entree/search"
+            >
+              <li className="list-categories-icon"><i className="icon-radish" /></li>
+            </Link>
+            <Link
+              to="/recettes/3/plat/search"
+            >
+              <li className="list-categories-icon"><i className="icon-dish" /></li>
+            </Link>
+            <Link
+              to="/recettes/4/dessert/search"
+            >
+              <li className="list-categories-icon"><i className="icon-cakes" /></li>
+            </Link>
+          </ul>
+        </div>
       </div>
-      {/* List Catégories */}
-      <div className="list">
-        <ul className="list-categories">
-          <Link
-            to="/recettes/1/apero/search"
-          >
-            <li className="list-categories-icon"><i className="icon-drink" /></li>
-          </Link>
-          <Link
-            to="/recettes/2/entree/search"
-          >
-            <li className="list-categories-icon"><i className="icon-radish" /></li>
-          </Link>
-          <Link
-            to="/recettes/3/plat/search"
-          >
-            <li className="list-categories-icon"><i className="icon-dish" /></li>
-          </Link>
-          <Link
-            to="/recettes/4/dessert/search"
-          >
-            <li className="list-categories-icon"><i className="icon-cakes" /></li>
-          </Link>
-        </ul>
-      </div>
-    </div>
-
+    </>
   );
 }
 
