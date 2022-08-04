@@ -13,9 +13,7 @@ const axiosInstance = axios.create({
 const myAccountRecipes = (store) => (next) => (action) => {
   const state = store.getState();
   const { userid } = state.user.settingsLogIn;
-  // const { token } = state.user.settingsLogIn;
-  console.log(userid);
-
+  const { token } = state.user.settingsLogIn;
   switch (action.type) {
     case FETCH_RECIPES_MY_ACCOUNT: {
       axiosInstance.get(
@@ -34,23 +32,24 @@ const myAccountRecipes = (store) => (next) => (action) => {
         );
       return next(action);
     }
-    /* case FETCH_FAVORITES_MIAMS: {
-      axiosInstance.get(
-        `users/${idUser}/miams`,
-      )
+    case FETCH_FAVORITES_MIAMS: {
+      axios({
+        method: 'get',
+        url: `http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/users/${userid}/miams`,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
         .then((response) => {
           console.log(response);
           store.dispatch(saveFavoritesMiams(response.data));
           console.log(response.data);
-          return next(action);
         })
         .catch((err) => {
           console.log(err);
-          return next(action);
         });
-
       return next(action);
-    } */
+    }
     default:
       return next(action);
   }
