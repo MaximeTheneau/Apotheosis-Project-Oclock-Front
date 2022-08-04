@@ -35,13 +35,13 @@ function Categories() {
       <h1 className="title-page logo">Catégories</h1>
       <SearchForm />
        Title Page */}
-      <div className="cards-list">
+      <div className="cards-list-type">
         { recipesFilter.map((item) => (
           <>
             {/* Cards Search */}
             { (!toogleSpinner) && <Spinner />}
             { toogleSpinner && (
-            <div className="cards-list-type">
+            <div >
               {/* Card */}
               <div className="card">
                 <h2 className="card-recipe">{item.title}</h2>
