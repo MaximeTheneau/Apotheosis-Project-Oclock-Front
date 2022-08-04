@@ -9,11 +9,10 @@ function Register() {
   } = useSelector((state) => state.user.settingsRegister);
   const {
     errormessagePseudo, errormessageEmail,
-    errormessagePassword, errormessagePasswordMatch, pseudofocused,
-    emailfocused, passwordfocused, matchpasswordfocused
+    errormessagePassword, errormessagePasswordMatch, pseudoUser,
   } = useSelector((state) => state.user.settingsRegister.signinError);
   const dispatch = useDispatch();
-
+  console.log(pseudoUser, errormessagePseudo);
   const handlePseudoChange = (event) => {
     dispatch(setRegistrationcredentials(event.currentTarget.value, 'pseudo'));
   };
@@ -30,20 +29,62 @@ function Register() {
     dispatch(setRegistrationcredentials(event.currentTarget.value, 'confirmedPassword'));
   };
 
-  const handleFocusPseudo = (event) => {
-    dispatch(setFocus(event.currentTarget.name));
-  };
+  const handleValidation = () => {
+    const fields = useSelector((state) => state.user.settingsRegister);
+    const errors = useSelector((state) => state.user.settingsRegister);
+    const formIsValid = useSelector((state) => state.user.settingsRegister);
 
-  const handleFocusEmail = () => {
-    dispatch(setFocus('emailfocused'));
-  };
+    //Pseudo
+    if (!fields.pseudo) {
+      formIsValid = false;
+      errors.pseudo = 'Champ Obligatoire';
+    }
 
-  const handleFocusPassword = () => {
-    dispatch(setFocus('passwordfocused'));
-  };
+    if (typeof fields.pseudo !== 'undefined') {
+      if (!fields.pseudo.match(/^[A-Za-z0-9]{3,16}$/)) {
+        formIsValid = false;
+        errors.pseudo = 'Pseudo invalide. Doit contenir 2 charactères au minimum.';
+      }
+    }
 
-  const handleFocusMatchPassword = () => {
-    dispatch(setFocus('matchpasswordfocused'));
+    //Email
+    if (!fields.email) {
+      formIsValid = false;
+      errors.email = 'Champ Obligatoire';
+    }
+
+    if (typeof fields.email !== 'undefined') {
+      if (!fields.email.match(/\S+@\S+\.\S+/)) {
+        formIsValid = false;
+        errors.email = 'Adresse email incorrecte, veuillez respecter le format: johnDoe@gmail.com.';
+      }
+    }
+
+    //Password
+    if (!fields.password) {
+      formIsValid = false;
+      errors.password = 'Champ Obligatoire';
+    }
+
+    if (typeof fields.password !== 'undefined') {
+      if (!fields.password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/)) {
+        formIsValid = false;
+        errors.password = 'Mot de passe invalide. Doit contenir entre 8 et 20 caractères et inclure au minimum: 1 lettre, 1 chiffre et 1 caractère spécial';
+      }
+    }
+
+    //MatchPassword
+    if (!fields.confirmedPassword) {
+      formIsValid = false;
+      errors.confirmedPassword = 'Champ Obligatoire';
+    }
+
+    if (typeof fields.confirmedPassword !== 'undefined') {
+      if (!fields.confirmedPassword !== fields.password) {
+        formIsValid = false;
+        errors.confirmedPassword = 'Mot de passe invalide. Doit contenir entre 8 et 20 caractères et inclure au minimum: 1 lettre, 1 chiffre et 1 caractère spécial';
+      }
+    }
   };
 
   const handleSubmit = (event) => {
@@ -76,12 +117,11 @@ function Register() {
             className="registration-input"
             size="28"
             onChange={handlePseudoChange}
-            name="pseudo"
+            name="pseudoUser"
             pattern="^[A-Za-z0-9]{3,16}$"
-            onFocus={handleFocusPseudo}
           />
         </label>
-        {pseudofocused
+        {pseudoUser
         && <span className="registration-error">{errormessagePseudo}</span>}
       </div>
       <div className="registration-field">
@@ -100,7 +140,6 @@ function Register() {
             size="28"
             onChange={handleEmailChange}
             name="email"
-            onBlur={handleFocusEmail}
           />
         </label>
 
@@ -123,7 +162,6 @@ function Register() {
             onChange={handlePasswordChange}
             name="password"
             pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,20}$"
-            onBlur={handleFocusPassword}
           />
         </label>
         <span className="registration-error">{errormessagePassword}</span>
@@ -144,7 +182,7 @@ function Register() {
             size="28"
             onChange={handleconfirmedPasswordChange}
             name="confirmedpassword"
-            onBlur={handleFocusMatchPassword}
+            pattern={password}
           />
         </label>
         <span className="registration-error">{errormessagePasswordMatch}</span>

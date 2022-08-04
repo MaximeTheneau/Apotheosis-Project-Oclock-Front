@@ -138,10 +138,11 @@ export function toggleDropdownMenu() {
 
 export const SET_FOCUS = 'SET_FOCUS';
 
-export function setFocus(field) {
+export function setFocus(field, value) {
   return {
     type: SET_FOCUS,
     field: field,
+    value: value,
   };
 }
 
