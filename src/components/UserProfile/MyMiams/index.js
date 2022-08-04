@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchFavoritesMiams } from '../../../action/myAccountRecipes';
-import { fetchRecipes } from '../../../action/homePage';
 import Buttonnavbar from '../Buttonnavbar';
 import './styles.scss';
 
@@ -12,7 +11,6 @@ function MyMiams() {
   useEffect(
     () => {
       dispatch(fetchFavoritesMiams());
-      dispatch(fetchRecipes());
     },
     [],
   );
