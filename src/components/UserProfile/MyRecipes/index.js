@@ -20,8 +20,8 @@ function MyRecipes() {
       <div className="my-recipes">
         <h1 className="my-recipes-title">Mes Recettes</h1>
         <div className="my-recipes-cards">
-          <div className="my-recipes-card">
-            {recipesMyAccount.map((item) => (
+          {recipesMyAccount.map((item) => (
+            <div className="my-recipes-card">
               <Link to={`/recette/${item.id}/${item.slug}`}>
                 <div className="my-recipes-card-img">
                   <img
@@ -29,30 +29,30 @@ function MyRecipes() {
                     alt="Name"
                     className="my-recipes-img"
                   />
-                  <div className="my-recipes-card-block">
-                    <ul className="my-recipes-card-ul">
-                      <div className="my-recipes-display">
-                        <li><h2 className="my-recipes-card-title">{item.title}</h2></li>
-                        <li><i className={item.category.iconName} /></li>
-                        <li><i className="icon-kitchen-hat" />{item.difficulty}</li>
-                        <li>
-                          <span>{item.nbMiams}
-                            <i className="icon-miam" />
-                          </span>
-                        </li>
-                      </div>
-                      <div className="my-recipes-responsive">
-                        <div className="my-recipes-card-overview">
-                          <li><h2 className="my-recipes-card-overview-title">Aperçu de la Recette</h2></li>
-                          <li><p className="my-recipes-card-overview-text">{item.caption}</p></li>
-                        </div>
-                      </div>
+                </div>
+                <div className="my-recipes-card-block">
+                  <div className="my-recipes-card-ul">
+                    <ul className="my-recipes-display">
+                      <li><h2 className="my-recipes-card-title">{item.title}</h2></li>
+                      <li><i className={item.category.iconName} />{item.category.name}</li>
+                      <li><i className="icon-kitchen-hat" />difficulté : {item.difficulty}</li>
+                      <li>
+                        <span>
+                          <i className="icon-miam" /> {item.nbMiams}
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="my-recipes-responsive">
+                    <ul className="my-recipes-card-overview">
+                      <li><h2 className="my-recipes-card-overview-title">Aperçu de la Recette</h2></li>
+                      <li><p className="my-recipes-card-overview-text">{item.caption ? item.caption : 'Il n\'y a pas d\'aperçu pour cette recette'}</p></li>
                     </ul>
                   </div>
                 </div>
               </Link>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </>
