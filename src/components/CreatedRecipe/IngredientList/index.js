@@ -23,8 +23,5 @@ function IngredientList() {
 
   );
 }
-IngredientList.propTypes = {
-  onChange: PropTypes.func.isRequired,
-};
 
 export default IngredientList;

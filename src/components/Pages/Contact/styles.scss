@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 1rem;
 }
 .label{
   width:70%;
@@ -18,6 +19,7 @@
 textarea{
   &.message-input{
     width: 100%;
+    padding: 0.5rem;
   }
 
   .message-input {
@@ -28,12 +30,17 @@ textarea:focus-visible {
   outline: none;
 }
 .send-button {
-  font-size: 4rem;
-  background: vars.$blue-omiam;
+  font-size: 5rem;
+  background: vars.$white;
   padding: 0.5rem;
-  border: 1px solid vars.$grey-omiam;
-  color: #fff;
+  border: none;
+  color: vars.$blue-omiam;
   cursor: pointer;
+  margin: 1rem;
+
+  &:hover .icon-oven:before {
+    content: "\e904";
+  }
 }
 input[type="text"], textarea, input[type="email"], .send-button {
   border-radius: vars.$raduis-img;

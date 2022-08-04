@@ -3,9 +3,9 @@ import './styles.scss';
 function Privacy() {
   return (
     <div className="textPrivacy">
-      <h1 className="titleh1">MENTIONS LÉGALES :</h1>
+      <h1 className="titleh1">MENTIONS LÉGALES</h1>
       <p>Conformément aux dispositions des articles 6-III et 19 de la Loi n° 2004-575 du 21 juin 2004 pour la Confiance dans l'économie numérique, dite L.C.E.N., nous portons à la connaissance des utilisateurs et visiteurs du site : <a href="http://www.omiam.com" target="_blank" rel="noreferrer">www.omiam.com</a> les informations suivantes :</p>
-      <h2 className="title">1. Informations légales :</h2>
+      <h2 className="titleh2">1. Informations légales :</h2>
 
       <p>Statut du propriétaire : <span className="bold">Particulier</span><br />
         Le Propriétaire est : <span className="bold">Team O'Miam</span><br />

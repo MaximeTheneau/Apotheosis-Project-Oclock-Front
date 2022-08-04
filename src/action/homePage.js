@@ -7,6 +7,24 @@ export function fetchRecipes() {
   };
 }
 
+export const FETCH_RECIPES_CATEGORY = 'FETCH_RECIPES_CATEGORY';
+// Action creator => On l'utilise au moment du dispatch()
+export function fetchRecipesCategory(value) {
+  return {
+    type: FETCH_RECIPES_CATEGORY,
+    value,
+  };
+}
+
+export const SAVE_RECIPES_CATEGORY = 'SAVE_RECIPES_CATEGORY';
+// Action creator => On l'utilise au moment du dispatch()
+export function saveRecipesCategory(recipes) {
+  return {
+    type: SAVE_RECIPES_CATEGORY,
+    recipes: recipes,
+  };
+}
+
 // Action Type => On l'utilise dans l'action creator ET dans le reducer
 export const SAVE_RECIPES_LAST = 'SAVE_RECIPES_LAST';
 
@@ -72,5 +90,14 @@ export function toggleSpinner(value, field) {
     type: TOGGLE_SPINNER,
     value: value,
     field: field,
+  };
+}
+
+export const SAVE_CATEGORY_ID = 'SAVE_CATEGORY_ID';
+
+export function saveCategoryId(value) {
+  return {
+    type: SAVE_CATEGORY_ID,
+    value,
   };
 }

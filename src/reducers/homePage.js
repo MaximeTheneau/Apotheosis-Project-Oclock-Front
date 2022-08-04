@@ -5,6 +5,9 @@ import {
   SET_SETTINGS_FIELD,
   TOGGLE_SPINNER,
   VALUE_TOOGLE,
+  SAVE_CATEGORY_ID,
+  FETCH_RECIPES_CATEGORY,
+  SAVE_RECIPES_CATEGORY,
 } from '../action/homePage';
 
 export const initialState = {
@@ -17,6 +20,9 @@ export const initialState = {
   },
   addCards: false,
   toggleSpinner: true,
+  categoryId: null,
+  categoryRecipes: [],
+  idSlug: null,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -31,6 +37,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         listHomeMiams: action.list,
       };
+
     case SAVE_RECIPES_RANDOM:
       return {
         ...state,
@@ -53,6 +60,16 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         toggleSpinner: !state.toggleSpinner,
+      };
+    case SAVE_CATEGORY_ID:
+      return {
+        ...state,
+        categoryId: action.value,
+      };
+    case SAVE_RECIPES_CATEGORY:
+      return {
+        ...state,
+        categoryRecipes: action.recipes,
       };
 
     default:
