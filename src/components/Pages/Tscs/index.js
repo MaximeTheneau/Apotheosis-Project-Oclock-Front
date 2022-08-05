@@ -2,15 +2,15 @@ import './styles.scss';
 
 function TsCs() {
   return (
-    <div className="textPrivacy">
+    <>
       <h1 className="titleh1">CONDITIONS GÉNÉRALES D'UTILISATION DU SITE O'MIAM</h1>
 
-      <h2 className="title">ARTICLE 1 : Objet</h2>
+      <h2 className="titleh2">ARTICLE 1 : Objet</h2>
       <p>Les présentes « Conditions Générales d'Utilisation » ont pour objet
         l'encadrement juridique de l’utilisation du site O’Miam et de ses services.
       </p>
 
-      <p>Ce contrat est conclu entre :<br />
+      <p>Ce contrat est conclu entre :
         Le gérant du site internet, ci-après désigné « l’Éditeur »,
         personne physique ou morale souhaitant accéder au site et à ses services
         ci-après appelé « l’Utilisateur ».
@@ -20,15 +20,15 @@ function TsCs() {
         et son accès au site vaut acceptation de ces conditions.
       </p>
 
-      <h2 className="title">ARTICLE 2 : Mentions Légales</h2>
+      <h2 className="titleh2">ARTICLE 2 : Mentions Légales</h2>
 
       <p>Le site O’Miam est édité par la <strong>Team Curie - Projet O’Miam</strong>
         , domiciliée sur le Téléporteur de l’école O’Clock.
       </p>
 
-      <h2 className="title">ARTICLE 3 : Accès aux Services</h2>
+      <h2 className="titleh2">ARTICLE 3 : Accès aux Services</h2>
       <div>
-        <ul>L’Utilisateur du site O’Miam a accès aux services suivants :<br />
+        <ul><p>L’Utilisateur du site O’Miam a accès aux services suivants :</p>
           <li>Création d’un compte utilisateur</li>
           <li>Visualisation des recettes publiées par les membres enregistrés</li>
           <li>Visualisation des dernières recettes publiées par les Membres</li>
@@ -38,17 +38,16 @@ function TsCs() {
           <li>Accéder aux Mentions Légales du site</li>
           <li>Accéder aux CGU du site</li>
         </ul>
-        <br />
         <p>Tout utilisateur ayant accès à internet peut accéder gratuitement
           et depuis n’importe où au site.
-        </p><br />
+        </p>
         <p>Les frais supportés par l’Utilisateur pour y accéder
           (connexion internet, matériel informatique, etc.)
           ne sont pas à la charge de l’Éditeur.
-        </p><br />
+        </p>
         <ul>Les services suivants ne sont accessibles pour l’Utilisateur&nbsp;
           que s’il est membre du site(c’est-à-dire s’il est identifié
-          à l’aide de ses identifiants de connexion) :<br />
+          à l’aide de ses identifiants de connexion) :
           <li>Se connecter et se déconnecter de son compte</li>
           <li>Publication puis édition et suppression de ses recettes</li>
           <li>Possibilité d'attribuer ou de retirer un miam à des recettes</li>
@@ -56,14 +55,13 @@ function TsCs() {
           <li>Publication puis édition ou suppression de commentaires laissés sur les recettes</li>
           <li>Modification ou Suppression de son compte</li>
         </ul>
-        <br />
         <p>Le site et ses différents services peuvent être interrompus ou suspendus
           par l’Éditeur notamment à l’occasion d’une maintenance,
           sans obligation de préavis ou de justification.
         </p>
       </div>
 
-      <h2 className="title">ARTICLE 4 : Responsabilité de l'Utilisateur</h2>
+      <h2 className="titleh2">ARTICLE 4 : Responsabilité de l'Utilisateur</h2>
       <div>
         <p>L'Utilisateur est responsable des risques liés à l’utilisation&nbsp;
           de son identifiant de connexion et de son mot de passe.
@@ -94,7 +92,7 @@ function TsCs() {
         </p>
       </div>
 
-      <h2 className="title">ARTICLE 5 : Responsabilité de l'Editeur</h2>
+      <h2 className="titleh2">ARTICLE 5 : Responsabilité de l'Editeur</h2>
       <div>
         <p>Tout dysfonctionnement du serveur ou du réseau ne peut engager
           la responsabilité de l’Éditeur.<br />
@@ -108,7 +106,7 @@ function TsCs() {
         </p>
       </div>
 
-      <h2 className="title">ARTICLE 6 : Proprièté Intellectuelle</h2>
+      <h2 className="titleh2">ARTICLE 6 : Proprièté Intellectuelle</h2>
       <div>
         <p>Les contenus du site O’Miam (logos, textes, éléments graphiques, vidéos, etc.)
           sont protégés par le droit d’auteur, en vertu du Code de la propriété intellectuelle<br />
@@ -123,7 +121,7 @@ function TsCs() {
         </p>
       </div>
 
-      <h2 className="title">ARTICLE 7 : Données Personnelles</h2>
+      <h2 className="titleh2">ARTICLE 7 : Données Personnelles</h2>
       <div>
         <p>L’Utilisateur doit obligatoirement fournir des informations personnelles&nbsp;
           pour procéder à son inscription sur le site. <br />
@@ -140,7 +138,7 @@ function TsCs() {
         </p>
       </div>
 
-      <h2 className="title">ARTICLE 8 : Liens Hypertextes</h2>
+      <h2 className="titleh2">ARTICLE 8 : Liens Hypertextes</h2>
       <div>
         <p>Les domaines vers lesquels mènent les liens hypertextes présents sur le site
           n’engagent pas la responsabilité de l’Éditeur de O’Miam
@@ -150,14 +148,14 @@ function TsCs() {
         </p>
       </div>
 
-      <h2 className="title">ARTICLE 9 : Évolution des conditions générales d’utilisation</h2>
+      <h2 className="titleh2">ARTICLE 9 : Évolution des conditions générales d’utilisation</h2>
       <div>
         <p>Le site O’Miam se réserve le droit de modifier les clauses&nbsp;
           de ces conditions générales d’utilisation à tout moment et sans justification.
         </p>
       </div>
 
-      <h2 className="title">ARTICLE 10 : Durée du Contrat</h2>
+      <h2 className="titleh2">ARTICLE 10 : Durée du Contrat</h2>
       <div>
         <p>La durée du présent contrat est indéterminée.<br />
           Le contrat produit ses effets à l'égard de l'Utilisateur
@@ -165,14 +163,14 @@ function TsCs() {
         </p>
       </div>
 
-      <h2 className="title">ARTICLE 11 : Droit applicable et juridiction compétente</h2>
+      <h2 className="titleh2">ARTICLE 11 : Droit applicable et juridiction compétente</h2>
       <div>
         <p>Le présent contrat dépend de la législation française. <br />
           En cas de litige non résolu à l’amiable entre l’Utilisateur et l’Éditeur
           , les tribunaux d’O’Clock sont compétents pour régler le contentieux.
         </p>
       </div>
-    </div>
+    </>
   );
 }
 
