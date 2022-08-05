@@ -66,12 +66,12 @@ function SearchForm() {
           <Link
             to="/recettes/2/entree/search"
           >
-            <li className="list-categories-icon"><i className="icon-entrance" /></li>
+            <li className="list-categories-icon"><i className="icon-dish" /></li>
           </Link>
           <Link
             to="/recettes/3/plat/search"
           >
-            <li className="list-categories-icon"><i className="icon-dish" /></li>
+            <li className="list-categories-icon"><i className="icon-entrance" /></li>
           </Link>
           <Link
             to="/recettes/4/dessert/search"
