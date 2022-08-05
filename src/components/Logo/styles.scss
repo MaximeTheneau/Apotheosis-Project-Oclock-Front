@@ -27,12 +27,12 @@
     display: flex;
     flex-direction: column;
     font-family: 'font-title';
-    line-height: 1.8rem;
-    padding: 1rem;
+    line-height: 1.7rem;
+    padding: 0.8rem;
   
     &-title {
       color: vars.$grey-omiam;
-      font-size: 3.5rem;
+      font-size: 3.4rem;
     }
   
     &-sloggan {
