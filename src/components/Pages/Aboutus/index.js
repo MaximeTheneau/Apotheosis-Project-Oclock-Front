@@ -12,7 +12,7 @@ function Aboutus() {
       <div className="aboutus">
         <div className="card-aboutUs">
           <div className="aboutus-cards">
-            <img className="card-img" src={Loic} alt="Avatar" />
+            <img className="card-img-about" src={Loic} alt="Avatar" />
             <div className="card-caption">
               <h3 className="aboutus-caption-title">Loïc MAURIN</h3>
               <p>
@@ -31,7 +31,7 @@ function Aboutus() {
         </div>
         <div className="card-aboutUs">
           <div className="aboutus-cards">
-            <img className="card-img" src={Adrien} alt="Avatar" />
+            <img className="card-img-about" src={Adrien} alt="Avatar" />
             <div className="aboutsus-cards-caption">
               <h3 className="aboutus-caption-title">Adrien PINILLA</h3>
               <p>
@@ -51,7 +51,7 @@ function Aboutus() {
         </div>
         <div className="card-aboutUs ">
           <div className="aboutus-cards">
-            <img className="card-img" src={Max} alt="Avatar" />
+            <img className="card-img-about" src={Max} alt="Avatar" />
             <div className="aboutsus-cards-caption">
               <h3 className="aboutus-caption-title">Maxime THENEAU</h3>
               <p className="aboutus-cards-caption">
@@ -70,7 +70,7 @@ function Aboutus() {
         </div>
         <div className="card-aboutUs ">
           <div className="aboutus-cards">
-            <img className="card-img" src={Pauline} alt="Avatar" />
+            <img className="card-img-about" src={Pauline} alt="Avatar" />
             <div className="aboutsus-cards-caption">
               <h3 className="aboutus-caption-title">Pauline THOMELIN</h3>
               <p>
@@ -90,7 +90,7 @@ function Aboutus() {
         </div>
         <div className="card-aboutUs ">
           <div className="aboutus-cards">
-            <img className="card-img" src={Nathalie} alt="Avatar" />
+            <img className="card-img-about" src={Nathalie} alt="Avatar" />
             <div className="aboutsus-cards-caption">
               <h3 className="aboutus-caption-title">Nathalie TOURNON</h3>
               <p>Lead Dev Back</p>
