@@ -5,6 +5,7 @@ img.one-recipe-img {
   object-fit: fill;
   height: 20rem;
   border-radius: vars.$raduis-img;
+  background: linear-gradient(-45deg, vars.$white 20%, #007072bd 80%);
 }
 h2.one-recipe-ingredient-title {
   margin: 1rem;

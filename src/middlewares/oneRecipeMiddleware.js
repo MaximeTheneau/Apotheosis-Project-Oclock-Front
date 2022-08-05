@@ -75,6 +75,7 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
     }
     case SUBMIT_USERS_ID_MIAMS: {
       // const { setIsMiam } = state.oneRecipe;
+      const recipe = state.oneRecipe.list[0];
       const headers = { Authorization: `Bearer ${token}` };
        axios.get(
         `http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes/${idSlug}/miams`,
@@ -83,6 +84,7 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
         )
         .then((response) => {
           console.log(response);
+          window.location = `/recette/${idSlug}/${recipe.slug}`;
           
           // axios.defaults.headers.common.Authorization = `Bearer ${token}`;
           return next(action);

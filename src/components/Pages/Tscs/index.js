@@ -2,7 +2,7 @@ import './styles.scss';
 
 function TsCs() {
   return (
-    <>
+    <div className="textPrivacy">
       <h1 className="titleh1">CONDITIONS GÉNÉRALES D'UTILISATION DU SITE O'MIAM</h1>
 
       <h2 className="title">ARTICLE 1 : Objet</h2>
@@ -172,7 +172,7 @@ function TsCs() {
           , les tribunaux d’O’Clock sont compétents pour régler le contentieux.
         </p>
       </div>
-    </>
+    </div>
   );
 }
 

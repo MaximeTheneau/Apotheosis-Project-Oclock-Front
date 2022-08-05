@@ -12,8 +12,12 @@
     margin: 1em;
     border: 0.1rem solid vars.$grey-omiam;
     border-radius: vars.$raduis-img;
-    // background: linear-gradient(-90deg, vars.$white 65%, vars.$blue-omiam 80%);
+    background: linear-gradient(-45deg, vars.$white 20%, #007072bd 80%);
     padding: 0.5rem;
+
+    i{
+      padding: 0;
+    }
 
     a{
       display: flex;
@@ -21,10 +25,11 @@
       .my-miams-card-img{
         width: 150px;
         height: 150px;
+        display: none;
 
         img{
-          min-width: 100%;
-          height: 100%;
+          width: 150px;
+          height: 150px;
         }
       }
 
@@ -40,11 +45,14 @@
 
         li{
           align-self: start;
-          margin: 0.5em 0 0.5em 0;
+          margin: 0 0 0.5em 0;
           color: vars.$grey-omiam;
+          font-weight: bold;
 
           i{
             color: vars.$orange-omiam;
+            font-size: 1.5em;
+            padding-right: 0.3em;
           }
         }
 
@@ -61,11 +69,18 @@
 
     h2{
       font-size: 2em;
+      font-weight: 200;
     }
 
     .my-miams-responsive{
       display: none;
     }
+  }
+}
+
+@media screen and (min-width: 420px){
+  .my-miams-card-img{
+    display: block !important;
   }
 }
 

@@ -8,7 +8,7 @@ import Nathalie from '../../../assets/img/nath.png';
 function Aboutus() {
   return (
     <>
-      <h1>Qui somme-nous</h1>
+      <h1>Qui sommes-nous ?</h1>
       <div className="aboutus">
         <div className="card-aboutUs">
           <div className="aboutus-cards">

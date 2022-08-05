@@ -39,7 +39,8 @@ h2.cards-recipe {
     border-radius: vars.$raduis-img;
     z-index: 1;
     position: relative;
-    background: linear-gradient(0deg, vars.$white 2%, vars.$blue-omiam 20%);
+    // background: linear-gradient(0deg, vars.$white 2%, vars.$blue-omiam 20%);
+    background: linear-gradient(0deg, vars.$white 2%, #007072bd 20%);
     &-recipe{
       position: absolute;
       top: 1rem;
