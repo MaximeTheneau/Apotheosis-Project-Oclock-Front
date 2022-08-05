@@ -14,7 +14,7 @@ function Footer() {
             }
               to="/qui-sommes-nous"
             >
-              Qui sommes nous ?
+              Qui sommes-nous ?
             </NavLink>
           </li>
           <li className="footer-link">
