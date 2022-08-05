@@ -22,3 +22,26 @@
   }
 }
 
+@media screen and (max-width: 320px) {
+  .logo {
+    display: flex;
+    flex-direction: column;
+    font-family: 'font-title';
+    line-height: 1.8rem;
+    padding: 1rem;
+  
+    &-title {
+      color: vars.$grey-omiam;
+      font-size: 3.5rem;
+    }
+  
+    &-sloggan {
+      font-size: 1.4rem;
+      color: vars.$grey-omiam;
+  
+      &-highlight{
+        color: vars.$orange-omiam;
+      }
+    }
+  }
+}
