@@ -26,9 +26,10 @@
   &-input {
     margin-top: 0.3rem;
     display:block;
-    border-radius: 0.3rem;
+    border-radius: 0.5rem;
     border: 0.5px solid vars.$grey-omiam;
     padding: 0.5rem;
+    width: 240px;
 
     &::placeholder {
       color: vars.$blue-omiam;

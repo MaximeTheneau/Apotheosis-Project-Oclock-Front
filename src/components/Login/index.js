@@ -57,7 +57,6 @@ function Login() {
             value={email}
             required
             className="login-input"
-            size="28"
             onChange={handleEmailChange}
           />
         </label>
@@ -75,7 +74,6 @@ function Login() {
             value={password}
             required
             className="login-input"
-            size="28"
             onChange={handlePasswordChange}
           />
         </label>
