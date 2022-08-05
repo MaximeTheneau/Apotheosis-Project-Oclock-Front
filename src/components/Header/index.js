@@ -19,7 +19,7 @@ function Header() {
             type="button"
             className="header-button"
           >
-            <Link to="/Creer/Recette" className="header-link">
+            <Link to="/creer-une-recette" className="header-link">
               <i className="icon-add header-icon" />
               <p>Ajouter une recette</p>
             </Link>

@@ -43,7 +43,7 @@ function Home() {
   // console.log(Illustration);
   return (
     <>
-      <div className="illustration" />
+
       {/* Title Page */}
       <h1 className="title-home">
         <i className="icon-miam title-home-logo" />'miam

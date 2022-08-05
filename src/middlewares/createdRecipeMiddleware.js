@@ -38,7 +38,7 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
         ingredients: ingredients,
       }));
       formData.append('ingredientsAdd', JSON.stringify({
-        ingredientsAdd : ingredientsAdd,
+        ingredientsAdd: ingredientsAdd,
       }));
       formData.append('picture', document.getElementById('fileUpload').files[0]);
       axios({
@@ -55,7 +55,7 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
         // const { data: user } = response;
         // j'enregistre mon token sur l'instance d'axios
         // axiosInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
-        return next(action), window.location = '/mon-compte/mes-recettes';
+        return next(action), window.location = '/';
       })
         .catch((error) => {
           console.log(error);
