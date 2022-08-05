@@ -26,7 +26,7 @@ function Comments() {
       {comments.map((item) => (
         <>
           <ul className="one-recipe-comments-ul">
-            <li><img className="one-recipe-img-user" src="http://adrienpinilla-server.eddi.cloud/omiam/sources/images/user/default/user.jpg" alt="-avatar" /></li>
+            <li><img className="one-recipe-img-user" src={item.user.avatar} alt="-avatar" /></li>
             <li><p className="one-recipe-comments-speudo">{item.user.pseudo}</p></li>
 
           </ul>
