@@ -4,12 +4,16 @@
   padding: 5%;
   }
   
-.title {
+.titleh2 {
   
-  line-height: 3 ;
+  line-height: 2;
   font-size: 30px;;
 }
 
 .titleh1 {
-line-height: 3;
+line-height: 1;
+}
+@media screen and (max-width: 320px) {
+  .titleh1 {
+  font-size: 4rem !important;}
 }
