@@ -24,6 +24,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-difficulty-1:before {
+  content: "\e999";
+}
+.icon-difficulty-3:before {
+  content: "\e998";
+}
+.icon-difficulty-2:before {
+  content: "\e997";
+}
 .icon-bottle:before {
   content: "\e900";
 }
@@ -186,10 +195,10 @@
 .icon-lock:before {
   content: "\e938";
 }
-.icon-dish:before {
+.icon-entrance:before {
   content: "\e939";
 }
-.icon-entrance:before {
+.icon-dish:before {
   content: "\e93a";
 }
 .icon-cup-coffee:before {

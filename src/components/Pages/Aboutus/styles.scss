@@ -5,8 +5,23 @@
   flex-wrap: wrap;
   justify-content: center;
   height: 100%;
-  
+  margin: 13rem 0;
   &-caption-title {
   font-weight: 900;
   }
+}
+img.card-img .aboutus {
+  width: 12em;
+  height: 12em;
+}
+.card-aboutUs {
+  width: 20%;
+  border-left: 0.1rem solid #2a2a2a;
+  padding: 0 1rem;
+}
+.list-social ul{
+  display: flex;
+    justify-content: space-around;
+    margin: 1rem 0;
+    font-size: 2rem;
 }
