@@ -9,6 +9,7 @@ import Spinner from '../../Spinner';
 import './styles.scss';
 import { fetchRecipesFull } from '../../../action/recipes';
 
+
 function Home() {
   const dispatch = useDispatch();
   const valueSearch = useSelector((state) => state.homePage.form.search);
@@ -39,9 +40,10 @@ function Home() {
   });
   // const recipesSliceEffect = () => recipesFilter.slice(0, 6);
   const recipesSlice = recipesFilter.slice(0, 6);
-  console.log(recipesSlice);
+  // console.log(Illustration);
   return (
     <>
+      <div className="illustration" />
       {/* Title Page */}
       <h1 className="title-home">
         <i className="icon-miam title-home-logo" />'miam
