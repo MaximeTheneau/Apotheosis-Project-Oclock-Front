@@ -35,7 +35,7 @@ function MyRecipes() {
                     <ul className="my-recipes-display">
                       <li><h2 className="my-recipes-card-title">{item.title}</h2></li>
                       <li><i className={item.category.iconName} />{item.category.name}</li>
-                      <li><i className="icon-kitchen-hat" />difficulté : {item.difficulty}</li>
+                      <li><i className={`icon-difficulty-${item.difficulty}`} /></li>
                       <li>
                         <span>
                           <i className="icon-miam" /> {item.nbMiams}
