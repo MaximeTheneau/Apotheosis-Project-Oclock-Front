@@ -47,7 +47,8 @@ function Comments() {
             value={valueComment}
             onChange={handleChangeComment}
           />
-          <button className="one-recipe-comment-send-button" type="submit">
+          <button className="send-button" type="submit">
+            <span className="send-button-submit">Envoyer</span>
             <i className="icon-oven" />
           </button>
         </form>

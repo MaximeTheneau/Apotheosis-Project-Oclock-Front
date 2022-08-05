@@ -236,7 +236,7 @@ function CreatedRecipe() {
                     <Quantity onChange={(evt) => dispatch(unitAddAction(evt.target.value, 'unit0'))} />
                   </div>
                 ) : (
-                  <span onClick={() => dispatch(toggleCreatedIngredients())}>
+                  <span className="ingredient-created-button" onClick={() => dispatch(toggleCreatedIngredients())}>
                     Ajouter un ingrédient
                   </span>
                 )}
@@ -354,8 +354,10 @@ function CreatedRecipe() {
                 ) : '' }
 
               </div>
-
-              <button type="submit">Envoyer <i className="icon-oven-open" /></button>
+              <button className="send-button" type="submit">
+                <span className="send-button-submit">Envoyer</span>
+                <i className="icon-oven" />
+              </button>
             </div>
           </div>
         </form>

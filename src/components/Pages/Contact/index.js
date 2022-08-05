@@ -76,6 +76,7 @@ function Contact() {
           />
         </div>
         <button className="send-button" type="submit">
+          <span className="send-button-submit">Envoyer</span>
           <i className="icon-oven" />
         </button>
       </form>

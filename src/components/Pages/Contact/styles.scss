@@ -29,19 +29,7 @@ textarea{
 textarea:focus-visible {
   outline: none;
 }
-.send-button {
-  font-size: 5rem;
-  background: vars.$white;
-  padding: 0.5rem;
-  border: none;
-  color: vars.$blue-omiam;
-  cursor: pointer;
-  margin: 1rem;
 
-  &:hover .icon-oven:before {
-    content: "\e904";
-  }
-}
 input[type="text"], textarea, input[type="email"], .send-button {
   border-radius: vars.$raduis-img;
 }
