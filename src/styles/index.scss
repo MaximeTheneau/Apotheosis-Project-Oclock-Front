@@ -37,18 +37,27 @@ input[type="text"], select, input.ingredients-type, .createdRecipe input[type=nu
 
 }
 input[type="file"] {
-  font-family: 'font-main';
+  // font-family: 'font-main';
   background-color: #fff;
   border-radius: 0.3rem;
   border: 0.5px solid vars.$grey-omiam;
   padding: 0.5rem;
 }
 input[type="email"] {
-  font-family: 'font-main';
+  // font-family: 'font-main';
   background-color: #fff;
   border-radius: 0.3rem;
   border: 0.5px solid vars.$grey-omiam;
   padding: 0.5rem;
+}
+
+textarea {
+  // font-family: 'font-main';
+  background-color: #fff;
+  border-radius: 0.3rem;
+  border: 0.5px solid vars.$grey-omiam;
+  padding: 0.5rem;
+  font-size: 1em !important;
 }
 
 select{

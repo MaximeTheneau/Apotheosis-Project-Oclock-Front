@@ -27,8 +27,8 @@ function Recipe() {
   const handleSubmit = (evt) => {
     
     // const isMiam = usersIdMiamed.includes(userIdConnected);
-    dispatch(submitUsersIdMiams(evt));
-    // evt.preventDefault();
+    dispatch(submitUsersIdMiams());
+    evt.preventDefault();
   };
   return (
     <div className="one-recipe">
