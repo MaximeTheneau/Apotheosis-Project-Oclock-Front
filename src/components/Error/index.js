@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+import Recipe from '../Recipe';
 import './styles.scss';
 
 function Error() {
@@ -5,46 +7,91 @@ function Error() {
     <>
       <div className="animation">
         <i className=" icon-stainer" />
-        <i className="icon-rolls" />
+        <i className="icon-rolling-pin" />
         <i className="icon-ladle" />
         <i className="icon-whisk" />
         <i className="icon-glass" />
         <i className="icon-bottle" />
         <i className="icon-fork" />
-        <i className="icon-teapot" />
-
-        <i className="icon-chicken" />
+        <i className="icon-tea-pot" />
+        <i className="icon-chicken-leg" />
         <i className="icon-pan" />
         <i className="icon-spatula" />
+        <i className="icon-difficulty-1" />
+        <i className="icon-difficulty-2" />
+        <i className="icon-oven" />
+        <i className="icon-sandblasted" />
+        <i className="icon-miam" />
+        <i className="icon-timer" />
+        <i className="icon-radish" />
+        <i className="icon-cakes" />
+        <i className="icon-entrance" />
+        <i className="icon-cup-coffee" />
+        <i className="icon-cup" />
+
+
       </div>
-      <h1 className="one-recipe-title">404</h1>
-      <div className="one-recipe">
-        <div className="one-recipe-header">
-        </div>
-        <div className="one-recipe-img-404">
-          <i className="icon-coffee-maker fs-2" />
-        </div>
-        <div className="one-recipe-timer">
-          <ul className="one-recipe-timer-ul">
-            <li><i className="icon-timer" /><span>5 min</span></li>
-            <li><i className="icon-kitchen-hat" /></li>
-            <li><p className="one-recipe-caption"></p></li>
-          </ul>
-        </div>
-        <div className="one-recipe-ingredient">
-        <h2 className="one-recipe-ingredient-title">Ingrédients</h2>
-          <ul className="one-recipe-ingredient-list">
-            <li></li>
-            <li ></li>
-          </ul>
-        </div>
-        <div className="one-recipe-steps">
-          <ul className="one-recipe-steps-ul">
+      <Recipe />
+      <div className="one-recipe one-recipe-404">
+        <div>
+          <div className="one-recipe-header">
+            <h1 className="one-recipe-title">404 bien cuite</h1>
+            <div className="one-recipe-miams">
+              <div>
+                <i className="icon-dish" />
+              </div>
+              <div>
+                <button type="submit" className="one-recipe-miams-form">
+                  <span className="one-recipe-miams-label">23</span>
+                  <i className="icon-miam" />
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="one-recipe-img">
+            <img
+              src="http://adrienpinilla-server.eddi.cloud/omiam/sources/images/recipe/defaults/dish.jpg"
+              alt="404 plats"
+              className="one-recipe-img"
+            />
+          </div>
+          <div className="one-recipe-timer">
+            <ul className="one-recipe-timer-ul">
+              <li><i className="icon-timer p-1" /><span>0.10 min</span></li>
+              <li><i className="icon-difficulty-3" /></li>
+            </ul>
+            <p className="one-recipe-caption">Recette préférer de ma grand mères</p>
+          </div>
+          <div className="one-recipe-ingredient">
+            <h2 className="one-recipe-ingredient-title">Ingrédients pour 4 personnes</h2>
+            <ul className="one-recipe-ingredient-list">
+              <li className="ingredient">
+                <p className="ingredient-text">1 C.s de connexion</p>
+              </li>
+              <li className="ingredient">
+                <p className="ingredient-text">2 Qte de cable</p>
+              </li>
+              <li className="ingredient">
+                <p className="ingredient-text">1 Qte d'ordi </p>
+              </li>
+            </ul>
+          </div>
+          <div className="one-recipe-steps">
+            <ul className="one-recipe-steps-ul">
               <li>
                 <h2 className="one-recipe-steps-title">Etape 1</h2>
-                <p className="one-recipe-steps-etape">1l de connexion</p>
+                <p className="one-recipe-steps-etape">Branchez votre ordi et verifié votre connexion</p>
               </li>
-          </ul>
+              <li>
+                <h2 className="one-recipe-steps-title">Etape 2</h2>
+                <p className="one-recipe-steps-etape bold">
+                  <Link to="/">
+                    Cliquez ici, pour revenir à l'accueil.
+                  </Link>
+                </p>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </>
