@@ -31,7 +31,6 @@ function Error() {
 
 
       </div>
-      <Recipe />
       <div className="one-recipe one-recipe-404">
         <div>
           <div className="one-recipe-header">
@@ -92,6 +91,40 @@ function Error() {
               </li>
             </ul>
           </div>
+        </div>
+      </div>
+      <div className="one-recipe-comments">
+        <h2 className="one-recipe-comments-title">Commentaires</h2>
+        <div>
+          <ul className="one-recipe-comments-ul">
+            <li><img className="one-recipe-img-user" src="http://adrienpinilla-server.eddi.cloud/omiam/sources/images/user/avatar_14.jpg" alt="-avatar" /></li>
+            <li><p className="one-recipe-comments-speudo">Maxime O'Chefs</p></li>
+
+          </ul>
+          <p className="one-recipe-comments-content">Manque un peu de sel!</p>
+          <ul className="one-recipe-comments-ul">
+            <li><img className="one-recipe-img-user" src="http://adrienpinilla-server.eddi.cloud/omiam/sources/images/user/default/user.jpg" alt="-avatar" /></li>
+            <li><p className="one-recipe-comments-speudo">Henry</p></li>
+
+          </ul>
+          <p className="one-recipe-comments-content">Un peu technique à réaliser, amateur s'abtenir :)</p>
+        </div>
+        <div className="one-recipe-comment">
+          <h2 className="one-recipe-comment-title">Laissez un commentaire</h2>
+          <form
+            className="one-recipe-form"
+          >
+            <textarea
+              className="one-recipe-comment-textarea"
+              type="text"
+              rows="4"
+              placeholder="Commentaire"
+            />
+            <button className="send-button" type="submit">
+              <span className="send-button-submit">Envoyer</span>
+              <i className="icon-oven" />
+            </button>
+          </form>
         </div>
       </div>
     </>
