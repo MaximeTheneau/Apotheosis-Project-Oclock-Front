@@ -55,7 +55,6 @@ function Register() {
             value={pseudo}
             required
             className="registration-input"
-            size="28"
             onChange={handlePseudoChange}
             name="pseudo"
             //pattern="/^[A-Za-z0-9]{3,16}$/"
@@ -75,7 +74,6 @@ function Register() {
             value={email}
             required
             className="registration-input"
-            size="28"
             onChange={handleEmailChange}
             name="email"
             //pattern="/\S+@\S+\.\S+/"
@@ -95,7 +93,6 @@ function Register() {
             value={password}
             required
             className="registration-input"
-            size="28"
             onChange={handlePasswordChange}
             name="password"
             //pattern="/^[A-Za-z0-9!@#$%]{8,24}$/"
@@ -115,7 +112,6 @@ function Register() {
             value={confirmedPassword}
             required
             className="registration-input"
-            size="28"
             onChange={handleconfirmedPasswordChange}
             name="confirmedpassword"
             //pattern={password}
