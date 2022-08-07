@@ -35,6 +35,7 @@ function Error() {
         <div>
           <div className="one-recipe-header">
             <h1 className="one-recipe-title">404 bien cuite</h1>
+            <h2 className="one-recipe-author-title"> de Mamie</h2>
             <div className="one-recipe-miams">
               <div>
                 <i className="icon-dish" />

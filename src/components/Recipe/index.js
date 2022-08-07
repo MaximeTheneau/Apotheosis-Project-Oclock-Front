@@ -37,6 +37,10 @@ function Recipe() {
           <div>
             <div className="one-recipe-header">
               <h1 className="one-recipe-title">{item.title}</h1>
+              <div className="one-recipe-author">
+{/*                <img className="one-recipe-img-user" src={item.user.avatar} alt="-avatar" />*/}
+                <h2 className="one-recipe-author-title"> de {item.user.pseudo}</h2>
+              </div>
               <div className="one-recipe-miams">
                 <div>
                   <i className={item.category.iconName} />

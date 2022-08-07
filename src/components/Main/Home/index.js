@@ -54,7 +54,7 @@ function Home() {
       <div className="cards-home">
         {/* Cards Search */}
         { (!toogleSpinner) && <Spinner />}
-        { (toogleSpinner) && ( toogleValue ? (
+        { (toogleSpinner) && (toogleValue ? (
           <div className="cards-type">
             <h2 className="cards-recipe">Ma Recherche</h2>
             <div className="cards-list-type">
