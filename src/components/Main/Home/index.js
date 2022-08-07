@@ -51,10 +51,10 @@ function Home() {
 
       <SearchForm />
 
-      { !toogleSpinner && <Spinner />}
       <div className="cards-home">
         {/* Cards Search */}
-        { toogleValue ? (
+        { (!toogleSpinner) && <Spinner />}
+        { (toogleSpinner) && (toogleValue ? (
           <div className="cards-type">
             <h2 className="cards-recipe">Ma Recherche</h2>
             <div className="cards-list-type">
@@ -84,7 +84,8 @@ function Home() {
               )) }
             </div>
           </div>
-        ) : '' }
+        ) : '' )}
+
 
         {/* Cards Miam */}
         <div className="cards">

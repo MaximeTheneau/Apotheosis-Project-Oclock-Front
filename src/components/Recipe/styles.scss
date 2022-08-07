@@ -115,6 +115,10 @@ ul.one-recipe-ingredient-list {
   display: flex;
   border-bottom: 0.1rem solid;
 }
+.one-recipe-author{
+  display: contents;
+}
+
 
 // Responsive 720 px
 @media screen and (min-width: 720px){
