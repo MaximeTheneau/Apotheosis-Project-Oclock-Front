@@ -113,7 +113,8 @@ h2.cards-recipe {
     width: 50%;
     height: 8rem;
     top: 0rem;
-    right:  -10%;
+    right:  0;
+    z-index: -1;
   }
 }
 // Responsive 1020 px

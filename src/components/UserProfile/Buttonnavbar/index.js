@@ -21,7 +21,7 @@ function Buttonnavbar() {
              }
         >
           <i className="icon-miam icon-miam-profile" />
-          <h2 className="profile-title">Carnet de Miams</h2>
+          <h2 className="profile-title">Carnet de Miam's</h2>
         </NavLink>
         <NavLink
           to="/mon-compte/mes-chefs"

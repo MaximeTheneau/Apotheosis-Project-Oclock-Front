@@ -29,7 +29,7 @@ function Sidebar() {
           </Link>
         </li>
         <li className="sidebar-item">
-          <Link to="/recettes-aleatoires" className="menu-links">
+          <Link to="/recettes-aleatoires" className="menu-links" onClick={() => handleClose()}>
             Recettes aléatoires
           </Link>
         </li>
