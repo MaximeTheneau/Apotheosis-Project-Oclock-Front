@@ -4,7 +4,7 @@ import './styles.scss';
 function MiamsRecipes() {
   return (
     <div className="miams-recipes">
-      <h1 className="miams-recipes-title">Les recettes Miam</h1>
+      <h1 className="miams-recipes-title">Les meilleurs Miam's</h1>
       <Construction />
     </div>
   );

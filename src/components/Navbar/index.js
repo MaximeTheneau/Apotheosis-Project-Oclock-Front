@@ -37,7 +37,7 @@ function Navbar() {
               ({ isActive }) => (isActive ? 'navbar-wrapper-item--active' : 'navbar-wrapper-item')
               }
           >
-            Les recettes Miam
+            Les meilleurs Miam's
           </NavLink>
           <NavLink
             to="/dernieres-recettes"

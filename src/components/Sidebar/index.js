@@ -15,7 +15,7 @@ function Sidebar() {
       <ul className="sidebar-links">
         <li className="sidebar-item">
           <Link to="/miam" className="navbar-links" onClick={() => handleClose()}>
-            Les recettes Miam
+            Les meilleurs Miam's
           </Link>
         </li>
         <li className="sidebar-item">

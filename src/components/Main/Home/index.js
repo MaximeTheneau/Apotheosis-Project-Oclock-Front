@@ -89,7 +89,7 @@ function Home() {
 
         {/* Cards Miam */}
         <div className="cards">
-          <h2 className="cards-recipe">Dernières Miam's</h2>
+          <h2 className="cards-recipe">Les meilleurs Miam's</h2>
           <div className="cards-list">
 
             {/* Card */}
