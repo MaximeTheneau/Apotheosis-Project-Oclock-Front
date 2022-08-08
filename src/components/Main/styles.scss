@@ -71,6 +71,14 @@ h2.cards-recipe {
     }
 }
 
+.title-home{
+  position: relative;
+}
+.title-home::after{
+  content: "";
+  background: none;
+}
+
 // Responsive 720 px
 @media screen and (min-width: 720px){
   h2{
@@ -95,6 +103,18 @@ h2.cards-recipe {
   .card{
     width: 14rem;
     }
+  .title-home{
+    position: relative;
+  }
+  .title-home::after{
+    content: "";
+    background: url('../../assets/img/loupe.svg') no-repeat center 50%;
+    position: absolute;
+    width: 50%;
+    height: 8rem;
+    top: 0rem;
+    right:  -10%;
+  }
 }
 // Responsive 1020 px
 @media screen and (min-width: 1020px){
@@ -124,6 +144,11 @@ h2.cards-recipe {
               height: 20rem
             }
     }
+}
+.title-home::after{
+  content: "";
+  background-size: 50% !important;
+  height: 17rem;
 }
 
 }

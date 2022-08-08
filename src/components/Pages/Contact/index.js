@@ -33,7 +33,7 @@ function Contact() {
   });
   return (
     <div className="contact">
-      <h1>Contactez-nous</h1>
+      <h1 className="contact-title">Contactez-nous</h1>
       <p>Une remarque ? Une suggestion ? N'hesitez-pas à nous écrire.</p>
 
       <form className="form-general" onSubmit={handleSubmit}>

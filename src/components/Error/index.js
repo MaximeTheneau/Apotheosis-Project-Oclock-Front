@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import Recipe from '../Recipe';
 import './styles.scss';
 
 function Error() {
@@ -50,7 +49,7 @@ function Error() {
           </div>
           <div className="one-recipe-img">
             <img
-              src="http://adrienpinilla-server.eddi.cloud/omiam/sources/images/recipe/defaults/dish.jpg"
+              src="http://adrienpinilla-server.eddi.cloud/omiam/sources/images/recipe/recipe_143.jpg"
               alt="404 plats"
               className="one-recipe-img"
             />
