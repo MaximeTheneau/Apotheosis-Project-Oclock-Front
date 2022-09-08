@@ -1,12 +1,21 @@
-# Une Taupe Chez Vous Website
+# Apotheosis project Oclock Front
 
- [Demo](https://unetaupechezvous.fr/)
+Projet réaliser lors de l'apothéose durant la formation chez [O'Clock](https://oclock.io/)
 
-Site web vitrine réaliser en "Mobile-First" avec React.Js.
+### Fonctionnalités du Projet
 
-Les images sont aux formats SVG et WEBP.
+- Création d’un utilisateur
+- Edition du compte Utilisateur
+- Connexion d’un utilisateur
+- Liste des recettes de l'utilisateur
+- Ajout d’un commentaire à une recette
+- Recherche simple d'une recette
+- Recherche par catégories
+- Contact via un formulaire
+- Page d’erreur (404)
+- Miamer* une recette
 
-SEO optimisé.
+*Miamer : similaire aux favoris
 
 ## Pour commencer
 
@@ -31,10 +40,6 @@ Builder le projet
 
     $ yarn build
 
-Dupliquer le dossier d'exemple "Contact-Example" (./src/components/UneTaupeChezVous/Page/Contact-Example) remplacer le nom du dossier par "Contact" et changer les valeurs "service_{ID_SERVICE}", "template_{TEMPLATE_SERVICE}" et "{KEY_PUBLIC}" par vos identifiants.
-
-https://dashboard.emailjs.com
-
 
 ### Langages utilisés 
 
@@ -42,15 +47,17 @@ https://dashboard.emailjs.com
 - [React-Router](https://reactrouter.com/en/main)
 - [react-meta-tag](https://www.npmjs.com/package/react-meta-tags)
 - [React-Redux](https://react-redux.js.org/)
-- [Email.js](https://www.emailjs.com/)
-- [SVGR](https://react-svgr.com/)
-- [image-webpack-loader](https://react-svgr.com/)
+- [Axios](https://axios-http.com/)
 
-### Wireframe
-
-![Wireframe Une Taupe Chez Vous](/docs/images/wireframe.jpg "Wireframe Une Taupe Chez Vous")
-
-## Auteur
+## Auteurs
 
 * **Theneau Maxime** _alias_ [@MaximeTheneau](https://github.com/MaximeTheneau)
 
+
+* **Loïc Maurin** _alias_ [@LoicMaurin](https://github.com/LoicMAURIN)
+
+* **Pauline Thomelin** _alias_ [@paulinethomelin ](https://github.com/paulinethomelin)
+
+* **Nathalie Tournon** _alias_ [@NathalieTournon ](https://github.com/NathalieTournon)
+
+* **Adrien Pinilla** _alias_ [@AdrienPinilla ](https://github.com/AdrienPinilla)
