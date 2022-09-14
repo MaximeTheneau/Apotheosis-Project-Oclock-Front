@@ -13,7 +13,7 @@ import {
 
 const axiosInstance = axios.create({
   // par exemple, on peut définir une url de base !
-  baseURL: 'http://adrienpinilla-server.eddi.cloud/omiam/current/public/api',
+  baseURL: 'http://localhost:8000/api/',
 });
 
 const userMiddleware = (store) => (next) => (action) => {
@@ -99,7 +99,7 @@ const userMiddleware = (store) => (next) => (action) => {
 
       axios({
         method: 'post',
-        url: 'http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/users',
+        url: 'http://localhost:8000/api/users',
         data: formData,
         headers: {
           'Content-Type': 'multipart/form-data',

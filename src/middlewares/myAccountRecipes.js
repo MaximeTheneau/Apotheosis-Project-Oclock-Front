@@ -7,7 +7,7 @@ import {
 } from '../action/myAccountRecipes';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/',
+  baseURL: 'http://localhost:8000/api/',
 });
 
 const myAccountRecipes = (store) => (next) => (action) => {

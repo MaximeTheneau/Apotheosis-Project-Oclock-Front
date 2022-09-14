@@ -43,7 +43,7 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
       formData.append('picture', document.getElementById('fileUpload').files[0]);
       axios({
         method: 'post',
-        url: 'http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes',
+        url: 'http://localhost:8000/api/recipes',
         data: formData,
         headers: {
           'Content-Type': 'multipart/form-data',
@@ -65,7 +65,7 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
       return next(action);
     }
     case FETCH_ACTION: {
-      axios.get('http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/ingredients')
+      axios.get('http://localhost:8000/api/ingredients')
         .then(
           (response) => {
             console.log(response);
