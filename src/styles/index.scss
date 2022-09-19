@@ -29,7 +29,7 @@ h2{
   }
   
 }
-input[type="text"], select, input.ingredients-type, .createdRecipe input[type=number] {
+input[type="text"], select, input.ingredients-type, .createdRecipe input[type=number], input#pseudo  {
   //width: 90%;
   border-radius: vars.$raduis-img;
   border: 0.5px solid vars.$grey-omiam;

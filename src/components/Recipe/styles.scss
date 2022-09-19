@@ -119,18 +119,6 @@ ul.one-recipe-ingredient-list {
   display: contents;
 }
 
-.one-recipe-comments-title{
-  position: relative;
-}
-.one-recipe-comments-title::after{
-  content: "";
-  background: url('../../assets/img/commentaire.svg') no-repeat center 50%;
-  position: absolute;
-  width: 50%;
-  height: 8rem;
-  top: 0rem;
-  left: -50%;
-}
 // Responsive 720 px
 @media screen and (min-width: 720px){
 }

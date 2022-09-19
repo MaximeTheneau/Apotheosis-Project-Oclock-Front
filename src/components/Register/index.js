@@ -42,10 +42,10 @@ function Register() {
       method="POST"
       encytpe="ENCTYPE_HERE"
     >
-      <div className="registration-field">
+      <div className="createdRecipe-label">
         <label
+          className="label-title"
           htmlFor="pseudo"
-          className="registration-label"
         >
           Pseudo *
           <input
@@ -54,50 +54,45 @@ function Register() {
             id="pseudo"
             value={pseudo}
             required
-            className="registration-input"
             onChange={handlePseudoChange}
             name="pseudo"
-            //pattern="/^[A-Za-z0-9]{3,16}$/"
           />
         </label>
       </div>
-      <div className="registration-field">
-        <label
+      <div className="createdRecipe-label">
+        <span
           htmlFor="email"
-          className="registration-label"
+          className="label-title"
         >
           Email *
-          <input
-            placeholder="email@omiam.com"
-            type="email"
-            id="email"
-            value={email}
-            required
-            className="registration-input"
-            onChange={handleEmailChange}
-            name="email"
-            //pattern="/\S+@\S+\.\S+/"
-          />
-        </label>
+        </span>
+        <input
+          placeholder="email@omiam.com"
+          type="email"
+          id="email"
+          value={email}
+          required
+          onChange={handleEmailChange}
+          name="email"
+          //pattern="/\S+@\S+\.\S+/"
+        />
       </div>
-      <div className="registration-field">
-        <label
-          htmlFor="password"
-          className="registration-label"
+      <div className="createdRecipe-label">
+        <span
+          className="label-title"
         >
           Mot de passe *
-          <input
-            placeholder="*****"
-            type="password"
-            id="password"
-            value={password}
-            required
-            className="registration-input"
-            onChange={handlePasswordChange}
-            name="password"
-            //pattern="/^[A-Za-z0-9!@#$%]{8,24}$/"
-          />
-        </label>
+        </span>
+        <input
+          placeholder="*****"
+          type="password"
+          id="password"
+          value={password}
+          required
+          onChange={handlePasswordChange}
+          name="password"
+          //pattern="/^[A-Za-z0-9!@#$%]{8,24}$/"
+        />
       </div>
       <div className="createdRecipe-label">
         <span className="label-title">Votre image</span>
@@ -106,10 +101,10 @@ function Register() {
           id="fileUploadUser"
         />
       </div>
-      <div className="registration-field">
+      <div className="createdRecipe-label">
         <label
           htmlFor="confirmedpassword"
-          className="registration-label"
+          className="label-title"
         >
           Confirmation du mot de passe *
           <input
@@ -118,7 +113,7 @@ function Register() {
             id="confirmedpassword"
             value={confirmedPassword}
             required
-            className="registration-input"
+            
             onChange={handleconfirmedPasswordChange}
             name="confirmedpassword"
             //pattern={password}

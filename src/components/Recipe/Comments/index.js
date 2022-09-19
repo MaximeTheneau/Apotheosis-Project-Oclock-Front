@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchRecipe, commentAction, commentCreated } from '../../../action/oneRecipe';
+import imgSvg from '../../../assets/img/commentaire.svg';
 import './styles.scss';
 
 function Comments() {
@@ -23,6 +24,7 @@ function Comments() {
   return (
     <div className="one-recipe-comments">
       <h2 className="one-recipe-comments-title">Commentaires</h2>
+      <img src={imgSvg} alt="Illustration" className="illustration" />
       {comments.map((item) => (
         <>
           <ul className="one-recipe-comments-ul">

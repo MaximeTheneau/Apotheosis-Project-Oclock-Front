@@ -2,6 +2,12 @@
 
 Projet réaliser lors de l'apothéose durant la formation chez [O'Clock](https://oclock.io/)
 
+Déjà retrouvé à dînez chez des amis et leurs lasagnes sont tout simplement délicieuses ?!?
+
+Avec O’Miam le réseau social des recettes de cuisine, retrouverez facilement la recettes de vos amis !!!
+
+[Demo](https://oclock.io/)
+
 ### Fonctionnalités du Projet
 
 - Création d’un utilisateur

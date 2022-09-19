@@ -5,6 +5,7 @@ import {
   topicAction,
   messageAction,
 } from '../../../action/contact';
+import imgSvg from '../../../assets/img/message.svg';
 import './styles.scss';
 
 function Contact() {
@@ -34,8 +35,8 @@ function Contact() {
   return (
     <div className="contact">
       <h1 className="contact-title">Contactez-nous</h1>
+      <img src={imgSvg} alt="Illustration Conctact" className="illustration" />
       <p>Une remarque ? Une suggestion ? N'hesitez-pas à nous écrire.</p>
-
       <form className="form-general" onSubmit={handleSubmit}>
 
         <div className="label">

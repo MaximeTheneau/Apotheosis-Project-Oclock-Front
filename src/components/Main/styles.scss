@@ -103,19 +103,6 @@ h2.cards-recipe {
   .card{
     width: 14rem;
     }
-  .title-home{
-    position: relative;
-  }
-  .title-home::after{
-    content: "";
-    background: url('../../assets/img/loupe.svg') no-repeat center 50%;
-    position: absolute;
-    width: 50%;
-    height: 8rem;
-    top: 0rem;
-    right:  0;
-    z-index: -1;
-  }
 }
 // Responsive 1020 px
 @media screen and (min-width: 1020px){

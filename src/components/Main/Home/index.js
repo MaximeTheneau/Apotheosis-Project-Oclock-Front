@@ -8,7 +8,7 @@ import SearchForm from '../Search/searchForm';
 import Spinner from '../../Spinner';
 import './styles.scss';
 import { fetchRecipesFull } from '../../../action/recipes';
-
+import imgTitle from '../../../assets/img/loupe.svg'
 
 function Home() {
   const dispatch = useDispatch();
@@ -48,7 +48,7 @@ function Home() {
       <h1 className="title-home">
         <i className="icon-miam title-home-logo" />'miam
       </h1>
-
+      <img src={imgTitle} alt="Illustraion loupe" className="illustration" />
       <SearchForm />
 
       <div className="cards-home">
