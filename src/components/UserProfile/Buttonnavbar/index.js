@@ -15,13 +15,13 @@ function Buttonnavbar() {
           <h2 className="profile-title">Mes recettes</h2>
         </NavLink>
         <NavLink
-          to="/mon-compte/mes-chefs"
+          to="/mon-compte/mes-miams"
           className={
           ({ isActive }) => (isActive ? 'profile-items--active' : 'profile-items')
            }
         >
           <i className="icon-cook icon-cook-profile" />
-          <h2 className="profile-title">Mes Chefs</h2>
+          <h2 className="profile-title">Mes Miam's</h2>
         </NavLink>
       </nav>
     </div>

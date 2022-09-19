@@ -84,8 +84,7 @@ function Home() {
               )) }
             </div>
           </div>
-        ) : '' )}
-
+        ) : '')}
 
         {/* Cards Miam */}
         <div className="cards">

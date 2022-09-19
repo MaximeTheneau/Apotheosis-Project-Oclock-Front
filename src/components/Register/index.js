@@ -99,6 +99,13 @@ function Register() {
           />
         </label>
       </div>
+      <div className="createdRecipe-label">
+        <span className="label-title">Votre image</span>
+        <input
+          type="file"
+          id="fileUploadUser"
+        />
+      </div>
       <div className="registration-field">
         <label
           htmlFor="confirmedpassword"

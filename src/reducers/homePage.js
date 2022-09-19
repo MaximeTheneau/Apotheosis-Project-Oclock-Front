@@ -19,7 +19,7 @@ export const initialState = {
     search: '',
   },
   addCards: false,
-  toggleSpinner: true,
+  toggleSpinner: false,
   categoryId: null,
   categoryRecipes: [],
   categoryTitle: '',
@@ -60,7 +60,7 @@ const reducer = (state = initialState, action = {}) => {
     case TOGGLE_SPINNER:
       return {
         ...state,
-        toggleSpinner: !state.toggleSpinner,
+        toggleSpinner: action.value,
       };
     case SAVE_CATEGORY_ID:
       return {

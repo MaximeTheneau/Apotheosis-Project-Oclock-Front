@@ -9,6 +9,7 @@ import IngredientList from './IngredientList';
 import Quantity from './Quantity';
 import './styles.scss';
 import Unit from './Unit';
+import illustrationSvg from '../../assets/img/illustration-kitchen.svg';
 
 function CreatedRecipe() {
   const dispatch = useDispatch();
@@ -70,10 +71,10 @@ function CreatedRecipe() {
     [],
   );
   return (
-    <>
-      <div className="illustration" />
+
       <div className="createdRecipe">
         <h1>Créer une recette</h1>
+        <img src={illustrationSvg} className="illustration" alt="illustration création recette" />
         <form onSubmit={handleSumbit} action="/path/to/api" method="POST" encytpe="ENCTYPE_HERE">
           <div className="createdRecipe-label">
             <span className="label-title">Titre de la recette</span>
@@ -362,7 +363,6 @@ function CreatedRecipe() {
           </div>
         </form>
       </div>
-    </>
   );
 }
 

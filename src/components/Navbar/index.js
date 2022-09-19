@@ -58,6 +58,10 @@ function Navbar() {
               >
                 Déconnexion
               </NavLink>
+              <Link to="/mon-compte" className="user-info">
+                <img src={avatar} alt="user profile" className="user-info-avatar" />
+                <span className="user-info-pseudo">{pseudo} </span>
+              </Link>
               <i className="icon-bars" onClick={() => handleClick()} />
             </div>
           </>

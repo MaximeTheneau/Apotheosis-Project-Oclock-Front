@@ -93,9 +93,8 @@ const userMiddleware = (store) => (next) => (action) => {
         password: password,
       }));
 
-      formData.append('picture', null);
       console.log(formData);
-
+      formData.append('picture', document.getElementById('fileUploadUser').files[0]);
       axios({
         method: 'post',
         url: 'https://back-omiam.unetaupechezvous.fr/public/api/users',
