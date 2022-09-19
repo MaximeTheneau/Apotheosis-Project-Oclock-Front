@@ -6,7 +6,7 @@ Déjà retrouvé à dînez chez des amis et leurs lasagnes sont tout simplement 
 
 Avec O’Miam le réseau social des recettes de cuisine, retrouverez facilement la recettes de vos amis !!!
 
-[Demo](https://oclock.io/)
+[Demo](https://maximetheneau.github.io/Apotheosis-Project-Oclock-Front/)
 
 ### Fonctionnalités du Projet
 
