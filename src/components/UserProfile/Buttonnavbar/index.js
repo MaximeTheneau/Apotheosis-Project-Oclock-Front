@@ -15,15 +15,6 @@ function Buttonnavbar() {
           <h2 className="profile-title">Mes recettes</h2>
         </NavLink>
         <NavLink
-          to="/mon-compte/mes-miams/"
-          className={
-            ({ isActive }) => (isActive ? 'profile-items--active' : 'profile-items')
-             }
-        >
-          <i className="icon-miam icon-miam-profile" />
-          <h2 className="profile-title">Carnet de Miam's</h2>
-        </NavLink>
-        <NavLink
           to="/mon-compte/mes-chefs"
           className={
           ({ isActive }) => (isActive ? 'profile-items--active' : 'profile-items')

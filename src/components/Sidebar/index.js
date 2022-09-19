@@ -23,16 +23,6 @@ function Sidebar() {
             Mon Compte
           </Link>
         </li>
-        <li className="sidebar-item">
-          <Link to="/chefs" className="navbar-links" onClick={() => handleClose()}>
-            Chefs à la Une
-          </Link>
-        </li>
-        <li className="sidebar-item">
-          <Link to="/recettes-aleatoires" className="menu-links" onClick={() => handleClose()}>
-            Recettes aléatoires
-          </Link>
-        </li>
       </ul>
       <div className="sidebar-cancel">
         <i className="icon-x" onClick={() => handleClose()} />
