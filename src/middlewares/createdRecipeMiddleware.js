@@ -22,7 +22,7 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
         units,
         quantities,
       } = state.createdRecipe;
-      const { token } = state.user.settingsLogIn;
+      const { token } = localStorage;
       const formData = new FormData();
       formData.append('json', JSON.stringify({
         title: title,
