@@ -30,46 +30,29 @@ function Navbar() {
             <Logo />
           </NavLink>
         </div>
-        <ul className="navbar-wrapper-links">
+        <div className="navbar-wrapper-links">
           <NavLink
-            to="/miam"
+            to="/creer-une-recette"
             className={
               ({ isActive }) => (isActive ? 'navbar-wrapper-item--active' : 'navbar-wrapper-item')
               }
           >
-            Les meilleurs Miam's
+            Ajouter une recette
           </NavLink>
           <NavLink
-            to="/dernieres-recettes"
+            to="/mon-compte"
             className={
               ({ isActive }) => (isActive ? 'navbar-wrapper-item--active' : 'navbar-wrapper-item')
               }
           >
-            Les dernières recettes
+            Mon Compte
           </NavLink>
-          <NavLink
-            to="/chefs"
-            className={
-              ({ isActive }) => (isActive ? 'navbar-wrapper-item--active' : 'navbar-wrapper-item')
-              }
-          >
-            Chefs à la Une
-          </NavLink>
-          <NavLink
-            to="/recettes-aleatoires"
-            className={
-              ({ isActive }) => (isActive ? 'navbar-wrapper-item--active' : 'navbar-wrapper-item')
-              }
-          >
-            Recettes aléatoires
-          </NavLink>
-        </ul>
+        </div>
         <div className="desktop-connexion">
           {logs
             ? (
               <Link to="/mon-compte" className="user-info">
                 <img src={avatar} alt="user profile" className="user-info-avatar" />
-                <span className="user-info-pseudo">{pseudo} </span>
               </Link>
             )
             : (

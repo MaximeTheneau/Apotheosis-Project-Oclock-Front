@@ -14,13 +14,13 @@ function Sidebar() {
     <div className="sidebar" id={sidebar ? 'show-sidebar' : 'hide-sidebar'}>
       <ul className="sidebar-links">
         <li className="sidebar-item">
-          <Link to="/miam" className="navbar-links" onClick={() => handleClose()}>
-            Les meilleurs Miam's
+          <Link to="/creer-une-recette" className="navbar-links" onClick={() => handleClose()}>
+            Ajouter une recette
           </Link>
         </li>
         <li className="sidebar-item">
-          <Link to="/dernieres-recettes" className="navbar-links" onClick={() => handleClose()}>
-            Les dernières recettes
+          <Link to="/mon-compte" className="navbar-links" onClick={() => handleClose()}>
+            Mon Compte
           </Link>
         </li>
         <li className="sidebar-item">
