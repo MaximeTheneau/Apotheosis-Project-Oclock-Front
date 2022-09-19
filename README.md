@@ -23,37 +23,41 @@ Avec O’Miam le réseau social des recettes de cuisine, retrouverez facilement 
 
 *Miamer : similaire aux favoris
 
-## Pour commencer
-
-### Pré-requis:
+## Pré-requis:
 
 - [Node JS](https://nodejs.org/en/)
 - [Npm](https://www.npmjs.com/)
 - [Yarn](https://yarnpkg.com/)
 - [Eslint](https://eslint.org/) (optionnelle)
 
-### Installation
-
-Installer les dépendances avec "yarn" :
-
-    $ yarn 
-
-Lancer le serveur
-
-    $ yarn start
-
-Builder le projet 
-
-    $ yarn build
-
-
-### Langages utilisés 
+## Langages utilisés 
 
 - [React](https://fr.reactjs.org/)
 - [React-Router](https://reactrouter.com/en/main)
 - [react-meta-tag](https://www.npmjs.com/package/react-meta-tags)
 - [React-Redux](https://react-redux.js.org/)
 - [Axios](https://axios-http.com/)
+
+---
+
+Scripts
+-------
+
+```sh
+# Avec yarn
+yarn {script}
+
+# Avec npm
+npm run {script}
+```
+
+- `start`: Lance le serveur de développement.
+- `build`: Lance la construction de la version de production.
+- `lint`: Affiche les erreurs dans le code.
+- `lint:fix`: Tente de corriger certaines des erreurs dans le code.
+- `clean`: Supprime le dossier `dist/`.
+- `clean:all`: Supprime `dist/`, `node_modules/` et les fichiers `lock`.
+
 
 ## Auteurs
 
