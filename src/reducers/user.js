@@ -29,7 +29,6 @@ export const initialState = {
     pseudo: '', // Renvoyé par l'API
     avatar: '', // Renvoyé par l'API
     role: '',
-    token: '',
   },
   isLoginOpen: true,
   isRegistrationOpen: false,
@@ -82,7 +81,6 @@ const reducer = (state = initialState, action = {}) => {
           logs: false,
           pseudo: '',
           avatar: '',
-          token: '',
           userid: '',
           role: '',
         },
@@ -115,7 +113,6 @@ const reducer = (state = initialState, action = {}) => {
         settingsLogIn: {
           ...state.settingsLogIn,
           logs: action.logs,
-          token: action.token,
           avatar: action.avatar,
           userid: action.userid,
           role: action.role,

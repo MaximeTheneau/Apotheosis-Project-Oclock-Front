@@ -4,7 +4,7 @@ import { FETCH_RECIPES_FULL, saveRecipes } from '../action/recipes';
 const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_RECIPES_FULL: {
-      axios.get('http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes')
+      axios.get('https://back-omiam.unetaupechezvous.fr/public/api/recipes')
         .then(
           (response) => {
             // console.log(response.data.miamsRecipes);

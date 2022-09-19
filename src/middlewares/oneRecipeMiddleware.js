@@ -36,7 +36,7 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
   // console.log(idSlug);
   switch (action.type) {
     case FETCH_RECIPE: {
-      axios.get(`http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes/${idSlug}`)
+      axios.get(`https://back-omiam.unetaupechezvous.fr/public/api/recipes/${idSlug}`)
 
         .then(
           (response) => {
@@ -78,7 +78,7 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
       const recipe = state.oneRecipe.list[0];
       const headers = { Authorization: `Bearer ${token}` };
        axios.get(
-        `http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes/${idSlug}/miams`,
+        `https://back-omiam.unetaupechezvous.fr/public/omiam/current/public/api/recipes/${idSlug}/miams`,
 
         { headers },
         )
@@ -104,7 +104,7 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
       console.log(recipe.slug);
       const headers = { Authorization: `Bearer ${token}` };
       axios.post(
-        `http://adrienpinilla-server.eddi.cloud/omiam/current/public/api/recipes/${idSlug}/comments`,
+        `https://back-omiam.unetaupechezvous.fr/public/api/recipes/${idSlug}/comments`,
         { content: commentValue },
         { headers },
       )

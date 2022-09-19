@@ -8,11 +8,13 @@ import Connexion from '../Connection';
 function Header() {
   const { logs } = useSelector((state) => state.user.settingsLogIn);
 
+
+// console.log(localStorage.token, 'cookies');
   return (
     <header>
+
       {logs && <Connexion className="header-disconnection" />}
       <Navbar />
-      <Sidebar />
       {logs && (
         <div className="header-div">
           <button

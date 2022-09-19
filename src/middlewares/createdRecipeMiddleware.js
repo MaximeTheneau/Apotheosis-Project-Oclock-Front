@@ -43,7 +43,7 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
       formData.append('picture', document.getElementById('fileUpload').files[0]);
       axios({
         method: 'post',
-        url: 'http://localhost:8000/api/recipes',
+        url: 'https://back-omiam.unetaupechezvous.fr/public/api/recipes',
         data: formData,
         headers: {
           'Content-Type': 'multipart/form-data',
@@ -65,7 +65,7 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
       return next(action);
     }
     case FETCH_ACTION: {
-      axios.get('http://localhost:8000/api/ingredients')
+      axios.get('https://back-omiam.unetaupechezvous.fr/public/api/ingredients')
         .then(
           (response) => {
             console.log(response);

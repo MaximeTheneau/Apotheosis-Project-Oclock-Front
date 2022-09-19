@@ -1,5 +1,5 @@
 import './styles.scss';
-import { MdOutlineArrowDropDown, MdOutlineArrowRight } from 'react-icons/md';
+
 import { Link, NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Logo from '../Logo';
@@ -91,11 +91,6 @@ function Navbar() {
                   <Link to="/mon-compte" className="user-info">
                     <img src={avatar} alt="user profile" className="user-info-avatar" />
                     <span className="user-info-pseudo" onClick={handleClickMenu}>{pseudo}
-                      {
-                      isListOpen
-                        ? <MdOutlineArrowDropDown />
-                        : <MdOutlineArrowRight />
-                      }
                     </span>
                   </Link>
                   {
@@ -105,7 +100,7 @@ function Navbar() {
                       backofficeRights
                       && (
                       <a
-                        href=" http://adrienpinilla-server.eddi.cloud/omiam/current/public/login"
+                        href=" https://back-omiam.unetaupechezvous.fr/public/omiam/current/public/login"
                         className="dropdown-list-link"
                       >Backoffice
                       </a>

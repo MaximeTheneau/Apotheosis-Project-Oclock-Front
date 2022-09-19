@@ -3,7 +3,6 @@ import {
   LOGIN,
   LOGOUT,
   saveUser,
-  redirect,
   authError,
   REGISTER,
   resetRegistrationForm,
@@ -13,7 +12,7 @@ import {
 
 const axiosInstance = axios.create({
   // par exemple, on peut définir une url de base !
-  baseURL: 'http://localhost:8000/api/',
+  baseURL: 'https://back-omiam.unetaupechezvous.fr/public/api/',
 });
 
 const userMiddleware = (store) => (next) => (action) => {
@@ -36,7 +35,7 @@ const userMiddleware = (store) => (next) => (action) => {
           const { data: user } = response;
 
           // j'enregistre mon token sur l'instance d'axios
-          axiosInstance.defaults.headers.common.Authorization = `Bearer ${user.token}`;
+          axiosInstance.defaults.headers.common.Authorization = `Bearer ${localStorage.token}`;
 
           // On mémorise l'utilisateur dans le state
           store.dispatch(saveUser(user));
@@ -99,7 +98,7 @@ const userMiddleware = (store) => (next) => (action) => {
 
       axios({
         method: 'post',
-        url: 'http://localhost:8000/api/users',
+        url: 'https://back-omiam.unetaupechezvous.fr/public/api/users',
         data: formData,
         headers: {
           'Content-Type': 'multipart/form-data',

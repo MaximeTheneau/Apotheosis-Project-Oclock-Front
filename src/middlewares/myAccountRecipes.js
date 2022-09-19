@@ -7,13 +7,13 @@ import {
 } from '../action/myAccountRecipes';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:8000/api/',
+  baseURL: 'https://back-omiam.unetaupechezvous.fr/public/api/',
 });
 
 const myAccountRecipes = (store) => (next) => (action) => {
   const state = store.getState();
   const { userid } = state.user.settingsLogIn;
-  const { token } = state.user.settingsLogIn;
+  const { token } = localStorage;
   switch (action.type) {
     case FETCH_RECIPES_MY_ACCOUNT: {
       axiosInstance.get(
