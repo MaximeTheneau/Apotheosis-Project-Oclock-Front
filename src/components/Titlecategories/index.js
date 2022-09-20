@@ -18,7 +18,6 @@ function Titlecategory() {
     dispatch(changeCategoryTitle('Dessert'));
   }
   const categoryTitle = useSelector((state) => state.homePage.categoryTitle);
-  console.log(categoryTitle);
 
   return (
     <h1>{categoryTitle}</h1>

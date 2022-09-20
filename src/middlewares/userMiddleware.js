@@ -93,7 +93,6 @@ const userMiddleware = (store) => (next) => (action) => {
         password: password,
       }));
 
-      console.log(formData);
       formData.append('picture', document.getElementById('fileUploadUser').files[0]);
       axios({
         method: 'post',

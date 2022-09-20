@@ -50,7 +50,6 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
           Authorization: `Bearer ${token}`,
         },
       }).then((response) => {
-        console.log(response.data);
         
         // const { data: user } = response;
         // j'enregistre mon token sur l'instance d'axios
@@ -68,7 +67,6 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
       axios.get('https://back-omiam.unetaupechezvous.fr/public/api/ingredients')
         .then(
           (response) => {
-            console.log(response);
             store.dispatch(saveFetchIngredients(response.data));
           },
         )

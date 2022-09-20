@@ -59,8 +59,8 @@ function Home() {
             <h2 className="cards-recipe">Ma Recherche</h2>
             <div className="cards-list-type">
               {/* Card */}
-              { recipesSlice.map((item) => (
-                <Link to={`/recette/${item.id}/${item.slug}`}>
+              { recipesSlice.map((item) =>(
+                <Link key={item.id} to={`/recette/${item.id}/${item.slug}`}>
                   <div className="card">
                     <h2 className="card-recipe">{item.title}</h2>
                     <img
@@ -93,7 +93,7 @@ function Home() {
 
             {/* Card */}
             { miamsRecipes.map((item) => (
-              <Link to={`/recette/${item.id}/${item.slug}`}>
+              <Link key={item.id} to={`/recette/${item.id}/${item.slug}`}>
                 <div className="card">
                   <h2 className="card-recipe">{item.title}</h2>
                   <img
@@ -124,7 +124,7 @@ function Home() {
 
             {/* Card  */}
             { lastRecipes.map((item) => (
-              <Link to={`/recette/${item.id}/${item.slug}`}>
+              <Link key={item.id} to={`/recette/${item.id}/${item.slug}`}>
                 <div className="card">
                   <h2 className="card-recipe">{item.title}</h2>
                   <img
@@ -155,7 +155,7 @@ function Home() {
 
             {/* Card  */}
             { randomRecipes.map((item) => (
-              <Link to={`/recette/${item.id}/${item.slug}`}>
+              <Link key={item.id} to={`/recette/${item.id}/${item.slug}`}>
                 <div className="card">
                   <h2 className="card-recipe">{item.title}</h2>
                   <img

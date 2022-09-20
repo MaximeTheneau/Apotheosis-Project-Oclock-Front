@@ -15,7 +15,6 @@ function SearchForm() {
   };
 
   const handleFocus = (evt) => {
-    console.log(evt.bubbles);
     dispatch(valueToogle(evt.bubbles));
   };
   const handleBlur = (evt) => {
@@ -30,7 +29,6 @@ function SearchForm() {
   const { id, slug } = useParams();
 
   dispatch(saveCategoryId(id));
-  console.log(id);
   useEffect(() => {
     dispatch(fetchRecipesCategory(id));
   }, [id]);

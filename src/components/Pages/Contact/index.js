@@ -29,7 +29,6 @@ function Contact() {
   });
   const handleSubmit = ((event) => {
     event.preventDefault();
-    console.log(event);
     dispatch(postMessage());
   });
   return (
