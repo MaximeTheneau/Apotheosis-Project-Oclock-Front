@@ -6,7 +6,7 @@ Déjà retrouvé à dînez chez des amis et leurs lasagnes sont tout simplement 
 
 Avec O’Miam le réseau social des recettes de cuisine, retrouverez facilement la recettes de vos amis !!!
 
-## [Demo](https://omiam-v1.surge.sh/)
+## [Demo](https://v1-omiam.surge.sh/)
 
 ### Fonctionnalités du Projet
 
