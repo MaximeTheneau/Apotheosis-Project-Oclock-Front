@@ -63,7 +63,6 @@ npm run {script}
 
 * **Theneau Maxime** _alias_ [@MaximeTheneau](https://github.com/MaximeTheneau)
 
-
 * **Loïc Maurin** _alias_ [@LoicMaurin](https://github.com/LoicMAURIN)
 
 * **Pauline Thomelin** _alias_ [@paulinethomelin ](https://github.com/paulinethomelin)
