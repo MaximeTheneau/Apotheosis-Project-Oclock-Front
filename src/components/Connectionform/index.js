@@ -21,14 +21,12 @@ function Connectionform() {
       <div className="form-title">
         <Link
           to="/connexion"
-          className={isLoginOpen ? 'form-h2--active' : 'form-h2'}
           onClick={handleLoginClick}
         >
           Se connecter
         </Link>
         <Link
           to="/connexion"
-          className={isRegistrationOpen ? 'form-h2--active' : 'form-h2'}
           onClick={handleRegistrationClick}
         >
           Créer un compte

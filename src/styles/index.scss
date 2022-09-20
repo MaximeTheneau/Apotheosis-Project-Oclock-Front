@@ -36,7 +36,9 @@ input[type="text"], select, input.ingredients-type, .createdRecipe input[type=nu
   padding: 0.5rem;
 
 }
-input[type="file"] {
+input[type="file"], 
+input#fileUploadUser,
+input[type="password"] {
   // font-family: 'font-main';
   background-color: #fff;
   border-radius: 0.3rem;

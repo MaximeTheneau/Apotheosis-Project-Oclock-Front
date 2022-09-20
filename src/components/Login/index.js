@@ -36,19 +36,21 @@ function Login() {
 
   return (
     <form className="login">
-      {error
-      && (
-        <p
-          className="error-message"
-        >{errorMessage}
-        </p>
-      )}
-      <div className="login-field">
-        <label
-          htmlFor="email"
-          className="login-label"
-        >
-          Email *
+      <div className="login-form">
+        {error
+        && (
+          <p
+            className="error-message"
+          >{errorMessage}
+          </p>
+        )}
+        <div className="createdRecipe-label">
+          <span
+            className="label-title"
+            htmlFor="email"
+          >
+            Email *
+          </span>
           <input
             placeholder="email@omiam.com"
             type="email"
@@ -56,29 +58,27 @@ function Login() {
             autoComplete="off"
             value={email}
             required
-            className="login-input"
             onChange={handleEmailChange}
           />
-        </label>
-      </div>
-      <div className="login-field">
-        <label
-          htmlFor="password"
-          className="login-label"
-        >
-          Mot de passe *
+        </div>
+        <div className="createdRecipe-label">
+          <span
+            className="label-title"
+            htmlFor="password"
+          >
+            Mot de passe *
+          </span>
           <input
             placeholder="*****"
             type="password"
             id="password"
             value={password}
             required
-            className="login-input"
             onChange={handlePasswordChange}
           />
-        </label>
+        </div>
+        <button type="submit" className="login-submit" onClick={handleClick}>Connexion</button>
       </div>
-      <button type="submit" className="login-submit" onClick={handleClick}>Connexion</button>
     </form>
   );
 }

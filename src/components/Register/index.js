@@ -43,21 +43,21 @@ function Register() {
       encytpe="ENCTYPE_HERE"
     >
       <div className="createdRecipe-label">
-        <label
+        <span
           className="label-title"
           htmlFor="pseudo"
         >
           Pseudo *
-          <input
-            placeholder="Chef O'miam"
-            type="pseudo"
-            id="pseudo"
-            value={pseudo}
-            required
-            onChange={handlePseudoChange}
-            name="pseudo"
-          />
-        </label>
+        </span>
+        <input
+          placeholder="Chef O'miam"
+          type="pseudo"
+          id="pseudo"
+          value={pseudo}
+          required
+          onChange={handlePseudoChange}
+          name="pseudo"
+        />
       </div>
       <div className="createdRecipe-label">
         <span
@@ -102,23 +102,22 @@ function Register() {
         />
       </div>
       <div className="createdRecipe-label">
-        <label
+        <span
           htmlFor="confirmedpassword"
           className="label-title"
         >
           Confirmation du mot de passe *
-          <input
-            placeholder="*****"
-            type="password"
-            id="confirmedpassword"
-            value={confirmedPassword}
-            required
-            
-            onChange={handleconfirmedPasswordChange}
-            name="confirmedpassword"
-            //pattern={password}
-          />
-        </label>
+        </span>
+        <input
+          placeholder="*****"
+          type="password"
+          id="confirmedpassword"
+          value={confirmedPassword}
+          onChange={handleconfirmedPasswordChange}
+          name="confirmedpassword"
+          //pattern={password}
+          required
+        />
       </div>
       <button type="submit" className="registration-submit">Valider</button>
     </form>
