@@ -8,7 +8,14 @@
   flex-direction: column;
   color: vars.$grey-omiam ;
   margin:auto;
-
+  &-label-cgu{;
+    margin: 2rem;
+    &-link{
+      color: vars.$blue-omiam;
+      margin-left:0.5rem;
+      font-weight: 700;
+    }
+  }
   &-field {
     margin: 1rem 0 0 0;
   }

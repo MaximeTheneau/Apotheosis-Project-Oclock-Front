@@ -13,7 +13,7 @@ const axiosInstance = axios.create({
 const myAccountRecipes = (store) => (next) => (action) => {
   const state = store.getState();
   const { userid } = state.user.settingsLogIn;
-  const { token } = localStorage;
+  const { token } = document.cookie;
   switch (action.type) {
     case FETCH_RECIPES_MY_ACCOUNT: {
       axiosInstance.get(

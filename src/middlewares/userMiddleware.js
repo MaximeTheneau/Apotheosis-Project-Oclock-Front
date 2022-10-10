@@ -11,7 +11,6 @@ import {
 } from '../action/user';
 
 const axiosInstance = axios.create({
-  // par exemple, on peut définir une url de base !
   baseURL: 'https://back-omiam.unetaupechezvous.fr/public/api/',
 });
 
@@ -29,18 +28,11 @@ const userMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          //console.log(response);
-          // on extrait la propriété data de la reponse
-          // que l'on stocke dans une vaiable user
           const { data: user } = response;
 
-          // j'enregistre mon token sur l'instance d'axios
-          axiosInstance.defaults.headers.common.Authorization = `Bearer ${localStorage.token}`;
+          axiosInstance.defaults.headers.common.Authorization = `Bearer ${document.cookie}`;
 
-          // On mémorise l'utilisateur dans le state
           store.dispatch(saveUser(user));
-
-          // - Save the JWT in localStorage
           localStorage.setItem('token', user.token);
           localStorage.setItem('userid', user.userid);
           localStorage.setItem('avatar', user.avatar);

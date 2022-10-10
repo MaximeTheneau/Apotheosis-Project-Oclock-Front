@@ -2,6 +2,7 @@ import './styles.scss';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { setRegistrationcredentials, register, setErrorMessage } from '../../action/user';
+import { Link } from 'react-router-dom';
 
 function Register() {
   const {
@@ -78,6 +79,13 @@ function Register() {
         />
       </div>
       <div className="createdRecipe-label">
+        <span className="label-title">Votre avatar</span>
+        <input
+          type="file"
+          id="fileUploadUser"
+        />
+      </div>
+      <div className="createdRecipe-label">
         <span
           className="label-title"
         >
@@ -95,13 +103,6 @@ function Register() {
         />
       </div>
       <div className="createdRecipe-label">
-        <span className="label-title">Votre image</span>
-        <input
-          type="file"
-          id="fileUploadUser"
-        />
-      </div>
-      <div className="createdRecipe-label">
         <span
           htmlFor="confirmedpassword"
           className="label-title"
@@ -115,10 +116,23 @@ function Register() {
           value={confirmedPassword}
           onChange={handleconfirmedPasswordChange}
           name="confirmedpassword"
-          //pattern={password}
+          // pattern={password}
           required
         />
       </div>
+      <div className="registration-label-cgu">
+        <input
+          type="checkbox"
+          required
+        />
+        <span>
+          J'accepte les
+          <Link to="/conditions-generales-utilisation" className="registration-label-cgu-link">
+            Conditions Générales d'Utilisation
+          </Link>
+        </span>
+      </div>
+      <span className="registration-legends">* champs obligatoires</span>
       <button type="submit" className="registration-submit">Valider</button>
     </form>
   );

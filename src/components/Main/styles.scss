@@ -39,13 +39,14 @@ h2.cards-recipe {
     border-radius: vars.$raduis-img;
     z-index: 1;
     position: relative;
-    // background: linear-gradient(0deg, vars.$white 2%, vars.$blue-omiam 20%);
-    background: linear-gradient(0deg, vars.$white 2%, #007072bd 20%);
+    color: #fff;
+    background: vars.$blue-omiam;;
     &-recipe{
       position: absolute;
       top: 1rem;
       background: rgba(255, 255, 255, 0.597);
       padding: 0.2rem;
+      color: vars.$grey-omiam;
       width: 100%;
     }
     &-img{

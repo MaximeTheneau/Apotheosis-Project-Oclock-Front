@@ -38,7 +38,8 @@ function Omiam() {
   const userid = localStorage.getItem('userid');
   const role = localStorage.getItem('role');
   const pseudo = localStorage.getItem('pseudo');
-
+  cookie('token', 'my-secret-token');
+  console.log(document.cookie);
   const dispatch = useDispatch();
   const location = useLocation();
   useEffect(

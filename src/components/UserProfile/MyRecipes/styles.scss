@@ -13,7 +13,7 @@
     margin: 1em;
     border: 0.1rem solid vars.$grey-omiam;
     border-radius: vars.$raduis-img;
-    background: linear-gradient(-45deg, vars.$white 20%, #007072bd 80%);
+    background: vars.$blue-omiam;
     padding: 0.5rem;
 
     i{
@@ -51,7 +51,7 @@
           font-weight: bold;
 
           i{
-            color: vars.$orange-omiam;
+            color: #fff;
             font-size: 1.5em;
             padding-right: 0.3em;
           }
