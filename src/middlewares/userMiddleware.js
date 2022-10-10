@@ -2,7 +2,6 @@ import axios from 'axios';
 import {
   LOGIN,
   LOGOUT,
-  saveUser,
   authError,
   REGISTER,
   resetRegistrationForm,
@@ -11,6 +10,7 @@ import {
 } from '../action/user';
 
 const axiosInstance = axios.create({
+  // par exemple, on peut définir une url de base !
   baseURL: 'https://back-omiam.unetaupechezvous.fr/public/api/',
 });
 
@@ -18,7 +18,7 @@ const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case LOGIN: {
       const state = store.getState();
-      const { email, password } = state.user.settingsLogIn;
+      const { email, password, } = state.user.settingsLogIn;
 
       axiosInstance.post(
         'login',
@@ -28,16 +28,21 @@ const userMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
+          //console.log(response);
+          // on extrait la propriété data de la reponse
+          // que l'on stocke dans une vaiable user
           const { data: user } = response;
 
-          axiosInstance.defaults.headers.common.Authorization = `Bearer ${document.cookie}`;
+          // j'enregistre mon token sur l'instance d'axios
+          axiosInstance.defaults.headers.common.Authorization = `Bearer ${localStorage.token}`;
 
-          store.dispatch(saveUser(user));
+          // On mémorise l'utilisateur dans le state
+
+          // - Save the JWT in localStoragezz
           localStorage.setItem('token', user.token);
           localStorage.setItem('userid', user.userid);
           localStorage.setItem('avatar', user.avatar);
           localStorage.setItem('role', user.role);
-          localStorage.setItem('logs', true);
           localStorage.setItem('pseudo', user.pseudo);
 
           if (user.role === 'ROLE_ADMIN' || user.role === 'ROLE_MANAGER') {
@@ -46,9 +51,10 @@ const userMiddleware = (store) => (next) => (action) => {
 
           // Redirect of the user towards to home page
           //store.dispatch(redirect('/'));
-          window.location = '/';
-
           return next(action);
+        }).finally(() => {
+          // window.location = '/';
+          console.log('login ok');
         })
         .catch((error) => {
           console.log(error);
@@ -65,7 +71,6 @@ const userMiddleware = (store) => (next) => (action) => {
       // on nettoie notre instance axios du token
       axiosInstance.defaults.headers.common.Authorization = null;
       localStorage.removeItem('token');
-      localStorage.removeItem('logs');
       localStorage.removeItem('avatar');
       localStorage.removeItem('role');
       localStorage.removeItem('userid');

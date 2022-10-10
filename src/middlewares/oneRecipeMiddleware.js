@@ -19,21 +19,6 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
   const { idSlug } = state.oneRecipe;
   const { token } = localStorage;
 
-
-
-  // C'est un test mais on ne pourrait pas faire comme ça?
-  // const usersId = state.oneRecipe.usersId;
-  
-  // const userid = state.user.settingsLogIn.userid;
-  // const userid = state.user.settingsLogIn.userid;
- 
-  // console.log(userid);
-  // console.log(usersId);
-
-  // console.log(isMiam);
-
-  // console.log(isMiam);
-  // console.log(idSlug);
   switch (action.type) {
     case FETCH_RECIPE: {
       axios.get(`https://back-omiam.unetaupechezvous.fr/public/api/recipes/${idSlug}`)

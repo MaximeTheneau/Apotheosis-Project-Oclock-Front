@@ -1,10 +1,11 @@
 import {
   OPEN_LOGIN, OPEN_REGISTRATION, SET_LOGIN_CREDENTIALS, SET_REGISTRATION_CREDENTIALS,
-  LOGOUT, SAVE_USER, AUTH_ERROR, KEEP_LOGIN, RESET_REGISTRATION_FORM, TOGGLE_DROPDOWN_MENU,
-  SET_FOCUS, TOGGLE_BACKOFFICE, RESET_LOGIN_CREDENTIALS, SET_ERROR_MESSAGE, TOGGLE_VALIDATE_FORM,
+  LOGOUT, AUTH_ERROR, KEEP_LOGIN, RESET_REGISTRATION_FORM, TOGGLE_DROPDOWN_MENU,
+  SET_FOCUS, TOGGLE_BACKOFFICE, RESET_LOGIN_CREDENTIALS, SET_ERROR_MESSAGE, TOGGLE_VALIDATE_FORM, SET_IS_LOGIN_OPEN, LOGIN,
 } from '../action/user';
 
 export const initialState = {
+
   settingsRegister: {
     isRegister: false,
     pseudo: '',
@@ -22,7 +23,7 @@ export const initialState = {
     },
   },
   settingsLogIn: {
-    logs: false,
+
     email: '',
     password: '',
     userid: '',
@@ -30,6 +31,7 @@ export const initialState = {
     avatar: '', // Renvoyé par l'API
     role: '',
   },
+  logs: false,
   isLoginOpen: true,
   isRegistrationOpen: false,
   backofficeRights: false,
@@ -40,6 +42,12 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case LOGIN:
+      return {
+        ...state,
+        logs: true,
+      };
+
     case SET_LOGIN_CREDENTIALS:
       return {
         ...state,
@@ -75,6 +83,8 @@ const reducer = (state = initialState, action = {}) => {
     case LOGOUT:
       return {
         ...state,
+        isOpen: false,
+        logs: false,
         backofficeRights: false,
         settingsLogIn: {
           ...state.settingsLogIn,
@@ -85,21 +95,6 @@ const reducer = (state = initialState, action = {}) => {
           role: '',
         },
       };
-
-    case SAVE_USER:
-      return {
-        ...state,
-        settingsLogIn: {
-          ...action.user,
-          email: '',
-          password: '',
-        },
-        auth: {
-          error: false,
-          errorMessage: '',
-        },
-      };
-
     case AUTH_ERROR:
       return {
         ...state,
@@ -189,7 +184,6 @@ const reducer = (state = initialState, action = {}) => {
           formIsValid: action.value,
         },
       };
-
     default:
       return state;
   }

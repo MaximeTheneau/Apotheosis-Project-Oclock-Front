@@ -46,14 +46,6 @@ export function login() {
   };
 }
 
-export const SAVE_USER = 'SAVE_USER';
-
-export function saveUser(user) {
-  return {
-    type: SAVE_USER,
-    user,
-  };
-}
 
 export const LOGOUT = 'LOGOUT';
 
@@ -111,7 +103,6 @@ export const KEEP_LOGIN = 'KEEP_LOGIN';
 export function keepLogin(token, logs, avatar, userid, role, pseudo) {
   return {
     type: KEEP_LOGIN,
-    token,
     logs,
     avatar,
     userid,

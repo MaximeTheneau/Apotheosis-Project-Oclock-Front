@@ -12,16 +12,12 @@ function Navbar() {
     dispatch(showSidebar());
   };
 
-  const { logs, pseudo, avatar } = useSelector((state) => state.user.settingsLogIn);
-  const { isListOpen } = useSelector((state) => state.user.userProfile);
-  const { backofficeRights } = useSelector((state) => state.user);
+  const { avatar } = localStorage;
+  const logs = useSelector((state) => state.user.logs);
   const handleLogout = () => {
     dispatch(logout());
   };
-  const handleClickMenu = () => {
-    dispatch(toggleDropdownMenu());
-  };
-
+ // console.log(logs);
   return (
     <div className="navbar">
       <div className="navbar-wrapper">
@@ -60,7 +56,6 @@ function Navbar() {
               </NavLink>
               <Link to="/mon-compte" className="user-info">
                 <img src={avatar} alt="user profile" className="user-info-avatar" />
-                <span className="user-info-pseudo">{pseudo} </span>
               </Link>
               <i className="icon-bars" onClick={() => handleClick()} />
             </div>

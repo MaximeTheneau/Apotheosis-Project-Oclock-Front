@@ -1,7 +1,11 @@
+import axios from 'axios';
 import { Route, Routes } from 'react-router';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import { useCookies } from 'react-cookie';
 import { useDispatch } from 'react-redux';
+
+
 import Header from '../Header';
 import Footer from '../Footer';
 import Main from '../Main';
@@ -33,18 +37,17 @@ import './styles.scss';
 // == Composant
 function Omiam() {
   const loggedIn = localStorage.getItem('logs');
-  const token = localStorage.getItem('token');
   const avatar = localStorage.getItem('avatar');
   const userid = localStorage.getItem('userid');
   const role = localStorage.getItem('role');
   const pseudo = localStorage.getItem('pseudo');
-  cookie('token', 'my-secret-token');
-  console.log(document.cookie);
+
+  // setCookie('name',  instance.defaults.headers, { path: '/connexion' });
   const dispatch = useDispatch();
   const location = useLocation();
   useEffect(
     () => {
-      dispatch(keepLogin(token, loggedIn, avatar, userid, role, pseudo));
+      dispatch(keepLogin(loggedIn, avatar, userid, role, pseudo));
       if (role === 'ROLE_ADMIN' || role === 'ROLE_MANAGER') {
         dispatch(toggleBackoffice());
       }
