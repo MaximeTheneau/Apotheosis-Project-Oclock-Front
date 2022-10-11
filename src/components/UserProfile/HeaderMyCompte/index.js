@@ -5,8 +5,11 @@ import { logout, toggleDropdownMenu } from '../../../action/user';
 import './styles.scss';
 
 function HeaderMyAccount() {
-  const { avatar, pseudo } = useSelector((state) => state.user.settingsLogIn);
+  const { pseudo } = useSelector((state) => state.user.settingsLogIn);
   const { isListOpen } = useSelector((state) => state.user.userProfile);
+  const { avatar } = useSelector((state) => state.user.settingsRegister);
+
+
   const dispatch = useDispatch();
   const handleClickMenu = () => {
     dispatch(toggleDropdownMenu());

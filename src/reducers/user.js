@@ -1,9 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import {
   OPEN_LOGIN, OPEN_REGISTRATION, SET_LOGIN_CREDENTIALS, SET_REGISTRATION_CREDENTIALS,
   LOGOUT, AUTH_ERROR, KEEP_LOGIN, RESET_REGISTRATION_FORM, TOGGLE_DROPDOWN_MENU,
   SET_FOCUS, TOGGLE_BACKOFFICE, RESET_LOGIN_CREDENTIALS, SET_ERROR_MESSAGE, TOGGLE_VALIDATE_FORM, SET_IS_LOGIN_OPEN, LOGIN,
 } from '../action/user';
-
 export const initialState = {
 
   settingsRegister: {
@@ -39,7 +39,6 @@ export const initialState = {
     isListOpen: false,
   },
 };
-
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case LOGIN:
