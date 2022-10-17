@@ -4,6 +4,7 @@ import {
   pseudoAction,
   topicAction,
   messageAction,
+  postMessage,
 } from '../../../action/contact';
 import imgSvg from '../../../assets/img/message.svg';
 import './styles.scss';
@@ -27,8 +28,9 @@ function Contact() {
   const handleChangeMessage = ((event) => {
     dispatch(messageAction(event.target.value, 'message'));
   });
-  const handleSubmit = ((event) => {
+  const handleSubmit = (() => {
     event.preventDefault();
+    // console.log(event);
     dispatch(postMessage());
   });
   return (

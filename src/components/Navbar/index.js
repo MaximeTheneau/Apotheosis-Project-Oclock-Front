@@ -29,7 +29,7 @@ function Navbar() {
     <div className="navbar">
       <div className="navbar-wrapper">
 
-        {logsState || logs ? (
+        {logs ? (
           <>
             <div className="navbar-wrapper-logo">
               <NavLink to="/">

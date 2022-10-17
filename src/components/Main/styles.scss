@@ -40,7 +40,10 @@ h2.cards-recipe {
     z-index: 1;
     position: relative;
     color: #fff;
-    background: vars.$blue-omiam;;
+    background: vars.$blue-omiam;
+    & .icon-miam {
+      margin: 0 0 0 0.2rem;
+  }
     &-recipe{
       position: absolute;
       top: 1rem;

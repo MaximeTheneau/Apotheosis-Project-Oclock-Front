@@ -6,6 +6,7 @@ import userMiddleware from '../middlewares/userMiddleware';
 import createdRecipeMiddleware from '../middlewares/createdRecipeMiddleware';
 import oneRecipeMiddleware from '../middlewares/oneRecipeMiddleware';
 import homePageMiddleware from '../middlewares/homePageMiddlewares';
+import contactMiddleware from '../middlewares/contactMiddlewares';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -18,6 +19,7 @@ const enhancers = composeEnhancers(
     myAccountRecipes,
     oneRecipeMiddleware,
     homePageMiddleware,
+    contactMiddleware,
   ),
 
 );

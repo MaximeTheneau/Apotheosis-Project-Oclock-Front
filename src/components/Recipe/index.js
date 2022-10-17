@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { fetchRecipe, idSlugRecipe, setIsMiam, submitUsersIdMiams, SUBMIT_USERS_ID_MIAMS } from '../../action/oneRecipe';
+import { fetchRecipe, idSlugRecipe, saveMiam, setIsMiam, submitUsersIdMiams, SUBMIT_USERS_ID_MIAMS } from '../../action/oneRecipe';
 import Comments from './Comments';
 import './styles.scss';
 
@@ -14,6 +14,9 @@ function Recipe() {
   const usersIdMiamed = useSelector((state) => state.oneRecipe.usersId);
   // console.log(usersIdMiamed);
   const oneRecipe = useSelector((state) => state.oneRecipe.list);
+  const nbMiams = useSelector((state) => state.oneRecipe.nbMiams);
+  const toggleMiams = useSelector((state) => state.oneRecipe.toogleMiams);
+
   const ingredients = useSelector((state) => state.oneRecipe.ingredients);
   const listSteps = useSelector((state) => state.oneRecipe.steps);
   const userIdConnected = useSelector((state) => state.user.settingsLogIn.userid);
@@ -25,10 +28,13 @@ function Recipe() {
   );
   // console.log(usersIdMiamed);
   const handleSubmit = (evt) => {
-    
     // const isMiam = usersIdMiamed.includes(userIdConnected);
-    dispatch(submitUsersIdMiams());
     evt.preventDefault();
+    const nbToggleMiams = (toggleMiams) ? +1 : -1;
+    // console.log(nbToggleMiams);
+    dispatch(submitUsersIdMiams());
+    dispatch(setIsMiam());
+    dispatch(saveMiam(nbToggleMiams + nbMiams));
   };
   return (
     <div className="one-recipe">
@@ -38,7 +44,9 @@ function Recipe() {
             <div className="one-recipe-header">
               <h1 className="one-recipe-title">{item.title}</h1>
               <div className="one-recipe-author">
-{/*                <img className="one-recipe-img-user" src={item.user.avatar} alt="-avatar" />*/}
+                {/*
+                  <img className="one-recipe-img-user" src={item.user.avatar} alt="-avatar" />
+                */}
                 <h2 className="one-recipe-author-title"> de {item.user.pseudo}</h2>
               </div>
               <div className="one-recipe-miams">
@@ -48,7 +56,7 @@ function Recipe() {
                 <div>
                   <form onSubmit={handleSubmit}>
                     <button type="submit" className="one-recipe-miams-form">
-                      <span className="one-recipe-miams-label">{item.nbMiams}</span>
+                      <span className="one-recipe-miams-label">{nbMiams}</span>
                       <i className="icon-miam" />
                     </button>
                   </form>

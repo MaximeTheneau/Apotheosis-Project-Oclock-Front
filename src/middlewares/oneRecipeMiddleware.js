@@ -10,6 +10,9 @@ import {
   SUBMIT_USERS_ID_MIAMS,
   saveRecipeUsersId,
   COMMENT_CREACTED,
+  submitUsersIdMiams,
+  fetchRecipe,
+  saveMiam,
 } from '../action/oneRecipe';
 //  const { id, slug } = useParams();
 //  console.log(id);
@@ -40,13 +43,15 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
             else {
               resultSteps = [response.data.steps];
             }
-            // console.log(result);
+            const { nbMiams } = response.data;
+            console.log(nbMiams);
             // console.log(response.data.recipeIngredients);
             // console.log(resultSteps);
             // console.log(response.data.comments);
             store.dispatch(saveRecipe(result));
+            store.dispatch(saveMiam(nbMiams));
             store.dispatch(saveRecipeIngredients(response.data.recipeIngredients));
-            store.dispatch(saveRecipeUsersId(response.data.usersId));
+            store.dispatch(submitUsersIdMiams(response.data.usersId));
             store.dispatch(saveRecipeSteps(resultSteps));
             store.dispatch(saveComments(response.data.comments));
           },
@@ -59,8 +64,7 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
       return next(action);
     }
     case SUBMIT_USERS_ID_MIAMS: {
-      // const { setIsMiam } = state.oneRecipe;
-      const recipe = state.oneRecipe.list[0];
+      const { nbMiam } = state.oneRecipe;
       const headers = { Authorization: `Bearer ${token}` };
        axios.get(
         `https://back-omiam.unetaupechezvous.fr/public/api/recipes/${idSlug}/miams`,
@@ -69,7 +73,8 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
         )
         .then((response) => {
           console.log(response);
-          window.location = `/recette/${idSlug}/${recipe.slug}`;
+
+          // window.location = `/recette/${idSlug}/${recipe.slug}`;
           
           // axios.defaults.headers.common.Authorization = `Bearer ${token}`;
           return next(action);

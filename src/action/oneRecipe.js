@@ -1,8 +1,9 @@
 export const FETCH_RECIPE = 'FETCH_RECIPE';
 
-export function fetchRecipe() {
+export function fetchRecipe(nbMiams) {
   return {
     type: FETCH_RECIPE,
+    nbMiams: nbMiams,
   };
 }
 
@@ -72,7 +73,7 @@ export const SUBMIT_USERS_ID_MIAMS = 'SUBMIT_USERS_ID_MIAMS';
 export function submitUsersIdMiams(valueMiam) {
   return {
     type: SUBMIT_USERS_ID_MIAMS,
-    isMiam: valueMiam,
+    nbMiams: valueMiam,
   };
 }
 
@@ -89,6 +90,15 @@ export const SET_IS_MIAMS = 'SET_IS_MIAMS';
 export function setIsMiam(value) {
   return {
     type: SET_IS_MIAMS,
-    setIsMiam: value,
+    nbMiams: value,
+  };
+}
+
+export const SAVE_MIAMS = 'SAVE_MIAMS';
+
+export function saveMiam(value) {
+  return {
+    type: SAVE_MIAMS,
+    nbMiams: value,
   };
 }

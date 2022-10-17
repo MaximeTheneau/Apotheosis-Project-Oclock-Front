@@ -49,7 +49,7 @@ function Error() {
           </div>
           <div className="one-recipe-img">
             <img
-              src="https://back-omiam.unetaupechezvous.fr/public/omiam/sources/images/recipe/recipe_143.jpg"
+              src="https://back-omiam.unetaupechezvous.fr/public/omiam/sources/images/recipe/recipe_143.webp"
               alt="404 plats"
               className="one-recipe-img"
             />

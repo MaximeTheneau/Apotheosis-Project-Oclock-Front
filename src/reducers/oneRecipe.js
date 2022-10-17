@@ -8,6 +8,8 @@ import {
   SAVE_RECIPE_USERSID,
   SUBMIT_USERS_ID_MIAMS,
   SET_IS_MIAMS,
+  FETCH_RECIPE,
+  SAVE_MIAMS,
 } from '../action/oneRecipe';
 
 export const initialState = {
@@ -16,7 +18,8 @@ export const initialState = {
   steps: [],
   comments: [],
   comment: '',
-  setIsMiam: null,
+  nbMiams: null,
+  toogleMiams: null,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -25,6 +28,15 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         list: action.list,
+      };
+    case FETCH_RECIPE:
+      return {
+        ...state,
+      };
+    case SAVE_MIAMS:
+      return {
+        ...state,
+        nbMiams: action.nbMiams,
       };
     case SAVE_RECIPE_INGREDIENTS:
       return {
@@ -62,12 +74,11 @@ const reducer = (state = initialState, action = {}) => {
     case SUBMIT_USERS_ID_MIAMS:
       return {
         ...state,
-        isMiam: action.isMiam,
       };
     case SET_IS_MIAMS:
       return {
         ...state,
-        setIsMiam: action.setIsMiam,
+        toogleMiams: !state.toogleMiams,
       };
     default:
       return state;
