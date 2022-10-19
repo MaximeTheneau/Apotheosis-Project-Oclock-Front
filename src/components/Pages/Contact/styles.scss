@@ -1,0 +1,35 @@
+@use '../../../styles/vars';
+
+.form-general {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+.label{
+  width:70%;
+  margin: 0.5rem 0;
+}
+.label input{
+  &::placeholder{
+    padding: 5rem 0 ;
+  }
+  width:100%;
+}
+textarea{
+  &.message-input{
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .message-input {
+    width: 100%;
+  }
+}
+textarea:focus-visible {
+  outline: none;
+}
+
+input[type="text"], textarea, input[type="email"], .send-button {
+  border-radius: vars.$raduis-img;
+}

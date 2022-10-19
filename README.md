@@ -1,4 +1,4 @@
-# Apotheosis project Oclock Back
+# Apotheosis project Oclock Front
 
 Projet réaliser lors de l'apothéose durant la formation chez [O'Clock](https://oclock.io/)
 
@@ -6,7 +6,7 @@ Déjà retrouvé à dînez chez des amis et leurs lasagnes sont tout simplement 
 
 Avec O’Miam le réseau social des recettes de cuisine, retrouverez facilement la recettes de vos amis !!!
 
-[Demo](https://omiam-v1.surge.sh/)
+## [Demo](https://v1-omiam.surge.sh/)
 
 ### Fonctionnalités du Projet
 
@@ -25,32 +25,38 @@ Avec O’Miam le réseau social des recettes de cuisine, retrouverez facilement 
 
 ## Pré-requis:
 
-- [Apache](https://httpd.apache.org/)
-- [Composer](https://getcomposer.org/)
+- [Node JS](https://nodejs.org/en/)
+- [Npm](https://www.npmjs.com/)
+- [Yarn](https://yarnpkg.com/)
+- [Eslint](https://eslint.org/) (optionnelle)
 
 ## Langages utilisés 
 
-- [Symfony](https://fr.reactjs.org/)
+- [React](https://fr.reactjs.org/)
+- [React-Router](https://reactrouter.com/en/main)
+- [react-meta-tag](https://www.npmjs.com/package/react-meta-tags)
+- [React-Redux](https://react-redux.js.org/)
+- [Axios](https://axios-http.com/)
 
+---
 
-# Installer les dépendances :
-
-	$ composer install
-	
-# Lancez le serveur :
-
-	$ php -S 0.0.0.0:8080 -t public
-
-
-### Commandes utiles :
-
-``` php bin/console cache:clear ``` : videz les caches 
-	
-``` php bin/console lexik:jwt:generate-keypair --overwrite``` : à la première installation
-
-
-
+Scripts
 -------
+
+```sh
+# Avec yarn
+yarn {script}
+
+# Avec npm
+npm run {script}
+```
+
+- `start`: Lance le serveur de développement.
+- `build`: Lance la construction de la version de production.
+- `lint`: Affiche les erreurs dans le code.
+- `lint:fix`: Tente de corriger certaines des erreurs dans le code.
+- `clean`: Supprime le dossier `dist/`.
+- `clean:all`: Supprime `dist/`, `node_modules/` et les fichiers `lock`.
 
 
 ## Auteurs
@@ -64,6 +70,3 @@ Avec O’Miam le réseau social des recettes de cuisine, retrouverez facilement 
 * **Nathalie Tournon** _alias_ [@NathalieTournon ](https://github.com/NathalieTournon)
 
 * **Adrien Pinilla** _alias_ [@AdrienPinilla ](https://github.com/AdrienPinilla)
-
-
-
