@@ -1,14 +1,16 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { fetchRecipe, idSlugRecipe, saveMiam, setIsMiam, submitUsersIdMiams, SUBMIT_USERS_ID_MIAMS } from '../../action/oneRecipe';
+import {
+  fetchRecipe, idSlugRecipe, saveMiam, setIsMiam, submitUsersIdMiams, SUBMIT_USERS_ID_MIAMS,
+} from '../../action/oneRecipe';
 import Comments from './Comments';
 import './styles.scss';
 
 function Recipe() {
   const dispatch = useDispatch();
   const { id } = useParams();
- 
+
   dispatch(idSlugRecipe(id));
   // const userIdConnected = useSelector((state) => state.user.settingsLogIn.userid);
   const usersIdMiamed = useSelector((state) => state.oneRecipe.usersId);
@@ -43,25 +45,14 @@ function Recipe() {
           <div>
             <div className="one-recipe-header">
               <h1 className="one-recipe-title">{item.title}</h1>
+              <h2>{item.caption}</h2>
               <div className="one-recipe-author">
                 {/*
                   <img className="one-recipe-img-user" src={item.user.avatar} alt="-avatar" />
                 */}
-                <h2 className="one-recipe-author-title"> de {item.user.pseudo}</h2>
+                <h3> de {item.user.pseudo}</h3>
               </div>
-              <div className="one-recipe-miams">
-                <div>
-                  <i className={item.category.iconName} />
-                </div>
-                <div>
-                  <form onSubmit={handleSubmit}>
-                    <button type="submit" className="one-recipe-miams-form">
-                      <span className="one-recipe-miams-label">{nbMiams}</span>
-                      <i className="icon-miam" />
-                    </button>
-                  </form>
-                </div>
-              </div>
+
             </div>
             <div className="one-recipe-img">
               <img
@@ -72,10 +63,18 @@ function Recipe() {
             </div>
             <div className="one-recipe-timer">
               <ul className="one-recipe-timer-ul">
-                <li><i className="icon-timer p-1" /><span>{item.duration} min</span></li>
-                <li><i className={`icon-difficulty-${item.difficulty}`} /></li>
+                <li><span><i className="icon-timer" />{item.duration} min</span></li>
+                <li><i className={`icon-difficulty-${item.difficulty}`} /> {item.difficulty}</li>
+                <li><i className={item.category.iconName} /> {item.category.name}</li>
+                <li>
+                  <form onSubmit={handleSubmit}>
+                    <button type="submit" className="one-recipe-miams-form">
+                      <i className="icon-miam" />
+                      {nbMiams}
+                    </button>
+                  </form>
+                </li>
               </ul>
-              <p className="one-recipe-caption">{item.caption}</p>
             </div>
             <div className="one-recipe-ingredient">
               <h2 className="one-recipe-ingredient-title">Ingrédients pour 4 personnes</h2>

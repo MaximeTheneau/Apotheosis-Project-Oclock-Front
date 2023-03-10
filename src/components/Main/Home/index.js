@@ -8,7 +8,6 @@ import SearchForm from '../Search/searchForm';
 import Spinner from '../../Spinner';
 import './styles.scss';
 import { fetchRecipesFull } from '../../../action/recipes';
-import imgTitle from '../../../assets/img/loupe.svg'
 
 function Home() {
   const dispatch = useDispatch();
@@ -18,6 +17,7 @@ function Home() {
   const lastRecipes = useSelector((state) => state.homePage.listHomeLast);
   const miamsRecipes = useSelector((state) => state.homePage.listHomeMiams);
   const randomRecipes = useSelector((state) => state.homePage.listHomeRandom);
+  const userConnect = useSelector((state) => state.user.settingsLogIn.logs);
   useEffect(
     () => {
       dispatch(fetchRecipesFull());
@@ -39,42 +39,55 @@ function Home() {
     return (filterNameSearch.includes(valueSearchFilter));
   });
   // const recipesSliceEffect = () => recipesFilter.slice(0, 6);
-  const recipesSlice = recipesFilter.slice(0, 6);
+  const recipesSlice = recipesFilter.slice(0, 3);
   // console.log(Illustration);
   return (
     <>
 
       {/* Title Page */}
       <h1 className="title-home">
-        <i className="icon-miam title-home-logo" />'miam
+        O'miam, une histoire de miam's et recettes
       </h1>
-      <img src={imgTitle} alt="Illustraion loupe" className="illustration" />
+      { (!userConnect) ? (
+      <>
+      <h2>
+        Rejoignez notre communauté de passionnés de cu  yisine et partagez vos créations culinaires.
+      </h2>
+      <button type="button">
+        <Link to="/connexion">connexion</Link>
+      </button>
+      </>
+      ) : ''
+      }
+      {/* Search */}
       <SearchForm />
-
       <div className="cards-home">
         {/* Cards Search */}
-        { (!toogleSpinner) && <Spinner />}
+
         { (toogleSpinner) && (toogleValue ? (
           <div className="cards-type">
             <h2 className="cards-recipe">Ma Recherche</h2>
             <div className="cards-list-type">
               {/* Card */}
-              { recipesSlice.map((item) =>(
+              { recipesSlice.map((item) => (
                 <Link key={item.id} to={`/recette/${item.id}/${item.slug}`}>
                   <div className="card">
                     <h2 className="card-recipe">{item.title}</h2>
+                    { (toogleSpinner) ? (
                     <img
                       src={item.picture}
                       alt="Name"
                       className="card-img"
-                    />
+                    /> ) : 
+                    <Spinner />
+                    }
                     <div className="card-container">
                       <ul className="card-container-list">
                         <li><img className="card-container-list-img-user" src={item.user.avatar} alt={`${item.user.pseudo}-avatar`} /></li>
-                        <li><i className={item.category.iconName} /></li>
+                        <li><i className={item.category.iconName} /> {item.category.name}</li>
                         <li>
-                          <span>{item.nbMiams}
-                            <i className="icon-miam" />
+                          <span>
+                            <i className="icon-miam" /> {item.nbMiams}
                           </span>
                         </li>
                       </ul>
@@ -96,18 +109,21 @@ function Home() {
               <Link key={item.id} to={`/recette/${item.id}/${item.slug}`}>
                 <div className="card">
                   <h2 className="card-recipe">{item.title}</h2>
+                  { (toogleSpinner) && 
                   <img
                     src={item.picture}
                     alt="Name"
                     className="card-img"
-                  />
+                  /> 
+                  }
+                  { (!toogleSpinner) && <Spinner />}
                   <div className="card-container">
                     <ul className="card-container-list">
                       <li><img className="card-container-list-img-user" src={item.user.avatar} alt={`${item.user.pseudo}-avatar`} /></li>
-                      <li><i className={item.category.iconName} /></li>
+                      <li><i className={item.category.iconName} /> {item.category.name}</li>
                       <li>
-                        <span>{item.nbMiams}
-                          <i className="icon-miam" />
+                        <span>
+                          <i className="icon-miam" /> {item.nbMiams}
                         </span>
                       </li>
                     </ul>
@@ -135,10 +151,10 @@ function Home() {
                   <div className="card-container">
                     <ul className="card-container-list">
                       <li><img className="card-container-list-img-user" src={item.user.avatar} alt={`${item.user.pseudo}-avatar`} /></li>
-                      <li><i className={item.category.iconName} /></li>
+                      <li><i className={item.category.iconName} /> {item.category.name}</li>
                       <li>
-                        <span>{item.nbMiams}
-                          <i className="icon-miam" />
+                        <span>
+                          <i className="icon-miam" /> {item.nbMiams}
                         </span>
                       </li>
                     </ul>
@@ -166,10 +182,10 @@ function Home() {
                   <div className="card-container">
                     <ul className="card-container-list">
                       <li><img className="card-container-list-img-user" src={item.user.avatar} alt={`${item.user.pseudo}-avatar`} /></li>
-                      <li><i className={item.category.iconName} /></li>
+                      <li><i className={item.category.iconName} /> {item.category.name}</li>
                       <li>
-                        <span>{item.nbMiams}
-                          <i className="icon-miam" />
+                        <span>
+                          <i className="icon-miam" /> {item.nbMiams}
                         </span>
                       </li>
                     </ul>

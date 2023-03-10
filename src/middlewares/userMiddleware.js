@@ -36,16 +36,14 @@ const userMiddleware = (store) => (next) => (action) => {
           const { data: user } = response;
           // j'enregistre mon token sur l'instance d'axios
           axiosInstance.defaults.headers.common.Authorization = `Bearer ${localStorage.token}`;
-          // On mémorise l'utilisateur dans le state
-          // - Save the JWT in localStoragezz
 
+          // - Save in localStorage
           window.localStorage.setItem('userid', user.userid);
-          window.localStorage.setItem('avatar', user.avatar);
-          window.localStorage.setItem('userid', user.userid);
-          store.dispatch(setRegistrationcredentials(user.avatar, 'avatar'));
-          window.localStorage.setItem('role', user.role);
           window.localStorage.setItem('pseudo', user.pseudo);
-          window.localStorage.setItem('token', user.token);
+          window.localStorage.setItem('avatar', user.avatar);
+          window.localStorage.setItem('role', user.role);
+          
+          store.dispatch(setRegistrationcredentials(user.avatar, 'avatar'));
           // Redirect of the user towards to home page
           return next(action);
         }).finally(() => {

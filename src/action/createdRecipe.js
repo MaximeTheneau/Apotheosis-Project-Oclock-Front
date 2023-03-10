@@ -1,3 +1,12 @@
+export const SET_STEPS = 'SET_STEPS';
+
+export function setSteps(field) {
+  return {
+    type: SET_STEPS,
+    field: field,
+  };
+}
+
 export const TITLE_ACTION = 'TITLE_ACTION ';
 
 export function titleAction(value, field) {
@@ -112,8 +121,9 @@ export function postCreated() {
 
 export const TOOGLE_STEPS = 'TOOGLE_STEPS';
 
-export function toogleSteps() {
+export function toogleSteps(index) {
   return {
+    index: `toogle${index}`,
     type: TOOGLE_STEPS,
   };
 }

@@ -9,7 +9,7 @@ import {
   INGREDIENT_ACTION,
   INGREDIENT_NAME_ACTION,
   QUANTITIES_ADD_ACTION,
-  QUANTITY_ACTION, SAVE_FETCH_INGREDIENTS, TITLE_ACTION,
+  QUANTITY_ACTION, SAVE_FETCH_INGREDIENTS, SET_STEPS, TITLE_ACTION,
   TOOGLE_CREATED_INGREDIENTS,
   TOOGLE_CREATED_INGREDIENTS1,
   TOOGLE_INGREDIENTS,
@@ -40,7 +40,8 @@ export const initialState = {
   difficulty: null,
   category: '',
   recipeIngredients: [],
-  toogle: false,
+  toogle: true,
+  toogle2: false,
   toogle3: false,
   toogle4: false,
   toogle5: false,
@@ -148,10 +149,15 @@ const reducer = (state = initialState, action = {}) => {
           [action.field]: action.value,
         },
       };
+    case SET_STEPS:
+      return {
+        ...state,
+        [action.field]: !state[action.field],
+      };
     case TOOGLE_STEPS:
       return {
         ...state,
-        toogle2: !state.toogle2,
+        [action.index]: !state[action.index],
       };
     case TOOGLE_STEPS2:
       return {

@@ -12,22 +12,21 @@ h2, h1 {
   font-family: 'font-title';
 }
 h1{
-  font-size: 5rem;
+  font-size: 2.5rem;
   margin: 1rem 0;
 }
 
 h2{
-  font-size: 2rem; 
+  font-size: 2rem !important; 
 }
-.logo{
-  color:  vars.$blue-omiam;
-  &-slogan{
-    display: block;
-    font-size: 2rem;
-    margin: -1rem 0 0 0;
-    color: vars.$grey-omiam;
-  }
-  
+ 
+h3{
+  margin: 1rem 0;
+  font-weight: 900;
+}
+.size-logo{
+  margin: 0 0 0 1rem;
+  font-size: 2rem;
 }
 input[type="text"], select, input.ingredients-type, .createdRecipe input[type=number], input#pseudo  {
   //width: 90%;
@@ -60,6 +59,9 @@ textarea {
   border: 0.5px solid vars.$grey-omiam;
   padding: 0.5rem;
   font-size: 1em !important;
+  &::placeholder{
+    font-size: 1em !important;
+  }
 }
 
 select{
@@ -67,33 +69,38 @@ select{
   border: 0.01rem solid vars.$grey-omiam;
 }
 ::placeholder{
-  font-family: 'font-main';
-  font-size: 1rem;
+  font-family: 'font-main' !important;
+  font-size: 1.5rem;
   padding: 0.1rem 0;
-  color: vars.$blue-omiam;
-  opacity: 0.5;
+  color: #2121217a;
+  font-weight: 900;
+  width: 100%;
 }
-.createdRecipe>form {
-  width: 80%;
-}
+
 span.send-button-submit {
   font-size: 1.5rem;
   font-weight: 900;
   margin: 0 1rem 0 0;
   font-family: 'font-main';
 }
-.send-button {
-
-  background: vars.$blue-omiam;
-  border: 0.1rem solid vars.$grey-omiam;
+button{
   color: vars.$white;
   cursor: pointer;
   margin: auto;
+  border: 0.1rem solid vars.$grey-omiam;
   display: flex;
   align-items: center;
   font-weight: bold;
-  &:hover .icon-oven:before {
-    content: "\e904";
+  border-radius: vars.$raduis-img;
+  padding: 0.5rem 1rem;
+  background: vars.$grey-omiam;
+  font-family: 'font-main';
+  font-size: 1.5rem;
+  &.send-button {
+    background: vars.$blue-omiam;
+    &:hover .icon-oven:before {
+      content: "\e904";
+    }
   }
 }
 .bold{
@@ -101,4 +108,34 @@ span.send-button-submit {
 }
 .illustration{
   width:50%;
+}
+
+.opacity{
+  opacity: 0.8;
+}
+.maxLength{
+  opacity: 0.8; 
+  margin: 1rem 0;
+}
+
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+span .icon-miam{
+  transition: rotate 0.5s ease !important;
+  &:hover{
+    rotate: -150deg !important;
+  }
+}
+
+
+#root{
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

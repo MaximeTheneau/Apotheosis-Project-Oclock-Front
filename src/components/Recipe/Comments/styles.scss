@@ -1,9 +1,13 @@
-h2.one-recipe-comment-title {
-  margin: 1rem;
+.one-recipe-comments {
+  text-align: left;
 }
+.one-recipe-comment {
+  
+  & textarea {
+    width: 100%;
+    height: auto;
 
-.one-recipe i.icon-oven {
-  font-size: 5rem;
+  }
 }
 form.one-recipe-form {
   display: flex;

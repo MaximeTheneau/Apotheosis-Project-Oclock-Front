@@ -19,15 +19,16 @@
 }
 .list-categories {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
     &-icon{
       padding: 0.5rem;
+      border-right: 0.02rem solid vars.$grey-omiam-opacity;
     }
 }
 
 h2.cards-recipe {
-  font-size: 4rem;
-  border-bottom: 0.1rem solid #555;
+  font-size: 3rem;
   width: 100%;
 }
 
@@ -39,12 +40,13 @@ h2.cards-recipe {
     border-radius: vars.$raduis-img;
     z-index: 1;
     position: relative;
-    color: #fff;
+    color: vars.$grey-omiam;
     background: vars.$blue-omiam;
     & .icon-miam {
       margin: 0 0 0 0.2rem;
-  }
+    }
     &-recipe{
+      z-index: 1;
       position: absolute;
       top: 1rem;
       background: rgba(255, 255, 255, 0.597);
@@ -77,6 +79,7 @@ h2.cards-recipe {
 
 .title-home{
   position: relative;
+  
 }
 .title-home::after{
   content: "";
@@ -85,9 +88,6 @@ h2.cards-recipe {
 
 // Responsive 720 px
 @media screen and (min-width: 720px){
-  h2{
-    font-size: 1rem;
-  }
   .search-input{
     width: 70%;
   }
@@ -107,6 +107,11 @@ h2.cards-recipe {
   .card{
     width: 14rem;
     }
+
+  .list-categories{
+    justify-content: flex-end;
+    padding-right: 2rem;
+  }
 }
 // Responsive 1020 px
 @media screen and (min-width: 1020px){

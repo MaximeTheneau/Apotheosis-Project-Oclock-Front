@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 
-function Etape({ onChange }) {
+function Etape({ onChange, placeholder }) {
   return (
     <textarea
-      placeholder="Votre étape"
+      placeholder={placeholder}
       rows="3"
       onChange={onChange}
     />

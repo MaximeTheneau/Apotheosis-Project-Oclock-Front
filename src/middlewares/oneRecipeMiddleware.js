@@ -66,16 +66,16 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
     case SUBMIT_USERS_ID_MIAMS: {
       const { nbMiam } = state.oneRecipe;
       const headers = { Authorization: `Bearer ${token}` };
-       axios.get(
+      axios.get(
         `https://back-omiam.unetaupechezvous.fr/public/api/recipes/${idSlug}/miams`,
 
         { headers },
-        )
+      )
         .then((response) => {
           console.log(response);
 
           // window.location = `/recette/${idSlug}/${recipe.slug}`;
-          
+
           // axios.defaults.headers.common.Authorization = `Bearer ${token}`;
           return next(action);
         })
@@ -100,7 +100,10 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
       )
         .then((response) => {
           console.log(response);
-          window.location = `/recette/${idSlug}/${recipe.slug}`;
+          // window.location = `/recette/${idSlug}/${recipe.slug}`;
+          if (response.status === 201) {
+            store.dispatch(fetchRecipe());
+          }
           // axios.defaults.headers.common.Authorization = `Bearer ${token}`;
           return next(action);
         })
@@ -112,7 +115,7 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
 
       return next(action);
     }
-    
+
     default:
       return next(action);
   }

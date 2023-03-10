@@ -14,6 +14,7 @@ function Comments() {
   const handleSubmit = ((event) => {
     event.preventDefault();
     dispatch(commentCreated());
+    event.target.reset();
   });
   useEffect(
     () => {
@@ -21,22 +22,37 @@ function Comments() {
     },
     [],
   );
+  console.log();
   return (
     <div className="one-recipe-comments">
-      <h2 className="one-recipe-comments-title">Commentaires</h2>
-      <img src={imgSvg} alt="Illustration" className="illustration" />
-      {comments.map((item) => (
+      {
+        comments[0] === undefined && (
+        <h3 className="one-recipe-comments-empty">
+          Soyez le premier à commenter cette recette :
+        </h3>
+        )
+      }
+      {
+        comments[0] !== undefined && (
         <>
-          <ul className="one-recipe-comments-ul">
-            <li><img className="one-recipe-img-user" src={item.user.avatar} alt="-avatar" /></li>
-            <li><p className="one-recipe-comments-speudo">{item.user.pseudo}</p></li>
+          <h2 className="one-recipe-comments-title">
+            <img src={imgSvg} alt="Illustration" className="illustration" />
+            Commentaires :
+          </h2>
+          {comments.map((item) => (
+            <>
+              <p className="one-recipe-comments-speudo">
+                <img className="one-recipe-img-user" src={item.user.avatar} alt="-avatar" />
+                {item.user.pseudo} :
+              </p>
 
-          </ul>
-          <p className="one-recipe-comments-content">{item.content}</p>
+              <p className="one-recipe-comments-content">{item.content}</p>
+            </>
+          ))}
         </>
-      ))}
+        )
+      }
       <div className="one-recipe-comment">
-        <h2 className="one-recipe-comment-title">Laissez un commentaire</h2>
         <form
           className="one-recipe-form"
           onSubmit={handleSubmit}
@@ -44,14 +60,15 @@ function Comments() {
           <textarea
             className="one-recipe-comment-textarea"
             type="text"
-            rows="4"
-            placeholder="Commentaire"
+            rows={9}
+            placeholder="ex: J'ai adoré cette recette, je l'ai faite pour mes invités et ils ont adoré !"
             value={valueComment}
             onChange={handleChangeComment}
           />
           <button className="send-button" type="submit">
-            <span className="send-button-submit">Envoyer</span>
-            <i className="icon-oven" />
+            <span className="send-button-submit">
+              Envoyer <i className="icon-oven" />
+            </span>
           </button>
         </form>
       </div>

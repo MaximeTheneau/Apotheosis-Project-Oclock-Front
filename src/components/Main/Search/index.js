@@ -54,8 +54,8 @@ function Search() {
                   <div className="card-container">
                     <ul className="card-container-list">
                       <li><img className="card-container-list-img-user" src={item.user.avatar} alt={`${item.user.pseudo}-avatar`} /></li>
-                      <li><i className={item.category.iconName} /></li>
-                      <li><span>{item.nbMiams}<i className="icon-miam" /></span></li>
+                      <li><i className={item.category.iconName} /> {item.category.name}</li>
+                      <li><span><i className="icon-miam" /> {item.nbMiams}</span></li>
                     </ul>
                   </div>
                 </div>

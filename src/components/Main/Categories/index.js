@@ -41,21 +41,21 @@ function Categories() {
             { (!toogleSpinner) && <Spinner />}
             { toogleSpinner && (
             <div>
-            <Link to={`/recette/${item.id}/${item.slug}`}>
-              {/* Card */}
-              <div className="card">
-                <h2 className="card-recipe">{item.title}</h2>
-                <img
-                  src={item.picture}
-                  alt="Name"
-                  className="card-img"
-                />
-                <div className="card-container">
-                  <ul className="card-container-list">
-                    <li><img className="card-container-list-img-user" src={item.user.avatar} alt={`${item.user.pseudo}-avatar`} /></li>
-                    <li><i className={item.category.iconName} /></li>
-                    <li><span>{item.nbMiams}<i className="icon-miam" /></span></li>
-                  </ul>
+              <Link to={`/recette/${item.id}/${item.slug}`}>
+                {/* Card */}
+                <div className="card">
+                  <h2 className="card-recipe">{item.title}</h2>
+                  <img
+                    src={item.picture}
+                    alt="Name"
+                    className="card-img"
+                  />
+                  <div className="card-container">
+                    <ul className="card-container-list">
+                      <li><img className="card-container-list-img-user" src={item.user.avatar} alt={`${item.user.pseudo}-avatar`} /></li>
+                      <li><i className={item.category.iconName} /> {item.category.name}</li>
+                      <li><span><i className="icon-miam" /> {item.nbMiams}</span></li>
+                    </ul>
                   </div>
                 </div>
               </Link>

@@ -4,6 +4,7 @@ export function pseudoAction(value, field) {
   return {
     type: PSEUDO_ACTION,
     name: value,
+    field: field,
   };
 }
 
@@ -13,6 +14,7 @@ export function emailAction(value, field) {
   return {
     type: EMAIL_ACTION,
     email: value,
+    field: field,
   };
 }
 
@@ -41,5 +43,14 @@ export const POST_MESSAGE = 'POST_MESSAGE';
 export function postMessage() {
   return {
     type: POST_MESSAGE,
+  };
+}
+
+export const POST_MESSAGE_SUCCESS = 'POST_MESSAGE_SUCCESS';
+
+export function postMessageSuccess(modal) {
+  return {
+    type: POST_MESSAGE_SUCCESS,
+    modal: !modal,
   };
 }

@@ -10,7 +10,8 @@ function Quantity({ onChange }) {
       type="text"
       onChange={onChange}
       value={valueUnit}
-      placeholder="cl"
+      placeholder="ex: cuillère à soupe"
+      required
     />
   );
 }

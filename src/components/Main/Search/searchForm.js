@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import {
   setSettingsField, submitValue, valueToogle, saveCategoryId, fetchRecipesCategory,
 } from '../../../action/homePage';
+import imgTitle from '../../../assets/img/loupe.svg';
 
 function SearchForm() {
   const dispatch = useDispatch();
@@ -35,49 +36,49 @@ function SearchForm() {
 
   return (
     <div className="search">
-      <div className="search-form">
-        <form onSubmit={handleSubmit}>
-          <input
-            value={valueSearch}
-            onClick={handleFocus}
+      <form onSubmit={handleSubmit} className="search__form">
+        <input
+          value={valueSearch}
+          onClick={handleFocus}
             // onBlur={handleBlur}
-            onChange={handleChange}
-            type="text"
-            className="search-field-input"
-            placeholder="Rechercher"
-          />
-          <Link to="/recherche">
-            <button className="search-button" type="submit">
-              <i className="icon-search" />
-            </button>
-          </Link>
-        </form>
-      </div>
-      {/* List Catégories */}
-      <div className="list">
-        <ul className="list-categories">
-          <Link
-            to="/recettes/1/apero/search"
-          >
-            <li className="list-categories-icon"><i className="icon-drink" /></li>
-          </Link>
-          <Link
-            to="/recettes/2/entree/search"
-          >
-            <li className="list-categories-icon"><i className="icon-entrance" /></li>
-          </Link>
-          <Link
-            to="/recettes/3/plat/search"
-          >
-            <li className="list-categories-icon"><i className="icon-dish" /></li>
-          </Link>
-          <Link
-            to="/recettes/4/dessert/search"
-          >
-            <li className="list-categories-icon"><i className="icon-cakes" /></li>
-          </Link>
-        </ul>
-      </div>
+          onChange={handleChange}
+          type="search"
+          className="search__form-input"
+          placeholder="Rechercher une recette"
+        />
+        <div className="search__form-list">
+          {/* List Catégories */}
+          <ul className="list-categories">
+            <Link to="/recherche">
+              <li className="list-categories-icon">
+                <i className="icon-search" />
+              </li>
+            </Link>
+            <Link
+              to="/recettes/1/apero/search"
+            >
+              <li className="list-categories-icon">
+                <i className="icon-drink" /> Apéro
+              </li>
+            </Link>
+            <Link
+              to="/recettes/2/entree/search"
+            >
+              <li className="list-categories-icon"><i className="icon-entrance" /> Entrée</li>
+            </Link>
+            <Link
+              to="/recettes/3/plat/search"
+            >
+              <li className="list-categories-icon"><i className="icon-dish" /> Plat</li>
+            </Link>
+            <Link
+              to="/recettes/4/dessert/search"
+            >
+              <li className="list-categories-icon"><i className="icon-cakes" /> Dessert</li>
+            </Link>
+          </ul>
+        </div>
+      </form>
     </div>
   );
 }

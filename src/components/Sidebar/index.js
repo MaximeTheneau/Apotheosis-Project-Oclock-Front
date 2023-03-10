@@ -46,7 +46,7 @@ function Sidebar() {
           <>
             <li className="sidebar-item">
               <Link to="/connexion" className="navbar-links" onClick={() => handleClose()}>
-                Se connecter
+                Vous avez déjà un compte ?
               </Link>
             </li>
             <li className="sidebar-item">

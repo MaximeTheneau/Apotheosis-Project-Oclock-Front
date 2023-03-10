@@ -1,8 +1,6 @@
 @use './src/styles/vars';
 
 .logo {
-  display: flex;
-  flex-direction: column;
   font-family: 'font-title';
   line-height: 1.8rem;
   padding: 1rem;
@@ -24,8 +22,6 @@
 
 @media screen and (max-width: 320px) {
   .logo {
-    display: flex;
-    flex-direction: column;
     font-family: 'font-title';
     line-height: 1.7rem;
     padding: 0.8rem;

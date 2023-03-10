@@ -4,7 +4,6 @@ import { FETCH_ACTION, POST_CREACTED, saveFetchIngredients } from '../action/cre
 const createdRecipeMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case POST_CREACTED: {
-      // console.log(POST_CREACTED);
       const state = store.getState();
       const {
         title,
@@ -32,6 +31,7 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
         category: parseInt(category, 10),
         steps: steps,
       }));
+      console.log(duration, difficulty, category, steps);
       formData.append('ingredients', JSON.stringify({
         quantities: quantities,
         units: units,
@@ -49,9 +49,7 @@ const createdRecipeMiddleware = (store) => (next) => (action) => {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}`,
         },
-      }).then((response) => {
-        return next(action), window.location = '/';
-      })
+      }).then((response) => (next(action), window.location = '/'))
         .catch((error) => {
           console.log(error);
           return next(action);

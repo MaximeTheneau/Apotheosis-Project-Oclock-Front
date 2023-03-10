@@ -1,12 +1,12 @@
 import './styles.scss';
 
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import Logo from '../Logo';
 import { showSidebar } from '../../action/header';
 import { logout, setRegistrationcredentials, settingsRegisters } from '../../action/user';
-import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+
 function Navbar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -14,13 +14,13 @@ function Navbar() {
     dispatch(showSidebar());
   };
   const avatarState = useSelector((state) => state.user.settingsRegister.avatar);
-  const { logs, avatar} = localStorage;
+  const { logs, avatar } = localStorage;
   const logsState = useSelector((state) => state.user.logs);
   const logsAdmin = useSelector((state) => state.user.backofficeRights);
   const handleLogout = () => {
     dispatch(logout());
   };
- // console.log(logs);
+  // console.log(logs);
   return (
     <div className="navbar">
       <div className="navbar-wrapper">

@@ -3,9 +3,9 @@ import './styles.scss';
 function TsCs() {
   return (
     <>
-      <h1 className="titleh1">CONDITIONS GÉNÉRALES D'UTILISATION DU SITE O'MIAM</h1>
+      <h1 >CONDITIONS GÉNÉRALES D'UTILISATION DU SITE O'MIAM</h1>
 
-      <h2 className="titleh2">ARTICLE 1 : Objet</h2>
+      <h2 >ARTICLE 1 : Objet</h2>
       <p>Les présentes « Conditions Générales d'Utilisation » ont pour objet
         l'encadrement juridique de l’utilisation du site O’Miam et de ses services.
       </p>
@@ -20,13 +20,13 @@ function TsCs() {
         et son accès au site vaut acceptation de ces conditions.
       </p>
 
-      <h2 className="titleh2">ARTICLE 2 : Mentions Légales</h2>
+      <h2 >ARTICLE 2 : Mentions Légales</h2>
 
       <p>Le site O’Miam est édité par la <strong>Team Curie - Projet O’Miam</strong>
         , domiciliée sur le Téléporteur de l’école O’Clock.
       </p>
 
-      <h2 className="titleh2">ARTICLE 3 : Accès aux Services</h2>
+      <h2 >ARTICLE 3 : Accès aux Services</h2>
       <div>
         <ul><p>L’Utilisateur du site O’Miam a accès aux services suivants :</p>
           <li>Création d’un compte utilisateur</li>

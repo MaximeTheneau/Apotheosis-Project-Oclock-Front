@@ -5,16 +5,19 @@ import {
   topicAction,
   messageAction,
   postMessage,
+  postMessageSuccess,
 } from '../../../action/contact';
-import imgSvg from '../../../assets/img/message.svg';
-import './styles.scss';
+// import './styles.scss';
 
 function Contact() {
   const dispatch = useDispatch();
-  const valuePseudo = useSelector((state) => state.pseudo);
-  const valueEmail = useSelector((state) => state.email);
-  const valueTopic = useSelector((state) => state.topic);
-  const valueMessage = useSelector((state) => state.message);
+  const valuePseudo = useSelector((state) => state.contact.name);
+  const valueEmail = useSelector((state) => state.contact.email);
+  const valueTopic = useSelector((state) => state.contact.topic);
+  const valueMessage = useSelector((state) => state.contact.message);
+  const modal = useSelector((state) => state.contact.modal);
+
+  console.log(valuePseudo);
 
   const handleChangePseudo = ((event) => {
     dispatch(pseudoAction(event.target.value, 'name'));
@@ -30,13 +33,32 @@ function Contact() {
   });
   const handleSubmit = ((event) => {
     event.preventDefault();
-    // console.log(event);
     dispatch(postMessage());
   });
+
   return (
     <div className="contact">
-      <h1 className="contact-title">Contactez-nous</h1>
-      <img src={imgSvg} alt="Illustration Conctact" className="illustration" />
+      {
+        modal && (
+          <div className="modal">
+            <div className="modal-content">
+              <h2 className="modal-title">Merci {valuePseudo} !</h2>
+              <p className="modal-text">Votre message a bien été envoyé.</p>
+              <button
+                className="modal-button"
+                type="button"
+                onClick={() => {
+                  dispatch(postMessageSuccess());
+                }}
+
+              >Fermer
+              </button>
+            </div>
+          </div>
+        )
+      }
+      <h1 className="contact-title">Contactez-nous </h1>
+
       <p>Une remarque ? Une suggestion ? N'hesitez-pas à nous écrire.</p>
       <form className="form-general" onSubmit={handleSubmit} action="/path/to/api" method="POST" encytpe="ENCTYPE_HERE">
 

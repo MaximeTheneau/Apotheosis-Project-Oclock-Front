@@ -49,7 +49,7 @@ function Login() {
             className="label-title"
             htmlFor="email"
           >
-            Email *
+            Email*:
           </span>
           <input
             placeholder="email@omiam.com"
@@ -77,7 +77,7 @@ function Login() {
             onChange={handlePasswordChange}
           />
         </div>
-        <button type="submit" className="login-submit" onClick={handleClick}>Connexion</button>
+        <button type="submit" className="send-button" onClick={handleClick}>Connexion</button>
       </div>
     </form>
   );

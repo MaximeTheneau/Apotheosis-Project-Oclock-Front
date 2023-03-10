@@ -3,9 +3,9 @@ import './styles.scss';
 function Privacy() {
   return (
     <div className="textPrivacy">
-      <h1 className="titleh1">MENTIONS LÉGALES</h1>
+      <h1 >MENTIONS LÉGALES</h1>
       <p>Conformément aux dispositions des articles 6-III et 19 de la Loi n° 2004-575 du 21 juin 2004 pour la Confiance dans l'économie numérique, dite L.C.E.N., nous portons à la connaissance des utilisateurs et visiteurs du site : <a href="http://www.omiam.com" target="_blank" rel="noreferrer">www.omiam.com</a> les informations suivantes :</p>
-      <h2 className="titleh2">1. Informations légales :</h2>
+      <h2 >1. Informations légales :</h2>
 
       <p>Statut du propriétaire : <span className="bold">Particulier</span><br />
         Le Propriétaire est : <span className="bold">Team O'Miam</span><br />
@@ -23,7 +23,7 @@ function Privacy() {
 
       </p>
 
-      <h2 className="titleh2">2. Présentation et principe :</h2>
+      <h2 >2. Présentation et principe :</h2>
 
       <p>Est désigné ci-après : <span className="bold">Utilisateur</span>, tout internaute se connectant et utilisant le site susnommé : <a href="http://www.omiam.com" target="_blank" rel="noreferrer">www.omiam.fr</a>
         , dans l'état, mis à la disposition des utilisateurs. Il est ici précisé&nbsp;
@@ -40,7 +40,7 @@ function Privacy() {
         , non exhaustives et susceptibles d'évoluer) sous sa responsabilité exclusive.
       </p>
 
-      <h2 className="titleh2">3. Accessibilité :</h2>
+      <h2 >3. Accessibilité :</h2>
 
       <p>Le site www.omiam.fr est par principe accessible aux utilisateurs 24/24h
         , 7/7j, sauf interruption, programmée ou non, pour les besoins de sa&nbsp;
@@ -52,7 +52,7 @@ function Privacy() {
         , quelle qu’en soit la nature, résultant d’une indisponibilité du service.
       </p>
 
-      <h2 className="titleh2">4. Propriété intellectuelle :</h2>
+      <h2 >4. Propriété intellectuelle :</h2>
 
       <p>La Team O'Miam est propriétaire exclusif de tous les droits de propriété&nbsp;
         intellectuelle ou détient les droits d’usage sur tous les éléments accessibles&nbsp;
@@ -68,7 +68,7 @@ function Privacy() {
         L.335-2 et suivants du Code de Propriété Intellectuelle.
       </p>
 
-      <h2 className="titleh2">5. Liens hypertextes et cookies :</h2>
+      <h2 >5. Liens hypertextes et cookies :</h2>
 
       <p>Le site www.omiam.fr pourra contenir un certain nombre de liens hypertextes&nbsp;
         vers d’autres sites (partenaires, informations …) mis en place avec l’autorisation de&nbsp;
@@ -86,7 +86,7 @@ function Privacy() {
       <p>Le paramétrage du logiciel de navigation permet d’informer de la présence de cookie et éventuellement, de la refuser de la manière décrite à l’adresse suivante : <a href="http://www.cnil.fr">www.cnil.fr</a>. L’utilisateur peut toutefois configurer le navigateur de son ordinateur pour refuser l’installation des cookies, sachant que le refus d'installation d'un cookie peut entraîner l’impossibilité d’accéder à certains services. Pour tout bloquage des cookies, tapez dans votre moteur de recherche : bloquage des cookies sous IE ou firefox et suivez les instructions en fonction de votre version.
       </p>
 
-      <h2 className="titleh2">6. Protection des biens et des personnes - gestion des données personnelles :</h2>
+      <h2 >6. Protection des biens et des personnes - gestion des données personnelles :</h2>
       <p>En France, les données personnelles sont notamment protégées par la loi n° 78-87 du&nbsp;
         6 janvier 1978, la loi n° 2004-801 du 6 août 2004, l'article L. 226-13 du Code pénal&nbsp;
         et la Directive Européenne du 24 octobre 1995.

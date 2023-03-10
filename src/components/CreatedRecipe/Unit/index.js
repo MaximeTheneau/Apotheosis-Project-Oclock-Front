@@ -9,9 +9,9 @@ function Unit({ onChange }) {
       type="number"
       onChange={onChange}
       value={valueQuantity}
-      placeholder="1"
+      placeholder="ex: 1"
+      required
     />
-
 
   );
 }

@@ -7,6 +7,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const { BundleStatsWebpackPlugin } = require('bundle-stats-webpack-plugin');
 
 module.exports = merge(common, {
+  testEnvironment: "jsdom",
   mode: 'production',
   devtool: false,
   plugins: [

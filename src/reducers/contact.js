@@ -3,6 +3,7 @@ import {
   EMAIL_ACTION,
   TOPIC_ACTION,
   MESSAGE_ACTION,
+  POST_MESSAGE_SUCCESS,
 } from '../action/contact';
 
 export const initialState = {
@@ -10,6 +11,7 @@ export const initialState = {
   email: null,
   topic: null,
   message: null,
+  modal: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -33,6 +35,15 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         message: action.message,
+      };
+    case POST_MESSAGE_SUCCESS:
+      return {
+        ...state,
+        modal: !state.modal,
+        name: null,
+        email: null,
+        topic: null,
+        message: null,
       };
     default:
       return state;

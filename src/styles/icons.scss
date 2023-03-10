@@ -57,8 +57,15 @@
 .icon-sandblasted:before {
   content: "\e907";
 }
-.icon-miam:before {
+.icon-miam{
+  transition: rotate 0.2s ease-in-out;
+  &:before {
   content: "\e908";
+  }
+  &:hover, 
+  a .icon-miam  {
+    rotate: -20deg;
+  }
 }
 .icon-glove:before {
   content: "\e909";

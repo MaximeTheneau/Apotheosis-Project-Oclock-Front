@@ -3,6 +3,8 @@
 .spinner {
   animation: rotation 2s infinite linear;
   font-size: 5rem;
+  z-index: -1;
+  opacity: 0.5;
 }
 
 @-webkit-keyframes rotation {

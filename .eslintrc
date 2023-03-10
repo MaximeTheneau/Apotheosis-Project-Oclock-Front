@@ -2,13 +2,15 @@
   "extends": "airbnb",
   "parser": "@babel/eslint-parser",
   "env": {
-    "browser": true
+    "browser": true,
+    "jest/globals": true
   },
   "parserOptions": {
     "requireConfigFile": "false",
     "babelOptions": { "configFile": "./.babelrc" }
   },
   "rules": {
+    "no-unused-expressions": "off",
     "brace-style": ["error", "stroustrup"],
     "no-param-reassign": [
       "error",
