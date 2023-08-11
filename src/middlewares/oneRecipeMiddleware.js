@@ -24,7 +24,7 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
 
   switch (action.type) {
     case FETCH_RECIPE: {
-      axios.get(`https://back-omiam.unetaupechezvous.fr/public/api/recipes/${idSlug}`)
+      axios.get(`https://back.omiam-preprod.fr/api/recipes/${idSlug}`)
 
         .then(
           (response) => {
@@ -67,7 +67,7 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
       const { nbMiam } = state.oneRecipe;
       const headers = { Authorization: `Bearer ${token}` };
       axios.get(
-        `https://back-omiam.unetaupechezvous.fr/public/api/recipes/${idSlug}/miams`,
+        `https://back.omiam-preprod.fr/api/recipes/${idSlug}/miams`,
 
         { headers },
       )
@@ -94,7 +94,7 @@ const onRecipeMiddleware = (store) => (next) => (action) => {
       console.log(recipe.slug);
       const headers = { Authorization: `Bearer ${token}` };
       axios.post(
-        `https://back-omiam.unetaupechezvous.fr/public/api/recipes/${idSlug}/comments`,
+        `https://back.omiam-preprod.fr/api/recipes/${idSlug}/comments`,
         { content: commentValue },
         { headers },
       )

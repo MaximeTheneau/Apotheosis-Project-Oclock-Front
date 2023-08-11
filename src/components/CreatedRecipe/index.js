@@ -360,6 +360,18 @@ function CreatedRecipe() {
   ))}
 </div>
         </div>
+        <div className="createdRecipe-label">
+            <span className="label-title">Votre image</span>
+            <input
+              type="file"
+              onChange={handleChangeFile}
+              id="fileUpload"
+            />
+          </div>
+<button className="send-button" type="submit">
+                <span className="send-button-submit">Envoyer</span>
+                <i className="icon-oven" />
+              </button>
       </form>
     </div>
   );

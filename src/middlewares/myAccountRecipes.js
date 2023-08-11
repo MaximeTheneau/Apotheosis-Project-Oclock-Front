@@ -7,7 +7,7 @@ import {
 } from '../action/myAccountRecipes';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://back-omiam.unetaupechezvous.fr/public/api/',
+  baseURL: 'https://back.omiam-preprod.fr/api/',
 });
 
 const myAccountRecipes = (store) => (next) => (action) => {
@@ -35,7 +35,7 @@ const myAccountRecipes = (store) => (next) => (action) => {
     case FETCH_FAVORITES_MIAMS: {
       axiosInstance({
         method: 'get',
-        url: `users/${userid}/miams`,
+        url: `users/${userid}`,
         headers: {
           Authorization: `Bearer ${token}`,
         },
